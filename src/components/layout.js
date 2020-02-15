@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import Header from './header'
+import Header from './header/Header'
 import './layout.css'
 
 export const pageVariants = {
@@ -40,7 +40,7 @@ export const pageTransition = {
 export const pageStyle = {
   position: 'absolute',
   margin: `0 auto`,
-  maxWidth: 960,
+  overflowX: 'hidden',
   padding: '50px',
 }
 
@@ -55,20 +55,22 @@ const Layout = ({ children, location }) => {
     }
   `)
   return (
-    <AnimatePresence>
+    <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <motion.main
-        style={pageStyle}
-        initial="initial"
-        key={location.pathname}
-        animate="in"
-        exit="out"
-        variants={pageVariants}
-        transition={pageTransition}
-      >
-        {children}
-      </motion.main>
-    </AnimatePresence>
+      <AnimatePresence>
+        <motion.main
+          style={pageStyle}
+          initial="initial"
+          key={location.pathname}
+          animate="in"
+          exit="out"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
+          {children}
+        </motion.main>
+      </AnimatePresence>
+    </>
   )
 }
 

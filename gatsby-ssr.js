@@ -6,9 +6,13 @@
 
 // You can delete this file if you're not using it
 
-import React from "react";
-import Layout from "./src/components/layout";
+import React from 'react'
+import Layout from './src/components/layout'
 
 export const wrapPageElement = ({ element, props }) => {
-  return <Layout {...props}>{element}</Layout>;
-};
+  return (
+    <div style={{ overflowX: 'hidden', position: 'relative', height: '100vh' }}>
+      <Layout {...props}>{element}</Layout>
+    </div>
+  )
+}
