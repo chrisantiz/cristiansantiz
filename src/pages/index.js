@@ -5,9 +5,9 @@ import SEO from '../components/seo'
 
 const IndexPage = () => (
   <>
-    <SEO title="Home" />
+    <SEO title="Inicio" />
     <div>
-      <h1>Hi people from my first page in Gatsby</h1>
+      <h1 className="text-blue-400">Hi people from my first page in Gatsby</h1>
       <Link to="/page-2/">Go to page 2</Link>
     </div>
   </>
