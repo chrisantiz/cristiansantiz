@@ -5,14 +5,46 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
+import { motion, AnimatePresence } from 'framer-motion'
 
-import Header from "./header"
-import "./layout.css"
+import Header from './header'
+import './layout.css'
 
-const Layout = ({ children }) => {
+export const pageVariants = {
+  initial: {
+    opacity: 0,
+    x: '-100vw',
+    scale: 0.8,
+  },
+  in: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+  },
+  out: {
+    opacity: 0,
+    x: '100vw',
+    scale: 1.2,
+  },
+}
+
+export const pageTransition = {
+  type: 'tween',
+  ease: 'anticipate',
+  duration: 0.5,
+}
+
+export const pageStyle = {
+  position: 'absolute',
+  margin: `0 auto`,
+  maxWidth: 960,
+  padding: '50px',
+}
+
+const Layout = ({ children, location }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -22,25 +54,21 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
   return (
-    <>
+    <AnimatePresence>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
+      <motion.main
+        style={pageStyle}
+        initial="initial"
+        key={location.pathname}
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+        transition={pageTransition}
       >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+        {children}
+      </motion.main>
+    </AnimatePresence>
   )
 }
 

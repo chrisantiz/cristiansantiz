@@ -15,6 +15,13 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-plugin-page-transitions`,
+      options: {
+        transitionTime: 1000
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
