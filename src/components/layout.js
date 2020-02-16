@@ -5,13 +5,13 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
-import { motion, AnimatePresence } from 'framer-motion'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
+import { motion, AnimatePresence } from 'framer-motion';
 
-import Header from './header/Header'
-import './layout.css'
+import Header from './header/Header';
+import './layout.css';
 
 export const pageVariants = {
   initial: {
@@ -29,20 +29,20 @@ export const pageVariants = {
     x: '100vw',
     scale: 1.2,
   },
-}
+};
 
 export const pageTransition = {
   type: 'tween',
   ease: 'anticipate',
   duration: 0.5,
-}
+};
 
 export const pageStyle = {
   position: 'absolute',
   margin: `0 auto`,
   overflowX: 'hidden',
   padding: '50px',
-}
+};
 
 const Layout = ({ children, location }) => {
   const data = useStaticQuery(graphql`
@@ -53,7 +53,7 @@ const Layout = ({ children, location }) => {
         }
       }
     }
-  `)
+  `);
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
@@ -65,17 +65,16 @@ const Layout = ({ children, location }) => {
           animate="in"
           exit="out"
           variants={pageVariants}
-          transition={pageTransition}
-        >
+          transition={pageTransition}>
           {children}
         </motion.main>
       </AnimatePresence>
     </>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

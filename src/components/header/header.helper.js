@@ -7,4 +7,4 @@ export const pageTransition = {
     opacity: 0,
     y: '-100%',
   },
-}
+};

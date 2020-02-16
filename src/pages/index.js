@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 
-import SEO from '../components/seo'
+import SEO from '../components/seo';
 
 const IndexPage = () => (
   <>
@@ -11,6 +11,6 @@ const IndexPage = () => (
       <Link to="/page-2/">Go to page 2</Link>
     </div>
   </>
-)
+);
 
-export default IndexPage
+export default IndexPage;

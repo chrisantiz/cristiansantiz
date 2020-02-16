@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import { Link } from 'gatsby'
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Link } from 'gatsby';
 
-import { motion } from 'framer-motion'
-import { pageTransition } from './header.helper'
+import { motion } from 'framer-motion';
+import { pageTransition } from './header.helper';
 
 /** application header */
 const Header = ({ siteTitle }) => (
@@ -11,8 +11,7 @@ const Header = ({ siteTitle }) => (
     style={{
       background: 'rebeccapurple',
       marginBottom: '1.45rem',
-    }}
-  >
+    }}>
     <motion.div
       initial="out"
       animate="in"
@@ -22,29 +21,27 @@ const Header = ({ siteTitle }) => (
         margin: '0 auto',
         maxWidth: 960,
         padding: '1.45rem 1.0875rem',
-      }}
-    >
+      }}>
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
             color: 'white',
             textDecoration: 'none',
-          }}
-        >
+          }}>
           {siteTitle}
         </Link>
       </h1>
     </motion.div>
   </header>
-)
+);
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-}
+};
 
 Header.defaultProps = {
   siteTitle: '',
-}
+};
 
-export default Header
+export default Header;
