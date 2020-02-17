@@ -12,7 +12,7 @@ import Layout from './src/components/layout';
 
 export const wrapPageElement = ({ element, props }) => {
   return (
-    <div style={{ overflowX: 'hidden', position: 'relative', height: '100vh' }}>
+    <div style={{ overflow: 'hidden', position: 'relative', height: '100vh' }}>
       <Layout {...props}>{element}</Layout>
     </div>
   );

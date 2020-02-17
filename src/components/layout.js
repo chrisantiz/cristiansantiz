@@ -10,9 +10,6 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import Header from './header/Header';
-import './layout.css';
-
 export const pageVariants = {
   initial: {
     opacity: 0,
@@ -38,10 +35,11 @@ export const pageTransition = {
 };
 
 export const pageStyle = {
-  position: 'absolute',
-  margin: `0 auto`,
   overflowX: 'hidden',
-  padding: '50px',
+  position: 'absolute',
+  height: '100vh',
+  width: '100%',
+  // padding: '50px',
 };
 
 const Layout = ({ children, location }) => {
@@ -56,7 +54,6 @@ const Layout = ({ children, location }) => {
   `);
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
       <AnimatePresence>
         <motion.main
           style={pageStyle}
