@@ -1,11 +1,12 @@
-html {
-  height: 100%;
+html,
+body {
+  height: 100vh;
 }
 
 .fullscreen-image {
   position: absolute;
   overflow-y: auto;
-  height: 100%;
+  height: 100vh;
   z-index: 80;
   width: 100%;
   padding-top: 56px;
