@@ -32,8 +32,7 @@ export const DefaultLayout = ({ children }) => {
   }
 
   const scrollFunction = () => {
-    console.log(ref.current.scrollTop);
-    if (ref.current.scrollTop > 99) {
+    if (ref.current.scrollTop > 55) {
       setToolbarColor(true);
     } else {
       setToolbarColor(false);
