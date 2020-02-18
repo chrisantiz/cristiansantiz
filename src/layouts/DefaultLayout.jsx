@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Toolbar } from '../components/toolbar/Toolbar';
 import { SideDrawer } from '../components/side-drawer/SideDrawer';
@@ -8,6 +8,10 @@ import { Backdrop } from '../components/backdrop/Backdrop';
 export const DefaultLayout = ({ children }) => {
   // show/hide SideDrawer
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
+
+  const [toolbarColor, setToolbarColor] = useState(false);
+
+  const ref = useRef(null);
 
   /** click event in DrawerToggleButton: toggle SideDrawer */
   const drawerToggleClickHandler = () => {
@@ -27,12 +31,26 @@ export const DefaultLayout = ({ children }) => {
     backdrop = <Backdrop onClick={backdropClickHandler} />;
   }
 
+  const scrollFunction = () => {
+    console.log(ref.current.scrollTop);
+    if (ref.current.scrollTop > 99) {
+      setToolbarColor(true);
+    } else {
+      setToolbarColor(false);
+    }
+  };
+
   return (
     <>
-      <Toolbar drawerHandleClick={drawerToggleClickHandler} />
+      <Toolbar
+        backgroundColor={toolbarColor}
+        drawerHandleClick={drawerToggleClickHandler}
+      />
       <SideDrawer show={sideDrawerOpen} />
       {backdrop}
-      <main className="fullscreen-image">{children}</main>
+      <main ref={ref} className="fullscreen-image" onScroll={scrollFunction}>
+        {children}
+      </main>
     </>
   );
 };

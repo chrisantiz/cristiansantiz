@@ -3,9 +3,19 @@ import './toolbar.scss';
 import { DrawerToggleButton } from '../side-drawer/DrawerToggleButton';
 import { ToolbarItems } from './ToolbarItems';
 
-export const Toolbar = ({ drawerHandleClick }) => {
+export const Toolbar = ({ drawerHandleClick, backgroundColor }) => {
+  let classes = 'toolbar';
+
+  if (!!backgroundColor) {
+    classes = 'toolbar background-color';
+  } else{
+    classes = 'toolbar';
+  }
+
+  console.log(backgroundColor);
+
   return (
-    <header className="toolbar">
+    <header className={classes}>
       <nav className="toolbar-navigation">
         <div className="toolbar-button">
           <DrawerToggleButton onClick={drawerHandleClick} />
