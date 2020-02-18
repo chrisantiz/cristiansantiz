@@ -3,7 +3,7 @@ import './toolbar.scss';
 import { DrawerToggleButton } from '../side-drawer/DrawerToggleButton';
 import { ToolbarItems } from './ToolbarItems';
 
-export const Toolbar = ({ drawerHandleClick, backgroundColor }) => {
+export const Toolbar = ({ drawerHandleClick, backgroundColor }: any) => {
   let classes = 'toolbar';
 
   if (!!backgroundColor) {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ToolbarItems = ({ className }) => (
+export const ToolbarItems = ({ className }: any) => (
   <div className={className}>
     <ul>
       <li>

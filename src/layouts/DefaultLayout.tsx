@@ -5,13 +5,13 @@ import { SideDrawer } from '../components/side-drawer/SideDrawer';
 import { Backdrop } from '../components/backdrop/Backdrop';
 
 /* Layout per defect */
-export const DefaultLayout = ({ children }) => {
+export const DefaultLayout = ({ children }: any) => {
   // show/hide SideDrawer
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
 
   const [toolbarColor, setToolbarColor] = useState(false);
 
-  const ref = useRef(null);
+  const ref = useRef<HTMLElement>(null);
 
   /** click event in DrawerToggleButton: toggle SideDrawer */
   const drawerToggleClickHandler = () => {
@@ -32,7 +32,7 @@ export const DefaultLayout = ({ children }) => {
   }
 
   const scrollFunction = () => {
-    if (ref.current.scrollTop > 55) {
+    if (ref!.current!.scrollTop > 55) {
       setToolbarColor(true);
     } else {
       setToolbarColor(false);

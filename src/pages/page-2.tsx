@@ -9,7 +9,9 @@ const SecondPage = () => {
       <div style={{ color: '#000' }}>
         <h1>Hi from the second page</h1>
         <p>Welcome to page 2</p>
-        <Link to="/">Go back to the homepage</Link>
+        <Link to="/" className="text-xl font-semibold underline">
+          Go back to the homepage
+        </Link>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic eligendi
           enim facilis laborum pariatur culpa maxime ut provident ab, dolor
