@@ -2,6 +2,19 @@ html {
   height: 100%;
 }
 
-// body {
-//   height: 100%;
-// }
+.fullscreen-image {
+  position: absolute;
+  overflow-y: auto;
+  height: 100%;
+  z-index: 80;
+  width: 100%;
+  padding-top: 56px;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(76, 216, 255, 0.8),
+      rgba(30, 108, 217, 0.8)
+    ),
+    url('https://tecnologiaenvivo.com/wp-content/uploads/2014/07/Mac-Apple-Macbook-Awesome-HD-Wallpaper-FreeHDWall.Blogspot.Com_.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

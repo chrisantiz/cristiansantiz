@@ -1,23 +1,8 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
-
-// You can delete this file if you're not using it
-
 import React from 'react';
 import './src/styles/tailwind.css';
 import './src/styles/index.scss';
-import Layout from './src/components/layout';
+import { DefaultLayout } from './src/layouts/DefaultLayout';
 
-export const wrapPageElement = ({ element, props }) => {
-  return (
-    // <div style={{ overflow: 'hidden', position: 'relative', height: '100vh' }}>
-    //   <Layout {...props}>{element}</Layout>
-    // </div>
-    // <div>
-    // </div>
-      <Layout {...props}>{element}</Layout>
-  );
-};
+export const wrapPageElement = ({ element, props }) => (
+  <DefaultLayout {...props}>{element}</DefaultLayout>
+);

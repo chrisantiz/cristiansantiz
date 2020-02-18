@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-
-import SEO from '../components/seo';
-// import '../styles/index-page.css';
+import { SEO } from '../components/Seo';
 
 const IndexPage = ({ data }) => (
   <>

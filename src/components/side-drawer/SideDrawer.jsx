@@ -8,5 +8,6 @@ export const SideDrawer = ({ show }) => {
   if (show) {
     drawerClasess = 'side-drawer open';
   }
+
   return <ToolbarItems className={drawerClasess} />;
 };

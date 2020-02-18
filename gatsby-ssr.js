@@ -1,18 +1,9 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
-
-// You can delete this file if you're not using it
-
 import React from 'react';
-import Layout from './src/components/layout';
+import './src/styles/tailwind.css';
+import './src/styles/index.scss';
+import { DefaultLayout } from './src/layouts/DefaultLayout';
 
-export const wrapPageElement = ({ element, props }) => {
-  return (
-    <div style={{ overflowX: 'hidden', position: 'relative', height: '100vh' }}>
-      <Layout {...props}>{element}</Layout>
-    </div>
-  );
-};
+export const wrapPageElement = ({ element, props }) => (
+  <DefaultLayout {...props}>{element}</DefaultLayout>
+);
+
