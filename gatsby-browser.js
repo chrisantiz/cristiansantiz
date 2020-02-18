@@ -8,12 +8,16 @@
 
 import React from 'react';
 import './src/styles/tailwind.css';
+import './src/styles/index.scss';
 import Layout from './src/components/layout';
 
 export const wrapPageElement = ({ element, props }) => {
   return (
-    <div style={{ overflow: 'hidden', position: 'relative', height: '100vh' }}>
+    // <div style={{ overflow: 'hidden', position: 'relative', height: '100vh' }}>
+    //   <Layout {...props}>{element}</Layout>
+    // </div>
+    // <div>
+    // </div>
       <Layout {...props}>{element}</Layout>
-    </div>
   );
 };

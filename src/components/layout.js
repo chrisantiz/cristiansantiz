@@ -5,10 +5,14 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Toolbar } from './toolbar/Toolbar';
+import { SideDrawer } from './side-drawer/SideDrawer';
+import { Backdrop } from './Backdrop/Backdrop';
+
+// import { useStaticQuery, graphql } from 'gatsby';
+// import { motion, AnimatePresence } from 'framer-motion';
 
 export const pageVariants = {
   initial: {
@@ -42,30 +46,56 @@ export const pageStyle = {
   // padding: '50px',
 };
 
-const Layout = ({ children, location }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+// const Layout = ({ children, location }) => {
+//   const data = useStaticQuery(graphql`
+//     query SiteTitleQuery {
+//       site {
+//         siteMetadata {
+//           title
+//         }
+//       }
+//     }
+//   `);
+//   return (
+//     <>
+//       <AnimatePresence>
+//         <motion.main
+//           style={pageStyle}
+//           initial="initial"
+//           key={location.pathname}
+//           animate="in"
+//           exit="out"
+//           variants={pageVariants}
+//           transition={pageTransition}>
+//           {children}
+//         </motion.main>
+//       </AnimatePresence>
+//     </>
+//   );
+// };
+
+export const Layout = ({ children }) => {
+  const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
+
+  const drawerToggleClickHandler = () => {
+    setSideDrawerOpen(!sideDrawerOpen);
+  };
+
+  const backdropClickHandler = () => {
+    setSideDrawerOpen(!sideDrawerOpen);
+  };
+  let backdrop;
+
+  if (sideDrawerOpen) {
+    backdrop = <Backdrop onClick={backdropClickHandler} />;
+  }
+
   return (
     <>
-      <AnimatePresence>
-        <motion.main
-          style={pageStyle}
-          initial="initial"
-          key={location.pathname}
-          animate="in"
-          exit="out"
-          variants={pageVariants}
-          transition={pageTransition}>
-          {children}
-        </motion.main>
-      </AnimatePresence>
+      <Toolbar drawerHandleClick={drawerToggleClickHandler} />
+      <SideDrawer show={sideDrawerOpen} />
+      {backdrop}
+      <main style={{ marginTop: '56px' }}>{children}</main>
     </>
   );
 };

@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 
 /** application header */
 const Header = ({ siteTitle }) => {
   const [hidden, setHidden] = useState(false);
   const [classes, setClasses] = useState([
+    'opacity-0',
     'w-full',
     'block',
     'flex-grow',
@@ -13,14 +15,39 @@ const Header = ({ siteTitle }) => {
     'md:items-center',
     'md:w-auto',
     'md:block',
-    'hidden',
+    'md:opacity-100',
+    'font-semibold',
+    'md:bg-transparent',
+    'md:text-white',
+    'text-blue-700',
+    'bg-white',
+    'z-10',
+    'md:text-right',
+    'text-center',
+    'p-1',
+    'rounded',
+    // 'hidden',
   ]);
+
+  const controls = useAnimation();
 
   const changeClasses = () => {
     if (hidden) {
-      setClasses([...classes, 'hidden']);
+      controls.start({
+        opacity: 0,
+        visibility: 'hidden',
+        transition: { duration: 0.5 },
+      });
+      // setTimeout(() => {
+      //   setClasses([...classes, 'hidden']);
+      // }, 500);
     } else {
-      setClasses(classes.filter(v => v !== 'hidden'));
+      // setClasses(classes.filter(v => v !== 'hidden'));
+      controls.start({
+        opacity: 1,
+        visibility: 'visible',
+        transition: { duration: 0.5 },
+      });
     }
 
     setHidden(!hidden);
@@ -50,7 +77,8 @@ const Header = ({ siteTitle }) => {
             className="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white"
             onClick={changeClasses}>
             <svg
-              className="h-3 w-3"
+              className="h-4 w-4"
+              style={{ color:'#fff' }}
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
               <title>Menu</title>
@@ -59,32 +87,31 @@ const Header = ({ siteTitle }) => {
           </button>
         </div>
         {/* here */}
-        <div className={classes.join(' ')}>
+        <motion.div className={classes.join(' ')} animate={controls}>
           <div className="text-sm md:flex-grow">
             <a
               href="#responsive-header"
               className="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white mr-4">
-              Docs
+              Inicio
             </a>
             <a
               href="#responsive-header"
               className="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white mr-4">
-              Examples
+              Sobre mí
             </a>
             <a
               href="#responsive-header"
-              className="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white">
-              Blog
+              className="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white mr-4">
+              Proyectos
             </a>
-          </div>
-          <div>
+
             <a
-              href="#"
-              className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal hover:bg-white mt-4 md:mt-0">
-              Download
+              href="#responsive-header"
+              className="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white">
+              Contacto
             </a>
           </div>
-        </div>
+        </motion.div>
       </nav>
     </header>
   );
