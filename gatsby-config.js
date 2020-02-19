@@ -28,12 +28,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-postcss',
-      options: {
-        postCssPlugins: [require('tailwindcss'), require('autoprefixer')],
-      },
-    },
-    {
       resolve: 'gatsby-plugin-purgecss',
       options: {
         printReject: false,
@@ -48,7 +42,16 @@ module.exports = {
         specialChars: '/:',
       },
     },
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [
+          require('tailwindcss'),
+          require('autoprefixer'),
+          require('postcss-color-mod-function')(),
+        ],
+      },
+    },
     `gatsby-plugin-typescript`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

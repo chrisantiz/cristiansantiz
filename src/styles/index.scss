@@ -20,3 +20,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+
+.bg-primary-50 {
+  background-color: color-mod(theme('colors.primary') a(50%));
+}

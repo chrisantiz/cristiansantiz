@@ -5,7 +5,7 @@ import BackgroundImage from 'gatsby-background-image';
 
 const IndexPage = ({ data }: any) => {
   // Set ImageData.
-  console.log(data)
+  console.log(data);
   const imageData = data.file.childImageSharp.fluid;
   return (
     <>
@@ -24,6 +24,15 @@ const IndexPage = ({ data }: any) => {
         color="red"
         fluid={imageData}>
         <div className="container px-3 mx-auto sm:px-0">
+          <div className="bg-white">
+            <div className="bg-primary-50 w-30 h-30">CON RGBA</div>
+            <div className="bg-primary w-30 h-30">SIN RGBA</div>
+            {/* <div className="bg-primary w-50 h-10"></div>
+            <div className=" w-50 h-10 bg-secondary"></div>
+            <div className=" w-50 h-10 bg-warning"></div>
+            <div className=" w-50 h-10 bg-success"></div>
+            <div className=" w-50 h-10 bg-danger"></div> */}
+          </div>
           <h1>
             <span>Heading Primary Main</span>
             <span>The secondary heading</span>

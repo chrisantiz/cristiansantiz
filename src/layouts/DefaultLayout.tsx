@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Toolbar } from '../components/toolbar/Toolbar';
 import { SideDrawer } from '../components/side-drawer/SideDrawer';
@@ -8,17 +8,13 @@ import { Backdrop } from '../components/backdrop/Backdrop';
 import './default-layout.scss';
 
 /* Layout per defect */
-export const DefaultLayout = ({ children, toolbarTransparent }: any) => {
+export const DefaultLayout = ({ children }: any) => {
   // show/hide SideDrawer
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
 
   const [toolbarColor, setToolbarColor] = useState(false);
 
   const mainRef = useRef<any>(null);
-
-  useEffect(() => {
-    console.log({ toolbarTransparent });
-  }, [toolbarTransparent]);
 
   /** click event in DrawerToggleButton: toggle SideDrawer */
   const drawerToggleClickHandler = () => {
@@ -49,9 +45,8 @@ export const DefaultLayout = ({ children, toolbarTransparent }: any) => {
   return (
     <>
       <Toolbar
-        backgroundColor={toolbarColor}
+        changeColorOnScroll={toolbarColor}
         drawerHandleClick={drawerToggleClickHandler}
-        transparent={toolbarTransparent}
       />
       <SideDrawer show={sideDrawerOpen} />
       {backdrop}
@@ -66,7 +61,7 @@ export const DefaultLayout = ({ children, toolbarTransparent }: any) => {
           position: 'inherit',
           overflowY: 'auto',
         }}>
-        {children}
+        {[children, toolbarColor]}
       </main>
     </>
   );

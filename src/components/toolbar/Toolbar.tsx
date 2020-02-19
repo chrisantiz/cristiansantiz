@@ -5,15 +5,20 @@ import { ToolbarItems } from './ToolbarItems';
 
 export const Toolbar = ({
   drawerHandleClick,
-  backgroundColor,
+  changeColorOnScroll,
   transparent,
 }: any) => {
+  const staticClasses = `toolbar ${
+    transparent ? 'bg-transparent' : 'bg-blue-900'
+  }`;
+
   let classes = '';
 
-  if (!!backgroundColor) {
-    classes = 'toolbar background-color';
+  // change background color on scrolling
+  if (changeColorOnScroll) {
+    classes = 'toolbar bg-color';
   } else {
-    classes = 'toolbar bg-transparent';
+    classes = staticClasses;
   }
 
   return (
