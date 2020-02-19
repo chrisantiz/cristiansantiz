@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Toolbar } from '../components/toolbar/Toolbar';
 import { SideDrawer } from '../components/side-drawer/SideDrawer';
 import { Backdrop } from '../components/backdrop/Backdrop';
+import { graphql, StaticQuery } from 'gatsby';
+import BackgroundImage from 'gatsby-background-image';
+import './default-layout.scss';
 
 /* Layout per defect */
 export const DefaultLayout = ({ children }: any) => {
@@ -11,7 +14,7 @@ export const DefaultLayout = ({ children }: any) => {
 
   const [toolbarColor, setToolbarColor] = useState(false);
 
-  const ref = useRef<HTMLElement>(null);
+  const mainRef = useRef<any>(null);
 
   /** click event in DrawerToggleButton: toggle SideDrawer */
   const drawerToggleClickHandler = () => {
@@ -32,7 +35,7 @@ export const DefaultLayout = ({ children }: any) => {
   }
 
   const scrollFunction = () => {
-    if (ref!.current!.scrollTop > 55) {
+    if (mainRef!.current!.selfRef.scrollTop > 55) {
       setToolbarColor(true);
     } else {
       setToolbarColor(false);
@@ -47,9 +50,44 @@ export const DefaultLayout = ({ children }: any) => {
       />
       <SideDrawer show={sideDrawerOpen} />
       {backdrop}
-      <main ref={ref} className="fullscreen-image" onScroll={scrollFunction}>
-        {children}
-      </main>
+
+      {/* main */}
+      <StaticQuery
+        query={graphql`
+          query {
+            image: file(relativePath: { eq: "background.jpg" }) {
+              childImageSharp {
+                fluid(maxWidth: 1920) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        `}
+        render={data => {
+          // Set ImageData.
+          const imageData = data.image.childImageSharp.fluid;
+
+          return (
+            <BackgroundImage
+              ref={mainRef}
+              onScroll={scrollFunction}
+              style={{
+                height: '100vh',
+                position: 'inherit',
+                overflowY: 'auto',
+                zIndex: 80,
+                width: '100%',
+                paddingTop: '56px',
+              }}
+              Tag="main"
+              color="red"
+              fluid={imageData}>
+              {children}
+            </BackgroundImage>
+          );
+        }}
+      />
     </>
   );
 };
