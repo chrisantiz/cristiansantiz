@@ -6,7 +6,7 @@ const SecondPage = () => {
   return (
     <>
       <SEO title="Page two" />
-      <div style={{ color: '#000' }}>
+      <div style={{ color: '#000', paddingTop: '56px' }} className="container px-3 mx-auto sm:px-0">
         <h1>Hi from the second page</h1>
         <p>Welcome to page 2</p>
         <Link to="/" className="text-xl font-semibold underline">

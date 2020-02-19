@@ -1,20 +1,24 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Toolbar } from '../components/toolbar/Toolbar';
 import { SideDrawer } from '../components/side-drawer/SideDrawer';
 import { Backdrop } from '../components/backdrop/Backdrop';
-import { graphql, StaticQuery } from 'gatsby';
-import BackgroundImage from 'gatsby-background-image';
+// import { graphql, StaticQuery } from 'gatsby';
+// import BackgroundImage from 'gatsby-background-image';
 import './default-layout.scss';
 
 /* Layout per defect */
-export const DefaultLayout = ({ children }: any) => {
+export const DefaultLayout = ({ children, toolbarTransparent }: any) => {
   // show/hide SideDrawer
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
 
   const [toolbarColor, setToolbarColor] = useState(false);
 
   const mainRef = useRef<any>(null);
+
+  useEffect(() => {
+    console.log({ toolbarTransparent });
+  }, [toolbarTransparent]);
 
   /** click event in DrawerToggleButton: toggle SideDrawer */
   const drawerToggleClickHandler = () => {
@@ -35,7 +39,7 @@ export const DefaultLayout = ({ children }: any) => {
   }
 
   const scrollFunction = () => {
-    if (mainRef!.current!.selfRef.scrollTop > 55) {
+    if (mainRef!.current!.scrollTop > 55) {
       setToolbarColor(true);
     } else {
       setToolbarColor(false);
@@ -47,47 +51,23 @@ export const DefaultLayout = ({ children }: any) => {
       <Toolbar
         backgroundColor={toolbarColor}
         drawerHandleClick={drawerToggleClickHandler}
+        transparent={toolbarTransparent}
       />
       <SideDrawer show={sideDrawerOpen} />
       {backdrop}
 
       {/* main */}
-      <StaticQuery
-        query={graphql`
-          query {
-            image: file(relativePath: { eq: "background.jpg" }) {
-              childImageSharp {
-                fluid(maxWidth: 1920) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-          }
-        `}
-        render={data => {
-          // Set ImageData.
-          const imageData = data.image.childImageSharp.fluid;
-
-          return (
-            <BackgroundImage
-              ref={mainRef}
-              onScroll={scrollFunction}
-              style={{
-                height: '100vh',
-                position: 'inherit',
-                overflowY: 'auto',
-                zIndex: 80,
-                width: '100%',
-                paddingTop: '56px',
-              }}
-              Tag="main"
-              color="red"
-              fluid={imageData}>
-              {children}
-            </BackgroundImage>
-          );
-        }}
-      />
+      <main
+        ref={mainRef}
+        onScroll={scrollFunction}
+        style={{
+          height: '100vh',
+          width: '100%',
+          position: 'inherit',
+          overflowY: 'auto',
+        }}>
+        {children}
+      </main>
     </>
   );
 };
