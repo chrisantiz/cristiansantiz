@@ -9,14 +9,14 @@ export const Toolbar = ({
   transparent,
 }: any) => {
   const staticClasses = `toolbar ${
-    transparent ? 'bg-transparent' : 'bg-blue-900'
+    transparent ? 'bg-transparent' : 'bg-primary-a30 shadow-lg'
   }`;
 
   let classes = '';
 
   // change background color on scrolling
   if (changeColorOnScroll) {
-    classes = 'toolbar bg-color';
+    classes = `toolbar bg-primary-a95 ${transparent ? 'shadow-lg' : ''}`;
   } else {
     classes = staticClasses;
   }

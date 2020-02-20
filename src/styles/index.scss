@@ -21,6 +21,10 @@ body {
   background-size: cover;
 }
 
-.bg-primary-50 {
-  background-color: color-mod(theme('colors.primary') a(50%));
+.bg-primary-a30 {
+  background-color: color-mod(theme('colors.primary') a(30%));
+}
+
+.bg-primary-a95 {
+  background-color: color-mod(theme('colors.primary') a(95%));
 }
