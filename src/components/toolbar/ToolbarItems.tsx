@@ -1,19 +1,20 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 export const ToolbarItems = ({ className }: any) => (
   <div className={className}>
     <ul>
       <li>
-        <a href="#">Inicio</a>
+        <Link to="/" activeClassName="active">Inicio</Link>
       </li>
       <li>
-        <a href="#">Sobre mí</a>
+        <Link to="/sobre-mi" activeClassName="active">Sobre mí</Link>
       </li>
       <li>
-        <a href="#">Proyectos</a>
+        <Link to="#" activeClassName="active">Proyectos</Link>
       </li>
       <li>
-        <a href="#">Contacto</a>
+        <Link to="#" activeClassName="active">Contacto</Link>
       </li>
     </ul>
   </div>

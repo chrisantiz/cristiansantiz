@@ -1,17 +1,24 @@
-import React from 'react';
-import { Link } from 'gatsby';
+import React, { useContext } from 'react';
 import { SEO } from '../components/Seo';
+import { RootContext } from '../context/root/root.context';
+import { changeToolbarColor } from '../context/root/root.actions';
 
 const SecondPage = () => {
+  const { getState, dispatch } = useContext(RootContext);
+  const toolbarIsTransparent = getState(state => state.toolbarTransparent);
+
+  if (toolbarIsTransparent) {
+    dispatch(changeToolbarColor(false));
+  }
+
   return (
     <>
       <SEO title="Page two" />
-      <div style={{ color: '#000', paddingTop: '56px' }} className="container px-3 mx-auto sm:px-0">
+      <div
+        style={{ color: '#000', paddingTop: '56px' }}
+        className="container px-3 mx-auto sm:px-0">
         <h1>Hi from the second page</h1>
         <p>Welcome to page 2</p>
-        <Link to="/" className="text-xl font-semibold underline">
-          Go back to the homepage
-        </Link>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic eligendi
           enim facilis laborum pariatur culpa maxime ut provident ab, dolor

@@ -1,12 +1,21 @@
-import React from 'react';
-import { Link, graphql, StaticQuery } from 'gatsby';
+import React, { useContext } from 'react';
+import { Link, graphql } from 'gatsby';
 import { SEO } from '../components/Seo';
 import BackgroundImage from 'gatsby-background-image';
+import { RootContext } from '../context/root/root.context';
+import { changeToolbarColor } from '../context/root/root.actions';
 
 const IndexPage = ({ data }: any) => {
   // Set ImageData.
-  console.log(data);
   const imageData = data.file.childImageSharp.fluid;
+
+  const { getState, dispatch } = useContext(RootContext);
+  const toolbarIsTransparent = getState(state => state.toolbarTransparent);
+
+  if (!toolbarIsTransparent) {
+    dispatch(changeToolbarColor(true));
+  }
+
   return (
     <>
       <SEO title="Inicio" />
@@ -37,9 +46,6 @@ const IndexPage = ({ data }: any) => {
             <span>Heading Primary Main</span>
             <span>The secondary heading</span>
           </h1>
-          <Link to="/page-2" className="text-xl font-semibold underline">
-            Page 2
-          </Link>
         </div>
       </BackgroundImage>
     </>

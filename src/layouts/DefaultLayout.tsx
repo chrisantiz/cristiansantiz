@@ -47,7 +47,6 @@ export const DefaultLayout = ({ children }: any) => {
       <Toolbar
         changeColorOnScroll={toolbarColor}
         drawerHandleClick={drawerToggleClickHandler}
-        transparent={true}
       />
       <SideDrawer show={sideDrawerOpen} />
       {backdrop}

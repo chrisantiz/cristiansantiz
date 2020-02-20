@@ -6,13 +6,14 @@
   left: 0;
   height: 56px;
   transition: background-color 0.2s ease-in;
+  /* no default color */
+  background-color: transparent;
 
-  &.bg-color {
-    background-color: rgba($color: #01081f, $alpha: 0.8);
-    -webkit-box-shadow: 0px 3px 10px 2px rgba(0, 0, 0, 0.62);
-    -moz-box-shadow: 0px 3px 10px 2px rgba(0, 0, 0, 0.62);
-    box-shadow: 0px 3px 10px 2px rgba(0, 0, 0, 0.62);
-    height: 56px;
+  &.toolbar-invert {
+    // background-color: color-mod(theme('colors.primary') a(70%));
+  }
+  &.toolbar-scroll {
+    background-color: color-mod(theme('colors.primary') a(95%));
   }
 
   .toolbar-navigation {
@@ -46,11 +47,90 @@
         color: white;
         text-decoration: none;
         font-weight: bold;
+        position: relative;
+
+        // create animated underline
+        &:before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          bottom: -5px;
+          left: 0;
+          background: #fff;
+          visibility: hidden;
+          border-radius: 5px;
+          transform: scaleX(0);
+          transition: 0.25s linear;
+        }
+
+        // display underline
+        &:hover:before,
+        &:focus:before {
+          visibility: visible;
+          transform: scaleX(1);
+        }
+
+        // set other underline when link is active
+        &.active::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 3px;
+          bottom: px;
+          left: 0;
+          background: #fff;
+          visibility: visible;
+          border-radius: 5px;
+          transform: scale(1);
+          transition: 0.25s linear;
+        }
       }
 
-      a:active,
-      a:hover {
-        color: red;
+      // changes styles when you have "invert" class
+      &.invert {
+        a {
+          color: rgba($color: #000000, $alpha: 0.8);
+          &:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: -5px;
+            left: 0;
+            background: theme('colors.warning');
+            visibility: hidden;
+            border-radius: 5px;
+            transform: scaleX(0);
+            transition: 0.25s linear;
+          }
+
+          &:active,
+          &:hover {
+            color: theme('colors.warning');
+          }
+
+          &:hover:before,
+          &:focus:before {
+            visibility: visible;
+            transform: scaleX(1);
+          }
+
+          // set other underline when link is active
+          &.active::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: px;
+            left: 0;
+            background: theme('colors.warning');
+            visibility: visible;
+            border-radius: 5px;
+            transform: scale(1);
+            transition: 0.25s linear;
+          }
+        }
       }
     }
   }
