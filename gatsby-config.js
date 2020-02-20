@@ -28,14 +28,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        printReject: false,
-        develop: false,
-        tailwind: true,
-      },
-    },
-    {
       resolve: 'gatsby-background-image-es5',
       options: {
         // add your own characters to escape, replacing the default ':/'
@@ -50,6 +42,14 @@ module.exports = {
           require('autoprefixer'),
           require('postcss-color-mod-function')(),
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-purgecss',
+      options: {
+        printReject: false,
+        develop: false,
+        tailwind: true,
       },
     },
     `gatsby-plugin-typescript`,

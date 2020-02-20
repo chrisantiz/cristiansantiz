@@ -22,13 +22,12 @@ const IndexPage = ({ data }: any) => {
           overflowY: 'auto',
           zIndex: 80,
           width: '100%',
-          paddingTop: '56px',
         }}
+        className="gatsby-image-wrapper"
         Tag="div"
-        color="red"
         fluid={imageData}>
-        <PageContainer paddingTop={false}>
-          <div className="bg-white">
+        <PageContainer>
+          <div>
             {/* <div className="bg-primary-50 w-30 h-30">CON RGBA</div> */}
             {/* <div className="bg-primary w-30 h-30">SIN RGBA</div> */}
             {/* <div className="bg-primary w-50 h-10"></div>

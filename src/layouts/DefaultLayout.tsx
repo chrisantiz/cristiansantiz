@@ -61,7 +61,7 @@ export const DefaultLayout = ({ children }: any) => {
           position: 'inherit',
           overflowY: 'auto',
         }}>
-        {[children, toolbarColor]}
+        {children}
       </main>
     </>
   );
