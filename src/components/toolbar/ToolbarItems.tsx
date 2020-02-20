@@ -11,10 +11,10 @@ export const ToolbarItems = ({ className }: any) => (
         <Link to="/sobre-mi" activeClassName="active">Sobre mí</Link>
       </li>
       <li>
-        <Link to="#" activeClassName="active">Proyectos</Link>
+        <Link to="/proyectos" activeClassName="active">Proyectos</Link>
       </li>
       <li>
-        <Link to="#" activeClassName="active">Contacto</Link>
+        <Link to="/contacto" activeClassName="active">Contacto</Link>
       </li>
     </ul>
   </div>

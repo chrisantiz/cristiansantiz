@@ -1,20 +1,15 @@
-import React, { useContext } from 'react';
-import { Link, graphql } from 'gatsby';
+import React from 'react';
+import { graphql } from 'gatsby';
 import { SEO } from '../components/Seo';
 import BackgroundImage from 'gatsby-background-image';
-import { RootContext } from '../context/root/root.context';
-import { changeToolbarColor } from '../context/root/root.actions';
+import { toolbarChangeStyle } from '../helpers/toolbar-change-style.helper';
+import { PageContainer } from '../components/page-container';
 
 const IndexPage = ({ data }: any) => {
   // Set ImageData.
   const imageData = data.file.childImageSharp.fluid;
 
-  const { getState, dispatch } = useContext(RootContext);
-  const toolbarIsTransparent = getState(state => state.toolbarTransparent);
-
-  if (!toolbarIsTransparent) {
-    dispatch(changeToolbarColor(true));
-  }
+  toolbarChangeStyle({ isTransparent: true });
 
   return (
     <>
@@ -32,7 +27,7 @@ const IndexPage = ({ data }: any) => {
         Tag="div"
         color="red"
         fluid={imageData}>
-        <div className="container px-3 mx-auto sm:px-0">
+        <PageContainer paddingTop={false}>
           <div className="bg-white">
             {/* <div className="bg-primary-50 w-30 h-30">CON RGBA</div> */}
             {/* <div className="bg-primary w-30 h-30">SIN RGBA</div> */}
@@ -46,7 +41,7 @@ const IndexPage = ({ data }: any) => {
             <span>Heading Primary Main</span>
             <span>The secondary heading</span>
           </h1>
-        </div>
+        </PageContainer>
       </BackgroundImage>
     </>
   );

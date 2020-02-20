@@ -1,22 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { SEO } from '../components/Seo';
-import { RootContext } from '../context/root/root.context';
-import { changeToolbarColor } from '../context/root/root.actions';
+import { toolbarChangeStyle } from '../helpers/toolbar-change-style.helper';
+import { PageContainer } from '../components/page-container';
 
 const SecondPage = () => {
-  const { getState, dispatch } = useContext(RootContext);
-  const toolbarIsTransparent = getState(state => state.toolbarTransparent);
-
-  if (toolbarIsTransparent) {
-    dispatch(changeToolbarColor(false));
-  }
+  toolbarChangeStyle({ isTransparent: false });
 
   return (
     <>
       <SEO title="Page two" />
-      <div
-        style={{ color: '#000', paddingTop: '56px' }}
-        className="container px-3 mx-auto sm:px-0">
+      <PageContainer>
         <h1>Hi from the second page</h1>
         <p>Welcome to page 2</p>
         <p>
@@ -52,6 +45,19 @@ const SecondPage = () => {
           alias! Veniam in, neque optio hic, nobis voluptas quae dolorem enim,
           incidunt quas deleniti atque consequuntur sapiente delectus nam est
           harum id molestiae nulla illum velit consectetur iure illo quibusdam.
+          in ad quo blanditiis. Maiores, minus quod? Laboriosam magni molestias,
+          ipsa qui repellendus, veniam voluptatibus dolores harum aliquid velit
+          fuga numquam alias illo, sint unde ea nemo placeat eligendi. Explicabo
+          dolor beatae quidem libero vel consequuntur doloremque suscipit et
+          facere ducimus, voluptate nesciunt sint esse dignissimos recusandae.
+          Fuga autem quos eos incidunt qui praesentium, velit aliquid repellat
+          id iusto, necessitatibus nemo placeat nostrum fugit nihil a!
+          Perferendis totam asperiores, suscipit voluptatum sequi fugiat eos
+          cumque adipisci nostrum consequuntur est eaque at, nemo obcaecati
+          neque facere dolor? Esse cupiditate quod vel, sint molestiae ipsam
+          alias! Veniam in, neque optio hic, nobis voluptas quae dolorem enim,
+          incidunt quas deleniti atque consequuntur sapiente delectus nam est
+          harum id molestiae nulla illum velit consectetur iure illo quibusdam.
           Voluptatem ut optio ipsa cum, magni assumenda repellendus reiciendis
           perferendis delectus culpa quae facere obcaecati eius vitae beatae
           porro quod vel adipisci dignissimos similique a nulla eos.
@@ -62,56 +68,6 @@ const SecondPage = () => {
           animi voluptatibus a sed omnis nisi accusamus inventore est cupiditate
           temporibus nam. Beatae qui voluptatibus dolore dicta, molestias rem
           architecto incidunt iusto quidem quibusdam quos, molestiae repellendus
-          aliquam sequi tempore animi. Non esse laborum iure eligendi? At veniam
-          tempora doloribus, ducimus eos amet pariatur vitae placeat ullam sed
-          eligendi esse culpa sint reiciendis error incidunt non soluta magni.
-          Harum quidem accusamus in commodi! Iure delectus dolorum assumenda
-          maxime perferendis aut dolores similique, quam minima esse? Quaerat
-          soluta magnam reiciendis, rerum voluptatem quas, eos magni hic fugiat
-          reprehenderit odio. Voluptatum necessitatibus ab ad atque consectetur
-          rem recusandae sed, aliquam repudiandae nihil architecto et obcaecati
-          quod ipsa, eveniet nisi vel quisquam quia sapiente maxime inventore
-          illo ipsum quos? Dolor veniam minima magnam atque maxime perspiciatis
-          molestiae. Reiciendis quisquam amet repudiandae hic possimus commodi
-          facere perspiciatis iste. Veritatis possimus ipsam dolor non soluta
-          quis corporis, sint adipisci eaque ad vitae quasi tenetur assumenda
-          rem quos quisquam, et a ab eligendi? Vitae veritatis optio aspernatur
-          officia enim corrupti cum nobis, dicta eum praesentium dolor cumque
-          molestiae, quam dolorem ad nulla? Provident doloribus maxime
-          voluptatibus id quisquam deserunt soluta non beatae nihil voluptas
-          officiis eum ratione quis, quasi cupiditate consequuntur nesciunt
-          sint? Iure, tempora? Tenetur praesentium atque voluptates saepe quidem
-          provident quia itaque? Culpa, reprehenderit itaque? Corporis
-          dignissimos eveniet, vel nisi, deleniti tenetur numquam possimus velit
-          inventore esse optio nam repellat placeat porro doloremque
-          necessitatibus voluptate. Officiis rem magni amet necessitatibus
-          cumque illum laborum, tenetur laudantium impedit quis ipsa quam
-          consequatur saepe. Ipsa ullam iure consequuntur fugit veniam quod
-          delectus quasi nemo nam exercitationem accusamus reprehenderit
-          repudiandae temporibus ducimus nulla dicta harum, velit inventore
-          explicabo cupiditate aut! Commodi ipsam officiis culpa minima rerum
-          reprehenderit maxime. Minus explicabo adipisci dolores ad, totam autem
-          id cupiditate voluptates! Cupiditate, modi perferendis facere
-          temporibus pariatur natus quas dolore omnis voluptas vel, quasi
-          numquam distinctio debitis voluptates maiores nihil. Quo amet alias
-          eaque nemo fugit quidem iste, cumque ipsa incidunt libero voluptatum
-          eligendi illum dolor facere facilis minima est fuga ullam molestias
-          vero sint error delectus nostrum. Alias commodi possimus praesentium
-          odit dicta libero, tenetur veritatis fugit earum iusto incidunt nulla
-          repellat culpa velit et eaque officia iure aspernatur totam maiores
-          itaque amet? Explicabo excepturi ducimus possimus, mollitia a placeat
-          recusandae non, asperiores facilis consequatur, deserunt illo. Enim
-          deserunt dolor aliquam earum fugiat, nisi iste, tenetur fuga, alias
-          natus repellendus. Beatae culpa maxime possimusriatur doloribus
-          aliquid aperiam reiciendis itaque ex neque! Prom cupiditate a iusto
-          voluptas quos, sequi doloremque maxime eum neque ea culpa veniam harum
-          deserunt voluptate. Atque illum ut quos dolor animi totam aspernatur!
-          Maxime, debitis ipsam? Ab blanditiis beatae totam distinctio
-          architecto a impedit, corrupti reiciendis perspiciatis in id,
-          molestiae temporibus nemo quo voluptatum cupiditate atque ratione illo
-          corporis non fugiat. Dicta corrupti rerum assumenda veritatis atque
-          aliquid nihil, officiis fugiat quaerat? Ratione esse rerum
-          reprehenderit, cum velit sunt odit consequatur corrupti exercitationem
           dolores id similique incidunt eaque quibusdam molestias culpa et. Ex
           reiciendis atque illo quod alias consectetur harum molestias enim,
           accusantium sequi porro. Excepturi quo non iusto dignissimos dicta
@@ -130,7 +86,7 @@ const SecondPage = () => {
           sit, commodi alias quisquam neque, obcaecati laborum, omnis aspernatur
           quasi libero!{' '}
         </p>
-      </div>
+      </PageContainer>
     </>
   );
 };
