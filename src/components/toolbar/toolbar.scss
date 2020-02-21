@@ -7,16 +7,24 @@
   top: 0;
   left: 0;
   height: 56px;
-  transition: background-color 0.2s ease-in;
+  transition: background-color 0.1s ease-in;
   /* no default color */
   background-color: transparent;
+  border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+
+  body.dark & {
+    border-bottom: 1px solid rgba($color: #fff, $alpha: 0.1);
+  }
 
   &.toolbar-scroll {
     background-color: $toolbar-color-scroll-light;
     box-shadow: $shadow-light;
+    border-bottom: none;
+
     body.dark & {
       background-color: $toolbar-color-scroll-dark;
       box-shadow: $shadow-dark;
+      border-bottom: none;
     }
   }
 
