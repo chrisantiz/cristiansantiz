@@ -5,6 +5,8 @@ import { ToolbarItems } from './ToolbarItems';
 import { RootContext } from '../../context/root/root.context';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import { DarkModeButton } from '../dark-mode-button/DarkModeButton';
+
 
 export const Toolbar = ({ changeColorOnScroll }: any) => {
   const image = useStaticQuery(graphql`
@@ -47,6 +49,7 @@ export const Toolbar = ({ changeColorOnScroll }: any) => {
         </div>
         <div className="spacer"></div>
         <ToolbarItems className={`toolbar-navigation-items ${itemsClasess}`} />
+        <DarkModeButton />
       </nav>
     </header>
   );
