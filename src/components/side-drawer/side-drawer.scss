@@ -27,10 +27,33 @@
     flex-direction: column;
     justify-content: center;
 
-    li a {
-      width: 100%;
-      display: block;
-      text-align: center;
+    li {
+      a {
+        width: 100%;
+        display: block;
+        text-align: center;
+        position: relative;
+        padding-bottom: 2px;
+
+        &.active {
+          color: theme('colors.warning');
+        }
+
+        // set other underline when link is active
+        &.active::before {
+          content: '';
+          position: absolute;
+          width: 50%;
+          height: 2px;
+          bottom: 0px;
+          left: 25%;
+          background: theme('colors.warning');
+          visibility: visible;
+          border-radius: 10%;
+          transform: scale(1);
+          transition: 0.25s linear;
+        }
+      }
     }
   }
 }

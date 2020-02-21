@@ -3,7 +3,7 @@
 body {
   max-height: 100vh;
   background-color: $background-color-light;
-  transition: background-color .3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
   color: $font-color-light;
 
   &.dark {
@@ -17,23 +17,23 @@ body {
   width: 8px;
 }
 
-/* Handle */
+/* bar */
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 5px;
 }
 
+::-webkit-scrollbar-track {
+  background-color: $background-color-light;
+
+  body.dark & {
+    background-color: $background-color-dark;
+  }
+}
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-
-.bg-primary-a30 {
-  background-color: color-mod(theme('colors.primary') a(30%));
-}
-
-.bg-primary-a95 {
-  background-color: color-mod(theme('colors.primary') a(95%));
 }
 
 .gbi-custom-background-image {
