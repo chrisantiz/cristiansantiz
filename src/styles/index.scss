@@ -3,22 +3,20 @@ body {
   max-height: 100vh;
 }
 
-.fullscreen-image {
-  position: absolute;
-  overflow-y: auto;
-  height: 100vh;
-  z-index: 80;
-  width: 100%;
-  padding-top: 56px;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(76, 216, 255, 0.8),
-      rgba(30, 108, 217, 0.8)
-    ),
-    url('../images/background.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .bg-primary-a30 {
@@ -41,5 +39,5 @@ body {
 }
 
 .app-background {
-  background-color: rgba($color: #252525, $alpha: .1);
+  background-color: rgba($color: #252525, $alpha: 0.1);
 }
