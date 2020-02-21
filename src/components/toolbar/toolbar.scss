@@ -9,9 +9,6 @@
   /* no default color */
   background-color: transparent;
 
-  &.toolbar-invert {
-    // background-color: color-mod(theme('colors.primary') a(70%));
-  }
   &.toolbar-scroll {
     background-color: color-mod(theme('colors.primary') a(95%));
   }

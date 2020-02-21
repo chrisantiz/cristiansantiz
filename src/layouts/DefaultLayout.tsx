@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { Toolbar } from '../components/toolbar/Toolbar';
 import { SideDrawer } from '../components/side-drawer/SideDrawer';
 import { Backdrop } from '../components/backdrop/Backdrop';
-// import { graphql, StaticQuery } from 'gatsby';
-// import BackgroundImage from 'gatsby-background-image';
-import './default-layout.scss';
 
 /* Layout per defect */
 export const DefaultLayout = ({ children }: any) => {
@@ -55,11 +52,10 @@ export const DefaultLayout = ({ children }: any) => {
       <main
         ref={mainRef}
         onScroll={scrollFunction}
+        className="app-background"
         style={{
           height: '100vh',
-          width: '100%',
-          position: 'inherit',
-          overflowY: 'auto',
+          overflowY: 'auto'
         }}>
         {children}
       </main>

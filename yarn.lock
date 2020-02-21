@@ -818,14 +818,6 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime-corejs3@^7.8.4":
-  version "7.8.4"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.8.4.tgz#ccc4e042e2fae419c67fa709567e5d2179ed3940"
-  integrity sha512-+wpLqy5+fbQhvbllvlJEVRIpYj+COUWnnsm+I4jZlA8Lo7/MJmBhGTCHyk1/RWfOqBRJ2MbadddG6QltTKTlrg==
-  dependencies:
-    core-js-pure "^3.0.0"
-    regenerator-runtime "^0.13.2"
-
 "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.4", "@babel/runtime@^7.7.6":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.3.tgz#0811944f73a6c926bb2ad35e918dcc1bfab279f1"
@@ -5362,22 +5354,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gatsby-background-image-es5@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-background-image-es5/-/gatsby-background-image-es5-0.10.0.tgz#79ae9ab550152e5ef2ee6c163b0de00a8a581d64"
-  integrity sha512-9XrnNO24TzMRhNeEeRWNU+EvIClE8DN0AqiHm/MvF+JTJQnFYFjjj5yjQhJV7uLRvEBZewymYaWZ6m/7u7t9+w==
-  dependencies:
-    "@babel/runtime-corejs3" "^7.8.4"
-    filter-invalid-dom-props "^2.0.0"
-    global "^4.4.0"
-    intersection-observer "^0.7.0"
-    short-uuid "^3.1.1"
-    sort-media-queries "^0.2.2"
-
-gatsby-background-image@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/gatsby-background-image/-/gatsby-background-image-0.10.0.tgz#e337cf4be22dde177fe7983e7059e22f7eb13bb4"
-  integrity sha512-mfWLeiZGZO3o7NXucbxKn6/DOF1ZpQqJOuta8Ld4y4lDSew1jzHlnxf+UU1Q1uWPeoZkQNm/LpMbF5Rt0F9zhA==
+gatsby-background-image@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/gatsby-background-image/-/gatsby-background-image-0.10.1.tgz#644a84781d4b800b54fca39799a3c5b65a774ce8"
+  integrity sha512-IqKcKPEVzyrA/+88+MF/uCKWtEFlDIYyaGDRvt73Kqk/Eo4eklC+rgZgaJnz2gdD/iAfJvuTG3YdqyeM4r9fFg==
   dependencies:
     "@babel/runtime" "^7.8.4"
     filter-invalid-dom-props "^2.0.0"
@@ -6764,11 +6744,6 @@ internal-ip@^4.3.0:
   dependencies:
     default-gateway "^4.2.0"
     ipaddr.js "^1.9.0"
-
-intersection-observer@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/intersection-observer/-/intersection-observer-0.7.0.tgz#ee16bee978db53516ead2f0a8154b09b400bbdc9"
-  integrity sha512-Id0Fij0HsB/vKWGeBe9PxeY45ttRiBmhFyyt/geBdDHBYNctMRTE3dC1U3ujzz3lap+hVXlEcVaB56kZP/eEUg==
 
 into-stream@^3.1.0:
   version "3.1.0"

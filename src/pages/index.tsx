@@ -1,47 +1,18 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { SEO } from '../components/Seo';
-import BackgroundImage from 'gatsby-background-image';
 import { toolbarChangeStyle } from '../helpers/toolbar-change-style.helper';
 import { PageContainer } from '../components/page-container';
 
 const IndexPage = ({ data }: any) => {
-  // Set ImageData.
-  const imageData = data.file.childImageSharp.fluid;
-
-  toolbarChangeStyle({ isTransparent: true });
+  toolbarChangeStyle({ isTransparent: false });
 
   return (
     <>
       <SEO title="Inicio" />
-
-      <BackgroundImage
-        style={{
-          height: '100vh',
-          position: 'inherit',
-          overflowY: 'auto',
-          zIndex: 80,
-          width: '100%',
-        }}
-        className="gatsby-image-wrapper"
-        Tag="div"
-        fluid={imageData}>
-        <PageContainer>
-          <div>
-            {/* <div className="bg-primary-50 w-30 h-30">CON RGBA</div> */}
-            {/* <div className="bg-primary w-30 h-30">SIN RGBA</div> */}
-            {/* <div className="bg-primary w-50 h-10"></div>
-            <div className=" w-50 h-10 bg-secondary"></div>
-            <div className=" w-50 h-10 bg-warning"></div>
-            <div className=" w-50 h-10 bg-success"></div>
-            <div className=" w-50 h-10 bg-danger"></div> */}
-          </div>
-          <h1>
-            <span>Heading Primary Main</span>
-            <span>The secondary heading</span>
-          </h1>
-        </PageContainer>
-      </BackgroundImage>
+      <PageContainer>
+        <p className="text-4xl">Hello world!</p>
+      </PageContainer>
     </>
   );
 };
@@ -53,9 +24,16 @@ export const query = graphql`
         title
       }
     }
-    file(relativePath: { eq: "background.jpg" }) {
+    mobileImage: file(relativePath: { eq: "background.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 1920) {
+        fluid(maxWidth: 490, quality: 100) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    desktopImage: file(relativePath: { eq: "background.jpg" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 1600) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }

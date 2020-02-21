@@ -1,6 +1,6 @@
 html,
 body {
-  height: 100vh;
+  max-height: 100vh;
 }
 
 .fullscreen-image {
@@ -27,4 +27,19 @@ body {
 
 .bg-primary-a95 {
   background-color: color-mod(theme('colors.primary') a(95%));
+}
+
+.gbi-custom-background-image {
+  opacity: 1 !important;
+  height: 100vh;
+  &::before {
+    position: fixed !important;
+  }
+  &::after {
+    position: fixed !important;
+  }
+}
+
+.app-background {
+  background-color: rgba($color: #252525, $alpha: .1);
 }
