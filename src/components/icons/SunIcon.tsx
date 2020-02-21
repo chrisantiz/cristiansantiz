@@ -2,15 +2,15 @@ import React from 'react';
 import { IconProps } from './icons.model';
 
 export const SunIcon = (props: IconProps) => {
-  let defaultClasses = 'fill-current h-3 w-3';
+  let defaultClasses = 'fill-current';
   return (
     <svg
       aria-hidden="true"
       focusable="false"
       data-prefix="fas"
       data-icon="sun"
-      width={props.width}
-      height={props.height}
+      width={props.width || '20px'}
+      height={props.height || '20px'}
       className={`${defaultClasses} ${props.className}`}
       role="img"
       xmlns="http://www.w3.org/2000/svg"

@@ -1,0 +1,34 @@
+// font color app
+$font-color-light: rgba(
+  $color: #000,
+  $alpha: 0.7,
+);
+$font-color-dark: rgba(
+  $color: #fff,
+  $alpha: 0.9,
+);
+
+// background app
+$background-color-light: rgba(
+  $color: #252525,
+  $alpha: 0.1,
+);
+$background-color-dark: rgba(
+  $color: #000,
+  $alpha: 0.9,
+);
+
+// toolbar color
+$toolbar-color-scroll-light:theme('colors.primary');
+$toolbar-color-scroll-dark: theme('colors.blue.900');
+
+// shadows app 0px 13px 17px -5px rgba(0,0,0,0.76)
+$shadow-dark: 2px 0px 7px rgba(170, 170, 170, 0.2);
+$shadow-light: 2px 0px 7px
+  rgba(
+    $color: #000,
+    $alpha: 0.2,
+  );
+
+$side-drawer-color-light: rgb(221, 221, 221);
+$side-drawer-color-dark: rgb(43, 43, 43);

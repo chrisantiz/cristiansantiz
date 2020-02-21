@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './dark-mode-button.scss';
 import { SunIcon, MoonIcon } from '../icons';
 
 export const DarkModeButton = () => {
+  const [darkMode, toggleDarkMode] = useState(false);
+
+  function toggleClasses() {
+    toggleDarkMode(!darkMode);
+    document.body.classList.toggle('dark');
+  }
+
   return (
-    <button className="dmb-switch">
-      <span>
-        <SunIcon className="h-5 w-5" />
-      </span>
-      <span>
-        <MoonIcon />
-      </span>
+    <button
+      className={`dmb-switch ${darkMode ? 'active' : ''}`}
+      onClick={() => toggleClasses()}>
+      <SunIcon />
+      <MoonIcon />
     </button>
   );
 };

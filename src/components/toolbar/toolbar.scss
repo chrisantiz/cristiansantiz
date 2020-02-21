@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .toolbar {
   position: fixed;
   z-index: 90;
@@ -10,14 +12,18 @@
   background-color: transparent;
 
   &.toolbar-scroll {
-    background-color: color-mod(theme('colors.primary') a(95%));
+    background-color: $toolbar-color-scroll-light;
+    box-shadow: $shadow-light;
+    body.dark & {
+      background-color: $toolbar-color-scroll-dark;
+      box-shadow: $shadow-dark;
+    }
   }
 
   .toolbar-navigation {
     display: flex;
     align-items: center;
     height: 100%;
-    // padding: 0 1rem;
 
     .toolbar-logo {
       margin-left: 1rem;
@@ -42,10 +48,14 @@
       }
 
       a {
-        color: white;
+        color: $font-color-light;
         text-decoration: none;
         font-weight: bold;
         position: relative;
+
+        body.dark & {
+          color: $font-color-dark;
+        }
 
         // create animated underline
         &:before {

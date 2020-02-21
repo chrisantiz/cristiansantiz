@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .toggle-button {
   height: 24px;
   width: 30;
@@ -17,6 +19,10 @@
   .toggle-button-line {
     width: 30px;
     height: 2px;
-    background-color: #fff;
+    background-color: $font-color-light;
+
+    body.dark & {
+      background-color: $font-color-dark;
+    }
   }
 }
