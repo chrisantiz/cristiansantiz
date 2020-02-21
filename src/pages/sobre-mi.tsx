@@ -1,7 +1,7 @@
 import React from 'react';
 import { SEO } from '../components/Seo';
 import { toolbarChangeStyle } from '../helpers/toolbar-change-style.helper';
-import { PageContainer } from '../components/page-container';
+import { PageContainer } from '../components/PageContainer';
 
 const SecondPage = () => {
   toolbarChangeStyle({ isTransparent: false });

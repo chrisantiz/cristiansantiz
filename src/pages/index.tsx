@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { SEO } from '../components/Seo';
 import { toolbarChangeStyle } from '../helpers/toolbar-change-style.helper';
-import { PageContainer } from '../components/page-container';
+import { PageContainer } from '../components/PageContainer';
 
 const IndexPage = ({ data }: any) => {
   toolbarChangeStyle({ isTransparent: false });
