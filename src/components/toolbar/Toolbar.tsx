@@ -6,7 +6,7 @@ import { RootContext } from '../../context/root/root.context';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-export const Toolbar = ({ drawerHandleClick, changeColorOnScroll }: any) => {
+export const Toolbar = ({ changeColorOnScroll }: any) => {
   const image = useStaticQuery(graphql`
     {
       file(relativePath: { eq: "logo.png" }) {
@@ -38,7 +38,7 @@ export const Toolbar = ({ drawerHandleClick, changeColorOnScroll }: any) => {
     <header className={classes}>
       <nav className="toolbar-navigation container px-3 mx-auto sm:px-0">
         <div className="toolbar-button">
-          <DrawerToggleButton onClick={drawerHandleClick} />
+          <DrawerToggleButton />
         </div>
         <div className="toolbar-logo">
           <Link to="/">
