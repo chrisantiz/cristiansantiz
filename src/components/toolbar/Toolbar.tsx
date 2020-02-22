@@ -3,24 +3,11 @@ import './toolbar.scss';
 import { DrawerToggleButton } from '../side-drawer/DrawerToggleButton';
 import { ToolbarItems } from './ToolbarItems';
 import { RootContext } from '../../context/root/root.context';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { Link } from 'gatsby';
 import { DarkModeButton } from '../dark-mode-button/DarkModeButton';
-import { GithubIcon } from '../icons';
+import { GithubIcon, DesktopIcon } from '../icons';
 
 export const Toolbar = ({ changeColorOnScroll }: any) => {
-  const image = useStaticQuery(graphql`
-    {
-      file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 100) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
-
   const { getState } = useContext(RootContext);
   const transparent = getState(state => state.toolbarTransparent);
 
@@ -43,8 +30,8 @@ export const Toolbar = ({ changeColorOnScroll }: any) => {
           <DrawerToggleButton />
         </div>
         <div className="toolbar-logo">
-          <Link to="/">
-            <Img fluid={image.file.childImageSharp.fluid} />
+          <Link to="/" title="logo">
+            <DesktopIcon width="25px" height="25px" />
           </Link>
         </div>
         <div className="spacer"></div>

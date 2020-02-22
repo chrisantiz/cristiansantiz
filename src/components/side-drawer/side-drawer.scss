@@ -37,6 +37,10 @@
 
         &.active {
           color: theme('colors.warning');
+
+          body.dark & {
+            color: color-mod(theme('colors.warning') l(70%));
+          }
         }
 
         // set other underline when link is active
