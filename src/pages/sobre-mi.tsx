@@ -8,11 +8,9 @@ const SecondPage = () => {
 
   return (
     <>
-      <SEO title="Page two" />
+      <SEO title="Sobre mí" />
       <PageContainer>
-        <h1>Hi from the second page</h1>
-        <p>Welcome to page 2</p>
-        <p>
+        <p className="text-justify">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic eligendi
           enim facilis laborum pariatur culpa maxime ut provident ab, dolor
           illum consequatur! Tenetur nam vel sapiente quasi. Facere ipsam

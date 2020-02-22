@@ -25,7 +25,7 @@ export const Toolbar = ({ changeColorOnScroll }: any) => {
 
   return (
     <header className={classes}>
-      <nav className="toolbar-navigation container px-3 mx-auto sm:px-0">
+      <nav className="toolbar-navigation container">
         <div className="toolbar-button">
           <DrawerToggleButton />
         </div>
@@ -37,13 +37,13 @@ export const Toolbar = ({ changeColorOnScroll }: any) => {
         <div className="spacer"></div>
         <ToolbarItems className={`toolbar-navigation-items ${itemsClasess}`} />
         {/* dark mode button */}
-        <DarkModeButton />
+        <DarkModeButton className="ml-2" />
         {/* go to Github account */}
         <a
           target="_blank"
+          className="ml-2"
           title="Cuenta en Github"
-          href="https://github.com/crisantizan"
-          className="ml-2">
+          href="https://github.com/crisantizan">
           <GithubIcon width="20px" height="20px" />
         </a>
       </nav>

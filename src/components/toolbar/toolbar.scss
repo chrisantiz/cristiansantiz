@@ -1,4 +1,6 @@
-@import '../../styles/variables';
+@import '../../styles/variables', '../../styles/mixins';
+
+$toolbar-height: 56px;
 
 .toolbar {
   position: fixed;
@@ -6,8 +8,9 @@
   width: 100%;
   top: 0;
   left: 0;
-  height: 56px;
+  height: $toolbar-height;
   transition: background-color 0.1s ease-in;
+  padding-right: 8px;
   /* no default color */
   background-color: transparent;
   border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
@@ -31,7 +34,7 @@
   .toolbar-navigation {
     display: flex;
     align-items: center;
-    height: 100%;
+    height: $toolbar-height;
 
     .toolbar-logo {
       margin-left: 1rem;
@@ -166,5 +169,11 @@
 @media (max-width: 768px) {
   .toolbar .toolbar-navigation-items {
     display: none;
+  }
+}
+
+@include media(xs) {
+  .toolbar {
+    padding-right: 3px;
   }
 }

@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import './dark-mode-button.scss';
 import { SunIcon, MoonIcon } from '../icons';
 
-export const DarkModeButton = () => {
+interface Props {
+  className?: string;
+}
+
+export const DarkModeButton = ({className}: Props) => {
   const [darkMode, toggleDarkMode] = useState(false);
 
   function toggleClasses() {
@@ -12,7 +16,7 @@ export const DarkModeButton = () => {
 
   return (
     <button
-      className={`dmb-switch ml-2 ${darkMode ? 'active' : ''}`}
+      className={`dmb-switch ${className} ${darkMode ? 'active' : ''}`}
       title="Modo nocturno"
       onClick={() => toggleClasses()}>
       <SunIcon />

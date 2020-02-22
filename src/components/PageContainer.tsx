@@ -9,7 +9,7 @@ export const PageContainer = ({ children, style }: Props) => {
   return (
     <>
       <div style={{ height: '56px' }}></div>
-      <div style={{ ...style }} className="container px-3 mx-auto sm:px-0">
+      <div style={{ ...style }} className="container">
         {children}
       </div>
     </>

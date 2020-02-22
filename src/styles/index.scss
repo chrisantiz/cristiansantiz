@@ -23,12 +23,6 @@ body {
   border-radius: 5px;
 }
 
-@include media(xs) {
-  ::-webkit-scrollbar {
-    width: 3px;
-  }
-}
-
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
@@ -38,13 +32,36 @@ body {
   background: #555;
 }
 
-.gbi-custom-background-image {
-  opacity: 1 !important;
-  height: 100vh;
-  &::before {
-    position: fixed !important;
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@include media(xs) {
+  ::-webkit-scrollbar {
+    width: 3px;
   }
-  &::after {
-    position: fixed !important;
+
+  .container {
+    width: 95%;
+  }
+}
+
+@include media(sm) {
+  .container {
+    width: 90%;
+  }
+}
+
+@include media(md) {
+  .container {
+    width: 85%;
+  }
+}
+
+@include media(lg) {
+  .container {
+    width: 100%;
   }
 }
