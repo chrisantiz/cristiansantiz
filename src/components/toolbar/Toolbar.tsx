@@ -6,7 +6,7 @@ import { RootContext } from '../../context/root/root.context';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { DarkModeButton } from '../dark-mode-button/DarkModeButton';
-
+import { GithubIcon } from '../icons';
 
 export const Toolbar = ({ changeColorOnScroll }: any) => {
   const image = useStaticQuery(graphql`
@@ -49,7 +49,16 @@ export const Toolbar = ({ changeColorOnScroll }: any) => {
         </div>
         <div className="spacer"></div>
         <ToolbarItems className={`toolbar-navigation-items ${itemsClasess}`} />
+        {/* dark mode button */}
         <DarkModeButton />
+        {/* go to Github account */}
+        <a
+          target="_blank"
+          title="Cuenta en Github"
+          href="https://github.com/crisantizan"
+          className="ml-2">
+          <GithubIcon width="20px" height="20px" />
+        </a>
       </nav>
     </header>
   );

@@ -13,6 +13,7 @@ export const DarkModeButton = () => {
   return (
     <button
       className={`dmb-switch ml-2 ${darkMode ? 'active' : ''}`}
+      title="Modo nocturno"
       onClick={() => toggleClasses()}>
       <SunIcon />
       <MoonIcon />
