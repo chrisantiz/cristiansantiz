@@ -41,6 +41,11 @@ function SEO({ description, lang, meta, title }: any) {
           content: metaDescription,
         },
         {
+          property: 'keywords',
+          content:
+            ' cristian santiz, santz, cristian, santiz, crisantizan, desarrollo web, programador web, programación web, desarrollo web colombia, desarrollo web latinoamerica, programador frontend, programador backend, freelance, javascript, css, html, vue, angular, react, gatsby, nodejs, nestjs, github',
+        },
+        {
           property: `og:type`,
           content: `website`,
         },
@@ -66,7 +71,7 @@ function SEO({ description, lang, meta, title }: any) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `es`,
   meta: [],
   description: ``,
 };
