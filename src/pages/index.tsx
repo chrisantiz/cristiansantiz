@@ -5,15 +5,16 @@ import { toolbarChangeStyle } from '../helpers/toolbar-change-style.helper';
 import { PageContainer } from '../components/PageContainer';
 import { useTranslation } from 'react-i18next';
 
-const IndexPage = () => {
+const IndexPage = (props: any) => {
   toolbarChangeStyle({ isTransparent: false });
   const { t, i18n } = useTranslation();
+  console.log({props});
   return (
     <>
       <SEO title="Inicio" />
       <PageContainer>
         <p className="text-4xl">{t('greetings')}</p>
-        <button onClick={() => i18n.changeLanguage('en')}>To english</button>
+        <button onClick={() => i18n.changeLanguage('es')}>To english</button>
       </PageContainer>
     </>
   );

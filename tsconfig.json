@@ -19,7 +19,7 @@
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/helpers/gatsby-node.helper.js", "src/helpers/toolbar-change-style.helper.js", "src/i18n/config.js"],
   "exclude": ["node_modules"],
   "files": ["./types"]
 }
