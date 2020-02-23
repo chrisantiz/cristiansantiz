@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'gatsby';
-import { RootContext } from '../../context/root/root.context';
-import { toggleSideDrawer } from '../../context/root/root.actions';
+import { RootContext } from '../../libs/context/root/root.context';
+import { toggleSideDrawer } from '../../libs/context/root/root.actions';
 
 export const ToolbarItems = ({ className }: any) => {
   const { getState, dispatch } = useContext(RootContext);

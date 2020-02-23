@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './backdrop.scss';
-import { RootContext } from '../../context/root/root.context';
-import { toggleSideDrawer } from '../../context/root/root.actions';
+import { RootContext } from '../../libs/context/root/root.context';
+import { toggleSideDrawer } from '../../libs/context/root/root.actions';
 
 export const Backdrop = () => {
   const { getState, dispatch } = useContext(RootContext);

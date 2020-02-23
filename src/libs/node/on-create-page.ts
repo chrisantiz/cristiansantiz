@@ -1,5 +1,5 @@
 import locales from '../i18n/config';
-import { removeTrailingSlash } from '../helpers/gatsby-node.helper';
+import { removeTrailingSlash } from '../../helpers/gatsby-node.helper';
 
 import { GatsbyNode } from 'gatsby';
 

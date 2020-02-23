@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ToolbarItems } from '../toolbar/ToolbarItems';
 import './side-drawer.scss';
-import { RootContext } from '../../context/root/root.context';
+import { RootContext } from '../../libs/context/root/root.context';
 
 export const SideDrawer = () => {
   const { getState } = useContext(RootContext);

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import './toolbar.scss';
 import { DrawerToggleButton } from '../side-drawer/DrawerToggleButton';
 import { ToolbarItems } from './ToolbarItems';
-import { RootContext } from '../../context/root/root.context';
+import { RootContext } from '../../libs/context/root/root.context';
 import { Link } from 'gatsby';
 import { DarkModeButton } from '../dark-mode-button/DarkModeButton';
 import { GithubIcon, DesktopIcon } from '../icons';

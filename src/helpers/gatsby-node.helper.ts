@@ -1,12 +1,15 @@
-// Use a little helper function to remove trailing slashes from paths
+import { ParamsLocalizedSlug } from './model';
+
+/** use a little helper function to remove trailing slashes from paths */
 export const removeTrailingSlash = (path: string) =>
   path === `/` ? path : path.replace(/\/$/, ``);
 
-export const localizedSlug = ({ isDefault, locale, slug }: any) =>
-  isDefault ? `/${slug}` : `/${locale}/${slug}`;
+export const localizedSlug = ({
+  isDefault,
+  locale,
+  slug,
+}: ParamsLocalizedSlug) => (isDefault ? `/${slug}` : `/${locale}/${slug}`);
 
-// From lodash:
-// https://github.com/lodash/lodash/blob/750067f42d3aa5f927604ece2c6df0ff2b2e9d72/findKey.js
 export const findKey = (object: any, predicate: any) => {
   let result;
   if (object == null) {

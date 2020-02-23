@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
     title: `Cristian Santiz <web developer>`,
@@ -8,6 +10,22 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@': path.resolve(__dirname, 'src'),
+          '@components': path.resolve(__dirname, 'src', 'components'),
+          '@layouts': path.resolve(__dirname, 'src', 'layouts'),
+          '@pages': path.resolve(__dirname, 'src', 'pages'),
+          '@helpers': path.resolve(__dirname, 'src', 'helpers'),
+          '@models': path.resolve(__dirname, 'src', 'models'),
+          '@libs': path.resolve(__dirname, 'src', 'libs'),
+          '@styles': path.resolve(__dirname, 'src', 'styles'),
+        },
+        extensions: ['js, scss, ts, tsx'],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -17,7 +35,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/i18n/locales`,
+        path: `${__dirname}/src/libs/i18n/locales`,
         name: `locales`,
       },
     },

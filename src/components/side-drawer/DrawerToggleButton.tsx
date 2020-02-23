@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './drawer-toggle-button.scss';
-import { RootContext } from '../../context/root/root.context';
-import { toggleSideDrawer } from '../../context/root/root.actions';
+import { RootContext } from '../../libs/context/root/root.context';
+import { toggleSideDrawer } from '../../libs/context/root/root.actions';
 
 export const DrawerToggleButton = () => {
   const { dispatch } = useContext(RootContext);

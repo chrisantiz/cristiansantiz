@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { RootContext } from '../context/root/root.context';
-import { changeToolbarColor } from '../context/root/root.actions';
+import { RootContext } from '@libs/context/root/root.context';
+import { changeToolbarColor } from '@libs/context/root/root.actions';
 
 interface Props {
   /** set transparent style in toolbar */

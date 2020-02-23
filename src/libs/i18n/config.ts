@@ -1,5 +1,4 @@
-// Only one item MUST have the "default: true" key
-import { Index } from '../models/shared.model';
+import { Index } from '../../models/shared.model';
 
 interface Props {
   default: boolean;
