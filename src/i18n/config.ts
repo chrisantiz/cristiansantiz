@@ -1,6 +1,17 @@
 // Only one item MUST have the "default: true" key
+import { Index } from '../models/shared.model';
 
-module.exports = {
+interface Props {
+  default: boolean;
+  path: string;
+  locale: string;
+  dateFormat: string;
+  siteLanguage: string;
+  ogLanguage: string;
+  defaultTitle: string;
+}
+
+const config: Index<Props> = {
   es: {
     default: true,
     path: `es`,
@@ -20,3 +31,5 @@ module.exports = {
     defaultTitle: `Using i18n with Gatsby`,
   },
 };
+
+export default config;

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "module": "commonjs",
+    "target": "ESNext",
     "strict": true,
     "jsx": "preserve",
     "resolveJsonModule": true,
@@ -19,7 +19,7 @@
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/helpers/gatsby-node.helper.js", "src/helpers/toolbar-change-style.helper.js", "src/i18n/config.js"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"],
   "files": ["./types"]
 }
