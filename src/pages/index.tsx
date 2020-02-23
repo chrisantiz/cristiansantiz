@@ -3,15 +3,17 @@ import { graphql } from 'gatsby';
 import { SEO } from '../components/Seo';
 import { toolbarChangeStyle } from '../helpers/toolbar-change-style.helper';
 import { PageContainer } from '../components/PageContainer';
+import { useTranslation } from 'react-i18next';
 
-const IndexPage = ({ data }: any) => {
+const IndexPage = () => {
   toolbarChangeStyle({ isTransparent: false });
-
+  const { t, i18n } = useTranslation();
   return (
     <>
       <SEO title="Inicio" />
       <PageContainer>
-        <p className="text-4xl">Hello world!</p>
+        <p className="text-4xl">{t('greetings')}</p>
+        <button onClick={() => i18n.changeLanguage('en')}>To english</button>
       </PageContainer>
     </>
   );

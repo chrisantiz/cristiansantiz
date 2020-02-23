@@ -5,12 +5,10 @@
   "version": "0.1.0",
   "author": {
     "name": "Cristian Santiz",
-    "email": "santz.dev@gmail.com"
+    "email": "crisantizan@gmail.com"
   },
   "dependencies": {
-    "framer-motion": "^1.8.4",
     "gatsby": "^2.19.7",
-    "gatsby-background-image": "^0.10.1",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-manifest": "^2.2.39",
     "gatsby-plugin-offline": "^3.0.32",
@@ -21,16 +19,20 @@
     "gatsby-plugin-typescript": "^2.1.27",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-sharp": "^2.3.13",
+    "i18next": "^19.3.1",
+    "i18next-browser-languagedetector": "^4.0.2",
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-i18next": "^11.3.3",
     "tailwindcss": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^13.7.2",
     "@types/react-helmet": "^5.0.15",
+    "@types/react-i18next": "^8.1.0",
     "autoprefixer": "^9.7.4",
     "postcss-color-mod-function": "^3.0.3",
     "prettier": "^1.19.1"
@@ -49,6 +51,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chrisantiz/cristiansantiz"
+    "url": "https://github.com/crisantizan/cristiansantiz"
   }
 }

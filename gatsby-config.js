@@ -13,6 +13,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/i18n/locales`,
+        name: `locales`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -45,6 +52,14 @@ module.exports = {
         tailwind: true,
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-i18next`,
+    //   options: {
+    //     availableLngs: ['es', 'en'],
+    //     fallbackLng: 'es',
+    //     debug: true,
+    //   },
+    // },
     `gatsby-plugin-typescript`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
