@@ -10,6 +10,7 @@ export const RootContext = React.createContext(
 export const rootInitialState: RootStateModel = {
   toolbarTransparent: true,
   openSideDrawer: false,
+  locale: 'es',
 };
 
 export function RootProvider({ children }: any) {

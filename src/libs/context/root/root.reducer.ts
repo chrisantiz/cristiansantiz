@@ -12,6 +12,9 @@ export const rootReducer = (
     case 'TOGGLE_SIDE_DRAWER':
       return { ...state, openSideDrawer: !state.openSideDrawer };
 
+    case 'CHANGE_LOCALE':
+      return { ...state, locale: action.payload };
+
     default:
       return state;
   }
