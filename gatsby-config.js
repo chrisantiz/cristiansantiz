@@ -78,6 +78,7 @@ module.exports = {
         tailwind: true,
       },
     },
+    `gatsby-plugin-mdx`,
     `gatsby-transformer-json`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
