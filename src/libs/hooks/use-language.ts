@@ -3,6 +3,7 @@ import { RootContext } from '@libs/context/root/root.context';
 import { useEnglishData } from './use-english-data';
 import { useSpanishData } from './use-spanish-data';
 import { changeLocale } from '../context/root/root.actions';
+import { LocaleType } from '../i18n/languages';
 
 /** use the current language */
 export const useLanguage = () => {
@@ -11,10 +12,9 @@ export const useLanguage = () => {
 
   const data = locale === 'en' ? useEnglishData() : useSpanishData();
 
-  function toggleLanguage() {
-    const newLocal = locale === 'en' ? 'es' : 'en';
-    dispatch(changeLocale(newLocal));
+  function changeLanguage(locale: LocaleType) {
+    dispatch(changeLocale(locale));
   }
 
-  return { lang: data, toggleLang: toggleLanguage };
+  return { lang: data, changeLang: changeLanguage };
 };

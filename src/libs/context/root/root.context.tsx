@@ -11,8 +11,10 @@ export const RootContext = React.createContext(
 export const rootInitialState: RootStateModel = {
   toolbarTransparent: true,
   openSideDrawer: false,
-  locale: (localStorage.getItem('i18nextLng') || 'es') as LocaleType,
+  locale: 'es',
 };
+
+// TODO:: preload (localStorage.getItem('i18nextLng')
 
 export function RootProvider({ children }: any) {
   const [state, dispatch] = useReducer(rootReducer, rootInitialState);

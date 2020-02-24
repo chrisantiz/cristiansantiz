@@ -15,9 +15,11 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = ({
   // Grab the keys ('en' & 'de') of locales and map over them
   Object.keys(locales).map(lang => {
     // Use the values defined in "locales" to construct the path
-    const localizedPath = locales[lang]
+    const localizedPath = locales[lang].default
       ? page.path
       : `${locales[lang].path}${page.path}`;
+
+    console.log('path: ', localizedPath);
 
     return createPage({
       // Pass on everything from the original page
