@@ -20,6 +20,8 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = ({
       : `${locales[lang].path}${page.path}`;
 
     console.log('path: ', localizedPath);
+    // ignore not found page
+    const isLinkRoute = !(page.path as string).includes('404');
 
     return createPage({
       // Pass on everything from the original page
@@ -33,6 +35,7 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = ({
       context: {
         ...page.context,
         locale: lang,
+        isLinkRoute
         // localeResources: resources[lang] ? resources[lang] : {},
         // dateFormat: locales[lang].dateFormat,
       },
