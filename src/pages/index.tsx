@@ -1,20 +1,22 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { SEO } from '../components/Seo';
-import { toolbarChangeStyle } from '../helpers/toolbar-change-style.helper';
-import { PageContainer } from '../components/PageContainer';
-import { useTranslation } from 'react-i18next';
+import { SEO } from '@components/Seo';
+import { toolbarChangeStyle } from '@helpers/toolbar-change-style.helper';
+import { PageContainer } from '@components/PageContainer';
+import { useLanguage } from '@libs/hooks/use-language';
 
 const IndexPage = (props: any) => {
   toolbarChangeStyle({ isTransparent: false });
-  const { t, i18n } = useTranslation();
-  console.log({props});
+  const { lang, toggleLang } = useLanguage();
   return (
     <>
       <SEO title="Inicio" />
       <PageContainer>
-        <p className="text-4xl">{t('greetings')}</p>
-        <button onClick={() => i18n.changeLanguage('es')}>To english</button>
+        <button className="bg-red-300" onClick={() => toggleLang()}>
+          Toggle language
+        </button>
+        <pre>{lang.labels.githubBtn}</pre>
+        <pre>{lang.pages.aboutMe.text}</pre>
       </PageContainer>
     </>
   );

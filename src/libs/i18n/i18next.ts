@@ -1,13 +1,14 @@
-import i18n from 'i18next';
+import i18next from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import { lang } from './languages';
+import { lang as languages } from './languages';
 
-i18n.use(LanguageDetector).init({
+/** i18n instance */
+i18next.use(LanguageDetector).init({
   debug: false,
-  fallbackLng: lang.spanish,
+  fallbackLng: languages.spanish,
   initImmediate: false,
   keySeparator: false,
-  whitelist: [lang.spanish, lang.english],
+  whitelist: [languages.spanish, languages.english],
   interpolation: {
     escapeValue: false,
   },
@@ -20,5 +21,4 @@ i18n.use(LanguageDetector).init({
   },
 });
 
-/** i18n instance */
-export default i18n;
+export default i18next;

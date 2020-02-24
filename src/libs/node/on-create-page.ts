@@ -1,7 +1,6 @@
-import locales from '@libs/i18n/config';
-import { removeTrailingSlash } from '@helpers/gatsby-node.helper';
-
 import { GatsbyNode } from 'gatsby';
+import locales from '../i18n/config';
+import { removeTrailingSlash } from '../../helpers/gatsby-node.helper';
 
 export const onCreatePage: GatsbyNode['onCreatePage'] = ({
   page,

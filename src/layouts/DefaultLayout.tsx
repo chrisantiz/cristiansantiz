@@ -1,12 +1,18 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Toolbar } from '../components/toolbar/Toolbar';
 import { SideDrawer } from '../components/side-drawer/SideDrawer';
 import { Backdrop } from '../components/backdrop/Backdrop';
+import { useTranslation } from 'react-i18next';
 
 /* Layout per defect */
 export const DefaultLayout = ({ children }: any) => {
   const [toolbarColor, setToolbarColor] = useState(false);
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    console.log('por defecto: ', i18n.language);
+  }, []);
 
   const mainRef = useRef<any>(null);
 

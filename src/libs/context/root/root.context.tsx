@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import { RootStateModel } from './root.model';
 import { ContextModel } from '../context.model';
 import { rootReducer } from './root.reducer';
+import { LocaleType } from '../../i18n/languages';
 
 export const RootContext = React.createContext(
   {} as ContextModel<RootStateModel>,
@@ -10,7 +11,7 @@ export const RootContext = React.createContext(
 export const rootInitialState: RootStateModel = {
   toolbarTransparent: true,
   openSideDrawer: false,
-  locale: 'es',
+  locale: (localStorage.getItem('i18nextLng') || 'es') as LocaleType,
 };
 
 export function RootProvider({ children }: any) {
