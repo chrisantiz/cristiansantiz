@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import './backdrop.scss';
-import { RootContext } from '../../libs/context/root/root.context';
-import { toggleSideDrawer } from '../../libs/context/root/root.actions';
+import { RootContext } from '@libs/context/root/root.context';
+import { toggleSideDrawer } from '@libs/context/root/root.actions';
 
 export const Backdrop = () => {
   const { getState, dispatch } = useContext(RootContext);
   const show = getState(state => state.openSideDrawer);
-
   if (show) {
     return (
       <div

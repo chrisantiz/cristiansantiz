@@ -1,24 +1,22 @@
 import React, { useContext } from 'react';
 import './toolbar.scss';
-import { DrawerToggleButton } from '../side-drawer/DrawerToggleButton';
-import { ToolbarItems } from './ToolbarItems';
-import { RootContext } from '../../libs/context/root/root.context';
+import { DrawerToggleButton } from '@components/side-drawer/DrawerToggleButton';
+import { ToolbarItems } from '@components/toolbar/ToolbarItems';
 import { Link } from 'gatsby';
-import { DarkModeButton } from '../dark-mode-button/DarkModeButton';
-import { GithubIcon, DesktopIcon } from '../icons';
+import { DarkModeButton } from '@components/dark-mode-button/DarkModeButton';
+import { GithubIcon, DesktopIcon } from '@components/icons';
 
-export const Toolbar = ({ changeColorOnScroll }: any) => {
-  const { getState } = useContext(RootContext);
-  const transparent = getState(state => state.toolbarTransparent);
+interface Props {
+  changeColorOnScroll: boolean;
+}
 
-  const staticClasses = `toolbar ${!transparent ? 'toolbar-invert' : ''}`;
-
+export const Toolbar = React.memo(({ changeColorOnScroll }: Props) => {
+  const staticClasses = 'toolbar toolbar-invert';
   let classes = '';
-  let itemsClasess = transparent ? '' : 'invert';
 
   // change background color on scrolling
   if (changeColorOnScroll) {
-    classes = `toolbar toolbar-scroll ${!transparent ? 'shadow-lg' : ''}`;
+    classes = 'toolbar toolbar-scroll shadow-lg';
   } else {
     classes = staticClasses;
   }
@@ -35,7 +33,7 @@ export const Toolbar = ({ changeColorOnScroll }: any) => {
           </Link>
         </div>
         <div className="spacer"></div>
-        <ToolbarItems className={`toolbar-navigation-items ${itemsClasess}`} />
+        <ToolbarItems className="toolbar-navigation-items invert" />
         {/* dark mode button */}
         <DarkModeButton className="ml-2" />
         {/* go to Github account */}
@@ -49,4 +47,4 @@ export const Toolbar = ({ changeColorOnScroll }: any) => {
       </nav>
     </header>
   );
-};
+});

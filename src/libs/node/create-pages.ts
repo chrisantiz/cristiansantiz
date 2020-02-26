@@ -1,6 +1,4 @@
 import { GatsbyNode } from 'gatsby';
-import { localizedSlug } from '../../helpers/gatsby-node.helper';
-import { ParamsLocalizedSlug } from '../../helpers/model';
 
 export const createPages: GatsbyNode['createPages'] = async ({
   graphql,

@@ -1,17 +1,16 @@
-import React, { useContext } from 'react';
-import { ToolbarItems } from '../toolbar/ToolbarItems';
+import React, { useContext, useState, useEffect } from 'react';
+import { ToolbarItems } from '@components/toolbar/ToolbarItems';
 import './side-drawer.scss';
-import { RootContext } from '../../libs/context/root/root.context';
+import { RootContext } from '@libs/context/root/root.context';
 
 export const SideDrawer = () => {
   const { getState } = useContext(RootContext);
   const show = getState(state => state.openSideDrawer);
+  const [drawerClasess, setDrawerClasses] = useState('side-drawer');
 
-  let drawerClasess = 'side-drawer';
-
-  if (show) {
-    drawerClasess = 'side-drawer open';
-  }
+  useEffect(() => {
+    setDrawerClasses(show ? 'side-drawer open' : 'side-drawer');
+  }, [show]);
 
   return <ToolbarItems className={drawerClasess} />;
 };

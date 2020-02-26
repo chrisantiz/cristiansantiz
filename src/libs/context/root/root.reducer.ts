@@ -7,9 +7,6 @@ export const rootReducer = (
   action: RootActionTypes,
 ): RootStateModel => {
   switch (action.type) {
-    case 'TOOLBAR_TRANSPARENT':
-      return { ...state, toolbarTransparent: action.payload };
-
     case 'TOGGLE_SIDE_DRAWER':
       return { ...state, openSideDrawer: !state.openSideDrawer };
 
