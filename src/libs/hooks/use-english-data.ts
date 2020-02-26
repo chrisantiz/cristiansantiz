@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { DataLocale } from '../../models/locale.model';
+import { DataLocale } from '@models/locale.model';
 
 /** get data in english */
 export const useEnglishData = () => {
@@ -14,11 +14,6 @@ const query = graphql`
       nodes {
         name
         childLocalesJson {
-          links {
-            aboutMe
-            projects
-            contact
-          }
           labels {
             darkModeBtn
             githubBtn
@@ -26,15 +21,19 @@ const query = graphql`
           pages {
             home {
               text
+              linkLabel
             }
             aboutMe {
               text
+              linkLabel
             }
             projects {
               text
+              linkLabel
             }
             contact {
               text
+              linkLabel
             }
           }
         }

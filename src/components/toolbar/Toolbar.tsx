@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import './toolbar.scss';
 import { DrawerToggleButton } from '@components/side-drawer/DrawerToggleButton';
 import { ToolbarItems } from '@components/toolbar/ToolbarItems';
@@ -8,9 +8,11 @@ import { GithubIcon, DesktopIcon } from '@components/icons';
 
 interface Props {
   changeColorOnScroll: boolean;
+  isSmallScreen: boolean;
 }
 
-export const Toolbar = React.memo(({ changeColorOnScroll }: Props) => {
+export const Toolbar = React.memo(({ changeColorOnScroll, isSmallScreen }: Props) => {
+  // const [renderItems, setRenderItems] = useState(false);
   const staticClasses = 'toolbar toolbar-invert';
   let classes = '';
 
@@ -20,6 +22,14 @@ export const Toolbar = React.memo(({ changeColorOnScroll }: Props) => {
   } else {
     classes = staticClasses;
   }
+
+  const items = useMemo(() => {
+    return !isSmallScreen ? (
+      <ToolbarItems inDrawer={false} className="toolbar-navigation-items invert" />
+    ) : (
+      <></>
+    );
+  }, [isSmallScreen]);
 
   return (
     <header className={classes}>
@@ -33,7 +43,8 @@ export const Toolbar = React.memo(({ changeColorOnScroll }: Props) => {
           </Link>
         </div>
         <div className="spacer"></div>
-        <ToolbarItems className="toolbar-navigation-items invert" />
+        {/* <ToolbarItems className="toolbar-navigation-items invert" /> */}
+        {items}
         {/* dark mode button */}
         <DarkModeButton className="ml-2" />
         {/* go to Github account */}

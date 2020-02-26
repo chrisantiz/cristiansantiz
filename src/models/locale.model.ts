@@ -1,10 +1,3 @@
-export interface LinksLocale {
-  home: string;
-  aboutMe: string;
-  projects: string;
-  contact: string;
-}
-
 export interface LabelsLocale {
   darkModeBtn: string;
   githubBtn: string;
@@ -13,21 +6,24 @@ export interface LabelsLocale {
 export interface PagesLocale {
   home: {
     text: string;
+    labelLink: string;
   };
   aboutMe: {
     text: string;
+    labelLink: string;
   };
   projects: {
     text: string;
+    labelLink: string;
   };
   contact: {
     text: string;
+    labelLink: string;
   };
 }
 
 /** data traslated */
 export interface DataLocale {
-  links: LinksLocale;
   labels: LabelsLocale;
   pages: PagesLocale;
 }

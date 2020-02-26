@@ -2,23 +2,25 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import { RootContext } from '@libs/context/root/root.context';
 import { toggleSideDrawer } from '@libs/context/root/root.actions';
+import { LocaleType } from '@libs/i18n/languages';
 
-export const ToolbarItems = React.memo(({ className }: any) => {
+export const ToolbarItems = React.memo(({ className, inDrawer }: any) => {
   const { getState, dispatch } = useContext(RootContext);
 
-  const { openSideDrawer: isOpen, locale } = getState(state => state);
+  const { locale, openSideDrawer: isOpen } = getState(state => state);
 
   const [localeLinks, setLocaleLinks] = useState<string[]>([]);
-  const { allSitePage } = useStaticQuery(query);
+  const { allFile } = useStaticQuery(query);
+
+  console.log('Render toolbar items en', inDrawer ? 'drawer' : 'toolbar');
 
   useEffect(() => {
     setLocaleLinks(
-      allSitePage.edges
-        .filter((edge: any) => {
-          const { context } = edge.node;
-          return context.isLinkRoute && context.locale === locale;
+      allFile.nodes
+        .filter(({ name }: any) => {
+          return name === locale;
         })
-        .map((edge: any) => edge.node.path),
+        .map((node: any) => node.childLocalesJson.pages)[0],
     );
   }, [locale]);
 
@@ -32,14 +34,14 @@ export const ToolbarItems = React.memo(({ className }: any) => {
   return (
     <div className={className}>
       <ul onClick={handleClick}>
-        {localeLinks.map(link => (
+        {/* {localeLinks.map(link => (
           <li key={link}>
             <Link to={link} activeClassName="active">
               {link}
             </Link>
           </li>
-        ))}
-        {/* <li>
+        ))} */}
+        <li>
           <Link to="/" activeClassName="active">
             Inicio
           </Link>
@@ -58,7 +60,7 @@ export const ToolbarItems = React.memo(({ className }: any) => {
           <Link to="/contacto" activeClassName="active" partiallyActive>
             Contacto
           </Link>
-        </li> */}
+        </li>
       </ul>
     </div>
     // Iconos diseñados por <a href="https://www.flaticon.es/autores/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>
@@ -67,19 +69,23 @@ export const ToolbarItems = React.memo(({ className }: any) => {
 
 const query = graphql`
   {
-    allSitePage(
-      filter: {
-        isCreatedByStatefulCreatePages: { eq: true }
-        context: { isLinkRoute: { eq: true } }
-      }
-    ) {
-      edges {
-        node {
-          isCreatedByStatefulCreatePages
-          path
-          context {
-            locale
-            isLinkRoute
+    allFile(filter: { sourceInstanceName: { eq: "locales" } }) {
+      nodes {
+        name
+        childLocalesJson {
+          pages {
+            home {
+              linkLabel
+            }
+            aboutMe {
+              linkLabel
+            }
+            projects {
+              linkLabel
+            }
+            contact {
+              linkLabel
+            }
           }
         }
       }

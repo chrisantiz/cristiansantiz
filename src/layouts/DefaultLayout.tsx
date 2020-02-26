@@ -10,7 +10,8 @@ export const DefaultLayout = ({ children, pageContext: { locale } }: any) => {
   const mainRef = useRef<any>(null);
   const { changeLang } = useLanguage();
   const [toolbarColor, setToolbarColor] = useState(false);
-  const [showBackdrop, setShowBackdrop] = useState(false);
+  // if is a small screen device
+  const [smallScreen, setSmallScren] = useState(false);
 
   useEffect(() => {
     changeLang(locale);
@@ -21,8 +22,11 @@ export const DefaultLayout = ({ children, pageContext: { locale } }: any) => {
   };
 
   useEffect(() => {
+    // set screen type on first render
+    setSmallScren(window.innerWidth <= 768);
+
     function handleResize() {
-      setShowBackdrop(window.innerWidth <= 768);
+      setSmallScren(window.innerWidth <= 768);
     }
 
     window.addEventListener('resize', handleResize);
@@ -30,16 +34,19 @@ export const DefaultLayout = ({ children, pageContext: { locale } }: any) => {
   }, []);
 
   const toolbar = useMemo(() => {
-    return <Toolbar changeColorOnScroll={toolbarColor} />;
-  }, [locale, toolbarColor]);
+    return (
+      <Toolbar isSmallScreen={smallScreen} changeColorOnScroll={toolbarColor} />
+    );
+  }, [locale, toolbarColor, smallScreen]);
 
+  // render only in small screen devices
   const sidedrawer = useMemo(() => {
-    return <SideDrawer />;
-  }, [locale]);
+    return smallScreen ? <SideDrawer /> : <></>;
+  }, [smallScreen]);
 
   const backdrop = useMemo(() => {
-    return showBackdrop ? <Backdrop /> : <></>;
-  }, [showBackdrop]);
+    return smallScreen ? <Backdrop /> : <></>;
+  }, [smallScreen]);
 
   return (
     <>
