@@ -15,26 +15,26 @@ interface LangElement {
   key: number;
 }
 
-export const ChangeLangButton = () => {
-  const initialData: LangElement[] = [
-    {
-      src: col,
-      label: 'Español',
-      locale: 'es',
-      isActive: true,
-      alt: 'Colombia flag',
-      key: 1,
-    },
-    {
-      src: usa,
-      label: 'English',
-      locale: 'en',
-      isActive: false,
-      alt: 'EE.UU flag',
-      key: 2,
-    },
-  ];
+const initialData: LangElement[] = [
+  {
+    src: col,
+    label: 'Español',
+    locale: 'es',
+    isActive: true,
+    alt: 'Colombia flag',
+    key: 1,
+  },
+  {
+    src: usa,
+    label: 'English',
+    locale: 'en',
+    isActive: false,
+    alt: 'EE.UU flag',
+    key: 2,
+  },
+];
 
+export const ChangeLangButton = () => {
   const [langElements, setLangElements] = useState<LangElement[]>(initialData);
 
   const handleClickSelect = (key: number, index: number) => {
