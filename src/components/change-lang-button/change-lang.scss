@@ -1,0 +1,39 @@
+@import '../../styles/variables';
+
+.list {
+  position: absolute;
+  border: 1px solid rgba($color: #000000, $alpha: 0.1);
+  border-radius: 5px;
+
+  .lang {
+    display: flex;
+    cursor: pointer;
+    padding: .3rem;
+
+    &:first-child {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    &:last-child {
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    &.active {
+      font-weight: bold;
+    }
+
+    &:hover {
+      background-color: color-mod(theme('colors.primary') l(70%));
+    }
+
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.btn {
+  cursor: pointer;
+}
