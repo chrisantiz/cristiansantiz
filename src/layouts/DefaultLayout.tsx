@@ -4,18 +4,29 @@ import { Toolbar } from '@components/toolbar/Toolbar';
 import { SideDrawer } from '@components/side-drawer/SideDrawer';
 import { Backdrop } from '@components/backdrop/Backdrop';
 import { useLanguage } from '@libs/hooks/use-language';
+import { navigate } from 'gatsby';
 
 /* Layout per defect */
-export const DefaultLayout = ({ children, pageContext: { locale } }: any) => {
+export const DefaultLayout = ({
+  children,
+  pageContext: { locale: oldLocale },
+}: any) => {
   const mainRef = useRef<any>(null);
-  const { changeLang } = useLanguage();
+  const { changeLang, locale: currentLocale } = useLanguage();
   const [toolbarColor, setToolbarColor] = useState(false);
   // if is a small screen device
   const [smallScreen, setSmallScren] = useState(false);
 
   useEffect(() => {
-    changeLang(locale);
-  }, [locale]);
+    changeLang(currentLocale);
+    const pathname = window.location.pathname.substr(
+      oldLocale === 'en' ? 3 : 0,
+    );
+
+    const route = currentLocale === 'en' ? `/en${pathname}` : pathname;
+
+    navigate(route);
+  }, [currentLocale]);
 
   const scrollFunction = () => {
     setToolbarColor(mainRef!.current!.scrollTop > 10);
@@ -37,7 +48,7 @@ export const DefaultLayout = ({ children, pageContext: { locale } }: any) => {
     return (
       <Toolbar isSmallScreen={smallScreen} changeColorOnScroll={toolbarColor} />
     );
-  }, [locale, toolbarColor, smallScreen]);
+  }, [oldLocale, toolbarColor, smallScreen]);
 
   // render only in small screen devices
   const sidedrawer = useMemo(() => {

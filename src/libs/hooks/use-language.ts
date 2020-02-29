@@ -20,5 +20,5 @@ export const useLanguage = () => {
     dispatch(changeLocale(locale));
   }
 
-  return { lang: data as DataLocale, changeLang: changeLanguage };
+  return { lang: data as DataLocale, changeLang: changeLanguage, locale };
 };
