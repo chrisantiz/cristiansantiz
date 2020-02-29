@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import './toolbar.scss';
 import { DrawerToggleButton } from '@components/side-drawer/DrawerToggleButton';
 import { ToolbarItems } from '@components/toolbar/ToolbarItems';
 import { Link } from 'gatsby';
 import { DarkModeButton } from '@components/dark-mode-button/DarkModeButton';
 import { GithubIcon, DesktopIcon } from '@components/icons';
-import { DropdownLanguages } from '../change-lang-button/DropdownLanguages';
+import { DropdownLanguages } from '../dropdown-languages/DropdownLanguages';
 
 interface Props {
   changeColorOnScroll: boolean;
