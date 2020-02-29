@@ -34,14 +34,17 @@ const initialData: LangElement[] = [
   },
 ];
 
-export const ChangeLangButton = () => {
+export const ChangeLangButton = ({ className }: { className: string }) => {
   const [langElements, setLangElements] = useState<LangElement[]>(initialData);
+  const [localeSelected, setLocaleSelected] = useState<LocaleType>('es');
 
   const handleClickSelect = (key: number, index: number) => {
     // if element is already active
     if (langElements[index].isActive) {
       return;
     }
+
+    setLocaleSelected(langElements[index].locale);
 
     setLangElements(
       langElements.map(e => ({
@@ -52,8 +55,11 @@ export const ChangeLangButton = () => {
   };
 
   return (
-    <div>
-      <GlobeIcon className="btn" />
+    <div className={`box ${className}`}>
+      <div className="icon" title="Cambiar de idioma">
+        <GlobeIcon />
+        <span>{localeSelected.toUpperCase()}</span>
+      </div>
       <div className="list">
         {langElements.map((val, index) => (
           <div

@@ -5,6 +5,7 @@ import { ToolbarItems } from '@components/toolbar/ToolbarItems';
 import { Link } from 'gatsby';
 import { DarkModeButton } from '@components/dark-mode-button/DarkModeButton';
 import { GithubIcon, DesktopIcon } from '@components/icons';
+import { ChangeLangButton } from '../change-lang-button/ChangeLang';
 
 interface Props {
   changeColorOnScroll: boolean;
@@ -47,6 +48,7 @@ export const Toolbar = React.memo(({ changeColorOnScroll, isSmallScreen }: Props
         {items}
         {/* dark mode button */}
         <DarkModeButton className="ml-2" />
+        <ChangeLangButton className="ml-2" />
         {/* go to Github account */}
         <a
           target="_blank"

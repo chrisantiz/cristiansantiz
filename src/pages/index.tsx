@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 import { SEO } from '@components/Seo';
 import { PageContainer } from '@components/PageContainer';
 import { useLanguage } from '@libs/hooks/use-language';
-import { ChangeLangButton } from '../components/change-lang-button/ChangeLang';
+// import { ChangeLangButton } from '../components/change-lang-button/ChangeLang';
 
 const IndexPage = (props: any) => {
   const { lang } = useLanguage();
@@ -11,7 +11,7 @@ const IndexPage = (props: any) => {
     <>
       <SEO title="Inicio" />
       <PageContainer>
-        <ChangeLangButton />
+        {/* <ChangeLangButton /> */}
         {/* <button className="bg-red-300" onClick={() => toggleLang()}>
           Toggle language
         </button> */}
