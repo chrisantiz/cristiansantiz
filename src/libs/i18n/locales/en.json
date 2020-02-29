@@ -1,7 +1,8 @@
 {
   "labels": {
     "darkModeBtn": "Dark mode",
-    "githubBtn": "Github account"
+    "githubBtn": "Github account",
+    "i18nButton": "Change language"
   },
   "pages": {
     "home": {

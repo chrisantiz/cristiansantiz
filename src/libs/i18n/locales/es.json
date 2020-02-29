@@ -1,7 +1,8 @@
 {
   "labels": {
     "darkModeBtn": "Modo nocturno",
-    "githubBtn": "Cuenta en GitHub"
+    "githubBtn": "Cuenta en GitHub",
+    "i18nButton": "Cambiar lenguaje"
   },
   "pages": {
     "home": {

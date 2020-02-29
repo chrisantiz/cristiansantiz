@@ -6,7 +6,7 @@ import { useLanguage } from '@libs/hooks/use-language';
 // import { ChangeLangButton } from '../components/change-lang-button/ChangeLang';
 
 const IndexPage = (props: any) => {
-  const { lang } = useLanguage();
+  console.log(props);
   return (
     <>
       <SEO title="Inicio" />

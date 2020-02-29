@@ -4,9 +4,10 @@ import { SunIcon, MoonIcon } from '../icons';
 
 interface Props {
   className?: string;
+  title: string;
 }
 
-export const DarkModeButton = ({className}: Props) => {
+export const DarkModeButton = ({className, title}: Props) => {
   const [darkMode, toggleDarkMode] = useState(false);
 
   function toggleClasses() {
@@ -17,7 +18,7 @@ export const DarkModeButton = ({className}: Props) => {
   return (
     <button
       className={`dmb-switch ${className} ${darkMode ? 'active' : ''}`}
-      title="Modo nocturno"
+      title={title}
       onClick={() => toggleClasses()}>
       <SunIcon />
       <MoonIcon />

@@ -17,6 +17,7 @@ const query = graphql`
           labels {
             darkModeBtn
             githubBtn
+            i18nButton
           }
           pages {
             home {

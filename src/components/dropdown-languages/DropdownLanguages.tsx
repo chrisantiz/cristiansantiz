@@ -5,6 +5,12 @@ import { GlobeIcon } from '../icons';
 import usa from '@/images/usa-flag.svg';
 import col from '@/images/colombia-flag.svg';
 import { LocaleType } from '../../libs/i18n/languages';
+import { useLanguage } from '../../libs/hooks/use-language';
+
+interface Props {
+  className: string;
+  title: string;
+}
 
 interface LangElement {
   src: any;
@@ -34,7 +40,7 @@ const initialData: LangElement[] = [
   },
 ];
 
-export const DropdownLanguages = ({ className }: { className: string }) => {
+export const DropdownLanguages = ({ className, title }: Props) => {
   /** dropdown items data */
   const [langElements, setLangElements] = useState<LangElement[]>(initialData);
   /** lang selected, also serves as label to display next to the button */
@@ -43,6 +49,7 @@ export const DropdownLanguages = ({ className }: { className: string }) => {
   const [showList, setShowList] = useState<boolean>(false);
   /** html element of dropdown */
   const refList = useRef<HTMLDivElement>(null);
+  const { changeLang } = useLanguage();
 
   /** when select a language */
   const handleClickSelect = (key: number, index: number) => {
@@ -52,6 +59,7 @@ export const DropdownLanguages = ({ className }: { className: string }) => {
     }
 
     setLocaleSelected(langElements[index].locale);
+    changeLang(langElements[index].locale);
 
     setLangElements(
       langElements.map(e => ({
@@ -94,7 +102,7 @@ export const DropdownLanguages = ({ className }: { className: string }) => {
     <div className={`box-dropdown ${className}`}>
       <div
         className="icon"
-        title="Cambiar de idioma"
+        title={title}
         onClick={handleClickButton}>
         <GlobeIcon />
         <span>{localeSelected.toUpperCase()}</span>

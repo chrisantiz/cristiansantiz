@@ -3,26 +3,33 @@ import { Link, graphql, useStaticQuery } from 'gatsby';
 import { RootContext } from '@libs/context/root/root.context';
 import { toggleSideDrawer } from '@libs/context/root/root.actions';
 import { LocaleType } from '@libs/i18n/languages';
+import { PagesToolbarData } from '../../models/locale.model';
+import { useLanguage } from '../../libs/hooks/use-language';
 
 export const ToolbarItems = React.memo(({ className, inDrawer }: any) => {
   const { getState, dispatch } = useContext(RootContext);
 
   const { locale, openSideDrawer: isOpen } = getState(state => state);
+  const { lang: data } = useLanguage();
+  // const [data, setData] = useState(lang);
+  // const [localeLinks, setLocaleLinks] = useState<PagesToolbarData[]>([]);
+  // const { allFile } = useStaticQuery(query);
 
-  const [localeLinks, setLocaleLinks] = useState<string[]>([]);
-  const { allFile } = useStaticQuery(query);
+  // useEffect(() => {
+  //   setLocaleLinks(
+  //     allFile.nodes
+  //       .filter(({ name }: any) => {
+  //         return name === locale;
+  //       })
+  //       .map((node: any) => node.childLocalesJson.pages)[0],
+  //   );
+  // }, [locale]);
 
-  console.log('Render toolbar items en', inDrawer ? 'drawer' : 'toolbar');
+  // useEffect(() => {
+  //   console.log('DATA: ', localeLinks);
+  // }, [localeLinks]);
 
-  useEffect(() => {
-    setLocaleLinks(
-      allFile.nodes
-        .filter(({ name }: any) => {
-          return name === locale;
-        })
-        .map((node: any) => node.childLocalesJson.pages)[0],
-    );
-  }, [locale]);
+  // console.log(lang);
 
   // close side drawer if its open when change page
   function handleClick() {
@@ -43,22 +50,22 @@ export const ToolbarItems = React.memo(({ className, inDrawer }: any) => {
         ))} */}
         <li>
           <Link to="/" activeClassName="active">
-            Inicio
+            {data.pages.home.linkLabel}
           </Link>
         </li>
         <li>
           <Link to="/sobre-mi" activeClassName="active" partiallyActive>
-            Sobre mí
+            {data.pages.aboutMe.linkLabel}
           </Link>
         </li>
         <li>
           <Link to="/proyectos" activeClassName="active" partiallyActive>
-            Proyectos
+            {data.pages.projects.linkLabel}
           </Link>
         </li>
         <li>
           <Link to="/contacto" activeClassName="active" partiallyActive>
-            Contacto
+            {data.pages.contact.linkLabel}
           </Link>
         </li>
       </ul>
@@ -66,29 +73,3 @@ export const ToolbarItems = React.memo(({ className, inDrawer }: any) => {
     // Iconos diseñados por <a href="https://www.flaticon.es/autores/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>
   );
 });
-
-const query = graphql`
-  {
-    allFile(filter: { sourceInstanceName: { eq: "locales" } }) {
-      nodes {
-        name
-        childLocalesJson {
-          pages {
-            home {
-              linkLabel
-            }
-            aboutMe {
-              linkLabel
-            }
-            projects {
-              linkLabel
-            }
-            contact {
-              linkLabel
-            }
-          }
-        }
-      }
-    }
-  }
-`;
