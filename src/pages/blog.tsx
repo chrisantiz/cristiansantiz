@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import { SEO } from '@components/Seo';
 import { PageContainer } from '@components/PageContainer';
-import { useLanguage } from '@libs/hooks/use-language';
+import { useDate } from '../libs/hooks/use-date';
 
 interface BlogItem {
   id: string;
@@ -10,14 +10,13 @@ interface BlogItem {
   date: string;
 }
 
-const BlogPage = (props: any) => {
-  // const { lang } = useLanguage();
+const BlogPage = ({ data }: any) => {
+  const { dateFromNow } = useDate();
 
-  const blogs: BlogItem[] = props.data.allMdx.edges.map((edge: any) => {
+  const blogs: BlogItem[] = data.allMdx.edges.map((edge: any) => {
     return { id: edge.node.id, ...edge.node.frontmatter };
   });
 
-  // console.log(blogs);
   return (
     <>
       <SEO title="Blog" />
@@ -26,7 +25,7 @@ const BlogPage = (props: any) => {
           {blogs.map(blog => (
             <li key={blog.id}>
               <h3>{blog.title}</h3>
-              <p>{blog.date}</p>
+              <p>{dateFromNow(blog.date)}</p>
             </li>
           ))}
         </ul>
@@ -42,7 +41,7 @@ export const query = graphql`
         node {
           frontmatter {
             title
-            date(fromNow: true, locale: $locale)
+            date
           }
         }
       }
