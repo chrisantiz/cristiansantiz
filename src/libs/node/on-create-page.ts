@@ -18,8 +18,6 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = ({
     const localizedPath = locales[lang].default
       ? page.path
       : `${locales[lang].path}${page.path}`;
-
-    console.log('path: ', localizedPath);
     // ignore not found page
     const isLinkRoute = !(page.path as string).includes('404');
 

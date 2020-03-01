@@ -13,7 +13,6 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({
     // Use path.basename
     // https://nodejs.org/api/path.html#path_path_basename_path_ext
     const name = path.basename((node.fileAbsolutePath as string), `.mdx`);
-
     // Check if post.name is "index" -- because that's the file for default language
     // (In this case "en")
     const isDefault = name === `index`;
