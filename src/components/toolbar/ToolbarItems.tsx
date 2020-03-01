@@ -12,10 +12,10 @@ export const ToolbarItems = React.memo(({ className, inDrawer }: any) => {
 
   /** generate path according to language selected */
   function genPath(path: string): string {
-    return locale === 'es' ? path : `/en${path}`;
+    return locale === 'es' ? path : `/en${path !== '/' ? path : ''}`;
   }
 
-  // close side drawer if its open when change page
+  /** close side drawer if its open when change page */
   function handleClick() {
     if (isOpen) {
       dispatch(toggleSideDrawer());

@@ -23,7 +23,10 @@ export const DefaultLayout = ({
 
     const pathname = (path as string).substr(oldLocale === 'en' ? 3 : 0);
 
-    const route = currentLocale === 'en' ? `/en${pathname}` : pathname;
+    const route =
+      currentLocale === 'en'
+        ? `/en${pathname !== '/' ? pathname : ''}`
+        : pathname;
 
     navigate(route);
   }, [currentLocale]);

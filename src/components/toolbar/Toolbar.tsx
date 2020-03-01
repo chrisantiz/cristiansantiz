@@ -20,6 +20,7 @@ export const Toolbar = React.memo(
 
     const {
       lang: { labels },
+      locale
     } = useLanguage();
 
     // change background color on scrolling
@@ -47,7 +48,7 @@ export const Toolbar = React.memo(
             <DrawerToggleButton />
           </div>
           <div className="toolbar-logo">
-            <Link to="/" title="logo">
+            <Link to={locale === 'es' ? '/' : `/${locale}`} title="logo">
               <DesktopIcon width="25px" height="25px" />
             </Link>
           </div>
