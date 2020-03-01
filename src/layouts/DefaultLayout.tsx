@@ -9,6 +9,7 @@ import { navigate } from 'gatsby';
 /* Layout per defect */
 export const DefaultLayout = ({
   children,
+  path,
   pageContext: { locale: oldLocale },
 }: any) => {
   const mainRef = useRef<any>(null);
@@ -19,9 +20,8 @@ export const DefaultLayout = ({
 
   useEffect(() => {
     changeLang(currentLocale);
-    const pathname = window.location.pathname.substr(
-      oldLocale === 'en' ? 3 : 0,
-    );
+
+    const pathname = (path as string).substr(oldLocale === 'en' ? 3 : 0);
 
     const route = currentLocale === 'en' ? `/en${pathname}` : pathname;
 

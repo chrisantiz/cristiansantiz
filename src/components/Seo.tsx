@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import { RootContext } from '@libs/context/root/root.context';
 
 function SEO({ description, lang, meta, title }: any) {
+  const { getState } = useContext(RootContext);
+  const locale = getState(s => s.locale);
+
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -17,20 +21,25 @@ function SEO({ description, lang, meta, title }: any) {
       }
     `,
   );
-
+  const englishDescription =
+    'Web developer freelance, lover of self-learning, free knowledge and Javascript.';
   const metaDescription = description || site.siteMetadata.description;
+
+  // meta description according to locale
+  const localeDescription =
+    locale === 'es' ? metaDescription : englishDescription;
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: locale,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: localeDescription,
         },
         {
           property: `og:title`,
@@ -38,7 +47,7 @@ function SEO({ description, lang, meta, title }: any) {
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: localeDescription,
         },
         {
           property: 'keywords',
@@ -63,7 +72,7 @@ function SEO({ description, lang, meta, title }: any) {
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: localeDescription,
         },
       ].concat(meta)}
     />
