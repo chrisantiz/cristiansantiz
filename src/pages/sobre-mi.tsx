@@ -1,11 +1,17 @@
 import React from 'react';
 import { SEO } from '../components/Seo';
 import { PageContainer } from '../components/PageContainer';
+import { useLanguage } from '../libs/hooks/use-language';
 
 const SecondPage = () => {
+  const {
+    lang: {
+      pages: { aboutMe },
+    },
+  } = useLanguage();
   return (
     <>
-      <SEO title="Sobre mí" />
+      <SEO title={aboutMe.linkLabel} />
       <PageContainer>
         <p className="text-justify">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic eligendi
