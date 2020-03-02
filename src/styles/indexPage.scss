@@ -1,7 +1,16 @@
+@import 'variables';
 .web-developer {
   color: black;
 
   body.dark & {
     color: #fff;
+  }
+}
+
+.image-shadow {
+  box-shadow: $shadow-light;
+
+  body.dark & {
+    box-shadow: $shadow-dark;
   }
 }

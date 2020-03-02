@@ -13,16 +13,17 @@ import {
 } from '../components/icons';
 
 import '@styles/indexPage.scss';
+import { HomePageLabels } from '../models/locale.model';
 
 interface SiteData {
   page: {
     linkLabel: string;
-  }
+    labels: HomePageLabels;
+  };
   siteDescription: string;
 }
 
 const IndexPage = ({ data }: any) => {
-
   const pageData: SiteData = data.file.nodes.map((node: any) => {
     return {
       page: node.childLocalesJson.pages.home,
@@ -45,7 +46,7 @@ const IndexPage = ({ data }: any) => {
           }}>
           <div className="w-40 sm:w-48">
             <Img
-              className="rounded-full shadow-lg"
+              className="rounded-full image-shadow"
               fluid={data.imageSharp.fluid}
             />
           </div>
@@ -66,23 +67,33 @@ const IndexPage = ({ data }: any) => {
             {pageData.siteDescription}
           </span>
           {/* social media icons */}
-          <div className="flex mt-3">
-            <a href="" className="mr-1" title="Email">
+          <div className="flex mt-4">
+            {/* email */}
+            <a
+              href="mailto:crisantizan@gmail.com"
+              target="_blank"
+              className="mr-1"
+              title={pageData.page.labels.email}>
               <EmailIcon />
             </a>
-            <a href="" className="mr-1" title="Linkedin">
-              <LinkedinIcon />
-            </a>
-            <a href="" className="mr-1" title="Whatsapp">
+            {/* whatsapp */}
+            <a
+              href="https://api.whatsapp.com/send?phone=573016206425"
+              target="_blank"
+              className="mr-1"
+              title={pageData.page.labels.whatsapp}>
               <WhatsappIcon />
             </a>
-            <a href="" className="mr-1" title="Facebook">
-              <FacebookIcon />
-            </a>
-            <a href="" title="Instagram">
-              <InstagramIcon />
+            {/* linkedin */}
+            <a
+              href="https://linkedin.com/in/crisantizan"
+              target="_blank"
+              title="Linkedin">
+              <LinkedinIcon />
             </a>
           </div>
+
+          <small>Sincé - Sucre (Colombia)</small>
         </div>
       </PageContainer>
     </>
@@ -104,6 +115,10 @@ export const query = graphql`
           pages {
             home {
               linkLabel
+              labels {
+                email
+                whatsapp
+              }
             }
           }
           siteDescription

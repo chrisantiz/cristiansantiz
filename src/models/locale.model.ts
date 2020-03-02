@@ -4,10 +4,16 @@ export interface LabelsLocale {
   i18nButton: string;
 }
 
+export interface HomePageLabels {
+  whatsapp: string;
+  email: string;
+}
+
 export interface PagesLocale {
   home: {
     text: string;
     linkLabel: string;
+    labels: HomePageLabels;
   };
   aboutMe: {
     text: string;
