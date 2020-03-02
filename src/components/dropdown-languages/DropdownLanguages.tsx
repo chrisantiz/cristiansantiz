@@ -43,13 +43,13 @@ const initialData: LangElement[] = [
 export const DropdownLanguages = ({ className, title }: Props) => {
   /** dropdown items data */
   const [langElements, setLangElements] = useState<LangElement[]>(initialData);
+  const { changeLang, locale } = useLanguage();
   /** lang selected, also serves as label to display next to the button */
-  const [localeSelected, setLocaleSelected] = useState<LocaleType>('es');
+  const [localeSelected, setLocaleSelected] = useState<LocaleType>(locale);
   /** indicates if display or hide the dropdown element */
   const [showList, setShowList] = useState<boolean>(false);
   /** html element of dropdown */
   const refList = useRef<HTMLDivElement>(null);
-  const { changeLang } = useLanguage();
 
   /** when select a language */
   const handleClickSelect = (key: number, index: number) => {

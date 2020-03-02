@@ -3,14 +3,17 @@ import { RootStateModel } from './root.model';
 import { ContextModel } from '../context.model';
 import { rootReducer } from './root.reducer';
 import { LocaleType } from '../../i18n/languages';
+import { LocalKey } from '../../enum';
 
 export const RootContext = React.createContext(
   {} as ContextModel<RootStateModel>,
 );
 
+console.log('LOCALE IN LOCALSTORAGE: ', localStorage.getItem(LocalKey.LOCALE));
+
 export const rootInitialState: RootStateModel = {
   openSideDrawer: false,
-  locale: 'es',
+  locale: (localStorage.getItem(LocalKey.LOCALE) as LocaleType) || 'es',
 };
 
 // TODO:: preload (localStorage.getItem('i18nextLng')
