@@ -2,6 +2,7 @@ import React from 'react';
 // import { graphql } from 'gatsby';
 import { SEO } from '@components/Seo';
 import { PageContainer } from '@components/PageContainer';
+import { ToolsIcon } from '../components/icons';
 // import { useDate } from '../libs/hooks/use-date';
 // import Img from 'gatsby-image';
 
@@ -14,7 +15,7 @@ import { PageContainer } from '@components/PageContainer';
 //   path: string;
 // }
 
-const BlogPage = ({ pageContext: { locale } }: any) => {
+const BlogPage = () => {
   // const { dateFromNow } = useDate();
 
   // const blogs: BlogItem[] = data.allMdx.edges.map((edge: any) => {
@@ -25,8 +26,6 @@ const BlogPage = ({ pageContext: { locale } }: any) => {
   //     path: `${path}/${edge.node.parent.relativeDirectory}`,
   //   };
   // });
-
-  const message = locale === 'es' ? 'Muy pronto' : 'Coming soon';
 
   return (
     <>
@@ -41,10 +40,8 @@ const BlogPage = ({ pageContext: { locale } }: any) => {
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'column',
-            color: 'rgba(0,0,0,.3)',
           }}>
-          {message}
-          <div>:D</div>
+          <ToolsIcon width="100px" height="100px" />
         </div>
         {/* {blogs.map(blog => (
           <div key={blog.id}>
