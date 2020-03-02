@@ -14,16 +14,25 @@ import {
 
 import '@styles/indexPage.scss';
 
+interface SiteData {
+  page: {
+    linkLabel: string;
+  }
+  siteDescription: string;
+}
+
 const IndexPage = ({ data }: any) => {
-  const {
-    lang: {
-      pages: { home },
-    },
-  } = useLanguage();
+
+  const pageData: SiteData = data.file.nodes.map((node: any) => {
+    return {
+      page: node.childLocalesJson.pages.home,
+      siteDescription: node.childLocalesJson.siteDescription,
+    };
+  })[0];
 
   return (
     <>
-      <SEO title={home.linkLabel} />
+      <SEO title={pageData.page.linkLabel} />
       <PageContainer>
         <div
           style={{
@@ -54,8 +63,7 @@ const IndexPage = ({ data }: any) => {
           </div>
           {/* message */}
           <span className="sm:w-1/2 text-center mt-1">
-            Desarrollador web freelance. Amante del autoaprendizaje, el
-            conocimiento libre y de Javascript.
+            {pageData.siteDescription}
           </span>
           {/* social media icons */}
           <div className="flex mt-3">
@@ -82,10 +90,24 @@ const IndexPage = ({ data }: any) => {
 };
 
 export const query = graphql`
-  {
+  query HomeQuery($locale: String!) {
     imageSharp(fluid: { originalName: { eq: "me.jpg" } }) {
       fluid {
         ...GatsbyImageSharpFluid
+      }
+    }
+
+    file: allFile(filter: { name: { eq: $locale } }) {
+      nodes {
+        name
+        childLocalesJson {
+          pages {
+            home {
+              linkLabel
+            }
+          }
+          siteDescription
+        }
       }
     }
   }

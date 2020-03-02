@@ -41,6 +41,7 @@ export interface PagesToolbarData {
 
 /** data traslated */
 export interface DataLocale {
+  siteDescription: string;
   labels: LabelsLocale;
   pages: PagesLocale;
 }
