@@ -4,8 +4,8 @@ import { GlobeIcon } from '../icons';
 
 import usa from '@/images/usa-flag.svg';
 import col from '@/images/colombia-flag.svg';
-import { LocaleType } from '../../libs/i18n/languages';
-import { useLanguage } from '../../libs/hooks/use-language';
+import { LocaleType } from '@libs/i18n/languages';
+import { useLanguage } from '@libs/hooks/use-language';
 
 interface Props {
   className: string;

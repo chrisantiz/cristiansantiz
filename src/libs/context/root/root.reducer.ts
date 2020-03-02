@@ -1,6 +1,5 @@
 import { RootStateModel } from './root.model';
 import { RootActionTypes } from './root-action-types';
-import i18n from '@/libs/i18n/i18next';
 
 export const rootReducer = (
   state: RootStateModel,
@@ -11,8 +10,6 @@ export const rootReducer = (
       return { ...state, openSideDrawer: !state.openSideDrawer };
 
     case 'CHANGE_LOCALE':
-      // change language in i18n instance
-      i18n.changeLanguage(action.payload);
       return { ...state, locale: action.payload };
 
     default:
