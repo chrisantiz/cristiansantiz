@@ -22,6 +22,21 @@
     transform: translateX(0);
   }
 
+  .photo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid $border-bottom-light;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+
+    body.dark & {
+      border-bottom: 1px solid $border-bottom-dark;
+    }
+  }
+
   ul {
     display: flex;
     flex-direction: column;
