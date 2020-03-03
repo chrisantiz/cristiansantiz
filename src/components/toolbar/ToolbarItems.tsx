@@ -3,6 +3,13 @@ import { Link } from 'gatsby';
 import { RootContext } from '@libs/context/root/root.context';
 import { toggleSideDrawer } from '@libs/context/root/root.actions';
 import { useLanguage } from '../../libs/hooks/use-language';
+import {
+  HomeIcon,
+  UserIcon,
+  ProjectsIcon,
+  ContactIcon,
+  EditIcon,
+} from '../icons';
 
 export const ToolbarItems = React.memo(({ className }: any) => {
   const { getState, dispatch } = useContext(RootContext);
@@ -34,6 +41,7 @@ export const ToolbarItems = React.memo(({ className }: any) => {
             to={genPath('')}
             activeClassName="active"
             partiallyActive={homePartiallyActive()}>
+            <HomeIcon />
             {data.pages.home.linkLabel}
           </Link>
         </li>
@@ -42,6 +50,7 @@ export const ToolbarItems = React.memo(({ className }: any) => {
             to={genPath('/sobre-mi')}
             activeClassName="active"
             partiallyActive>
+            <UserIcon />
             {data.pages.aboutMe.linkLabel}
           </Link>
         </li>
@@ -50,6 +59,7 @@ export const ToolbarItems = React.memo(({ className }: any) => {
             to={genPath('/proyectos')}
             activeClassName="active"
             partiallyActive>
+            <ProjectsIcon />
             {data.pages.projects.linkLabel}
           </Link>
         </li>
@@ -58,11 +68,13 @@ export const ToolbarItems = React.memo(({ className }: any) => {
             to={genPath('/contacto')}
             activeClassName="active"
             partiallyActive>
+            <ContactIcon />
             {data.pages.contact.linkLabel}
           </Link>
         </li>
         <li>
           <Link to={genPath('/blog')} activeClassName="active" partiallyActive>
+            <EditIcon />
             Blog
           </Link>
         </li>
