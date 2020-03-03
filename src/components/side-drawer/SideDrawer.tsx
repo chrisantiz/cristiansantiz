@@ -4,7 +4,8 @@ import './side-drawer.scss';
 import { RootContext } from '@libs/context/root/root.context';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import { EmailIcon } from '../icons';
+import { SocialMediaIcons } from '../SocialMediaIcons';
+import moment from 'moment';
 
 export const SideDrawer = () => {
   const { getState } = useContext(RootContext);
@@ -13,6 +14,8 @@ export const SideDrawer = () => {
   const {
     imageSharp: { fluid: imageFluid },
   } = useStaticQuery(query);
+
+  const currentYear = moment().local().year();
 
   return (
     <aside className={show ? 'side-drawer open' : 'open side-drawer'}>
@@ -26,6 +29,11 @@ export const SideDrawer = () => {
         </div>
       </div>
       <ToolbarItems />
+      <div className="aside-footer">
+        <SocialMediaIcons />
+        <small>Sincé - Sucre (Colombia)</small>
+        <small>{currentYear}</small>
+      </div>
     </aside>
   );
 };

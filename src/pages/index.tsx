@@ -1,24 +1,16 @@
 import React from 'react';
 import { SEO } from '@components/Seo';
 import { PageContainer } from '@components/PageContainer';
-import { useLanguage } from '../libs/hooks/use-language';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import {
-  WhatsappIcon,
-  InstagramIcon,
-  FacebookIcon,
-  LinkedinIcon,
-  EmailIcon,
-} from '../components/icons';
 
 import '@styles/indexPage.scss';
 import { HomePageLabels } from '../models/locale.model';
+import { SocialMediaIcons } from '../components/SocialMediaIcons';
 
 interface SiteData {
   page: {
     linkLabel: string;
-    labels: HomePageLabels;
   };
   siteDescription: string;
 }
@@ -67,32 +59,7 @@ const IndexPage = ({ data }: any) => {
             {pageData.siteDescription}
           </span>
           {/* social media icons */}
-          <div className="flex mt-4">
-            {/* email */}
-            <a
-              href="mailto:crisantizan@gmail.com"
-              target="_blank"
-              className="mr-1"
-              title={pageData.page.labels.email}>
-              <EmailIcon />
-            </a>
-            {/* whatsapp */}
-            <a
-              href="https://api.whatsapp.com/send?phone=573016206425"
-              target="_blank"
-              className="mr-1"
-              title={pageData.page.labels.whatsapp}>
-              <WhatsappIcon />
-            </a>
-            {/* linkedin */}
-            <a
-              href="https://linkedin.com/in/crisantizan"
-              target="_blank"
-              title="Linkedin">
-              <LinkedinIcon />
-            </a>
-          </div>
-
+          <SocialMediaIcons className="mt-2" />
           <small>Sincé - Sucre (Colombia)</small>
         </div>
       </PageContainer>
@@ -115,10 +82,6 @@ export const query = graphql`
           pages {
             home {
               linkLabel
-              labels {
-                email
-                whatsapp
-              }
             }
           }
           siteDescription
