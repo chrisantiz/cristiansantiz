@@ -1,4 +1,5 @@
 import { ParamsLocalizedSlug } from './model';
+import { LocaleType } from '../libs/i18n/languages';
 
 /** use a little helper function to remove trailing slashes from paths */
 export const removeTrailingSlash = (path: string) =>
@@ -25,3 +26,14 @@ export const findKey = (object: any, predicate: any) => {
   });
   return result;
 };
+
+/** generate route */
+export function generateRoute(path: string, locale: LocaleType): string {
+  const oldLocale: LocaleType = locale === 'es' ? 'en' : 'es';
+  const prefix = locale === 'en' ? `/${locale}` : '';
+  const sanitizedPath = path.substr(
+    oldLocale === 'en' ? 4 : path === '/' ? 1 : 0,
+  );
+
+  return `${prefix}${sanitizedPath}`;
+}

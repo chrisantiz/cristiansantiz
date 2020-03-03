@@ -1,41 +1,46 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useRef, useEffect, useMemo, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Toolbar } from '@components/toolbar/Toolbar';
 import { SideDrawer } from '@components/side-drawer/SideDrawer';
 import { Backdrop } from '@components/backdrop/Backdrop';
-import { useLanguage } from '@libs/hooks/use-language';
-import { navigate } from 'gatsby';
+import { RootContext } from '../libs/context/root/root.context';
+import { setActivePath, changeLocale } from '../libs/context/root/root.actions';
+import { LocalKey } from '../libs/enum';
+import { LocaleType } from '../libs/i18n/languages';
 
 /* Layout per defect */
 export const DefaultLayout = ({
   children,
   path,
-  pageContext: { locale: oldLocale },
+  pageContext: { locale: pageLocale },
 }: any) => {
   const mainRef = useRef<any>(null);
-  const { changeLang, locale: currentLocale } = useLanguage();
+  const { dispatch } = useContext(RootContext);
   const [toolbarColor, setToolbarColor] = useState(false);
   // if is a small screen device
   const [smallScreen, setSmallScren] = useState(false);
 
   useEffect(() => {
-    changeLang(currentLocale);
-
-    const pathname = (path as string).substr(oldLocale === 'en' ? 3 : 0);
-
-    const route =
-      currentLocale === 'en'
-        ? `/en${pathname !== '/' ? pathname : ''}`
-        : pathname;
-
-    navigate(route);
-  }, [currentLocale]);
+    dispatch(setActivePath(path));
+  }, [path]);
 
   const scrollFunction = () => {
     setToolbarColor(mainRef!.current!.scrollTop > 10);
   };
 
   useEffect(() => {
+    const localePersisted = localStorage.getItem(LocalKey.LOCALE) as
+      | LocaleType
+      | undefined;
+
+    // redirect only in english and when the path is /
+    if (!!localePersisted && localePersisted === 'en' && path === '/') {
+      // update state and redirect
+      dispatch(changeLocale(localePersisted, { navigate: true, path }));
+    } else {
+      dispatch(changeLocale(pageLocale));
+    }
+
     // set screen type on first render
     setSmallScren(window.innerWidth <= 768);
 
@@ -51,7 +56,7 @@ export const DefaultLayout = ({
     return (
       <Toolbar isSmallScreen={smallScreen} changeColorOnScroll={toolbarColor} />
     );
-  }, [oldLocale, toolbarColor, smallScreen]);
+  }, [pageLocale, toolbarColor, smallScreen]);
 
   // render only in small screen devices
   const sidedrawer = useMemo(() => {
@@ -64,9 +69,6 @@ export const DefaultLayout = ({
 
   return (
     <>
-      {/* <Toolbar changeColorOnScroll={toolbarColor} /> */}
-      {/* <SideDrawer /> */}
-      {/* <Backdrop /> */}
       {toolbar}
       {sidedrawer}
       {backdrop}

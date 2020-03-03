@@ -12,6 +12,12 @@ export const rootReducer = (
     case 'CHANGE_LOCALE':
       return { ...state, locale: action.payload };
 
+    case 'SET_INITIAL_DARK_MODE':
+      return { ...state, initialDarkMode: action.payload };
+
+    case 'ACTIVE_PATH':
+      return { ...state, activePath: action.payload };
+
     default:
       return state;
   }

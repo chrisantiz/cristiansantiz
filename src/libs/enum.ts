@@ -1,5 +1,6 @@
 /** localStorage keys */
 export enum LocalKey {
   /** app language */
-  LOCALE = 'crisantizanLng'
+  LOCALE = 'crisantizanLng',
+  DARK_MODE = 'crisantizanDarkMode',
 }

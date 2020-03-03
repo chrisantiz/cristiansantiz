@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
+import { Link } from 'gatsby';
 import './toolbar.scss';
 import { DrawerToggleButton } from '@components/side-drawer/DrawerToggleButton';
 import { ToolbarItems } from '@components/toolbar/ToolbarItems';
-import { Link } from 'gatsby';
 import { DarkModeButton } from '@components/dark-mode-button/DarkModeButton';
 import { GithubIcon, DesktopIcon } from '@components/icons';
 import { DropdownLanguages } from '../dropdown-languages/DropdownLanguages';
-import { useLanguage } from '../../libs/hooks/use-language';
+import { useLanguage } from '@libs/hooks/use-language';
 
 interface Props {
   changeColorOnScroll: boolean;

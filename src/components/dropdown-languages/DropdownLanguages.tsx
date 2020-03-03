@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import './dropdown-languages.scss';
 import { GlobeIcon } from '../icons';
 
 import usa from '@/images/usa-flag.svg';
 import col from '@/images/colombia-flag.svg';
 import { LocaleType } from '@libs/i18n/languages';
-import { useLanguage } from '@libs/hooks/use-language';
+import { RootContext } from '../../libs/context/root/root.context';
+import { changeLocale } from '../../libs/context/root/root.actions';
 
 interface Props {
   className: string;
@@ -43,9 +44,12 @@ const initialData: LangElement[] = [
 export const DropdownLanguages = ({ className, title }: Props) => {
   /** dropdown items data */
   const [langElements, setLangElements] = useState<LangElement[]>(initialData);
-  const { changeLang, locale } = useLanguage();
+  // const { changeLang, locale } = useLanguage();
+  const { dispatch, getState } = useContext(RootContext);
+  const [activePath, localeState] = getState(s => [s.activePath, s.locale]);
+  // const locale = getState(s => s.locale);
   /** lang selected, also serves as label to display next to the button */
-  const [localeSelected, setLocaleSelected] = useState<LocaleType>(locale);
+  const [localeSelected, setLocaleSelected] = useState<LocaleType>('es');
   /** indicates if display or hide the dropdown element */
   const [showList, setShowList] = useState<boolean>(false);
   /** html element of dropdown */
@@ -58,8 +62,9 @@ export const DropdownLanguages = ({ className, title }: Props) => {
       return;
     }
 
-    setLocaleSelected(langElements[index].locale);
-    changeLang(langElements[index].locale);
+    const { locale } = langElements[index];
+
+    setLocaleSelected(locale);
 
     setLangElements(
       langElements.map(e => ({
@@ -70,7 +75,24 @@ export const DropdownLanguages = ({ className, title }: Props) => {
 
     // hide dropdown
     setShowList(false);
+
+    // update global state and navigate from him
+    dispatch(changeLocale(locale, { navigate: true, path: activePath }));
   };
+
+  useEffect(() => {
+    // pre-load
+    if (localeState !== localeSelected) {
+      setLocaleSelected(localeState);
+
+      setLangElements(
+        langElements.map(e => ({
+          ...e,
+          isActive: e.locale === localeState,
+        })),
+      );
+    }
+  }, [localeState]);
 
   /** close dropdown clicking outside */
   useEffect(() => {
@@ -100,10 +122,7 @@ export const DropdownLanguages = ({ className, title }: Props) => {
 
   return (
     <div className={`box-dropdown ${className}`}>
-      <div
-        className="icon"
-        title={title}
-        onClick={handleClickButton}>
+      <div className="icon" title={title} onClick={handleClickButton}>
         <GlobeIcon />
         <span>{localeSelected.toUpperCase()}</span>
       </div>

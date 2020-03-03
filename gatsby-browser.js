@@ -5,7 +5,7 @@ import { DefaultLayout } from '@layouts/DefaultLayout';
 import { RootProvider } from '@libs/context/root/root.context';
 
 export const wrapPageElement = ({ element, props }) => (
-    <RootProvider>
-      <DefaultLayout {...props}>{element}</DefaultLayout>
-    </RootProvider>
+  <RootProvider>
+    <DefaultLayout {...props}>{element}</DefaultLayout>
+  </RootProvider>
 );

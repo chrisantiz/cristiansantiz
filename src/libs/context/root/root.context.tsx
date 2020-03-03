@@ -1,22 +1,20 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import { RootStateModel } from './root.model';
 import { ContextModel } from '../context.model';
 import { rootReducer } from './root.reducer';
-import { LocaleType } from '../../i18n/languages';
 import { LocalKey } from '../../enum';
+import { setInitialDarkMode } from './root.actions';
 
 export const RootContext = React.createContext(
   {} as ContextModel<RootStateModel>,
 );
 
-console.log('LOCALE IN LOCALSTORAGE: ', localStorage.getItem(LocalKey.LOCALE));
-
 export const rootInitialState: RootStateModel = {
   openSideDrawer: false,
-  locale: (localStorage.getItem(LocalKey.LOCALE) as LocaleType) || 'es',
+  locale: 'es',
+  initialDarkMode: false,
+  activePath: '',
 };
-
-// TODO:: preload (localStorage.getItem('i18nextLng')
 
 export function RootProvider({ children }: any) {
   const [state, dispatch] = useReducer(rootReducer, rootInitialState);
@@ -25,6 +23,16 @@ export function RootProvider({ children }: any) {
   function getState(cb: any) {
     return cb(state);
   }
+
+  useEffect(() => {
+    const darkMode = localStorage.getItem(LocalKey.DARK_MODE);
+
+    // set UI theme
+    if (darkMode && JSON.parse(darkMode)) {
+      document.body.classList.add('dark');
+      dispatch(setInitialDarkMode());
+    }
+  }, []);
 
   return (
     <RootContext.Provider value={{ getState, dispatch }}>
