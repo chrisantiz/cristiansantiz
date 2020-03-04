@@ -20,29 +20,25 @@ export const SideDrawer = () => {
     .year();
 
   return (
-    <aside className={show ? 'side-drawer open' : 'open side-drawer'}>
+    <aside className={show ? 'side-drawer open' : 'side-drawer'}>
       {/* photo */}
       <div className="photo-container">
         {/* image */}
         <Img className="rounded-full image-shadow w-1/2" fluid={imageFluid} />
-        <div>
-          <p className="text-warning font-semibold">CRISTIAN SANTIZ</p>
+        <p className="text-warning font-semibold">CRISTIAN SANTIZ</p>
 
-          {/* role */}
-          <div className="flex items-center text-sm web-developer font-semibold -mt-1">
-            <span className="text-warning text-sm font-semibold mr-1">
-              &#60;
-            </span>
-            WebDeveloper
-            <span className="text-warning text-sm font-semibold ml-1">
-              /&#62;
-            </span>
-          </div>
-
-          <a href="mailto:crisantizan@gmail.com" className="text-center">
-            <small>crisantizan@gmail.com</small>
-          </a>
+        {/* role */}
+        <div className="flex items-center text-sm web-developer font-semibold -mt-1 text-center">
+          <span className="text-warning text-sm font-semibold mr-1">&#60;</span>
+          WebDeveloper
+          <span className="text-warning text-sm font-semibold ml-1">
+            /&#62;
+          </span>
         </div>
+
+        <a href="mailto:crisantizan@gmail.com" className="text-center">
+          <small>crisantizan@gmail.com</small>
+        </a>
       </div>
 
       {/* links */}
