@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './dark-mode-button.scss';
 import { SunIcon, MoonIcon } from '../icons';
-import { LocalKey } from '../../libs/enum';
-import { RootContext } from '../../libs/context/root/root.context';
+import { LocalKey } from '@libs/enum';
+import { RootContext } from '@libs/context/root/root.context';
 
 interface Props {
   className?: string;

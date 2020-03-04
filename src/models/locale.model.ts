@@ -30,19 +30,11 @@ export interface PagesLocale {
 }
 
 /** necesary data for the toolbar componend and his children */
-export interface PagesToolbarData {
-  home: {
-    labelLink: string;
-  };
-  aboutMe: {
-    labelLink: string;
-  };
-  projects: {
-    labelLink: string;
-  };
-  contact: {
-    labelLink: string;
-  };
+export interface PagesLinkLabel {
+  home: string
+  aboutMe: string;
+  projects: string;
+  contact: string;
 }
 
 /** data traslated */

@@ -5,8 +5,8 @@ import { GlobeIcon } from '../icons';
 import usa from '@/images/usa-flag.svg';
 import col from '@/images/colombia-flag.svg';
 import { LocaleType } from '@libs/i18n/languages';
-import { RootContext } from '../../libs/context/root/root.context';
-import { changeLocale } from '../../libs/context/root/root.actions';
+import { RootContext } from '@libs/context/root/root.context';
+import { changeLocale } from '@libs/context/root/root.actions';
 
 interface Props {
   className: string;
@@ -44,10 +44,8 @@ const initialData: LangElement[] = [
 export const DropdownLanguages = ({ className, title }: Props) => {
   /** dropdown items data */
   const [langElements, setLangElements] = useState<LangElement[]>(initialData);
-  // const { changeLang, locale } = useLanguage();
   const { dispatch, getState } = useContext(RootContext);
   const [activePath, localeState] = getState(s => [s.activePath, s.locale]);
-  // const locale = getState(s => s.locale);
   /** lang selected, also serves as label to display next to the button */
   const [localeSelected, setLocaleSelected] = useState<LocaleType>('es');
   /** indicates if display or hide the dropdown element */

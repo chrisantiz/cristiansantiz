@@ -6,7 +6,7 @@ import { ToolbarItems } from '@components/toolbar/ToolbarItems';
 import { DarkModeButton } from '@components/dark-mode-button/DarkModeButton';
 import { GithubIcon, DesktopIcon } from '@components/icons';
 import { DropdownLanguages } from '../dropdown-languages/DropdownLanguages';
-import { useLanguage } from '@libs/hooks/use-language';
+import { useLang } from '@libs/hooks/use-language';
 
 interface Props {
   changeColorOnScroll: boolean;
@@ -21,7 +21,7 @@ export const Toolbar = React.memo(
     const {
       lang: { labels },
       locale
-    } = useLanguage();
+    } = useLang();
 
     // change background color on scrolling
     if (changeColorOnScroll) {
@@ -52,7 +52,6 @@ export const Toolbar = React.memo(
             </Link>
           </div>
           <div className="spacer"></div>
-          {/* <ToolbarItems className="toolbar-navigation-items invert" /> */}
           {items}
           {/* dark mode button */}
           <DarkModeButton className="ml-2" title={labels.darkModeBtn} />

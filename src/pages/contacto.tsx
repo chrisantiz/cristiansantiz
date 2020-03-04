@@ -1,14 +1,14 @@
 import React from 'react';
 import { SEO } from '../components/Seo';
 import { PageContainer } from '../components/PageContainer';
-import { useLanguage } from '../libs/hooks/use-language';
+import { useLang } from '../libs/hooks/use-language';
 
 const Contact = () => {
   const {
     lang: {
       pages: { contact },
     },
-  } = useLanguage();
+  } = useLang();
   return (
     <>
       <SEO title={contact.linkLabel} />

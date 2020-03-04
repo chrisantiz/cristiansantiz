@@ -1,10 +1,10 @@
 import React from 'react';
-import { SEO } from '../components/Seo';
-import { PageContainer } from '../components/PageContainer';
-import { useLanguage } from '../libs/hooks/use-language';
+import { SEO } from '@/components/Seo';
+import { PageContainer } from '@/components/PageContainer';
+import { useLang } from '@libs/hooks/use-language';
 
 const Proyects = () => {
-  const { lang: { pages: { projects } } } = useLanguage();
+  const { lang: { pages: { projects } } } = useLang();
   return (
     <>
       <SEO title={projects.linkLabel} />

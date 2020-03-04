@@ -7,13 +7,9 @@ interface Props {
 }
 
 export const SocialMediaIcons = ({ className }: Props) => {
-  const {
-    lang: {
-      pages: {
-        home: { labels },
-      },
-    },
-  } = useLang();
+  const { selector } = useLang();
+  const { labels } = selector(d => d.pages.home);
+
   return (
     <div className={`flex ${className}`}>
       {/* email */}
