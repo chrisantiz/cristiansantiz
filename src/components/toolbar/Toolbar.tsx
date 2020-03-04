@@ -33,7 +33,6 @@ export const Toolbar = React.memo(
     const items = useMemo(() => {
       return !isSmallScreen ? (
         <ToolbarItems
-          inDrawer={false}
           className="toolbar-navigation-items invert"
         />
       ) : (

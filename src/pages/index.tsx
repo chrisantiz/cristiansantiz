@@ -5,7 +5,6 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import '@styles/indexPage.scss';
-import { HomePageLabels } from '../models/locale.model';
 import { SocialMediaIcons } from '../components/SocialMediaIcons';
 
 interface SiteData {
@@ -59,7 +58,7 @@ const IndexPage = ({ data }: any) => {
             {pageData.siteDescription}
           </span>
           {/* social media icons */}
-          <SocialMediaIcons className="mt-2" />
+          <SocialMediaIcons className="mt-3" />
           <small>Sincé - Sucre (Colombia)</small>
         </div>
       </PageContainer>

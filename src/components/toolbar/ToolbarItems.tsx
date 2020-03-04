@@ -11,7 +11,12 @@ import {
   EditIcon,
 } from '../icons';
 
-export const ToolbarItems = React.memo(({ className }: any) => {
+interface Props {
+  className?: string;
+  icons?: boolean;
+}
+
+export const ToolbarItems = React.memo(({ className, icons = false }: Props) => {
   const { getState, dispatch } = useContext(RootContext);
 
   const { locale, openSideDrawer: isOpen, activePath } = getState(s => s);
@@ -33,6 +38,25 @@ export const ToolbarItems = React.memo(({ className }: any) => {
     return locale === 'en' && activePath === '/en';
   }
 
+  function getIcon(name: 'home' | 'aboutMe' | 'projects' | 'contact' | 'blog') {
+    if (!icons) {
+      return null;
+    }
+
+    switch (name) {
+      case 'home':
+        return <HomeIcon />;
+      case 'aboutMe':
+        return <UserIcon />;
+      case 'projects':
+        return <ProjectsIcon />;
+      case 'contact':
+        return <ContactIcon />;
+      case 'blog':
+        return <EditIcon />;
+    }
+  }
+
   return (
     <div className={className}>
       <ul onClick={handleClick}>
@@ -41,7 +65,7 @@ export const ToolbarItems = React.memo(({ className }: any) => {
             to={genPath('')}
             activeClassName="active"
             partiallyActive={homePartiallyActive()}>
-            <HomeIcon />
+            {getIcon('home')}
             {data.pages.home.linkLabel}
           </Link>
         </li>
@@ -50,7 +74,7 @@ export const ToolbarItems = React.memo(({ className }: any) => {
             to={genPath('/sobre-mi')}
             activeClassName="active"
             partiallyActive>
-            <UserIcon />
+            {getIcon('aboutMe')}
             {data.pages.aboutMe.linkLabel}
           </Link>
         </li>
@@ -59,7 +83,7 @@ export const ToolbarItems = React.memo(({ className }: any) => {
             to={genPath('/proyectos')}
             activeClassName="active"
             partiallyActive>
-            <ProjectsIcon />
+            {getIcon('projects')}
             {data.pages.projects.linkLabel}
           </Link>
         </li>
@@ -68,13 +92,13 @@ export const ToolbarItems = React.memo(({ className }: any) => {
             to={genPath('/contacto')}
             activeClassName="active"
             partiallyActive>
-            <ContactIcon />
+            {getIcon('contact')}
             {data.pages.contact.linkLabel}
           </Link>
         </li>
         <li>
           <Link to={genPath('/blog')} activeClassName="active" partiallyActive>
-            <EditIcon />
+            {getIcon('blog')}
             Blog
           </Link>
         </li>
