@@ -12,13 +12,15 @@ import { LocaleType } from '../libs/i18n/languages';
 export const DefaultLayout = ({
   children,
   path,
-  pageContext: { locale: pageLocale },
+  pageContext: { locale: pageLocale, notFoundPage },
 }: any) => {
   const mainRef = useRef<any>(null);
   const { dispatch } = useContext(RootContext);
   const [toolbarColor, setToolbarColor] = useState(false);
   // if is a small screen device
   const [smallScreen, setSmallScren] = useState(false);
+
+  console.log({notFoundPage})
 
   useEffect(() => {
     dispatch(setActivePath(path));
@@ -53,10 +55,11 @@ export const DefaultLayout = ({
   }, []);
 
   const toolbar = useMemo(() => {
-    return (
+    // don't display when 404 page is rendered
+    return notFoundPage === true ? null : (
       <Toolbar isSmallScreen={smallScreen} changeColorOnScroll={toolbarColor} />
     );
-  }, [pageLocale, toolbarColor, smallScreen]);
+  }, [notFoundPage, pageLocale, toolbarColor, smallScreen]);
 
   // render only in small screen devices
   const sidedrawer = useMemo(() => {

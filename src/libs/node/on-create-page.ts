@@ -41,8 +41,10 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = ({
 
     if (newPage.path === '/en/404.html') {
       newPage.matchPath = '/en/*';
+      newPage.context.notFoundPage = true;
     } else if (newPage.path === '/404.html') {
       newPage.matchPath === '/*';
+      newPage.context.notFoundPage = true;
     }
 
     return createPage(newPage);

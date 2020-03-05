@@ -5,8 +5,7 @@ import { PageContainer } from '../components/PageContainer';
 import { NotFoundIcon } from '@components/icons';
 import '@/styles/components/_not-found.scss';
 
-const NotFoundPage = (props: any) => {
-  console.log(props);
+const NotFoundPage = ({ pageContext: { locale } }: any) => {
   return (
     <PageContainer>
       <SEO title="404: Not found" />
@@ -15,7 +14,7 @@ const NotFoundPage = (props: any) => {
         <NotFoundIcon width="200px" height="200px" />
         <p>The page you were loooking for does't exists</p>
 
-        <Link to={'es' === 'es' ? '/' : `/en`}>GO TO HOME</Link>
+        <Link to={locale === 'es' ? '/' : `/${locale}`}>GO TO HOME</Link>
       </div>
     </PageContainer>
   );
