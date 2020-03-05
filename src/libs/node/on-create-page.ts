@@ -17,11 +17,11 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = ({
     // Use the values defined in "locales" to construct the path
     const localizedPath = locales[lang].default
       ? page.path
-      : `${locales[lang].path}${page.path}`;
+      : `/${locales[lang].path}${page.path}`;
     // ignore not found page
     const isLinkRoute = !(page.path as string).includes('404');
 
-    return createPage({
+    const newPage = {
       // Pass on everything from the original page
       ...page,
       // Since page.path returns with a trailing slash (e.g. "/de/")
@@ -37,6 +37,14 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = ({
         // localeResources: resources[lang] ? resources[lang] : {},
         // dateFormat: locales[lang].dateFormat,
       },
-    });
+    };
+
+    if (newPage.path === '/en/404.html') {
+      newPage.matchPath = '/en/*';
+    } else if (newPage.path === '/404.html') {
+      newPage.matchPath === '/*';
+    }
+
+    return createPage(newPage);
   });
 };
