@@ -3,6 +3,7 @@ import { SEO } from '@components/Seo';
 import { PageContainer } from '@components/PageContainer';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import { Button } from '@/components/button/Button';
 
 import '@styles/indexPage.scss';
 import { SocialMediaIcons } from '../components/SocialMediaIcons';
@@ -10,6 +11,9 @@ import { SocialMediaIcons } from '../components/SocialMediaIcons';
 interface SiteData {
   page: {
     linkLabel: string;
+    labels: {
+      buttonKnowMore: string;
+    };
   };
   siteDescription: string;
 }
@@ -57,6 +61,10 @@ const IndexPage = ({ data }: any) => {
           <span className="sm:w-1/2 text-center mt-1">
             {pageData.siteDescription}
           </span>
+          {/* button */}
+          <Button to="/sobre-mi" outlined size="sm" className="my-3">
+            {pageData.page.labels.buttonKnowMore}
+          </Button>
           {/* social media icons */}
           <SocialMediaIcons className="mt-3" />
           <small>Sincé - Sucre (Colombia)</small>
@@ -81,6 +89,9 @@ export const query = graphql`
           pages {
             home {
               linkLabel
+              labels {
+                buttonKnowMore
+              }
             }
           }
           siteDescription

@@ -11,7 +11,8 @@
       "linkLabel": "Home",
       "labels": {
         "whatsapp": "Send me a message via Whatsapp",
-        "email": "Send me a email"
+        "email": "Send me a email",
+        "buttonKnowMore": "know more"
       }
     },
     "aboutMe": {

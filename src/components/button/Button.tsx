@@ -7,14 +7,22 @@ interface Props {
   outlined?: boolean;
   className?: string;
   to?: string;
+  size?: 'xs' | 'sm' | 'md' | 'xl';
 }
 
-export const Button = ({ children, outlined, className, to }: Props) => {
+export const Button = ({
+  children,
+  outlined,
+  className,
+  to,
+  size = 'md',
+}: Props) => {
   const locale = useContext(RootContext).getState(s => s.locale);
   let classes = 'bg-warning hover:bg-orange-800 text-white';
 
   if (outlined) {
-    classes = 'text-warning hover:bg-orange-800 border border-warning bg-transparent hover:border-transparent hover:text-white';
+    classes =
+      'text-warning hover:bg-orange-800 border border-warning bg-transparent hover:border-transparent hover:text-white';
   }
 
   function redirect() {
@@ -25,7 +33,8 @@ export const Button = ({ children, outlined, className, to }: Props) => {
 
   return (
     <button
-      className={`uppercase font-semibold py-1 px-4 rounded ${classes} ${className}`} onClick={redirect}>
+      className={`uppercase font-semibold py-1 px-4 rounded text-${size} ${classes} ${className}`}
+      onClick={redirect}>
       {children}
     </button>
   );

@@ -7,7 +7,7 @@ import '@/styles/components/_not-found.scss';
 import { PagesLocale } from '../models/locale.model';
 import { Button } from '@/components/button/Button';
 
-const NotFoundPage = ({ pageContext: { locale }, data }: any) => {
+const NotFoundPage = ({ data }: any) => {
   const pageData: PagesLocale['notFound'] =
     data.allFile.edges[0].node.childLocalesJson.pages.notFound;
 

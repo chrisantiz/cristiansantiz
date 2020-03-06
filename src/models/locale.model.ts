@@ -7,6 +7,7 @@ export interface LabelsLocale {
 export interface HomePageLabels {
   whatsapp: string;
   email: string;
+  buttonKnowMore: string;
 }
 
 export interface PagesLocale {
