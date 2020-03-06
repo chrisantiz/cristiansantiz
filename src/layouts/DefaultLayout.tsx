@@ -20,8 +20,6 @@ export const DefaultLayout = ({
   // if is a small screen device
   const [smallScreen, setSmallScren] = useState(false);
 
-  console.log({notFoundPage})
-
   useEffect(() => {
     dispatch(setActivePath(path));
   }, [path]);

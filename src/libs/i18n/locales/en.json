@@ -25,6 +25,12 @@
     "contact": {
       "text": "Page \"contact\" works!",
       "linkLabel": "Contact"
+    },
+    "notFound": {
+      "title": "404: Not found page",
+      "h1": "not found",
+      "p": "The page you were loooking for does't exists",
+      "buttonText": "go to home"
     }
   }
 }

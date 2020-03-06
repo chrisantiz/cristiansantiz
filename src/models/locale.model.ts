@@ -27,11 +27,17 @@ export interface PagesLocale {
     text: string;
     linkLabel: string;
   };
+  notFound: {
+    title: string;
+    h1: string;
+    p: string;
+    buttonText: string;
+  };
 }
 
 /** necesary data for the toolbar componend and his children */
 export interface PagesLinkLabel {
-  home: string
+  home: string;
   aboutMe: string;
   projects: string;
   contact: string;
