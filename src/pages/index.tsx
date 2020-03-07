@@ -7,6 +7,7 @@ import { Button } from '@/components/button/Button';
 
 import '@styles/indexPage.scss';
 import { SocialMediaIcons } from '../components/SocialMediaIcons';
+import { useStore } from '../libs/hooks/use-store';
 
 interface SiteData {
   page: {
@@ -25,6 +26,9 @@ const IndexPage = ({ data }: any) => {
       siteDescription: node.childLocalesJson.siteDescription,
     };
   })[0];
+
+  const { getState } = useStore();
+  const myData = getState(s => s.myData);
 
   return (
     <>
@@ -46,7 +50,7 @@ const IndexPage = ({ data }: any) => {
             />
           </div>
           {/* name */}
-          <p className="text-warning font-bold text-2xl">CRISTIAN SANTIZ</p>
+        <p className="text-warning font-bold text-2xl">{myData.name.short}</p>
           {/* role */}
           <div className="flex items-center text-xl web-developer font-semibold -mt-2">
             <span className="text-warning text-2xl font-semibold mr-1">
@@ -67,7 +71,7 @@ const IndexPage = ({ data }: any) => {
           </Button>
           {/* social media icons */}
           <SocialMediaIcons className="mt-3" />
-          <small>Sincé - Sucre (Colombia)</small>
+        <small>{myData.currentLocation}</small>
         </div>
       </PageContainer>
     </>
