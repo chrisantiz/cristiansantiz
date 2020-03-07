@@ -70,7 +70,7 @@ export const DefaultLayout = ({
 
   return (
     <>
-      {toolbar}
+      {/* {toolbar} */}
       {sidedrawer}
       {backdrop}
 
@@ -78,9 +78,7 @@ export const DefaultLayout = ({
       <main
         ref={mainRef}
         onScroll={scrollFunction}
-        className="app-background"
         style={{
-          height: '100vh',
           overflowY: 'auto',
         }}>
         {children}

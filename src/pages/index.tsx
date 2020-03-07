@@ -1,108 +1,65 @@
 import React from 'react';
 import { SEO } from '@components/Seo';
 import { PageContainer } from '@components/PageContainer';
-import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import { Button } from '@/components/button/Button';
 
 import '@styles/indexPage.scss';
-import { SocialMediaIcons } from '../components/SocialMediaIcons';
-import { useStore } from '../libs/hooks/use-store';
+import { Home } from '../components/landing-page/Home';
+import { AboutMe } from '../components/landing-page/AboutMe';
+import { Projects } from '../components/landing-page/Projects';
+import { Contact } from '../components/landing-page/Contact';
 
-interface SiteData {
-  page: {
-    linkLabel: string;
-    labels: {
-      buttonKnowMore: string;
-    };
-  };
-  siteDescription: string;
-}
+import { Link } from 'react-scroll';
 
-const IndexPage = ({ data }: any) => {
-  const pageData: SiteData = data.file.nodes.map((node: any) => {
-    return {
-      page: node.childLocalesJson.pages.home,
-      siteDescription: node.childLocalesJson.siteDescription,
-    };
-  })[0];
-
-  const { getState } = useStore();
-  const myData = getState(s => s.myData);
-
+const IndexPage = () => {
   return (
     <>
-      <SEO title={pageData.page.linkLabel} />
-      <PageContainer>
-        <div
-          style={{
-            width: '100%',
-            height: '75vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-          }}>
-          <div className="w-40 sm:w-48">
-            <Img
-              className="rounded-full image-shadow"
-              fluid={data.imageSharp.fluid}
-            />
-          </div>
-          {/* name */}
-        <p className="text-warning font-bold text-2xl">{myData.name.short}</p>
-          {/* role */}
-          <div className="flex items-center text-xl web-developer font-semibold -mt-2">
-            <span className="text-warning text-2xl font-semibold mr-1">
-              &#60;
-            </span>
-            WebDeveloper
-            <span className="text-warning text-2xl font-semibold ml-1">
-              /&#62;
-            </span>
-          </div>
-          {/* message */}
-          <span className="sm:w-1/2 text-center mt-1">
-            {pageData.siteDescription}
-          </span>
-          {/* button */}
-          <Button to="/sobre-mi" outlined size="sm" className="my-3">
-            {pageData.page.labels.buttonKnowMore}
-          </Button>
-          {/* social media icons */}
-          <SocialMediaIcons className="mt-3" />
-        <small>{myData.currentLocation}</small>
-        </div>
-      </PageContainer>
+      <SEO title="Landing page" />
+      <div style={{ position: 'fixed', height: '52px', backgroundColor: 'black', color: 'white' }}>
+          <Link
+            activeClass="active"
+            to="home"
+            spy
+            smooth
+            hashSpy
+            duration={500}>
+            Home
+          </Link>
+          <Link
+            activeClass="active"
+            to="aboutMe"
+            spy
+            hashSpy
+            smooth
+            duration={500}>
+            AboutMe
+          </Link>
+          <Link
+            activeClass="active"
+            to="projects"
+            spy
+            hashSpy
+            smooth
+            duration={500}>
+            Projects
+          </Link>
+          <Link
+            activeClass="active"
+            to="contact"
+            spy
+            hashSpy
+            smooth
+            duration={500}>
+            Contact
+          </Link>
+      </div>
+      <div>
+        <Home />
+        <AboutMe />
+        <Projects />
+        <Contact />
+      </div>
     </>
   );
 };
-
-export const query = graphql`
-  query HomeQuery($locale: String!) {
-    imageSharp(fluid: { originalName: { eq: "me.jpg" } }) {
-      fluid {
-        ...GatsbyImageSharpFluid
-      }
-    }
-
-    file: allFile(filter: { name: { eq: $locale } }) {
-      nodes {
-        name
-        childLocalesJson {
-          pages {
-            home {
-              linkLabel
-              labels {
-                buttonKnowMore
-              }
-            }
-          }
-          siteDescription
-        }
-      }
-    }
-  }
-`;
 
 export default IndexPage;
