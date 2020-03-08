@@ -6,14 +6,14 @@ import { AboutMe } from '@components/landing-page/AboutMe';
 import { Projects } from '@components/landing-page/Projects';
 import { Contact } from '@components/landing-page/Contact';
 
-import WOW from 'wowjs';
-
 interface Props {
   path: string;
 }
 
 const Index: React.FC<Props> = (props: Props) => {
   useEffect(() => {
+    const WOW = require('wowjs');
+
     new WOW.WOW({ live: false }).init();
   }, []);
   return (
