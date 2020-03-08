@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 // import { Link } from 'gatsby';
-import { Link } from '@reach/router';
+import { Link } from 'react-scroll';
 import './toolbar.scss';
 import { DrawerToggleButton } from '@components/side-drawer/DrawerToggleButton';
 import { ToolbarItems } from '@components/toolbar/ToolbarItems';
@@ -21,7 +21,7 @@ export const Toolbar = React.memo(
 
     const {
       lang: { labels },
-      locale
+      locale,
     } = useLang();
 
     // change background color on scrolling
@@ -33,9 +33,7 @@ export const Toolbar = React.memo(
 
     const items = useMemo(() => {
       return !isSmallScreen ? (
-        <ToolbarItems
-          className="toolbar-navigation-items invert"
-        />
+        <ToolbarItems className="toolbar-navigation-items invert" />
       ) : (
         <></>
       );
@@ -48,7 +46,7 @@ export const Toolbar = React.memo(
             <DrawerToggleButton />
           </div>
           <div className="toolbar-logo">
-            <Link to={locale === 'es' ? '/' : `/${locale}`} title="logo">
+            <Link to="inicio" smooth className="cursor-pointer" title="logo">
               <DesktopIcon width="25px" height="25px" />
             </Link>
           </div>

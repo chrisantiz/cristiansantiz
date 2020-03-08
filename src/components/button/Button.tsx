@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { RootContext } from '../../libs/context/root/root.context';
-// import { navigate } from 'gatsby';
+import React from 'react';
+import { Link } from 'react-scroll';
 
 interface Props {
   children: string;
@@ -17,7 +16,6 @@ export const Button = ({
   to,
   size = 'md',
 }: Props) => {
-  const locale = useContext(RootContext).getState(s => s.locale);
   let classes = 'bg-warning hover:bg-orange-800 text-white';
 
   if (outlined) {
@@ -25,16 +23,16 @@ export const Button = ({
       'text-warning hover:bg-orange-800 border border-warning bg-transparent hover:border-transparent hover:text-white';
   }
 
-  function redirect() {
-    if (!to) return;
-
-    // navigate(locale === 'es' ? to : `/${locale}${to}`);
-  }
-
-  return (
+  return !!to ? (
+    <Link
+      to={to as string}
+      smooth
+      className={`cursor-pointer uppercase font-semibold py-1 px-4 rounded text-${size} ${classes} ${className}`}>
+      {children}
+    </Link>
+  ) : (
     <button
-      className={`uppercase font-semibold py-1 px-4 rounded text-${size} ${classes} ${className}`}
-      onClick={redirect}>
+      className={`uppercase font-semibold py-1 px-4 rounded text-${size} ${classes} ${className}`}>
       {children}
     </button>
   );

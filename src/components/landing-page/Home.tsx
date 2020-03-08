@@ -54,7 +54,7 @@ export const Home: React.FC<Props> = ({ id }) => {
           {/* message */}
           <span className="sm:w-1/2 text-center mt-1">{siteDescription}</span>
           {/* button */}
-          <Button to="/sobre-mi" outlined size="sm" className="my-3">
+          <Button to="sobre-mi" outlined size="sm" className="my-3">
             {home.labels.buttonKnowMore}
           </Button>
           {/* social media icons */}
