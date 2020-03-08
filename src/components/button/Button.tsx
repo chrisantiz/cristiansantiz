@@ -27,6 +27,7 @@ export const Button = ({
     <Link
       to={to as string}
       smooth
+      offset={-56}
       className={`cursor-pointer uppercase font-semibold py-1 px-4 rounded text-${size} ${classes} ${className}`}>
       {children}
     </Link>
