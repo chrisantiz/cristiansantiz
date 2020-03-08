@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PageContainer } from '../PageContainer';
 import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -21,6 +21,13 @@ export const Home: React.FC<Props> = ({ id }) => {
   } = useLang();
 
   const { name, currentLocation } = useStore().getState(s => s.myData);
+
+  function onLoadImage() {
+    console.log('Imagen cargada');
+    setTimeout(() => setShowImage(true), 200);
+  }
+
+  const [showImage, setShowImage] = useState(false);
   return (
     <section className="landing-item home-section" id={id}>
       <PageContainer>
@@ -33,19 +40,20 @@ export const Home: React.FC<Props> = ({ id }) => {
             justifyContent: 'center',
             flexDirection: 'column',
           }}>
-          <div className="w-40 sm:w-48 magictime vanishIn">
+          <div className={`${!showImage ? 'opacity-0' : 'opacity-1' }`}>
             <Img
-              className="rounded-full image-shadow"
+            onLoad={onLoadImage}
+              className="wow magictime spaceInRight w-40 sm:w-48 rounded-full image-shadow"
               fluid={image.imageSharp.fluid}
             />
           </div>
 
           {/* name */}
-          <p className="magictime swap text-warning font-bold text-2xl uppercase">
+          <p className="wow magictime swap text-warning font-bold text-2xl uppercase">
             {name.short}
           </p>
           {/* role */}
-          <div className="magictime swap flex items-center text-xl web-developer font-semibold -mt-2">
+          <div className="wow magictime spaceInRight flex items-center text-xl web-developer font-semibold -mt-2">
             <span className="text-warning text-2xl font-semibold mr-1">
               &#60;
             </span>
@@ -55,14 +63,20 @@ export const Home: React.FC<Props> = ({ id }) => {
             </span>
           </div>
           {/* message */}
-          <span className="magictime swap sm:w-1/2 text-center mt-1">{siteDescription}</span>
+          <span className="wow magictime swap sm:w-1/2 text-center mt-1">
+            {siteDescription}
+          </span>
           {/* button */}
-          <Button to="sobre-mi" outlined size="sm" className="magictime swap my-3">
+          <Button
+            to="sobre-mi"
+            outlined
+            size="sm"
+            className="wow magictime spaceInRight my-3">
             {home.labels.buttonKnowMore}
           </Button>
           {/* social media icons */}
-          <SocialMediaIcons className="magictime swap mt-3" />
-          <small className="magictime swap">{currentLocation}</small>
+          <SocialMediaIcons className="wow magictime swap mt-3" />
+          <small className="wow magictime swap">{currentLocation}</small>
         </div>
       </PageContainer>
     </section>
@@ -72,7 +86,7 @@ export const Home: React.FC<Props> = ({ id }) => {
 const query = graphql`
   {
     imageSharp(fluid: { originalName: { eq: "me.jpg" } }) {
-      fluid {
+      fluid(maxWidth: 300) {
         ...GatsbyImageSharpFluid
       }
     }
