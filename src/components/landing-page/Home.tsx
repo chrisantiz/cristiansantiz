@@ -33,16 +33,19 @@ export const Home: React.FC<Props> = ({ id }) => {
             justifyContent: 'center',
             flexDirection: 'column',
           }}>
-          <div className="w-40 sm:w-48">
+          <div className="w-40 sm:w-48 magictime vanishIn">
             <Img
               className="rounded-full image-shadow"
               fluid={image.imageSharp.fluid}
             />
           </div>
+
           {/* name */}
-          <p className="text-warning font-bold text-2xl uppercase">{name.short}</p>
+          <p className="magictime swap text-warning font-bold text-2xl uppercase">
+            {name.short}
+          </p>
           {/* role */}
-          <div className="flex items-center text-xl web-developer font-semibold -mt-2">
+          <div className="magictime swap flex items-center text-xl web-developer font-semibold -mt-2">
             <span className="text-warning text-2xl font-semibold mr-1">
               &#60;
             </span>
@@ -52,14 +55,14 @@ export const Home: React.FC<Props> = ({ id }) => {
             </span>
           </div>
           {/* message */}
-          <span className="sm:w-1/2 text-center mt-1">{siteDescription}</span>
+          <span className="magictime swap sm:w-1/2 text-center mt-1">{siteDescription}</span>
           {/* button */}
-          <Button to="sobre-mi" outlined size="sm" className="my-3">
+          <Button to="sobre-mi" outlined size="sm" className="magictime swap my-3">
             {home.labels.buttonKnowMore}
           </Button>
           {/* social media icons */}
-          <SocialMediaIcons className="mt-3" />
-          <small>{currentLocation}</small>
+          <SocialMediaIcons className="magictime swap mt-3" />
+          <small className="magictime swap">{currentLocation}</small>
         </div>
       </PageContainer>
     </section>
