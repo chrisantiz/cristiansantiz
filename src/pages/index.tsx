@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '@styles/indexPage.scss';
 
 import { Home } from '@components/landing-page/Home';
@@ -11,18 +11,17 @@ interface Props {
 }
 
 const Index: React.FC<Props> = (props: Props) => {
-  useEffect(() => {
-    const WOW = require('wowjs');
+  const [loaded, setLoaded] = useState(false);
 
-    new WOW.WOW({ live: false }).init();
-  }, []);
   return (
-    <>
-      <Home id="inicio" />
+    <div
+      style={{ transition: 'opacity .2s ease-in' }}
+      className={`${!loaded ? 'opacity-0' : 'opacity-1'}`}>
+      <Home id="inicio" imageLoaded={() => setLoaded(true)} />
       <AboutMe id="sobre-mi" />
       <Projects id="proyectos" />
       <Contact id="contacto" />
-    </>
+    </div>
   );
 };
 

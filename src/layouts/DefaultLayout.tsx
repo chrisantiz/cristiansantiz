@@ -46,6 +46,12 @@ export const DefaultLayout = ({ children, path }: any) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    const WOW = require('wowjs');
+
+    new WOW.WOW({ live: false, offset: 56, animateClass: 'magictime' }).init();
+  }, []);
+
   const toolbar = useMemo(() => {
     return (
       <Toolbar isSmallScreen={smallScreen} changeColorOnScroll={toolbarColor} />

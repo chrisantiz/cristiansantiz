@@ -9,9 +9,10 @@ import { useStore } from '../../libs/hooks/use-store';
 
 interface Props {
   id: string;
+  imageLoaded(): void;
 }
 
-export const Home: React.FC<Props> = ({ id }) => {
+export const Home: React.FC<Props> = ({ id, imageLoaded }) => {
   const image = useStaticQuery(query);
   const {
     lang: {
@@ -22,12 +23,12 @@ export const Home: React.FC<Props> = ({ id }) => {
 
   const { name, currentLocation } = useStore().getState(s => s.myData);
 
-  function onLoadImage() {
-    console.log('Imagen cargada');
-    setTimeout(() => setShowImage(true), 200);
-  }
+  // function onLoadImage() {
+  //   console.log('Imagen cargada');
+  //   setTimeout(() => setShowImage(true), 200);
+  // }
 
-  const [showImage, setShowImage] = useState(false);
+  // const [showImage, setShowImage] = useState(false);
   return (
     <section className="landing-item home-section" id={id}>
       <PageContainer>
@@ -40,20 +41,24 @@ export const Home: React.FC<Props> = ({ id }) => {
             justifyContent: 'center',
             flexDirection: 'column',
           }}>
-          <div className={`${!showImage ? 'opacity-0' : 'opacity-1' }`}>
+          <div>
             <Img
-            onLoad={onLoadImage}
+            onLoad={imageLoaded}
               className="wow magictime spaceInRight w-40 sm:w-48 rounded-full image-shadow"
               fluid={image.imageSharp.fluid}
             />
           </div>
 
           {/* name */}
-          <p className="wow magictime swap text-warning font-bold text-2xl uppercase">
+          <p
+            className="wow magictime swap text-warning font-bold text-2xl uppercase"
+            data-wow-delay="400ms">
             {name.short}
           </p>
           {/* role */}
-          <div className="wow magictime spaceInRight flex items-center text-xl web-developer font-semibold -mt-2">
+          <div
+            className="wow magictime spaceInRight flex items-center text-xl web-developer font-semibold -mt-2"
+            data-wow-delay="500ms">
             <span className="text-warning text-2xl font-semibold mr-1">
               &#60;
             </span>
@@ -63,7 +68,9 @@ export const Home: React.FC<Props> = ({ id }) => {
             </span>
           </div>
           {/* message */}
-          <span className="wow magictime swap sm:w-1/2 text-center mt-1">
+          <span
+            className="wow magictime swap sm:w-1/2 text-center mt-1"
+            data-wow-delay="600ms">
             {siteDescription}
           </span>
           {/* button */}
@@ -71,12 +78,20 @@ export const Home: React.FC<Props> = ({ id }) => {
             to="sobre-mi"
             outlined
             size="sm"
-            className="wow magictime spaceInRight my-3">
+            className="wow magictime spaceInRight my-3"
+            data-wow-delay="700ms">
             {home.labels.buttonKnowMore}
           </Button>
           {/* social media icons */}
-          <SocialMediaIcons className="wow magictime swap mt-3" />
-          <small className="wow magictime swap">{currentLocation}</small>
+          <SocialMediaIcons
+            className="wow magictime swap mt-3"
+            data-wow-delay="750ms"
+          />
+          <small
+            className="wow magictime swap"
+            data-wow-delay="800ms">
+            {currentLocation}
+          </small>
         </div>
       </PageContainer>
     </section>
