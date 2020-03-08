@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PageContainer } from '../PageContainer';
 import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -21,33 +21,27 @@ export const Home: React.FC<Props> = ({ id, imageLoaded }) => {
     },
   } = useLang();
 
+  console.log('re render');
+
   const { name, currentLocation } = useStore().getState(s => s.myData);
 
-  // function onLoadImage() {
-  //   console.log('Imagen cargada');
-  //   setTimeout(() => setShowImage(true), 200);
-  // }
-
-  // const [showImage, setShowImage] = useState(false);
   return (
     <section className="landing-item home-section" id={id}>
       <PageContainer>
         <div
           style={{
             width: '100%',
-            height: '75vh',
+            height: '70vh',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'column',
           }}>
-          <div>
-            <Img
+          <Img
             onLoad={imageLoaded}
-              className="wow magictime spaceInRight w-40 sm:w-48 rounded-full image-shadow"
-              fluid={image.imageSharp.fluid}
-            />
-          </div>
+            className="wow magictime spaceInRight w-40 sm:w-48 rounded-full image-shadow"
+            fluid={image.imageSharp.fluid}
+          />
 
           {/* name */}
           <p
@@ -87,9 +81,7 @@ export const Home: React.FC<Props> = ({ id, imageLoaded }) => {
             className="wow magictime swap mt-3"
             data-wow-delay="750ms"
           />
-          <small
-            className="wow magictime swap"
-            data-wow-delay="800ms">
+          <small className="wow magictime swap" data-wow-delay="800ms">
             {currentLocation}
           </small>
         </div>
