@@ -13,12 +13,15 @@ $toolbar-height: 56px;
   transition: background-color 0.1s ease-in;
   padding-right: 8px;
   /* no default color */
-  background-color: theme('colors.primary');
-  border-bottom: 1px solid $border-bottom-light;
+  // background-color: theme('colors.primary');
+  background-color: color-mod(theme('colors.primary') a(90%));
+  // border-bottom: 1px solid $border-bottom-light;
+  box-shadow: $shadow-light;
 
   body.dark & {
-    border-bottom: 1px solid $border-bottom-dark;
+    // border-bottom: 1px solid $border-bottom-dark;
     background-color: $toolbar-color-scroll-dark;
+    box-shadow: $shadow-dark;
   }
 
   &.toolbar-scroll {
