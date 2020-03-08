@@ -1,8 +1,12 @@
 import React from 'react';
 
-export const Contact = () => {
+interface Props {
+  id: string;
+}
+
+export const Contact: React.FC<Props> = ({ id }) => {
   return (
-    <section className="contact-section" id="contact">
+    <section className="landing-item contact-section" id={id}>
       <h1>Contact page</h1>
     </section>
   );

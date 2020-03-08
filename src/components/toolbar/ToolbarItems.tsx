@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { Link } from 'gatsby';
+import React, { useContext, useEffect, useState } from 'react';
 import { RootContext } from '@libs/context/root/root.context';
 import { toggleSideDrawer } from '@libs/context/root/root.actions';
 import { useLang } from '../../libs/hooks/use-language';
@@ -11,38 +10,35 @@ import {
   EditIcon,
 } from '../icons';
 import { PagesLinkLabel } from '../../models/locale.model';
-import { Index } from '../../models/shared.model';
 import { pagesLinkLabelSelector } from '../../helpers/selectors.helper';
+import {
+  Link as LinkScroll,
+} from 'react-scroll';
+import { SEO } from '../Seo';
 
 interface Props {
   className?: string;
   icons?: boolean;
 }
 
+type PageItems = 'inicio' | 'sobre-mi' | 'proyectos' | 'contacto';
 export const ToolbarItems = React.memo(
   ({ className, icons = false }: Props) => {
     const { getState, dispatch } = useContext(RootContext);
+    const [title, setTitle] = useState('Inicio');
 
-    const { locale, openSideDrawer: isOpen, activePath } = getState(s => s);
+    const { locale, openSideDrawer: isOpen } = getState(s => s);
     const { selector } = useLang();
+    const [pageItem, setPageItem] = useState<PageItems>('' as PageItems);
 
     /** link labels */
     const labels: PagesLinkLabel = selector(pagesLinkLabelSelector);
-
-    /** generate path according to language selected */
-    function genPath(path: string): string {
-      return locale === 'es' ? path : `/en${path}`;
-    }
 
     /** close side drawer if its open when change page */
     function handleClick() {
       if (isOpen) {
         dispatch(toggleSideDrawer());
       }
-    }
-
-    function homePartiallyActive(): boolean {
-      return locale === 'en' && activePath === '/en';
     }
 
     /** show icon if prefer */
@@ -67,54 +63,112 @@ export const ToolbarItems = React.memo(
       }
     }
 
+    // update title when "page" is changed
+    useEffect(() => {
+      if (!!pageItem) {
+        setTitle(getPageSelected(pageItem));
+      }
+    }, [pageItem]);
+
+    // update title when locale is changed
+    useEffect(() => {
+      if (!!pageItem) {
+        setTitle(getPageSelected(pageItem));
+      }
+    }, [locale]);
+
+    function handleActive(to: PageItems) {
+      setPageItem(to);
+
+      if (isOpen) {
+        dispatch(toggleSideDrawer());
+      }
+    }
+
+    function getPageSelected(item: PageItems): string {
+      switch (pageItem) {
+        case 'inicio':
+          return labels.home;
+
+        case 'contacto':
+          return labels.contact;
+
+        case 'proyectos':
+          return labels.projects;
+
+        case 'sobre-mi':
+          return labels.aboutMe;
+      }
+    }
+
     return (
       <div className={className}>
+        <SEO title={title} />
         <ul onClick={handleClick}>
           <li>
-            <Link
-              to={genPath('')}
-              activeClassName="active"
-              partiallyActive={homePartiallyActive()}>
+            <LinkScroll
+              to="inicio"
+              activeClass="active"
+              className="cursor-pointer"
+              onSetActive={handleActive}
+              offset={-56}
+              spy
+              smooth
+              duration={700}>
               {getIcon('home')}
               {labels.home}
-            </Link>
+            </LinkScroll>
           </li>
           <li>
-            <Link
-              to={genPath('/sobre-mi')}
-              activeClassName="active"
-              partiallyActive>
+            <LinkScroll
+              to="sobre-mi"
+              activeClass="active"
+              onSetActive={handleActive}
+              spy
+              smooth
+              offset={-56}
+              className="cursor-pointer"
+              duration={700}>
               {getIcon('aboutMe')}
               {labels.aboutMe}
-            </Link>
+            </LinkScroll>
           </li>
           <li>
-            <Link
-              to={genPath('/proyectos')}
-              activeClassName="active"
-              partiallyActive>
+            <LinkScroll
+              to="proyectos"
+              activeClass="active"
+              onSetActive={handleActive}
+              spy
+              smooth
+              offset={-56}
+              className="cursor-pointer"
+              duration={700}>
               {getIcon('projects')}
               {labels.projects}
-            </Link>
+            </LinkScroll>
           </li>
           <li>
-            <Link
-              to={genPath('/contacto')}
-              activeClassName="active"
-              partiallyActive>
+            <LinkScroll
+              to="contacto"
+              activeClass="active"
+              onSetActive={handleActive}
+              spy
+              smooth
+              offset={-56}
+              className="cursor-pointer"
+              duration={700}>
               {getIcon('contact')}
               {labels.contact}
-            </Link>
+            </LinkScroll>
           </li>
-          <li>
+          {/* <li>
             <Link
-              to={genPath('/blog')}
-              activeClassName="active"
-              partiallyActive>
+              to={locale === 'es' ? '/blog' : `/en/blog`}
+              getProps={isPartiallyActive}>
               {getIcon('blog')}
               Blog
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
     );

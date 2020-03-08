@@ -1,8 +1,12 @@
 import React from 'react';
 
-export const Projects = () => {
+interface Props {
+  id: string;
+}
+
+export const Projects: React.FC<Props> = ({ id }) => {
   return (
-    <section className="projects-section" id="projects">
+    <section className="landing-item projects-section" id={id}>
       <h1>Projects page</h1>
     </section>
   );

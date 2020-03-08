@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import { SEO } from '../components/Seo';
 import { PageContainer } from '../components/PageContainer';
 import { NotFoundIcon } from '@components/icons';

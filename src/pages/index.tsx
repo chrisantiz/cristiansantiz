@@ -1,65 +1,24 @@
 import React from 'react';
-import { SEO } from '@components/Seo';
-import { PageContainer } from '@components/PageContainer';
-
 import '@styles/indexPage.scss';
-import { Home } from '../components/landing-page/Home';
-import { AboutMe } from '../components/landing-page/AboutMe';
-import { Projects } from '../components/landing-page/Projects';
-import { Contact } from '../components/landing-page/Contact';
 
-import { Link } from 'react-scroll';
+import { Home } from '@components/landing-page/Home';
+import { AboutMe } from '@components/landing-page/AboutMe';
+import { Projects } from '@components/landing-page/Projects';
+import { Contact } from '@components/landing-page/Contact';
 
-const IndexPage = () => {
+interface Props {
+  path: string;
+}
+
+const Index: React.FC<Props> = (props: Props) => {
   return (
     <>
-      <SEO title="Landing page" />
-      <div style={{ position: 'fixed', height: '52px', backgroundColor: 'black', color: 'white' }}>
-          <Link
-            activeClass="active"
-            to="home"
-            spy
-            smooth
-            hashSpy
-            duration={500}>
-            Home
-          </Link>
-          <Link
-            activeClass="active"
-            to="aboutMe"
-            spy
-            hashSpy
-            smooth
-            duration={500}>
-            AboutMe
-          </Link>
-          <Link
-            activeClass="active"
-            to="projects"
-            spy
-            hashSpy
-            smooth
-            duration={500}>
-            Projects
-          </Link>
-          <Link
-            activeClass="active"
-            to="contact"
-            spy
-            hashSpy
-            smooth
-            duration={500}>
-            Contact
-          </Link>
-      </div>
-      <div>
-        <Home />
-        <AboutMe />
-        <Projects />
-        <Contact />
-      </div>
+      <Home id="inicio" />
+      <AboutMe id="sobre-mi" />
+      <Projects id="proyectos" />
+      <Contact id="contacto" />
     </>
   );
 };
 
-export default IndexPage;
+export default Index;

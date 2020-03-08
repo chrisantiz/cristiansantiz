@@ -10,8 +10,9 @@ import {
 } from './root-action-types';
 import { LocaleType } from '../../i18n/languages';
 import { LocalKey } from '../../enum';
-import { navigate } from 'gatsby';
+// import { navigate } from 'gatsby';
 import { generateRoute } from '../../../helpers/gatsby-node.helper';
+import { navigate } from '@reach/router';
 
 /** [root state] toggle side drawer */
 export function toggleSideDrawer(): ToggleSideDrawerType {
@@ -30,7 +31,7 @@ export function changeLocale(
 ): ChangeLocaleType {
   localStorage.setItem(LocalKey.LOCALE, locale);
   if (!!opt && opt.navigate) {
-    navigate(generateRoute(opt.path, locale));
+    generateRoute(opt.path, locale)
   }
   return {
     type: CHANGE_LOCALE,

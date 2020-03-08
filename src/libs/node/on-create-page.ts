@@ -12,41 +12,33 @@ export const onCreatePage: GatsbyNode['onCreatePage'] = ({
   // So everything in src/pages/
   deletePage(page);
 
-  // Grab the keys ('en' & 'de') of locales and map over them
-  Object.keys(locales).map(lang => {
-    // Use the values defined in "locales" to construct the path
-    const localizedPath = locales[lang].default
-      ? page.path
-      : `/${locales[lang].path}${page.path}`;
-    // ignore not found page
-    const isLinkRoute = !(page.path as string).includes('404');
+  const newPage = {
+    // Pass on everything from the original page
+    ...page,
+    // Since page.path returns with a trailing slash (e.g. "/de/")
+    // We want to remove that
+    path: removeTrailingSlash(page.path),
+    // Pass in the locale as context to every page
+    // This context also gets passed to the src/components/layout file
+    // This should ensure that the locale is available on every page
+    context: {
+      ...page.context,
+      // localeResources: resources[lang] ? resources[lang] : {},
+      // dateFormat: locales[lang].dateFormat,
+    },
+  };
 
-    const newPage = {
-      // Pass on everything from the original page
-      ...page,
-      // Since page.path returns with a trailing slash (e.g. "/de/")
-      // We want to remove that
-      path: removeTrailingSlash(localizedPath),
-      // Pass in the locale as context to every page
-      // This context also gets passed to the src/components/layout file
-      // This should ensure that the locale is available on every page
-      context: {
-        ...page.context,
-        locale: lang,
-        isLinkRoute
-        // localeResources: resources[lang] ? resources[lang] : {},
-        // dateFormat: locales[lang].dateFormat,
-      },
-    };
-
-    if (newPage.path === '/en/404.html') {
-      newPage.matchPath = '/en/*';
-      newPage.context.notFoundPage = true;
-    } else if (newPage.path === '/404.html') {
-      newPage.matchPath === '/*';
-      newPage.context.notFoundPage = true;
-    }
-
+  if (page.path !== '/blog') {
     return createPage(newPage);
-  });
+  } else {
+    // only /blog in double route
+    Object.keys(locales).map(lang => {
+      // Use the values defined in "locales" to construct the path
+      const localizedPath = locales[lang].default
+        ? page.path
+        : `/${locales[lang].path}${page.path}`;
+      // ignore not found page
+      return createPage(newPage);
+    });
+  }
 };

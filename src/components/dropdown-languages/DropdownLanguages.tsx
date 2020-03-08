@@ -45,7 +45,7 @@ export const DropdownLanguages = ({ className, title }: Props) => {
   /** dropdown items data */
   const [langElements, setLangElements] = useState<LangElement[]>(initialData);
   const { dispatch, getState } = useContext(RootContext);
-  const [activePath, localeState] = getState(s => [s.activePath, s.locale]);
+  const localeState = getState(s => s.locale);
   /** lang selected, also serves as label to display next to the button */
   const [localeSelected, setLocaleSelected] = useState<LocaleType>('es');
   /** indicates if display or hide the dropdown element */
@@ -73,9 +73,8 @@ export const DropdownLanguages = ({ className, title }: Props) => {
 
     // hide dropdown
     setShowList(false);
-
     // update global state and navigate from him
-    dispatch(changeLocale(locale, { navigate: true, path: activePath }));
+    dispatch(changeLocale(locale));
   };
 
   useEffect(() => {

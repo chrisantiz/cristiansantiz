@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
+import { Link } from '@reach/router';
 import './toolbar.scss';
 import { DrawerToggleButton } from '@components/side-drawer/DrawerToggleButton';
 import { ToolbarItems } from '@components/toolbar/ToolbarItems';

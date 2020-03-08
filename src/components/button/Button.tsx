@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { RootContext } from '../../libs/context/root/root.context';
-import { navigate } from 'gatsby';
+// import { navigate } from 'gatsby';
 
 interface Props {
   children: string;
@@ -28,7 +28,7 @@ export const Button = ({
   function redirect() {
     if (!to) return;
 
-    navigate(locale === 'es' ? to : `/${locale}${to}`);
+    // navigate(locale === 'es' ? to : `/${locale}${to}`);
   }
 
   return (

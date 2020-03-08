@@ -3,7 +3,8 @@
 $toolbar-height: 56px;
 
 .toolbar {
-  position: fixed;
+  position: sticky;
+  // position: absolute;
   z-index: 90;
   width: 100%;
   top: 0;
@@ -12,11 +13,12 @@ $toolbar-height: 56px;
   transition: background-color 0.1s ease-in;
   padding-right: 8px;
   /* no default color */
-  background-color: transparent;
+  background-color: theme('colors.primary');
   border-bottom: 1px solid $border-bottom-light;
 
   body.dark & {
     border-bottom: 1px solid $border-bottom-dark;
+    background-color: $toolbar-color-scroll-dark;
   }
 
   &.toolbar-scroll {
@@ -124,11 +126,11 @@ $toolbar-height: 56px;
             color: theme('colors.warning');
           }
 
-          &:hover:before,
-          &:focus:before {
-            visibility: visible;
-            transform: scaleX(1);
-          }
+          // &:hover:before,
+          // &:focus:before {
+          //   visibility: visible;
+          //   transform: scaleX(1);
+          // }
 
           // set other underline when link is active
           &.active::before {

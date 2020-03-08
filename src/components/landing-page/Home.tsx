@@ -1,11 +1,13 @@
 import React from 'react';
 
-export const Home = () => {
+interface Props {
+  id: string;
+}
+
+export const Home: React.FC<Props> = ({ id }) => {
   return (
-    <section className="home-section" id="home">
+    <section className="landing-item home-section" id={id}>
       <h1>Home page</h1>
     </section>
   );
 };
-
-
