@@ -1,52 +1,32 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import { SEO } from '../components/Seo';
 import { PageContainer } from '../components/PageContainer';
 import { NotFoundIcon } from '@components/icons';
 import '@/styles/components/_not-found.scss';
-import { PagesLocale } from '../models/locale.model';
 import { Button } from '@/components/button/Button';
+import { useLang } from '../libs/hooks/use-language';
 
-const NotFoundPage = ({ data }: any) => {
-  const pageData: PagesLocale['notFound'] =
-    data.allFile.edges[0].node.childLocalesJson.pages.notFound;
+const NotFoundPage = () => {
+  const {
+    lang: {
+      pages: { notFound },
+    },
+  } = useLang();
 
   return (
     <PageContainer>
-      <SEO title={pageData.title} />
+      <SEO title={notFound.title} />
       <div className="not-found">
-        <h1 className="uppercase">{pageData.h1}</h1>
+        <h1 className="uppercase">{notFound.h1}</h1>
         <NotFoundIcon width="200px" height="200px" />
-        <p>{pageData.p}</p>
+        <p>{notFound.p}</p>
 
         <Button outlined className="mt-4" to="/">
-          {pageData.buttonText}
+          {notFound.buttonText}
         </Button>
       </div>
     </PageContainer>
   );
 };
-
-export const data = graphql`
-  query MyQuery($locale: String!) {
-    allFile(filter: { name: { eq: $locale } }) {
-      edges {
-        node {
-          childLocalesJson {
-            pages {
-              notFound {
-                buttonText
-                h1
-                p
-                title
-              }
-            }
-          }
-          name
-        }
-      }
-    }
-  }
-`;
 
 export default NotFoundPage;
