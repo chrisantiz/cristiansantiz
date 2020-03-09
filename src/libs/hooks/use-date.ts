@@ -15,5 +15,9 @@ export const useDate = () => {
       .fromNow();
   }
 
-  return { dateFromNow };
+  function getYearsFromNow(date: Date | string) {
+    return moment().diff(date, 'years');
+  }
+
+  return { dateFromNow, getYearsFromNow };
 };
