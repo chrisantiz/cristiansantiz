@@ -21,10 +21,9 @@ export const Home: React.FC<Props> = ({ id, imageLoaded }) => {
     },
   } = useLang();
 
-  const { state: { myData } } = useGlobalState();
-
-  console.log('re render');
-
+  const {
+    state: { myData },
+  } = useGlobalState();
 
   return (
     <section className="landing-item home-section" id={id}>
@@ -32,7 +31,7 @@ export const Home: React.FC<Props> = ({ id, imageLoaded }) => {
         <div
           style={{
             width: '100%',
-            height: '70vh',
+            height: '85vh',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -74,15 +73,20 @@ export const Home: React.FC<Props> = ({ id, imageLoaded }) => {
             outlined
             size="sm"
             className="wow magictime spaceInRight my-3"
-            data-wow-delay="700ms">
+            data-wow-delay="700ms"
+            data-wow-offset="-56">
             {home.labels.buttonKnowMore}
           </Button>
           {/* social media icons */}
           <SocialMediaIcons
             className="wow magictime swap mt-3"
             data-wow-delay="750ms"
+            data-wow-offset="-56"
           />
-          <small className="wow magictime swap" data-wow-delay="800ms">
+          <small
+            className="wow magictime swap"
+            data-wow-delay="800ms"
+            data-wow-offset="-56">
             {myData.currentLocation}
           </small>
         </div>

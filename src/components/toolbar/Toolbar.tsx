@@ -44,7 +44,13 @@ export const Toolbar = ({ isSmallScreen }: Props) => {
           <DrawerToggleButton />
         </div>
         <div className="toolbar-logo">
-          <Link to="inicio" smooth className="cursor-pointer" title="logo">
+          <Link
+            to="inicio"
+            offset={-56}
+            smooth
+            duration={700}
+            className="cursor-pointer"
+            title="logo">
             <DesktopIcon width="25px" height="25px" />
           </Link>
         </div>

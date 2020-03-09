@@ -45,7 +45,7 @@ export const DefaultLayout = ({ children }: any) => {
   useEffect(() => {
     const WOW = require('wowjs');
 
-    new WOW.WOW({ live: false, offset: 56, animateClass: 'magictime' }).init();
+    new WOW.WOW({ live: false, animateClass: 'magictime' }).init();
   }, []);
 
   const toolbar = useMemo(() => {
