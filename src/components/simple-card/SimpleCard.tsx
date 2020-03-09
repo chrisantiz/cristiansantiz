@@ -9,15 +9,13 @@ interface Props {
 
 export const SimpleCard: React.FC<Props> = ({ icon, title, children }) => {
   return (
-    <div className="w-full">
-      <div className="h-40 border-t border-l border-r border-gray-400 rounded-t rounded-r rounded-l text-center overflow-hidden flex justify-center items-center px-1">
+    <div className="w-full simple-card-container">
+      <div className="simple-card-header rounded-t h-40  text-center overflow-hidden flex justify-center items-center px-1">
         {icon}
       </div>
-      <div className="border-r border-b border-l border-grey-light -mt-1 bg-white rounded-b p-4 flex flex-col justify-between leading-normal">
-        <div>
-          <div className="text-black font-bold text-xl mb-2">{title}</div>
-          <p className="text-grey-darker text-base text-justify">{children}</p>
-        </div>
+      <div className="simple-card-content border-r border-b border-l border-gray-500 rounded-b p-4 flex flex-col justify-between leading-normal">
+        <div className="font-bold text-xl mb-2">{title}</div>
+        <p className="text-base text-justify">{children}</p>
       </div>
     </div>
   );

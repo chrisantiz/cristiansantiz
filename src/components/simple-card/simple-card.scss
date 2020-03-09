@@ -1,0 +1,25 @@
+@import '../../styles/variables';
+
+.simple-card-container {
+  .simple-card-header {
+    background-color: color-mod(theme('colors.primary') a(40%));
+  }
+
+  .simple-card-content {
+    div {
+      color: theme('colors.warning');
+    }
+  }
+
+  body.dark & {
+    .simple-card-header,
+    .simple-card-content {
+      border-color: color-mod(theme('colors.primary') a(40%));
+    }
+
+    .simple-card-content {
+      color: $font-color-dark;
+      background-color: rgb(37, 37, 37);
+    }
+  }
+}

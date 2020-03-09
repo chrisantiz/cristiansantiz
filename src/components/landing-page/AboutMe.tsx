@@ -19,7 +19,7 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
   return (
     <PageContainer id={id}>
       <section className="py-3">
-        <h1 className="text-2xl text-center">Quién soy</h1>
+        <h1 className="text-2xl text-center text-warning font-semibold">Yo brevemente</h1>
 
         <p className="text-justify">
           Me presento, mi nombre es Cristian Santiz, tengo {age} años y soy
@@ -47,11 +47,11 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
         </p>
 
         <p className="text-justify mt-2">
-          En resumidas, soy del tipo de persona que le gusta saber el porqué de
+          En resumen, soy del tipo de persona que le gusta saber el porqué de
           las cosas solo para dejar de nutrir su ignorancia.
         </p>
 
-        <h1 className="mt-8 mb-4 text-2xl text-center">
+        <h1 className="mt-8 mb-4 text-2xl text-center text-warning font-semibold">
           Por qué deberías contratarme y/o trabajar conmigo
         </h1>
 
