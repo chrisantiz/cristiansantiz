@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './drawer-toggle-button.scss';
-import { RootContext } from '../../libs/context/root/root.context';
-import { toggleSideDrawer } from '../../libs/context/root/root.actions';
+import { toggleSideDrawer } from '@libs/context/global/actions';
+import { useGlobalState } from '@/libs/hooks/use-global-state';
 
 export const DrawerToggleButton = () => {
-  const { dispatch } = useContext(RootContext);
+  const { dispatch } = useGlobalState();
+
   return (
     <button
       className="toggle-button"

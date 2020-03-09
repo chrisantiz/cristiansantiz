@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import { RootContext } from '@libs/context/root/root.context';
+import { useGlobalState } from '@/libs/hooks/use-global-state';
 
 function SEO({ description, lang, meta, title }: any) {
-  const { getState } = useContext(RootContext);
-  const locale = getState(s => s.locale);
+  const { state: { locale } } = useGlobalState();
 
   const { site } = useStaticQuery(
     graphql`

@@ -4,8 +4,8 @@ import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Button } from '../button/Button';
 import { SocialMediaIcons } from '../SocialMediaIcons';
-import { useLang } from '../../libs/hooks/use-language';
-import { useStore } from '../../libs/hooks/use-store';
+import { useLang } from '@libs/hooks/use-language';
+import { useGlobalState } from '@/libs/hooks/use-global-state';
 
 interface Props {
   id: string;
@@ -21,9 +21,10 @@ export const Home: React.FC<Props> = ({ id, imageLoaded }) => {
     },
   } = useLang();
 
+  const { state: { myData } } = useGlobalState();
+
   console.log('re render');
 
-  const { name, currentLocation } = useStore().getState(s => s.myData);
 
   return (
     <section className="landing-item home-section" id={id}>
@@ -47,7 +48,7 @@ export const Home: React.FC<Props> = ({ id, imageLoaded }) => {
           <p
             className="wow magictime swap text-warning font-bold text-2xl uppercase"
             data-wow-delay="400ms">
-            {name.short}
+            {myData.name.short}
           </p>
           {/* role */}
           <div
@@ -82,7 +83,7 @@ export const Home: React.FC<Props> = ({ id, imageLoaded }) => {
             data-wow-delay="750ms"
           />
           <small className="wow magictime swap" data-wow-delay="800ms">
-            {currentLocation}
+            {myData.currentLocation}
           </small>
         </div>
       </PageContainer>

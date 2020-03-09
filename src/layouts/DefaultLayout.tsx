@@ -3,27 +3,23 @@ import PropTypes from 'prop-types';
 import { Toolbar } from '@components/toolbar/Toolbar';
 import { SideDrawer } from '@components/side-drawer/SideDrawer';
 import { Backdrop } from '@components/backdrop/Backdrop';
-import { setActivePath, changeLocale } from '../libs/context/root/root.actions';
-import { LocalKey } from '../libs/enum';
-import { LocaleType } from '../libs/i18n/languages';
-import { useStore } from '../libs/hooks/use-store';
+import { changeLocale } from '@libs/context/global/actions';
+import { LocalKey } from '@libs/enum';
+import { LocaleType } from '@libs/i18n/languages';
+import { useGlobalState } from '@/libs/hooks/use-global-state';
 
 /* Layout per defect */
-export const DefaultLayout = ({ children, path }: any) => {
-  const mainRef = useRef<any>(null);
-  const { dispatch, getState } = useStore();
-  const localeState = getState(s => s.locale);
-  const [toolbarColor, setToolbarColor] = useState(false);
+export const DefaultLayout = ({ children }: any) => {
+  const { state: { locale }, dispatch } = useGlobalState();
+
+  // const mainRef = useRef<any>(null);
+  // const [toolbarColor, setToolbarColor] = useState(false);
   // if is a small screen device
   const [smallScreen, setSmallScren] = useState(false);
 
-  useEffect(() => {
-    dispatch(setActivePath(path));
-  }, [path]);
-
-  const scrollFunction = () => {
-    setToolbarColor(mainRef!.current!.scrollTop > 10);
-  };
+  // const scrollFunction = () => {
+  //   setToolbarColor(mainRef!.current!.scrollTop > 10);
+  // };
 
   useEffect(() => {
     const localePersisted = localStorage.getItem(LocalKey.LOCALE) as
@@ -31,7 +27,7 @@ export const DefaultLayout = ({ children, path }: any) => {
       | undefined;
 
     // change only if they are different
-    if (!!localePersisted && localePersisted !== localeState) {
+    if (!!localePersisted && localePersisted !== locale) {
       dispatch(changeLocale(localePersisted));
     }
 
@@ -54,9 +50,9 @@ export const DefaultLayout = ({ children, path }: any) => {
 
   const toolbar = useMemo(() => {
     return (
-      <Toolbar isSmallScreen={smallScreen} changeColorOnScroll={toolbarColor} />
+      <Toolbar isSmallScreen={smallScreen} />
     );
-  }, [localeState, toolbarColor, smallScreen]);
+  }, [locale, smallScreen]);
 
   // render only in small screen devices
   const sidedrawer = useMemo(() => {
@@ -74,7 +70,7 @@ export const DefaultLayout = ({ children, path }: any) => {
       {backdrop}
 
       {/* main */}
-      <main ref={mainRef} onScroll={scrollFunction}>
+      <main /* ref={mainRef} onScroll={scrollFunction} */>
         {children}
       </main>
     </>

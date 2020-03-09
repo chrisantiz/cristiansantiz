@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './dropdown-languages.scss';
 import { GlobeIcon } from '../icons';
 
 import usa from '@/images/usa-flag.svg';
 import col from '@/images/colombia-flag.svg';
 import { LocaleType } from '@libs/i18n/languages';
-import { RootContext } from '@libs/context/root/root.context';
-import { changeLocale } from '@libs/context/root/root.actions';
+import { changeLocale } from '@libs/context/global/actions';
+import { useGlobalState } from '@libs/hooks/use-global-state';
 
 interface Props {
   className: string;
@@ -42,10 +42,14 @@ const initialData: LangElement[] = [
 ];
 
 export const DropdownLanguages = ({ className, title }: Props) => {
+  const {
+    state: { locale },
+    dispatch,
+  } = useGlobalState();
+
   /** dropdown items data */
   const [langElements, setLangElements] = useState<LangElement[]>(initialData);
-  const { dispatch, getState } = useContext(RootContext);
-  const localeState = getState(s => s.locale);
+
   /** lang selected, also serves as label to display next to the button */
   const [localeSelected, setLocaleSelected] = useState<LocaleType>('es');
   /** indicates if display or hide the dropdown element */
@@ -79,17 +83,17 @@ export const DropdownLanguages = ({ className, title }: Props) => {
 
   useEffect(() => {
     // pre-load
-    if (localeState !== localeSelected) {
-      setLocaleSelected(localeState);
+    if (locale !== localeSelected) {
+      setLocaleSelected(locale);
 
       setLangElements(
         langElements.map(e => ({
           ...e,
-          isActive: e.locale === localeState,
+          isActive: e.locale === locale,
         })),
       );
     }
-  }, [localeState]);
+  }, [locale]);
 
   /** close dropdown clicking outside */
   useEffect(() => {

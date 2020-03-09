@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './backdrop.scss';
-import { RootContext } from '@libs/context/root/root.context';
-import { toggleSideDrawer } from '@libs/context/root/root.actions';
+import { toggleSideDrawer } from '@libs/context/global/actions';
+import { useGlobalState } from '@/libs/hooks/use-global-state';
 
 export const Backdrop = () => {
-  const { getState, dispatch } = useContext(RootContext);
-  const show = getState(state => state.openSideDrawer);
+  const {
+    state: { openSideDrawer: show },
+    dispatch,
+  } = useGlobalState();
+
   if (show) {
     return (
       <div

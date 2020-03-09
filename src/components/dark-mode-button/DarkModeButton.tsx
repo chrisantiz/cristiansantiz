@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './dark-mode-button.scss';
 import { SunIcon, MoonIcon } from '../icons';
 import { LocalKey } from '@libs/enum';
-import { RootContext } from '@libs/context/root/root.context';
+import { useGlobalState } from '@/libs/hooks/use-global-state';
 
 interface Props {
   className?: string;
@@ -10,8 +10,8 @@ interface Props {
 }
 
 export const DarkModeButton = ({ className, title }: Props) => {
-  const { getState } = useContext(RootContext);
-  const initialDarkMode = getState(s => s.initialDarkMode);
+  const { state: { initialDarkMode } } = useGlobalState();
+
   const [darkMode, toggleDarkMode] = useState(false);
 
   function toggleClasses() {

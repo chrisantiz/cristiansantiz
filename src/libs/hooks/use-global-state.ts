@@ -8,12 +8,13 @@ export interface ContextModel<T> {
     selector: (state: TState) => TSelected,
   ): TSelected;
   dispatch: React.Dispatch<GlobalActionTypes>;
-  state(): T;
+  state: T;
 }
 
 export const useGlobalState = (): ContextModel<GlobalStateModel> => {
   function selectState(cb: any) {
     return cb(state());
   }
-  return { state, dispatch: dispatch(), selectState };
+
+  return { state: state(), dispatch: dispatch(), selectState };
 };

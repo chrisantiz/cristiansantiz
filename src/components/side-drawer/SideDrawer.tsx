@@ -1,15 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { ToolbarItems } from '@components/toolbar/ToolbarItems';
 import './side-drawer.scss';
-import { RootContext } from '@libs/context/root/root.context';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import { SocialMediaIcons } from '../SocialMediaIcons';
 import moment from 'moment';
+import { useGlobalState } from '@/libs/hooks/use-global-state';
 
 export const SideDrawer = () => {
-  const { getState } = useContext(RootContext);
-  const show = getState(state => state.openSideDrawer);
+  const {
+    state: { openSideDrawer: show, myData },
+  } = useGlobalState();
 
   const {
     imageSharp: { fluid: imageFluid },
@@ -25,7 +26,7 @@ export const SideDrawer = () => {
       <div className="photo-container">
         {/* image */}
         <Img className="rounded-full image-shadow w-1/2" fluid={imageFluid} />
-        <p className="text-warning font-semibold">CRISTIAN SANTIZ</p>
+        <p className="text-warning font-semibold uppercase">{myData.name.short}</p>
 
         {/* role */}
         <div className="flex items-center text-sm web-developer font-semibold -mt-1 text-center">
@@ -36,8 +37,10 @@ export const SideDrawer = () => {
           </span>
         </div>
 
-        <a href="mailto:crisantizan@gmail.com" className="text-center">
-          <small>crisantizan@gmail.com</small>
+        <a
+          href={`mailto:${myData.socialMediaLinks.email}`}
+          className="text-center">
+          <small>{myData.socialMediaLinks.email}</small>
         </a>
       </div>
 
@@ -47,7 +50,7 @@ export const SideDrawer = () => {
       {/* footer */}
       <div className="aside-footer">
         <SocialMediaIcons />
-        <small>Sincé - Sucre (Colombia)</small>
+        <small>{myData.currentLocation}</small>
         <small>{currentYear}</small>
       </div>
     </aside>

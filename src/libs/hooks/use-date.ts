@@ -1,13 +1,12 @@
 import moment from 'moment';
 import 'moment/locale/es';
-import { useContext } from 'react';
-import { RootContext } from '../context/root/root.context';
+import { useGlobalState } from './use-global-state';
 
 /** date transformation (according to locale) */
 export const useDate = () => {
-  const { getState } = useContext(RootContext);
-
-  const locale = getState(t => t.locale);
+  const {
+    state: { locale },
+  } = useGlobalState();
 
   function dateFromNow(date: Date | string) {
     return moment(date)
