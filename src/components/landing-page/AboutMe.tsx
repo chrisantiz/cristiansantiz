@@ -2,6 +2,8 @@ import React from 'react';
 import { PageContainer } from '../PageContainer';
 import { useGlobalState } from '@/libs/hooks/use-global-state';
 import { useDate } from '@/libs/hooks/use-date';
+import { CompetitivenessIcon, IdeasIcon, ConstantIcon } from '../icons';
+import { SimpleCard } from '../simple-card/SimpleCard';
 
 interface Props {
   id: string;
@@ -17,7 +19,7 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
   return (
     <PageContainer id={id}>
       <section className="py-3">
-        <h1 className="text-2xl text-center">¿Quién soy yo?</h1>
+        <h1 className="text-2xl text-center">Quién soy</h1>
 
         <p className="text-justify">
           Me presento, mi nombre es Cristian Santiz, tengo {age} años y soy
@@ -33,12 +35,10 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
         </p>
 
         <p className="text-justify mt-2">
-          Qué tanto podría decir de mí, soy un tipo común y corriente enamorado
-          del desarrollo web. Tan autodidacta como curioso, siempre intento
-          estar al tanto de las cosas que pasan alrededor del mundo, no solo
-          tecnológicas; pues, tal cual citó Bacon: «el conocimiento es poder», y
-          hay mucha razón en ello. Es la mejor herramienta que tenemos como
-          individuos para aportar a la sociedad cosas de valor.
+          Soy un tipo común y corriente enamorado del desarrollo web. Tan
+          autodidacta como curioso, siempre intento estar al tanto de las cosas
+          que pasan alrededor del mundo, no solo tecnológicas; pues, tal cual
+          citó Bacon: «el conocimiento es poder».
         </p>
 
         <p className="text-justify mt-2">
@@ -51,9 +51,59 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
           las cosas solo para dejar de nutrir su ignorancia.
         </p>
 
-        <h1 className="mt-4 text-2xl text-center">
-          ¿Por qué deberías contratarme y/o trabajar conmigo?
+        <h1 className="mt-8 mb-4 text-2xl text-center">
+          Por qué deberías contratarme y/o trabajar conmigo
         </h1>
+
+        {/* cards */}
+        <section className="flex flex-wrap md:flex-no-wrap">
+          <div className="w-full md:mr-3">
+            <SimpleCard
+              title="Competitividad"
+              icon={<CompetitivenessIcon className="w-32 h-32" />}>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Voluptatibus quia, nulla! Maiores et perferendis eaque,
+              exercitationem praesentium nihil.
+            </SimpleCard>
+          </div>
+
+          <div className="w-full md:mr-3 mt-3 md:mt-0">
+            <SimpleCard
+              title="Constancia"
+              icon={<ConstantIcon className="w-32 h-32" />}>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Voluptatibus quia, nulla! Maiores et perferendis eaque,
+              exercitationem praesentium nihil.
+            </SimpleCard>
+          </div>
+
+          <div className="w-full mt-3 md:mt-0">
+            <SimpleCard
+              title="Productividad e ideas"
+              icon={<IdeasIcon className="w-32 h-32" />}>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Voluptatibus quia, nulla! Maiores et perferendis eaque,
+              exercitationem praesentium nihil.
+            </SimpleCard>
+          </div>
+        </section>
+        {/* <div className="max-w-md w-full lg:flex">
+          <div className="h-40 lg:h-auto lg:w-40 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden bg-warning flex items-center px-1">
+            <CompetitivenessIcon className="w-40 h-40" />
+          </div>
+          <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+            <div>
+              <div className="text-black font-bold text-xl mb-2">
+                Competitividad
+              </div>
+              <p className="text-grey-darker text-base">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Voluptatibus quia, nulla! Maiores et perferendis eaque,
+                exercitationem praesentium nihil.
+              </p>
+            </div>
+          </div>
+        </div> */}
       </section>
     </PageContainer>
     // <section className="landing-item aboutme-section overflow-hidden" id={id}>

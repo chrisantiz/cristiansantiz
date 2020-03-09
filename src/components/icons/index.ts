@@ -1,3 +1,6 @@
+export { CompetitivenessIcon } from './CompetitivenessIcon';
+export { IdeasIcon } from './IdeasIcon';
+export { ConstantIcon } from './ConstantIcon';
 export { EditIcon } from './EditIcon';
 export { ContactIcon } from './ContactIcon';
 export { ProjectsIcon } from './ProjectsIcon';
