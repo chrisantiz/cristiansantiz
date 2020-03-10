@@ -61,7 +61,7 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
         </h2>
 
         {/* cards */}
-        <section className="flex flex-wrap md:flex-no-wrap">
+        <section className="flex flex-wrap md:flex-no-wrap mb-4">
           <div className="w-full md:mr-3">
             <SimpleCard
               title="Competitividad"
