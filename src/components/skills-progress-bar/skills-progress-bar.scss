@@ -1,0 +1,123 @@
+// colors
+$background-color: #1a1a1a;
+
+$red: #c0392b;
+$blue: #1199ff;
+$purple: #9b59b6;
+$orange: #ffa500;
+$green: #27ae60;
+
+$animation-delay: 0.7s;
+
+$skils: (
+  javascript: 75%,
+  typescript: 85%,
+  nodejs: 70%,
+  expressjs: 80%,
+  nestjs: 75%,
+  mysql: 40%,
+  vue: 80%,
+  angular: 45%,
+  react: 45%,
+  flux: 75%,
+  gatsby: 40%,
+  html: 80%,
+  css: 40%,
+  php: 35%,
+  ubuntu: 35%,
+);
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+.skills-bar-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  list-style: none;
+
+  li {
+    display: flex;
+
+    div.bar-icon {
+      margin-right: 0.5rem;
+    }
+    div.bar-content {
+      width: 100%;
+    }
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+
+    .progressbar-title {
+      display: flex;
+      align-items: center;
+
+      h3 {
+        display: inline-block;
+      }
+
+      .percent {
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    .bar-container {
+      background: #555;
+      position: relative;
+      width: 100%;
+      height: 7px;
+      margin-top: 5px;
+      display: block;
+      @include border-radius(5px);
+
+      .progressbar {
+        position: absolute;
+        width: 0%;
+        height: 100%;
+        @include border-radius(5px);
+
+        animation-duration: 2s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: both;
+      }
+
+    }
+  }
+}
+
+.progressred {
+  background-color: $red;
+}
+.progressblue {
+  background-color: $blue;
+}
+.progresspurple {
+  background-color: $purple;
+}
+.progressorange {
+  background-color: $orange;
+}
+.progressgreen {
+  background-color: $green;
+}
+
+@each $name, $percent in $skils {
+  $i: index(($skils), ($name $percent));
+
+  .progress-#{$name} {
+    animation-name: progress-#{$name};
+    animation-delay: $animation-delay * $i;
+  }
+
+  @keyframes progress-#{$name} {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: $percent;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { useGlobalState } from '@/libs/hooks/use-global-state';
 import { useDate } from '@/libs/hooks/use-date';
 import { CompetitivenessIcon, IdeasIcon, ConstantIcon } from '../icons';
 import { SimpleCard } from '../simple-card/SimpleCard';
+import { SkillsProgressBar } from '../skills-progress-bar/SkillsProgressBar';
 
 interface Props {
   id: string;
@@ -19,7 +20,10 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
   return (
     <PageContainer id={id}>
       <section className="py-3">
-        <h1 className="text-2xl text-center text-warning font-semibold">Yo brevemente</h1>
+        {/* section 1 */}
+        <h2 className="text-2xl text-center text-warning font-semibold">
+          Yo brevemente
+        </h2>
 
         <p className="text-justify">
           Me presento, mi nombre es Cristian Santiz, tengo {age} años y soy
@@ -50,10 +54,12 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
           En resumen, soy del tipo de persona que le gusta saber el porqué de
           las cosas solo para dejar de nutrir su ignorancia.
         </p>
+        {/* end section 1 */}
 
-        <h1 className="mt-8 mb-4 text-2xl text-center text-warning font-semibold">
+        {/* section 2 */}
+        <h2 className="mt-8 mb-4 text-2xl text-center text-warning font-semibold">
           Por qué deberías contratarme y/o trabajar conmigo
-        </h1>
+        </h2>
 
         {/* cards */}
         <section className="flex flex-wrap md:flex-no-wrap">
@@ -87,35 +93,16 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
             </SimpleCard>
           </div>
         </section>
-        {/* <div className="max-w-md w-full lg:flex">
-          <div className="h-40 lg:h-auto lg:w-40 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden bg-warning flex items-center px-1">
-            <CompetitivenessIcon className="w-40 h-40" />
-          </div>
-          <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-            <div>
-              <div className="text-black font-bold text-xl mb-2">
-                Competitividad
-              </div>
-              <p className="text-grey-darker text-base">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptatibus quia, nulla! Maiores et perferendis eaque,
-                exercitationem praesentium nihil.
-              </p>
-            </div>
-          </div>
-        </div> */}
+        {/* end section 2 */}
+
+        {/* section 3 */}
+        <h2 className="mt-8 mb-4 text-2xl text-center text-warning font-semibold">
+          Habilidades
+        </h2>
+
+        <SkillsProgressBar />
+        {/* end section 3 */}
       </section>
     </PageContainer>
-    // <section className="landing-item aboutme-section overflow-hidden" id={id}>
-    //   <h1 className="wow magictime swap" data-wow-delay="700ms">
-    //     About me page
-    //   </h1>
-    //   <h3 className="wow magictime swap" data-wow-delay="700ms">
-    //     Contenido del sobre mí
-    //   </h3>
-    //   <p className="wow magictime swap" data-wow-delay="700ms">
-    //     hola mundo
-    //   </p>
-    // </section>
   );
 };
