@@ -79,7 +79,8 @@ export const SkillsProgressBar: React.FC<Props> = () => {
           classNameAnimation={
             !!(skillProgress as any)[language] ? 'magictime slideUpReturn' : ''
           }
-          classNameProgress={`progress-${language}`}>
+          classNameProgress={`progress-${language}`}
+          classNameBarContent={`bar-content-${language}`}>
           <FacebookIcon className="h-10 w-10" />
         </SkillItem>,
       );

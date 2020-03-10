@@ -3,6 +3,7 @@ import React from 'react';
 interface Props {
   classNameAnimation: string;
   classNameProgress: string;
+  classNameBarContent: string;
   percent: string;
   title: string;
   children: JSX.Element;
@@ -11,7 +12,7 @@ interface Props {
 export const SkillItem: React.FC<Props> = props => (
   <li>
     <div className="bar-icon">{props.children}</div>
-    <div className="bar-content">
+    <div className={`bar-content ${props.classNameBarContent}`}>
       <div className="progressbar-title">
         <h3>{props.title}</h3>
         <span className={`percent ${props.classNameAnimation}`}>
@@ -19,7 +20,7 @@ export const SkillItem: React.FC<Props> = props => (
         </span>
       </div>
       <div className="bar-container">
-        <span className={`progressbar progressred ${props.classNameProgress}`}></span>
+        <span className={`progressbar ${props.classNameProgress}`}></span>
       </div>
     </div>
   </li>

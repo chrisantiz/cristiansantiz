@@ -27,6 +27,23 @@ $skils: (
   ubuntu: 35%,
 );
 
+$skills-bg-colors:
+  /* -- javascript -- */ theme('colors.yellow.600'),
+  /* -- typescript -- */ theme('colors.blue.800'),
+  /* -- nodejs -- */ theme('colors.green.800'),
+  /* -- expressjs -- */ theme('colors.gray.600'),
+  /* -- nestjs -- */ theme('colors.pink.900'),
+  /* -- mysql -- */ theme('colors.orange.500'),
+  /* -- vue -- */ theme('colors.green.800'),
+  /* -- angular -- */ theme('colors.red.800'),
+  /* -- react -- */ theme('colors.blue.800'),
+  /* -- flux -- */ theme('colors.green.800'),
+  /* -- gatbsy -- */ theme('colors.indigo.800'),
+  /* -- html -- */ theme('colors.orange.800'),
+  /* -- css -- */ theme('colors.pink.600'),
+  /* -- php -- */ theme('colors.purple.600'),
+  /* -- ubuntu -- */ theme('colors.orange.600');
+
 @mixin border-radius($radius) {
   border-radius: $radius;
 }
@@ -61,14 +78,19 @@ $skils: (
       .percent {
         position: absolute;
         right: 0;
+        // color: theme('colors.warning');
+        font-weight: bold;
       }
     }
 
     .bar-container {
-      background: #555;
+      background: rgba($color: #000000, $alpha: .2);
+      body.dark & {
+        background-color: rgba($color: #000000, $alpha: .4);
+      }
       position: relative;
       width: 100%;
-      height: 7px;
+      height: 9px;
       margin-top: 5px;
       display: block;
       @include border-radius(5px);
@@ -83,25 +105,8 @@ $skils: (
         animation-timing-function: ease-out;
         animation-fill-mode: both;
       }
-
     }
   }
-}
-
-.progressred {
-  background-color: $red;
-}
-.progressblue {
-  background-color: $blue;
-}
-.progresspurple {
-  background-color: $purple;
-}
-.progressorange {
-  background-color: $orange;
-}
-.progressgreen {
-  background-color: $green;
 }
 
 @each $name, $percent in $skils {
@@ -110,8 +115,17 @@ $skils: (
   .progress-#{$name} {
     animation-name: progress-#{$name};
     animation-delay: $animation-delay * $i;
+    background-color: nth($skills-bg-colors, $i);
   }
 
+  // add color to percent number
+  .bar-content-#{$name} {
+    .progressbar-title .percent {
+      color: color-mod(nth($skills-bg-colors, $i) b(50%));
+    }
+  }
+
+  // create animations
   @keyframes progress-#{$name} {
     0% {
       width: 0%;
