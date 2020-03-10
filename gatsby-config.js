@@ -90,6 +90,7 @@ module.exports = {
         printReject: false,
         develop: false,
         tailwind: true,
+        whitelistPatterns: [/^progress-/, /^bar-content-/]
       },
     },
     `gatsby-plugin-mdx`,
