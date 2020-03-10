@@ -12,6 +12,7 @@ import angular from '@/images/svg-skills/angular.svg';
 import react from '@/images/svg-skills/react.svg';
 import flux from '@/images/svg-skills/flux.svg';
 import gatsby from '@/images/svg-skills/gatsby.svg';
+import electronjs from '@/images/svg-skills/electronjs.svg';
 import html from '@/images/svg-skills/html.svg';
 import css from '@/images/svg-skills/css.svg';
 import php from '@/images/svg-skills/php.svg';
@@ -33,6 +34,7 @@ interface Skills {
   react: string;
   flux: string;
   gatsby: string;
+  electronjs: string;
   html: string;
   css: string;
   php: string;
@@ -52,13 +54,14 @@ export const SkillsProgressBar: React.FC<Props> = () => {
     react: '',
     flux: '',
     gatsby: '',
+    electronjs: '',
     html: '',
     css: '',
     php: '',
     ubuntu: '',
   });
 
-  const lang= {
+  const lang = {
     javascript: ['75%', javascript],
     typescript: ['85%', typescript],
     nodejs: ['70%', nodejs],
@@ -70,6 +73,7 @@ export const SkillsProgressBar: React.FC<Props> = () => {
     react: ['45%', react],
     flux: ['75%', flux],
     gatsby: ['40%', gatsby],
+    electronjs: ['35%', electronjs],
     html: ['80%', html],
     css: ['40%', css],
     php: ['35%', php],
@@ -100,7 +104,7 @@ export const SkillsProgressBar: React.FC<Props> = () => {
   function generateSkills() {
     const skills: JSX.Element[] = [];
 
-    Object.entries(lang).forEach(([language,[, icon]]) => {
+    Object.entries(lang).forEach(([language, [, icon]]) => {
       const title =
         language !== 'ubuntu'
           ? language !== 'css'
@@ -118,7 +122,7 @@ export const SkillsProgressBar: React.FC<Props> = () => {
           classNameProgress={`progress-${language}`}
           classNameBarContent={`bar-content-${language}`}>
           {/* <FacebookIcon className="h-10 w-10" /> */}
-          <img src={icon} alt={language}/>
+          <img src={icon} alt={language} />
         </SkillItem>,
       );
     });

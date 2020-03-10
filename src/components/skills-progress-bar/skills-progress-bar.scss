@@ -21,6 +21,7 @@ $skils: (
   react: 45%,
   flux: 75%,
   gatsby: 40%,
+  electronjs: 35%,
   html: 80%,
   css: 40%,
   php: 35%,
@@ -39,6 +40,7 @@ $skills-bg-colors:
   /* -- react -- */ theme('colors.blue.800'),
   /* -- flux -- */ theme('colors.green.800'),
   /* -- gatbsy -- */ theme('colors.indigo.800'),
+  /* electronjs */ theme('colors.teal.800'),
   /* -- html -- */ theme('colors.orange.800'),
   /* -- css -- */ theme('colors.pink.600'),
   /* -- php -- */ theme('colors.purple.600'),
@@ -66,7 +68,7 @@ $skills-bg-colors:
 
       body.dark & {
         background-color: rgb(226, 225, 225);
-        padding: .1rem;
+        padding: 0.1rem;
         border-radius: 5px;
       }
     }
