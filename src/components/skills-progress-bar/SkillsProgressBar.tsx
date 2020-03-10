@@ -132,7 +132,26 @@ export const SkillsProgressBar: React.FC<Props> = () => {
 
   return (
     <ul className="skills-bar-container">
-      {generateSkills().map(element => element)}
+      <div className="flex flex-wrap">
+        <div className="w-full md:w-1/2 md:pr-2">
+        {generateSkills().map((element,index) => {
+          if (index < 8) {
+            return element;
+          } else {
+            return null;
+          }
+        })}
+        </div>
+        <div className="w-full md:w-1/2 md:pl-2">
+        {generateSkills().map((element,index) => {
+          if (index >= 8) {
+            return element;
+          } else {
+            return null;
+          }
+        })}
+        </div>
+      </div>
     </ul>
   );
 };
