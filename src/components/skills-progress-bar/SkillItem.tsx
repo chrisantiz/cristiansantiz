@@ -6,7 +6,7 @@ interface Props {
   classNameBarContent: string;
   percent: string;
   title: string;
-  children: JSX.Element;
+  children: any;
 }
 
 export const SkillItem: React.FC<Props> = props => (

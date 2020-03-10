@@ -35,6 +35,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `skills-svg`,
+        path: `${__dirname}/src/images/svg-skills`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/src/libs/i18n/locales`,
         name: `locales`,
       },
