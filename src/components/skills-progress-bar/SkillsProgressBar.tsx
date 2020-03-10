@@ -83,7 +83,6 @@ export const SkillsProgressBar: React.FC<Props> = () => {
   let multiply = 4;
 
   useEffect(() => {
-    console.log(expressjs);
     // update on this temporal object
     const temp: any = skillProgress;
 
@@ -94,7 +93,6 @@ export const SkillsProgressBar: React.FC<Props> = () => {
         temp[language] = percent;
 
         setSkillProgress({ ...temp });
-        console.log({ language, percent });
       }, delay * multiply);
 
       multiply++;

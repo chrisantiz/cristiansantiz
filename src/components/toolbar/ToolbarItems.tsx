@@ -6,7 +6,7 @@ import {
   UserIcon,
   ProjectsIcon,
   ContactIcon,
-  EditIcon,
+  ToolsIcon,
 } from '../icons';
 import { PagesLinkLabel } from '@models/locale.model';
 import { pagesLinkLabelSelector } from '@helpers/selectors.helper';
@@ -19,7 +19,12 @@ interface Props {
   icons?: boolean;
 }
 
-type PageItems = 'inicio' | 'sobre-mi' | 'proyectos' | 'contacto';
+type PageItems =
+  | 'inicio'
+  | 'sobre-mi'
+  | 'habilidades'
+  | 'proyectos'
+  | 'contacto';
 
 export const ToolbarItems = ({ className, icons = false }: Props) => {
   const {
@@ -43,7 +48,7 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
   }
 
   /** show icon if prefer */
-  function getIcon(name: 'home' | 'aboutMe' | 'projects' | 'contact' | 'blog') {
+  function getIcon(name: keyof PagesLinkLabel) {
     if (!icons) {
       return null;
     }
@@ -53,12 +58,12 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
         return <HomeIcon />;
       case 'aboutMe':
         return <UserIcon />;
+      case 'skills':
+        return <ToolsIcon />;
       case 'projects':
         return <ProjectsIcon />;
       case 'contact':
         return <ContactIcon />;
-      case 'blog':
-        return <EditIcon />;
     }
   }
 
@@ -86,14 +91,17 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
       case 'inicio':
         return labels.home;
 
-      case 'contacto':
-        return labels.contact;
+      case 'sobre-mi':
+        return labels.aboutMe;
+
+      case 'habilidades':
+        return labels.skills;
 
       case 'proyectos':
         return labels.projects;
 
-      case 'sobre-mi':
-        return labels.aboutMe;
+      case 'contacto':
+        return labels.contact;
     }
   }
 
@@ -129,6 +137,21 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
             duration={700}>
             {getIcon('aboutMe')}
             {labels.aboutMe}
+          </LinkScroll>
+        </li>
+        <li>
+          <LinkScroll
+            to="habilidades"
+            activeClass="active"
+            onSetActive={handleActive}
+            onClick={handleClick}
+            spy
+            smooth
+            offset={-56}
+            className="cursor-pointer"
+            duration={700}>
+            {getIcon('skills')}
+            {labels.skills}
           </LinkScroll>
         </li>
         <li>

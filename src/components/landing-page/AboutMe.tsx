@@ -4,7 +4,6 @@ import { useGlobalState } from '@/libs/hooks/use-global-state';
 import { useDate } from '@/libs/hooks/use-date';
 import { CompetitivenessIcon, IdeasIcon, ConstantIcon } from '../icons';
 import { SimpleCard } from '../simple-card/SimpleCard';
-import { SkillsProgressBar } from '../skills-progress-bar/SkillsProgressBar';
 
 interface Props {
   id: string;
@@ -94,14 +93,6 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
           </div>
         </section>
         {/* end section 2 */}
-
-        {/* section 3 */}
-        <h2 className="mt-8 mb-4 text-2xl text-center text-warning font-semibold">
-          Habilidades
-        </h2>
-
-        <SkillsProgressBar />
-        {/* end section 3 */}
       </section>
     </PageContainer>
   );

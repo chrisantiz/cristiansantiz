@@ -16,8 +16,12 @@
       }
     },
     "aboutMe": {
-      "text": "Hey Jude, no lo hagas mal\ncoge una canción triste y hazla mejor,\nrecuerda dejarla entrar en tu corazón,\nentonces puedes empezar a hacerla mejor.\n\nHey Jude, no tengas miedo,\ntú estás hecho para salir y hacerte con ella,\nal minuto de que la dejes entrar bajo tu piel,\nentonces empiezas a hacerla mejor.\n\nY en cualquier momento que sientas el daño,\nhey Jude, abstente.\nNo lleves el mundo sobre tus hombros,\nde sobra sabes que es un idiota\nque hace como si nada\nmientras hace su mundo un poco más frío.\n\nHey Jude, no me decepciones,\nla has encontrado, ahora ve y consíguela,\nrecuerda, déjala entrar en tu corazón,\nentonces pudes empezar a hacerla mejor.\n\nAsí que déjala salir y déjala entrar, hey Jude, empieza,\nestás esperando a alguien con quien tocar,\ny ¿no sabes que eres solo tú, hey, Jude?\nLo harás, el movimiento que necesitas,\nestá sobre tus hombros.\n\nHey, Jude, no lo hagas mal,\ncoge una canción triste y hazla mejor,\nrecuerda dejarla entrar bajo tu piel,\nentonces comienzas a hacerla mejor.",
+      "text": "",
       "linkLabel": "Sobre mí"
+    },
+    "skills": {
+      "linkLabel": "Habilidades",
+      "text": "Destacar el uso de frameworks UI como: Vuetify, Quasar, Tailwindcss, material angular, Materialize y Bootstrap. Git se sobreentiende, es esencial."
     },
     "projects": {
       "text": "¡Página «proyectos» funciona!",

@@ -20,6 +20,10 @@ export interface PagesLocale {
     text: string;
     linkLabel: string;
   };
+  skills: {
+    linkLabel: string;
+    text: string;
+  };
   projects: {
     text: string;
     linkLabel: string;
@@ -40,6 +44,7 @@ export interface PagesLocale {
 export interface PagesLinkLabel {
   home: string;
   aboutMe: string;
+  skills: string;
   projects: string;
   contact: string;
 }
