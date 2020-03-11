@@ -16,7 +16,7 @@ const Index: React.FC<Props> = (props: Props) => {
 
   return (
     <div
-      style={{ transition: 'opacity .2s ease-in' }}
+      style={{ transition: 'opacity .2s ease-in', overflowX: 'hidden' }}
       className={`${!loaded ? 'opacity-0' : 'opacity-1'}`}>
       <Home id="inicio" imageLoaded={() => setLoaded(true)} />
       <AboutMe id="sobre-mi" />

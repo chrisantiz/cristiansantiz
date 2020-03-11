@@ -7,6 +7,7 @@ export interface GlobalStateModel {
   initialDarkMode: boolean;
   activePath: string;
   myData: MyData;
+  skillSectionVisited: boolean;
 }
 
 export interface MyDataName {

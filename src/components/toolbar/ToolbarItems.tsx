@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { toggleSideDrawer } from '@libs/context/global/actions';
+import {
+  toggleSideDrawer,
+  setSkillSectionAsVisited,
+} from '@libs/context/global/actions';
 import { useLang } from '@libs/hooks/use-language';
 import {
   HomeIcon,
@@ -29,7 +32,7 @@ type PageItems =
 export const ToolbarItems = ({ className, icons = false }: Props) => {
   const {
     dispatch,
-    state: { locale, openSideDrawer: isOpen },
+    state: { locale, openSideDrawer: isOpen, skillSectionVisited },
   } = useGlobalState();
 
   const [title, setTitle] = useState('Inicio');
@@ -83,6 +86,9 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
 
   /** set active item */
   function handleActive(to: PageItems) {
+    if (to === 'habilidades' && !skillSectionVisited) {
+      dispatch(setSkillSectionAsVisited());
+    }
     setPageItem(to);
   }
 

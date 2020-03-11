@@ -125,9 +125,11 @@ $skills-bg-colors:
   $i: index(($skils), ($name $percent));
 
   .progress-#{$name} {
-    animation-name: progress-#{$name};
-    animation-delay: $animation-delay * $i;
-    background-color: nth($skills-bg-colors, $i);
+    .skills-bar-container.start-animation & {
+      animation-name: progress-#{$name};
+      animation-delay: $animation-delay * $i;
+      background-color: nth($skills-bg-colors, $i);
+    }
   }
 
   // add color to percent number

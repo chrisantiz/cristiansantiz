@@ -15,6 +15,9 @@ export const globalReducer = (
     case 'SET_INITIAL_DARK_MODE':
       return { ...state, initialDarkMode: action.payload };
 
+    case 'SKILL_SECTION_VISITED':
+      return { ...state, skillSectionVisited: action.payload };
+
     default:
       return state;
   }

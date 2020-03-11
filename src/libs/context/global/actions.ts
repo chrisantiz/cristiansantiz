@@ -5,6 +5,8 @@ import {
   CHANGE_LOCALE,
   SetInitialDarkModeType,
   SET_INITIAL_DARK_MODE,
+  SkillSectionVisitedType,
+  SKILL_SECTION_VISITED,
 } from './action-types';
 import { LocaleType } from '@libs/i18n/languages';
 import { LocalKey } from '@libs/enum';
@@ -41,6 +43,14 @@ export function changeLocale(
 export function setInitialDarkMode(): SetInitialDarkModeType {
   return {
     type: SET_INITIAL_DARK_MODE,
+    payload: true,
+  };
+}
+
+/** [global context] */
+export function setSkillSectionAsVisited(): SkillSectionVisitedType {
+  return {
+    type: SKILL_SECTION_VISITED,
     payload: true,
   };
 }

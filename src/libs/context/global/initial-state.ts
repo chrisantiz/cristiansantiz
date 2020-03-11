@@ -21,4 +21,5 @@ export const globalInitialState: GlobalStateModel = {
       mobile: '+57 301 620 6425',
     },
   },
+  skillSectionVisited: false,
 };

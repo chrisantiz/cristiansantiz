@@ -19,6 +19,7 @@ import php from '@/images/svg-skills/php.svg';
 import ubuntu from '@/images/svg-skills/ubuntu.svg';
 
 import './skills-progress-bar.scss';
+import { useGlobalState } from '@/libs/hooks/use-global-state';
 
 interface Props {}
 
@@ -42,6 +43,10 @@ interface Skills {
 }
 
 export const SkillsProgressBar: React.FC<Props> = () => {
+  const {
+    state: { skillSectionVisited },
+  } = useGlobalState();
+
   const [skillProgress, setSkillProgress] = useState<Skills>({
     javascript: '',
     typescript: '',
@@ -83,6 +88,8 @@ export const SkillsProgressBar: React.FC<Props> = () => {
   let multiply = 4;
 
   useEffect(() => {
+    if (!skillSectionVisited) return;
+
     // update on this temporal object
     const temp: any = skillProgress;
 
@@ -97,7 +104,7 @@ export const SkillsProgressBar: React.FC<Props> = () => {
 
       multiply++;
     });
-  }, []);
+  }, [skillSectionVisited]);
 
   function generateSkills() {
     const skills: JSX.Element[] = [];
@@ -129,25 +136,28 @@ export const SkillsProgressBar: React.FC<Props> = () => {
   }
 
   return (
-    <ul className="skills-bar-container">
+    <ul
+      className={`wow magictime vanishIn skills-bar-container ${
+        skillSectionVisited ? 'start-animation' : ''
+      }`}>
       <div className="flex flex-wrap">
         <div className="w-full md:w-1/2 md:pr-2">
-        {generateSkills().map((element,index) => {
-          if (index < 8) {
-            return element;
-          } else {
-            return null;
-          }
-        })}
+          {generateSkills().map((element, index) => {
+            if (index < 8) {
+              return element;
+            } else {
+              return null;
+            }
+          })}
         </div>
         <div className="w-full md:w-1/2 md:pl-2">
-        {generateSkills().map((element,index) => {
-          if (index >= 8) {
-            return element;
-          } else {
-            return null;
-          }
-        })}
+          {generateSkills().map((element, index) => {
+            if (index >= 8) {
+              return element;
+            } else {
+              return null;
+            }
+          })}
         </div>
       </div>
     </ul>
