@@ -139,7 +139,7 @@ export const SkillsProgressBar: React.FC<Props> = () => {
     <ul
       className={`wow magictime vanishIn skills-bar-container ${
         skillSectionVisited ? 'start-animation' : ''
-      }`}>
+      }`} data-wow-delay="500ms">
       <div className="flex flex-wrap">
         <div className="w-full md:w-1/2 md:pr-2">
           {generateSkills().map((element, index) => {

@@ -87,7 +87,9 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
   /** set active item */
   function handleActive(to: PageItems) {
     if (to === 'habilidades' && !skillSectionVisited) {
-      dispatch(setSkillSectionAsVisited());
+      setTimeout(() => {
+        dispatch(setSkillSectionAsVisited());
+      }, 500);
     }
     setPageItem(to);
   }

@@ -20,10 +20,12 @@ export const Skills: React.FC<Props> = ({ id }) => {
         {skills.linkLabel}
       </h2>
 
-        <SkillsProgressBar />
-        <p className="wow magictime vanishIn mt-5 text-justify">
-          {skills.text}
-        </p>
+      <SkillsProgressBar />
+      <p
+        className="wow magictime vanishIn my-5 text-justify"
+        data-wow-delay="600ms">
+        {skills.text}
+      </p>
     </PageContainer>
   );
 };
