@@ -68,15 +68,17 @@ export const Home: React.FC<Props> = ({ id }) => {
             }>
             <Img
               onLoad={handleImageLoaded}
-              className={`${
-                imageLoaded ? 'wow magictime spaceInRight' : ''
-              }w-40 sm:w-48 rounded-full image-shadow`}
+              className={`w-40 sm:w-48 rounded-full image-shadow ${
+                imageLoaded ? 'magictime spaceInRight' : ''
+              }`}
               fluid={image.imageSharp.fluid}
             />
           </div>
 
           <div
-            className={`flex justify-center items-center flex-col ${imageLoaded ? 'opacity-1' : 'opacity-0'}`}>
+            className={`flex justify-center items-center flex-col ${
+              imageLoaded ? 'opacity-1' : 'opacity-0'
+            }`}>
             {/* name */}
             <p
               className="wow magictime swap text-warning font-bold text-2xl uppercase"
