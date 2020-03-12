@@ -9,6 +9,7 @@
 
 .image-shadow {
   box-shadow: $shadow-light;
+  margin-bottom: .5rem;
 
   body.dark & {
     box-shadow: $shadow-dark;

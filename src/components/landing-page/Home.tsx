@@ -32,8 +32,6 @@ export const Home: React.FC<Props> = ({ id }) => {
     setImageLoaded(true);
 
     setTimeout(() => {
-      console.log('quitar elemento');
-
       setShowLoader(false);
     }, 1000);
   }
@@ -71,58 +69,61 @@ export const Home: React.FC<Props> = ({ id }) => {
             <Img
               onLoad={handleImageLoaded}
               className={`${
-                imageLoaded ? 'magictime spaceInRight' : ''
+                imageLoaded ? 'wow magictime spaceInRight' : ''
               }w-40 sm:w-48 rounded-full image-shadow`}
               fluid={image.imageSharp.fluid}
             />
           </div>
 
-          {/* name */}
-          <p
-            className="wow magictime swap text-warning font-bold text-2xl uppercase"
-            data-wow-delay="400ms">
-            {myData.name.short}
-          </p>
-          {/* role */}
           <div
-            className="wow magictime spaceInRight flex items-center text-xl web-developer font-semibold -mt-2"
-            data-wow-delay="500ms">
-            <span className="text-warning text-2xl font-semibold mr-1">
-              &#60;
+            className={`flex justify-center items-center flex-col ${imageLoaded ? 'opacity-1' : 'opacity-0'}`}>
+            {/* name */}
+            <p
+              className="wow magictime swap text-warning font-bold text-2xl uppercase"
+              data-wow-delay="400ms">
+              {myData.name.short}
+            </p>
+            {/* role */}
+            <div
+              className="wow magictime spaceInRight flex items-center text-xl web-developer font-semibold -mt-2"
+              data-wow-delay="500ms">
+              <span className="text-warning text-2xl font-semibold mr-1">
+                &#60;
+              </span>
+              WebDeveloper
+              <span className="text-warning text-2xl font-semibold ml-1">
+                /&#62;
+              </span>
+            </div>
+            {/* message */}
+            <span
+              className="wow magictime swap sm:w-1/2 text-center mt-1"
+              data-wow-delay="600ms">
+              {siteDescription}
             </span>
-            WebDeveloper
-            <span className="text-warning text-2xl font-semibold ml-1">
-              /&#62;
-            </span>
+            {/* button */}
+            <Button
+              to="sobre-mi"
+              outlined
+              size="sm"
+              className="wow magictime spaceInRight my-3"
+              data-wow-delay="700ms"
+              data-wow-offset="-56">
+              {home.labels.buttonKnowMore}
+            </Button>
+            {/* social media icons */}
+            <SocialMediaIcons
+              className="wow magictime swap mt-3"
+              data-wow-delay="750ms"
+              data-wow-offset="-56"
+            />
+            <small
+              className="wow magictime swap"
+              data-wow-delay="800ms"
+              data-wow-offset="-56">
+              {myData.currentLocation}
+            </small>
           </div>
-          {/* message */}
-          <span
-            className="wow magictime swap sm:w-1/2 text-center mt-1"
-            data-wow-delay="600ms">
-            {siteDescription}
-          </span>
-          {/* button */}
-          <Button
-            to="sobre-mi"
-            outlined
-            size="sm"
-            className="wow magictime spaceInRight my-3"
-            data-wow-delay="700ms"
-            data-wow-offset="-56">
-            {home.labels.buttonKnowMore}
-          </Button>
-          {/* social media icons */}
-          <SocialMediaIcons
-            className="wow magictime swap mt-3"
-            data-wow-delay="750ms"
-            data-wow-offset="-56"
-          />
-          <small
-            className="wow magictime swap"
-            data-wow-delay="800ms"
-            data-wow-offset="-56">
-            {myData.currentLocation}
-          </small>
         </div>
       </PageContainer>
     </section>
