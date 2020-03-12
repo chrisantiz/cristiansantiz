@@ -63,9 +63,8 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
         {/* cards */}
         <section className="flex flex-wrap md:flex-no-wrap mb-4">
           <div className="w-full md:mr-3">
-            <SimpleCard
-              title="Competitividad"
-              icon={<CompetitivenessIcon className="w-32 h-32" />}>
+            <SimpleCard title="Competitividad">
+              <CompetitivenessIcon className="w-32 h-32" />
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Voluptatibus quia, nulla! Maiores et perferendis eaque,
               exercitationem praesentium nihil.
@@ -73,9 +72,8 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
           </div>
 
           <div className="w-full md:mr-3 mt-3 md:mt-0">
-            <SimpleCard
-              title="Constancia"
-              icon={<ConstantIcon className="w-32 h-32" />}>
+            <SimpleCard title="Constancia">
+              <ConstantIcon className="w-32 h-32" />
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Voluptatibus quia, nulla! Maiores et perferendis eaque,
               exercitationem praesentium nihil.
@@ -83,9 +81,8 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
           </div>
 
           <div className="w-full mt-3 md:mt-0">
-            <SimpleCard
-              title="Productividad e ideas"
-              icon={<IdeasIcon className="w-32 h-32" />}>
+            <SimpleCard title="Productividad e ideas">
+              <IdeasIcon className="w-32 h-32" />
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Voluptatibus quia, nulla! Maiores et perferendis eaque,
               exercitationem praesentium nihil.
