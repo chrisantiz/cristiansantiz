@@ -3,10 +3,10 @@
 @import '../../node_modules/magic.css/assets/scss/magic.scss';
 
 body {
-    max-height: 100vh;
-    background-color: $background-color-light;
-    transition: background-color 0.3s ease-in-out;
-    color: $font-color-light;
+  max-height: 100vh;
+  background-color: $background-color-light;
+  transition: background-color 0.3s ease-in-out;
+  color: $font-color-light;
 
   &.dark {
     background-color: $background-color-dark;
@@ -128,5 +128,146 @@ $color-loader: indigo;
     left: 235px;
     height: 30px;
     width: 15px;
+  }
+}
+
+/**
+ * ==============================================
+ * Dot Windmill
+ * ==============================================
+ */
+.dot-windmill {
+  position: relative;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+  transform-origin: 5px 15px;
+  animation: dot-windmill 2s infinite linear;
+}
+
+.dot-windmill::before,
+.dot-windmill::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+}
+
+.dot-windmill::before {
+  left: -8.66px;
+  top: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+}
+
+.dot-windmill::after {
+  left: 8.66px;
+  top: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9880ff;
+  color: #9880ff;
+}
+
+@keyframes dot-windmill {
+  0% {
+    transform: rotateZ(0deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotateZ(720deg) translate3d(0, 0, 0);
+  }
+}
+
+.custom-spinner {
+  width: 100%;
+  position: absolute;
+  top: 22vh;
+  height: 165px;
+  display: flex;
+  align-items: center;
+  left: 0;
+  overflow: hidden;
+  transition: all .5s ease-in;
+}
+
+/* Spinner Wave */
+$spCol: #000;
+.sp {
+  width: 7rem;
+  height: 7rem;
+  clear: both;
+  margin: 20px auto;
+}
+.sp-wave {
+  border-radius: 50%;
+  position: relative;
+  opacity: 1;
+}
+.sp-wave:before,
+.sp-wave:after {
+  content: '';
+  border: 2px theme('colors.orange.900') solid;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+}
+.sp-wave:before {
+  transform: scale(1, 1);
+  opacity: 1;
+  -webkit-animation: spWaveBe 0.6s infinite linear;
+  animation: spWaveBe 0.6s infinite linear;
+}
+.sp-wave:after {
+  transform: scale(0, 0);
+  opacity: 0;
+  -webkit-animation: spWaveAf 0.6s infinite linear;
+  animation: spWaveAf 0.6s infinite linear;
+}
+@-webkit-keyframes spWaveAf {
+  from {
+    -webkit-transform: scale(0.5, 0.5);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+@keyframes spWaveAf {
+  from {
+    transform: scale(0.5, 0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes spWaveBe {
+  from {
+    -webkit-transform: scale(1, 1);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(1.5, 1.5);
+    opacity: 0;
+  }
+}
+@keyframes spWaveBe {
+  from {
+    -webkit-transform: scale(1, 1);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(1.5, 1.5);
+    opacity: 0;
   }
 }

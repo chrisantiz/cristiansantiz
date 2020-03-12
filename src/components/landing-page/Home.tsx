@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PageContainer } from '../PageContainer';
 import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -9,10 +9,13 @@ import { useGlobalState } from '@/libs/hooks/use-global-state';
 
 interface Props {
   id: string;
-  imageLoaded(): void;
+  // imageLoaded(): void;
 }
 
-export const Home: React.FC<Props> = ({ id, imageLoaded }) => {
+export const Home: React.FC<Props> = ({ id }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
+
   const image = useStaticQuery(query);
   const {
     lang: {
@@ -24,6 +27,29 @@ export const Home: React.FC<Props> = ({ id, imageLoaded }) => {
   const {
     state: { myData },
   } = useGlobalState();
+
+  function handleImageLoaded() {
+    setImageLoaded(true);
+
+    setTimeout(() => {
+      console.log('quitar elemento');
+
+      setShowLoader(false);
+    }, 1000);
+  }
+
+  function displaySpinner() {
+    const element = (
+      <div
+        className={`custom-spinner ${
+          !imageLoaded ? 'opacity-1' : 'opacity-0'
+        }`}>
+        <div className="sp sp-wave" />
+      </div>
+    );
+
+    return showLoader ? element : null;
+  }
 
   return (
     <section className="landing-item home-section" id={id}>
@@ -37,11 +63,19 @@ export const Home: React.FC<Props> = ({ id, imageLoaded }) => {
             justifyContent: 'center',
             flexDirection: 'column',
           }}>
-          <Img
-            onLoad={imageLoaded}
-            className="wow magictime spaceInRight w-40 sm:w-48 rounded-full image-shadow"
-            fluid={image.imageSharp.fluid}
-          />
+          {displaySpinner()}
+          <div
+            className={
+              imageLoaded ? 'opacity-1 magictime spaceInRight' : 'opacity-0'
+            }>
+            <Img
+              onLoad={handleImageLoaded}
+              className={`${
+                imageLoaded ? 'magictime spaceInRight' : ''
+              }w-40 sm:w-48 rounded-full image-shadow`}
+              fluid={image.imageSharp.fluid}
+            />
+          </div>
 
           {/* name */}
           <p

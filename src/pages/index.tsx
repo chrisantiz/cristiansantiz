@@ -14,11 +14,15 @@ interface Props {
 const Index: React.FC<Props> = (props: Props) => {
   const [loaded, setLoaded] = useState(false);
 
+  // function imageLoaded() {
+  //   setLoaded(true);
+  //   console.log('Cargado');
+  //   document.body.classList.add('image-loaded');
+  // }
+
   return (
-    <div
-      style={{ transition: 'opacity .2s ease-in', overflowX: 'hidden' }}
-      className={`${!loaded ? 'opacity-0' : 'opacity-1'}`}>
-      <Home id="inicio" imageLoaded={() => setLoaded(true)} />
+    <div style={{ transition: 'opacity .2s ease-in', overflowX: 'hidden' }}>
+      <Home id="inicio" /* imageLoaded={imageLoaded} */ />
       <AboutMe id="sobre-mi" />
       <Skills id="habilidades" />
       <Projects id="proyectos" />
