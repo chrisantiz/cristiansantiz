@@ -89,7 +89,7 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
     if (to === 'habilidades' && !skillSectionVisited) {
       setTimeout(() => {
         dispatch(setSkillSectionAsVisited());
-      }, 500);
+      }, 200);
     }
     setPageItem(to);
   }

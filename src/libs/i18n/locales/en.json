@@ -16,8 +16,37 @@
       }
     },
     "aboutMe": {
-      "text": "",
-      "linkLabel": "About me"
+      "linkLabel": "About me",
+      "title": "I briefly",
+      "paragraphs": {
+        "one": {
+          "partOne": "Hi, my name is Cristian Santiz, i am",
+          "partTwo": "years old and i am native of Colombia, more specific of a small town located in the north of the country; Sincé, they tell him."
+        },
+        "two": "I'm a ordinary guy in loves with web development.  As self-taught as curious, i always try to be aware of things happening around the world, not just technology. As Bacon would say: \"knowledge is power\".",
+        "three": "Philosophy, science, astronomy and spelling are other subjects that I like and that I declare myself a fan of (no more than that).",
+        "four": "In short, i'm the type of person who likes to know the why of things just to stop feeding their ignorance."
+      },
+      "whyHireMe": {
+        "title": "Why should you hire me",
+        "cards": [
+          {
+            "title": "Competitivity",
+            "classes": "wow magictime spaceInLeft w-full md:mr-3",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil."
+          },
+          {
+            "title": "Constancy",
+            "classes": "wow magictime spaceInDown w-full md:mr-3 mt-3 md:mt-0",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil."
+          },
+          {
+            "title": "Productivity and ideas",
+            "classes": "wow magictime spaceInRight w-full mt-3 md:mt-0",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil."
+          }
+        ]
+      }
     },
     "skills": {
       "linkLabel": "Skills",

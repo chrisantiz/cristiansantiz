@@ -16,8 +16,37 @@
       }
     },
     "aboutMe": {
-      "text": "",
-      "linkLabel": "Sobre mí"
+      "linkLabel": "Sobre mí",
+      "title": "Yo brevemente",
+      "paragraphs": {
+        "one": {
+          "partOne": "Me presento, mi nombre es Cristian Santiz, tengo",
+          "partTwo": "años y soy oriundo de Colombia, más específico de un pequeño pueblo ubicado al norte del país; Sincé, le dicen."
+        },
+        "two": "Soy un tipo común y corriente enamorado del desarrollo web. Tan autodidacta como curioso, siempre intento estar al tanto de las cosas que pasan alrededor del mundo, no solo tecnológicas; pues tal cual citó Bacon: «el conocimiento es poder».",
+        "three": "Filosofía, astronomía, ciencia y ortografía son otros temas que me atraen y de los cuales me declaro fánatico (no más que eso).",
+        "four": "En resumen, soy del tipo de persona que le gusta saber el porqué de las cosas solo para dejar de nutrir su ignorancia."
+      },
+      "whyHireMe": {
+        "title": "Por qué deberías contratarme",
+        "cards": [
+          {
+            "title": "Competitividad",
+            "classes": "wow magictime spaceInLeft w-full md:mr-3",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil."
+          },
+          {
+            "title": "Constancia",
+            "classes": "wow magictime spaceInDown w-full md:mr-3 mt-3 md:mt-0",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil."
+          },
+          {
+            "title": "Productividad e ideas",
+            "classes": "wow magictime spaceInRight w-full mt-3 md:mt-0",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil."
+          }
+        ]
+      }
     },
     "skills": {
       "linkLabel": "Habilidades",

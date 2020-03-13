@@ -10,16 +10,47 @@ export interface HomePageLabels {
   buttonKnowMore: string;
 }
 
+export interface AboutMePage {
+  linkLabel: string;
+  title: string;
+  paragraphs: {
+    one: {
+      partOne: string;
+      partTwo: string;
+    };
+    two: string;
+    three: string;
+    four: string;
+  };
+  whyHireMe: {
+    title: string;
+    cards: [
+      {
+        title: string;
+        classes: string;
+        text: string;
+      },
+      {
+        title: string;
+        classes: string;
+        text: string;
+      },
+      {
+        title: string;
+        classes: string;
+        text: string;
+      },
+    ];
+  };
+}
+
 export interface PagesLocale {
   home: {
     text: string;
     linkLabel: string;
     labels: HomePageLabels;
   };
-  aboutMe: {
-    text: string;
-    linkLabel: string;
-  };
+  aboutMe: AboutMePage;
   skills: {
     linkLabel: string;
     text: string;

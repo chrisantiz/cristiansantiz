@@ -4,6 +4,7 @@ import { useGlobalState } from '@/libs/hooks/use-global-state';
 import { useDate } from '@/libs/hooks/use-date';
 import { CompetitivenessIcon, IdeasIcon, ConstantIcon } from '../icons';
 import { SimpleCard } from '../simple-card/SimpleCard';
+import { useLang } from '@/libs/hooks/use-language';
 
 interface Props {
   id: string;
@@ -11,10 +12,48 @@ interface Props {
 
 export const AboutMe: React.FC<Props> = ({ id }) => {
   const {
-    state: { myData },
+    state: {
+      myData: { birthdate },
+    },
   } = useGlobalState();
 
-  const age = useDate().getYearsFromNow(myData.birthdate);
+  const {
+    lang: {
+      pages: { aboutMe },
+    },
+  } = useLang();
+
+  const age = useDate().getYearsFromNow(birthdate);
+
+  function getIconByIndex(index: number): JSX.Element {
+    switch (index) {
+      case 0:
+        return <CompetitivenessIcon className="w-32 h-32" />;
+      case 1:
+        return <IdeasIcon className="w-32 h-32" />;
+      default:
+        return <ConstantIcon className="w-32 h-32" />;
+    }
+  }
+
+  function generateCards(): JSX.Element[] {
+    const { cards } = aboutMe.whyHireMe;
+    let wowDelayTime = 600;
+
+    return cards.map((card, index) => {
+      const icon = getIconByIndex(index);
+      wowDelayTime += 100;
+
+      return (
+        <div className={card.classes} data-wow-delay={`${wowDelayTime}ms`}>
+          <SimpleCard title={card.title}>
+            {icon}
+            {card.text}
+          </SimpleCard>
+        </div>
+      );
+    });
+  }
 
   return (
     <PageContainer id={id}>
@@ -23,45 +62,32 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
         <h2
           className="wow magictime boingInUp text-2xl text-center text-warning font-semibold"
           data-wow-delay="100ms">
-          Yo brevemente
+          {aboutMe.title}
         </h2>
 
         <p
           className="wow magictime boingInUp text-justify"
           data-wow-delay="200ms">
-          Me presento, mi nombre es Cristian Santiz, tengo {age} años y soy
-          oriundo de Colombia, más específico de un pequeño pueblo ubicado al
-          norte del país...{' '}
-          <a
-            href="https://es.wikipedia.org/wiki/Sinc%C3%A9"
-            target="_blank"
-            rel="noopener noreferrer">
-            Sincé
-          </a>
-          , le dicen.
+          {aboutMe.paragraphs.one.partOne} {age}{' '}
+          {aboutMe.paragraphs.one.partTwo}
         </p>
 
         <p
           className="wow magictime boingInUp text-justify mt-2"
           data-wow-delay="300ms">
-          Soy un tipo común y corriente enamorado del desarrollo web. Tan
-          autodidacta como curioso, siempre intento estar al tanto de las cosas
-          que pasan alrededor del mundo, no solo tecnológicas; pues, tal cual
-          citó Bacon: «el conocimiento es poder».
+          {aboutMe.paragraphs.two}
         </p>
 
         <p
           className="wow magictime boingInUp text-justify mt-2"
           data-wow-delay="400ms">
-          Filosofía, astronomía, ciencia y ortografía son otros temas que me
-          atraen y de los cuales me declaro fánatico (no más que eso).
+          {aboutMe.paragraphs.three}
         </p>
 
         <p
           className="wow magictime boingInUp text-justify mt-2"
           data-wow-delay="500ms">
-          En resumen, soy del tipo de persona que le gusta saber el porqué de
-          las cosas solo para dejar de nutrir su ignorancia.
+          {aboutMe.paragraphs.four}
         </p>
         {/* end section 1 */}
 
@@ -69,12 +95,13 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
         <h2
           className="wow magictime boingInUp mt-8 mb-4 text-2xl text-center text-warning font-semibold"
           data-wow-delay="600ms">
-          Por qué deberías contratarme y/o trabajar conmigo
+          {aboutMe.whyHireMe.title}
         </h2>
 
         {/* cards */}
         <section className="flex flex-wrap md:flex-no-wrap mb-4">
-          <div
+          {generateCards()}
+          {/* <div
             className="wow magictime spaceInLeft w-full md:mr-3"
             data-wow-delay="700ms">
             <SimpleCard title="Competitividad">
@@ -105,7 +132,7 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
               Voluptatibus quia, nulla! Maiores et perferendis eaque,
               exercitationem praesentium nihil.
             </SimpleCard>
-          </div>
+          </div> */}
         </section>
         {/* end section 2 */}
       </section>
