@@ -17,7 +17,7 @@ export const SimpleCard: React.FC<Props> = ({
       </div>
       <div className="simple-card-content border-r border-b border-l border-gray-500 rounded-b p-4 flex flex-col justify-between leading-normal">
         <div className="font-bold text-xl mb-2">{title}</div>
-        <p className="text-base text-justify">{text}</p>
+        <p className="text-base">{text}</p>
       </div>
     </div>
   );

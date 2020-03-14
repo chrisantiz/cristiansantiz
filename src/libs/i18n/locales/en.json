@@ -33,17 +33,17 @@
           {
             "title": "Competitivity",
             "classes": "wow magictime spaceInLeft w-full md:mr-3",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil."
+            "text": "I am one of those who do not like to be left behind, i always try to be at the forefront of new technologies. If it has to be done, it is done with the greatest possible effort."
           },
           {
             "title": "Constancy",
             "classes": "wow magictime spaceInDown w-full md:mr-3 mt-3 md:mt-0",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil."
+            "text": "I'm a 100% self-taught programmer, that says a lot about my discipline and perseverance. If I dedicate myself to learning or doing something, i don't leave it until i achieve it."
           },
           {
             "title": "Productivity and ideas",
             "classes": "wow magictime spaceInRight w-full mt-3 md:mt-0",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil."
+            "text": "Very good at adapting to the technologies and/or work methodologies that are imposed on me, but if things that are being done could work better, you will have my opinion."
           }
         ]
       }
