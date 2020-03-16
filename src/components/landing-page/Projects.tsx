@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Modal } from '../modal/Modal';
 
 interface Props {
   id: string;
 }
 
 export const Projects: React.FC<Props> = ({ id }) => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <section className="landing-item projects-section" id={id}>
-      <h1>Projects page</h1>
+    <section className="landing-item" id={id}>
+      <button onClick={() => setShowModal(true)}>toggle modal</button>
+      <Modal
+        show={showModal}
+        title="this is a title"
+        onHide={() => setShowModal(false)}>
+        {/* content */}
+        <div>The content</div>
+        {/* footer */}
+        <div>The footer</div>
+      </Modal>
     </section>
   );
 };

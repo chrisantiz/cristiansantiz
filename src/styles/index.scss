@@ -76,7 +76,7 @@ body {
   align-items: center;
   left: 0;
   overflow: hidden;
-  transition: all .5s ease-in;
+  transition: all 0.5s ease-in;
 }
 
 /* Spinner Wave */
@@ -114,16 +114,7 @@ $spCol: #000;
   -webkit-animation: spWaveAf 0.6s infinite linear;
   animation: spWaveAf 0.6s infinite linear;
 }
-@-webkit-keyframes spWaveAf {
-  from {
-    -webkit-transform: scale(0.5, 0.5);
-    opacity: 0;
-  }
-  to {
-    -webkit-transform: scale(1, 1);
-    opacity: 1;
-  }
-}
+
 @keyframes spWaveAf {
   from {
     transform: scale(0.5, 0.5);
@@ -134,16 +125,7 @@ $spCol: #000;
     opacity: 1;
   }
 }
-@-webkit-keyframes spWaveBe {
-  from {
-    -webkit-transform: scale(1, 1);
-    opacity: 1;
-  }
-  to {
-    -webkit-transform: scale(1.5, 1.5);
-    opacity: 0;
-  }
-}
+
 @keyframes spWaveBe {
   from {
     -webkit-transform: scale(1, 1);
