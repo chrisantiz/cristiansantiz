@@ -137,7 +137,7 @@ export const SkillsProgressBar: React.FC<Props> = () => {
 
   return (
     <ul
-      className={`wow magictime vanishIn skills-bar-container ${
+      className={`skills-bar-container ${
         skillSectionVisited ? 'start-animation' : ''
       }`} data-wow-delay="500ms">
       <div className="flex flex-wrap">
