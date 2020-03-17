@@ -2,7 +2,7 @@ import React from 'react';
 import { SkillsProgressBar } from '../skills-progress-bar/SkillsProgressBar';
 import { useLang } from '@/libs/hooks/use-language';
 import { PageContainer } from '../PageContainer';
-import { Title } from './Title';
+import { Title } from './util/Title';
 
 interface Props {
   id: string;

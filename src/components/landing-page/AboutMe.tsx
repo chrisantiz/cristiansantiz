@@ -5,8 +5,8 @@ import { useDate } from '@/libs/hooks/use-date';
 import { CompetitivenessIcon, IdeasIcon, ConstantIcon } from '../icons';
 import { SimpleCard } from '../simple-card/SimpleCard';
 import { useLang } from '@/libs/hooks/use-language';
-import { Title } from './Title';
-import { Paragraph } from './Paragraph';
+import { Title } from './util/Title';
+import { Paragraph } from './util/Paragraph';
 
 interface Props {
   id: string;
