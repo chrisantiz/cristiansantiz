@@ -67,7 +67,7 @@ export const Modal: React.FC<Props> = ({
       <div
         ref={modalRef}
         className={conditionalString({
-          onTrue: 'slideDownReturn',
+          onTrue: 'tinDownIn',
           onFalse: 'tinUpOut',
           always: 'modal magictime',
         })}>
