@@ -5,6 +5,8 @@ import { useDate } from '@/libs/hooks/use-date';
 import { CompetitivenessIcon, IdeasIcon, ConstantIcon } from '../icons';
 import { SimpleCard } from '../simple-card/SimpleCard';
 import { useLang } from '@/libs/hooks/use-language';
+import { Title } from './Title';
+import { Paragraph } from './Paragraph';
 
 interface Props {
   id: string;
@@ -45,7 +47,7 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
       wowDelayTime += 100;
 
       return (
-        <div className={card.classes} data-wow-delay={`${wowDelayTime}ms`}>
+        <div className={card.classes} data-wow-delay={`${wowDelayTime}ms`} key={`card_${index}`}>
           <SimpleCard title={card.title}>
             {icon}
             {card.text}
@@ -59,80 +61,48 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
     <PageContainer id={id}>
       <section className="py-3">
         {/* section 1 */}
-        <h2
-          className="wow magictime boingInUp text-2xl text-center text-warning font-semibold"
-          data-wow-delay="100ms">
+        <Title animation="boingInUp" animationDelay="100ms">
           {aboutMe.title}
-        </h2>
+        </Title>
 
-        <p
-          className="wow magictime boingInUp text-justify"
-          data-wow-delay="200ms">
+        <Paragraph animation="boingInUp" animationDelay="200ms">
           {aboutMe.paragraphs.one.partOne} {age}{' '}
           {aboutMe.paragraphs.one.partTwo}
-        </p>
+        </Paragraph>
 
-        <p
-          className="wow magictime boingInUp text-justify mt-2"
-          data-wow-delay="300ms">
+        <Paragraph
+          animation="boingInUp"
+          animationDelay="300ms"
+          className="mt-2">
           {aboutMe.paragraphs.two}
-        </p>
+        </Paragraph>
 
-        <p
-          className="wow magictime boingInUp text-justify mt-2"
-          data-wow-delay="400ms">
+        <Paragraph
+          animation="boingInUp"
+          animationDelay="400ms"
+          className="mt-2">
           {aboutMe.paragraphs.three}
-        </p>
+        </Paragraph>
 
-        <p
-          className="wow magictime boingInUp text-justify mt-2"
-          data-wow-delay="500ms">
+        <Paragraph
+          animation="boingInUp"
+          animationDelay="500ms"
+          className="mt-2">
           {aboutMe.paragraphs.four}
-        </p>
+        </Paragraph>
         {/* end section 1 */}
 
         {/* section 2 */}
-        <h2
-          className="wow magictime boingInUp mt-8 mb-4 text-2xl text-center text-warning font-semibold"
-          data-wow-delay="600ms">
+        <Title
+          animation="boingInUp"
+          animationDelay="600ms"
+          className="mt-8 mb-4">
           {aboutMe.whyHireMe.title}
-        </h2>
+        </Title>
 
         {/* cards */}
         <section className="flex flex-wrap md:flex-no-wrap mb-4">
           {generateCards()}
-          {/* <div
-            className="wow magictime spaceInLeft w-full md:mr-3"
-            data-wow-delay="700ms">
-            <SimpleCard title="Competitividad">
-              <CompetitivenessIcon className="w-32 h-32" />
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </SimpleCard>
-          </div>
-
-          <div
-            className="wow magictime spaceInDown w-full md:mr-3 mt-3 md:mt-0"
-            data-wow-delay="800ms">
-            <SimpleCard title="Constancia">
-              <ConstantIcon className="w-32 h-32" />
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </SimpleCard>
-          </div>
-
-          <div
-            className="wow magictime spaceInRight w-full mt-3 md:mt-0"
-            data-wow-delay="900ms">
-            <SimpleCard title="Productividad e ideas">
-              <IdeasIcon className="w-32 h-32" />
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus quia, nulla! Maiores et perferendis eaque,
-              exercitationem praesentium nihil.
-            </SimpleCard>
-          </div> */}
         </section>
         {/* end section 2 */}
       </section>

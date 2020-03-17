@@ -10,16 +10,18 @@ export const Projects: React.FC<Props> = ({ id }) => {
 
   return (
     <section className="landing-item" id={id}>
-      <button onClick={() => setShowModal(true)}>toggle modal</button>
-      <Modal
-        show={showModal}
-        title="this is a title"
-        onHide={() => setShowModal(false)}>
-        {/* content */}
-        <div>The content</div>
-        {/* footer */}
-        <div>The footer</div>
-      </Modal>
+      
     </section>
   );
 };
+
+      // <button onClick={() => setShowModal(true)}>toggle modal</button>
+      // <Modal
+      //   show={showModal}
+      //   title="this is a title"
+      //   onHide={() => setShowModal(false)}>
+      //   {/* content */}
+      //   <div>The content</div>
+      //   {/* footer */}
+      //   <div>The footer</div>
+      // </Modal>

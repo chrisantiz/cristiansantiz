@@ -2,6 +2,7 @@ import React from 'react';
 import { SkillsProgressBar } from '../skills-progress-bar/SkillsProgressBar';
 import { useLang } from '@/libs/hooks/use-language';
 import { PageContainer } from '../PageContainer';
+import { Title } from './Title';
 
 interface Props {
   id: string;
@@ -16,9 +17,9 @@ export const Skills: React.FC<Props> = ({ id }) => {
 
   return (
     <PageContainer className="pt-2 md:pt-6 min-h-screen" id={id}>
-      <h2 className="wow magictime vanishIn mb-2 md:mb-5 text-2xl text-center text-warning font-semibold">
+      <Title animation="vanishIn" className="mb-2 md:mb-5">
         {skills.linkLabel}
-      </h2>
+      </Title>
 
       <SkillsProgressBar />
       <p
