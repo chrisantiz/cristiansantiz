@@ -53,8 +53,31 @@
       "text": "Destacar el uso de frameworks UI como: Vuetify, Quasar, Tailwindcss, Angular material, Materialize y Bootstrap. Git se sobreentiende, es esencial."
     },
     "projects": {
-      "text": "¡Página «proyectos» funciona!",
-      "linkLabel": "Proyectos"
+      "linkLabel": "Proyectos",
+      "text": "A continuación estaré mostrando proyectos destacados, nada de ejercicios de cursos o TODO's; que, aunque por el momento son pocos, dan muestra de mi habilidad como desarrollador.",
+      "cards": [
+        {
+          "title": "Santz",
+          "classes": "wow magictime spaceInLeft w-full md:mr-3",
+          "description": "Pequeña librería NodeJS para realizar consultar a bases de datos MySQL.",
+          "cardId": "santz",
+          "content": []
+        },
+        {
+          "title": "Kirshas",
+          "classes": "wow magictime spaceInDown w-full md:mr-3 mt-3 md:mt-0",
+          "description": "Aplicación de escritorio desarrollada con Vue y ElectronJS (NestJS en el backend) para realizar tests psicológicos en niños midiendo áreas como: memoria, atención, inteligencia y raciocinio.",
+          "cardId": "kirshas",
+          "content": []
+        },
+        {
+          "title": "Portafolio web",
+          "classes": "wow magictime spaceInRight w-full mt-3 md:mt-0",
+          "description": "Estás aquí, ¿qué más podría decir? Sitio desarrollado en React mediante Gatsby.",
+          "cardId": "portfolio",
+          "content": []
+        }
+      ]
     },
     "contact": {
       "text": "¡Página «contacto» funciona!",

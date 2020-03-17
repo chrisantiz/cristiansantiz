@@ -2,7 +2,7 @@ import React from 'react';
 import './simple-card.scss';
 
 interface Props {
-  title: string;
+  title: string | JSX.Element;
   children: [JSX.Element, string];
 }
 

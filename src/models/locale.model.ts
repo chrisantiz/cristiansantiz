@@ -44,6 +44,22 @@ export interface AboutMePage {
   };
 }
 
+export interface ProyectsPage {
+  text: string;
+  linkLabel: string;
+  cards: ProjectsCard[];
+}
+
+export interface ProjectsCard {
+  title: string;
+  classes: string;
+  description: string;
+  cardId: ProjectsCardId;
+  content: [];
+}
+
+export type ProjectsCardId = 'santz' | 'kirshas' | 'portfolio';
+
 export interface PagesLocale {
   home: {
     text: string;
@@ -55,10 +71,7 @@ export interface PagesLocale {
     linkLabel: string;
     text: string;
   };
-  projects: {
-    text: string;
-    linkLabel: string;
-  };
+  projects: ProyectsPage;
   contact: {
     text: string;
     linkLabel: string;
