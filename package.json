@@ -43,11 +43,13 @@
     "@types/node": "^13.7.2",
     "@types/react-helmet": "^5.0.15",
     "@types/react-scroll": "^1.5.4",
+    "@types/video.js": "^7.3.3",
     "autoprefixer": "^9.7.4",
     "postcss-color-mod-function": "^3.0.3",
     "prettier": "^1.19.1",
     "ts-node": "^8.6.2",
-    "typescript": "^3.8.2"
+    "typescript": "^3.8.2",
+    "video.js": "^7.6.6"
   },
   "keywords": [
     "gatsby"

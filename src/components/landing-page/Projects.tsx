@@ -7,6 +7,7 @@ import { Paragraph } from './util/Paragraph';
 import { SimpleCard } from '../simple-card/SimpleCard';
 import { CompetitivenessIcon } from '../icons';
 import { ProjectsCardId } from '@/models/locale.model';
+// import { Video } from '../video/Video';
 
 interface Props {
   id: string;
@@ -18,6 +19,7 @@ export const Projects: React.FC<Props> = ({ id }) => {
       pages: { projects },
     },
   } = useLang();
+
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState<{ title: string } | null>(null);
 
@@ -68,6 +70,14 @@ export const Projects: React.FC<Props> = ({ id }) => {
       <section className="flex flex-wrap md:flex-no-wrap mb-4">
         {generateCards()}
       </section>
+
+      {/* <div style={{ maxWidth: '500px', margin: '0 auto' }}>
+        <Video
+          id="vp-01"
+          src="https://res.cloudinary.com/crisantizan/video/upload/v1584503745/cristiansantiz.com/kishas_clip_t2xujd.mp4"
+          options={{ fluid: true, controls: true, muted: true }}
+        />
+      </div> */}
 
       {!!modalData && (
         <Modal
