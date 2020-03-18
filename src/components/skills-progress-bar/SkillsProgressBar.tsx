@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { SkillItem } from './SkillItem';
 
-import javascript from '@/images/svg-skills/javascript.svg';
-import typescript from '@/images/svg-skills/typescript.svg';
-import nodejs from '@/images/svg-skills/nodejs.svg';
-import expressjs from '@/images/svg-skills/expressjs.svg';
-import nestjs from '@/images/svg-skills/nestjs.svg';
-import mysql from '@/images/svg-skills/mysql.svg';
-import vue from '@/images/svg-skills/vue.svg';
-import angular from '@/images/svg-skills/angular.svg';
-import react from '@/images/svg-skills/react.svg';
-import flux from '@/images/svg-skills/flux.svg';
-import gatsby from '@/images/svg-skills/gatsby.svg';
-import electronjs from '@/images/svg-skills/electronjs.svg';
-import html from '@/images/svg-skills/html.svg';
-import css from '@/images/svg-skills/css.svg';
-import php from '@/images/svg-skills/php.svg';
-import ubuntu from '@/images/svg-skills/ubuntu.svg';
+import javascript from '@/assets/images/svg-skills/javascript.svg';
+import typescript from '@/assets/images/svg-skills/typescript.svg';
+import nodejs from '@/assets/images/svg-skills/nodejs.svg';
+import expressjs from '@/assets/images/svg-skills/expressjs.svg';
+import nestjs from '@/assets/images/svg-skills/nestjs.svg';
+import mysql from '@/assets/images/svg-skills/mysql.svg';
+import vue from '@/assets/images/svg-skills/vue.svg';
+import angular from '@/assets/images/svg-skills/angular.svg';
+import react from '@/assets/images/svg-skills/react.svg';
+import flux from '@/assets/images/svg-skills/flux.svg';
+import gatsby from '@/assets/images/svg-skills/gatsby.svg';
+import electronjs from '@/assets/images/svg-skills/electronjs.svg';
+import html from '@/assets/images/svg-skills/html.svg';
+import css from '@/assets/images/svg-skills/css.svg';
+import php from '@/assets/images/svg-skills/php.svg';
+import ubuntu from '@/assets/images/svg-skills/ubuntu.svg';
 
 import './skills-progress-bar.scss';
 import { useGlobalState } from '@/libs/hooks/use-global-state';

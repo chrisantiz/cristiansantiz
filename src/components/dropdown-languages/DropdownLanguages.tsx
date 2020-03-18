@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import './dropdown-languages.scss';
 import { GlobeIcon } from '../icons';
 
-import usa from '@/images/usa-flag.svg';
-import col from '@/images/colombia-flag.svg';
+import usa from '@/assets/images/usa-flag.svg';
+import col from '@/assets/images/colombia-flag.svg';
 import { LocaleType } from '@libs/i18n/languages';
 import { changeLocale } from '@libs/context/global/actions';
 import { useGlobalState } from '@libs/hooks/use-global-state';
