@@ -47,7 +47,10 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
       wowDelayTime += 100;
 
       return (
-        <div className={card.classes} data-wow-delay={`${wowDelayTime}ms`} key={`card_${index}`}>
+        <div
+          // className={card.classes}
+          // data-wow-delay={`${wowDelayTime}ms`}
+          key={`card_${index}`}>
           <SimpleCard title={card.title}>
             {icon}
             {card.text}
@@ -101,7 +104,9 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
         </Title>
 
         {/* cards */}
-        <section className="flex flex-wrap md:flex-no-wrap mb-4">
+        <section
+          className="card-grid"
+          /* className="flex flex-wrap md:flex-no-wrap mb-4" */>
           {generateCards()}
         </section>
         {/* end section 2 */}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal } from '../modal/Modal';
 import { PageContainer } from '../PageContainer';
 import { Title } from './util/Title';
@@ -7,7 +7,11 @@ import { Paragraph } from './util/Paragraph';
 import { SimpleCard } from '../simple-card/SimpleCard';
 import { CompetitivenessIcon } from '../icons';
 import { ProjectsCardId } from '@/models/locale.model';
+import { graphql, useStaticQuery } from 'gatsby';
+import { getImageFluid } from '@/helpers/get-image-fluid.helper';
+import { ChildImageSharp } from '@/models/graphql.model';
 // import { Video } from '../video/Video';
+import Img from 'gatsby-image';
 
 interface Props {
   id: string;
@@ -19,6 +23,17 @@ export const Projects: React.FC<Props> = ({ id }) => {
       pages: { projects },
     },
   } = useLang();
+
+  const { allFile: imagesData } = useStaticQuery(query);
+
+  const images = (imagesData.edges as any[]).map((edge: any) =>
+    getImageFluid(edge),
+  );
+
+  useEffect(() => {
+    console.log(images);
+    // console.log(imagesData);
+  }, []);
 
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState<{ title: string } | null>(null);
@@ -41,7 +56,7 @@ export const Projects: React.FC<Props> = ({ id }) => {
         <div
           data-wow-delay={`${wowDelayTime}ms`}
           key={`card_${index}`}
-          className={card.classes}>
+          /* className={card.classes} */>
           <SimpleCard
             title={
               <span
@@ -67,9 +82,14 @@ export const Projects: React.FC<Props> = ({ id }) => {
       </Paragraph>
 
       {/* cards */}
-      <section className="flex flex-wrap md:flex-no-wrap mb-4">
+      <section /* className="flex flex-wrap md:flex-no-wrap mb-4 mt-3" */ className="card-grid mt-3">
         {generateCards()}
       </section>
+
+      <div>
+        {/* <Img fluid={images[0]} /> */}
+        {images.map(image => <Img fluid={image.fluid} key={image.id} />)}
+      </div>
 
       {/* <div style={{ maxWidth: '500px', margin: '0 auto' }}>
         <Video
@@ -93,3 +113,20 @@ export const Projects: React.FC<Props> = ({ id }) => {
     </PageContainer>
   );
 };
+
+const query = graphql`
+  query {
+    allFile(filter: { relativeDirectory: { eq: "projects" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 600) {
+              ...GatsbyImageSharpFluid
+              originalName
+            }
+          }
+        }
+      }
+    }
+  }
+`;

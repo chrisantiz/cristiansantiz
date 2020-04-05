@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Toolbar } from '@components/toolbar/Toolbar';
 import { SideDrawer } from '@components/side-drawer/SideDrawer';
@@ -40,12 +40,6 @@ export const DefaultLayout = ({ children }: any) => {
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    const WOW = require('wowjs');
-
-    new WOW.WOW({ live: false, animateClass: 'magictime' }).init();
   }, []);
 
   const toolbar = useMemo(() => {

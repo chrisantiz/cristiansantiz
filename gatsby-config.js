@@ -81,9 +81,10 @@ module.exports = {
       resolve: 'gatsby-plugin-purgecss',
       options: {
         printReject: false,
-        develop: false,
+        develop: true,
         tailwind: true,
-        whitelistPatterns: [/^progress-/, /^bar-content-/]
+        whitelistPatterns: [/^progress-/, /^bar-content-/],
+        // purgeOnly: ['src/', 'node_modules/magic.css/dist/magic.min.css']
       },
     },
     `gatsby-plugin-mdx`,

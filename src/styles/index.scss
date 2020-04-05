@@ -1,7 +1,5 @@
 @import 'variables', 'mixins';
 
-@import '../../node_modules/magic.css/assets/scss/magic.scss';
-
 body {
   max-height: 100vh;
   background-color: $background-color-light;
@@ -67,72 +65,13 @@ body {
     width: 100%;
   }
 }
-
-.custom-spinner {
-  width: 100%;
-  position: absolute;
-  height: 165px;
-  display: flex;
-  align-items: center;
-  left: 0;
-  overflow: hidden;
-  transition: all 0.5s ease-in;
+.card-grid {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: .5rem;
 }
-
-/* Spinner Wave */
-$spCol: #000;
-.sp {
-  width: 7rem;
-  height: 7rem;
-  clear: both;
-  margin: 20px auto;
-}
-.sp-wave {
-  border-radius: 50%;
-  position: relative;
-  opacity: 1;
-}
-.sp-wave:before,
-.sp-wave:after {
-  content: '';
-  border: 2px theme('colors.orange.900') solid;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0px;
-}
-.sp-wave:before {
-  transform: scale(1, 1);
-  opacity: 1;
-  -webkit-animation: spWaveBe 0.6s infinite linear;
-  animation: spWaveBe 0.6s infinite linear;
-}
-.sp-wave:after {
-  transform: scale(0, 0);
-  opacity: 0;
-  -webkit-animation: spWaveAf 0.6s infinite linear;
-  animation: spWaveAf 0.6s infinite linear;
-}
-
-@keyframes spWaveAf {
-  from {
-    transform: scale(0.5, 0.5);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1, 1);
-    opacity: 1;
-  }
-}
-
-@keyframes spWaveBe {
-  from {
-    -webkit-transform: scale(1, 1);
-    opacity: 1;
-  }
-  to {
-    -webkit-transform: scale(1.5, 1.5);
-    opacity: 0;
+@screen md {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
