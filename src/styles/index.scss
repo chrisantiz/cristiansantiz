@@ -106,6 +106,7 @@ body {
   display: grid;
   grid-template-columns: auto;
   grid-gap: 0.5rem;
+  // align-items: center;
 }
 @screen md {
   .card-grid {

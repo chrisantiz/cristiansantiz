@@ -53,13 +53,18 @@ export const Projects: React.FC<Props> = ({ id }) => {
     return cards.map((card, index) => {
       wowDelayTime += 100;
 
+      const image = images.filter(img => {
+        const name = (img.fluid as any).originalName.split('.')[0];
+        return card.cardId === name;
+      })[0];
+
       return (
         <div
           data-wow-delay={`${wowDelayTime}ms`}
           key={`card_${index}`}
-          /* className={card.classes} */
-        >
+          style={{ maxWidth: '313px', justifySelf: 'center' }}>
           <SimpleCard
+            coverIsSvg={false}
             title={
               <span
                 className="cursor-pointer hover:underline"
@@ -67,7 +72,7 @@ export const Projects: React.FC<Props> = ({ id }) => {
                 {card.title}
               </span>
             }>
-            <CompetitivenessIcon className="w-32 h-32" />
+            <Img fluid={image.fluid} key={image.id} className="w-full" />
             {card.description}
           </SimpleCard>
         </div>
@@ -91,9 +96,10 @@ export const Projects: React.FC<Props> = ({ id }) => {
 
       <div>
         {/* <Img fluid={images[0]} /> */}
-        {images.map(image => (
-          <Img fluid={image.fluid} key={image.id} />
-        ))}
+        {/* {images.map(image => (
+          // console.log(image)
+          // <Img fluid={image.fluid} key={image.id} />
+        ))} */}
       </div>
 
       {/* <div style={{ maxWidth: '500px', margin: '0 auto' }}>

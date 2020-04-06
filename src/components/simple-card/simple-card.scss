@@ -1,21 +1,27 @@
 @import '../../styles/variables';
+$color-light: color-mod(#000 a(20%));
+$color-dark: color-mod(theme('colors.primary') a(40%));
 
 .simple-card-container {
+  border: 1px solid $color-light;
+  border-radius: 5px;
   .simple-card-header {
-    background-color: color-mod(theme('colors.primary') a(40%));
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: rgba($color: #000000, $alpha: .1);
   }
 
   .simple-card-content {
     div {
       color: theme('colors.warning');
     }
+
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
 
   body.dark & {
-    .simple-card-header,
-    .simple-card-content {
-      border-color: color-mod(theme('colors.primary') a(40%));
-    }
+    border: 1px solid $color-dark;
 
     .simple-card-content {
       color: $font-color-dark;
