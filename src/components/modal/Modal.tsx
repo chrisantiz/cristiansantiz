@@ -63,13 +63,13 @@ export const Modal: React.FC<Props> = ({
   return (
     <div
       className="modal-container"
-      style={{ display: displayFlex ? 'flex' : 'none' }}>
+      /* style={{ display: displayFlex ? 'flex' : 'none' }} */>
       <div
         ref={modalRef}
         className={conditionalString({
-          onTrue: 'tinDownIn',
-          onFalse: 'tinUpOut',
-          always: 'modal magictime',
+          onTrue: 'open',
+          onFalse: '',
+          always: 'modal',
         })}>
         <div className="modal-header">
           <span className="close-button" onClick={() => onHide()}>

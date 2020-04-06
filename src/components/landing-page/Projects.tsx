@@ -12,6 +12,7 @@ import { getImageFluid } from '@/helpers/get-image-fluid.helper';
 import { ChildImageSharp } from '@/models/graphql.model';
 // import { Video } from '../video/Video';
 import Img from 'gatsby-image';
+import { Dialog } from '../modal/Dialog';
 
 interface Props {
   id: string;
@@ -56,7 +57,8 @@ export const Projects: React.FC<Props> = ({ id }) => {
         <div
           data-wow-delay={`${wowDelayTime}ms`}
           key={`card_${index}`}
-          /* className={card.classes} */>
+          /* className={card.classes} */
+        >
           <SimpleCard
             title={
               <span
@@ -82,13 +84,16 @@ export const Projects: React.FC<Props> = ({ id }) => {
       </Paragraph>
 
       {/* cards */}
-      <section /* className="flex flex-wrap md:flex-no-wrap mb-4 mt-3" */ className="card-grid mt-3">
+      <section
+        /* className="flex flex-wrap md:flex-no-wrap mb-4 mt-3" */ className="card-grid mt-3">
         {generateCards()}
       </section>
 
       <div>
         {/* <Img fluid={images[0]} /> */}
-        {images.map(image => <Img fluid={image.fluid} key={image.id} />)}
+        {images.map(image => (
+          <Img fluid={image.fluid} key={image.id} />
+        ))}
       </div>
 
       {/* <div style={{ maxWidth: '500px', margin: '0 auto' }}>
@@ -100,15 +105,24 @@ export const Projects: React.FC<Props> = ({ id }) => {
       </div> */}
 
       {!!modalData && (
-        <Modal
+        // <Modal
+        //   show={showModal}
+        //   title={modalData.title}
+        //   onHide={() => setShowModal(false)}>
+        //   {/* content */}
+        //   <div>The content</div>
+        //   {/* footer */}
+        //   <div>The footer</div>
+        // </Modal>
+        <Dialog
           show={showModal}
           title={modalData.title}
           onHide={() => setShowModal(false)}>
           {/* content */}
-          <div>The content</div>
+          <>The new content in Dialog</>
           {/* footer */}
-          <div>The footer</div>
-        </Modal>
+          <>The dialog footer</>
+        </Dialog>
       )}
     </PageContainer>
   );
