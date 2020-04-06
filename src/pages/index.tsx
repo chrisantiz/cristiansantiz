@@ -12,13 +12,13 @@ interface Props {
 }
 
 const Index: React.FC<Props> = (props: Props) => (
-  <div style={{ transition: 'opacity .2s ease-in', overflowX: 'hidden' }}>
+  <>
     <Home id="inicio" />
     <AboutMe id="sobre-mi" />
     <Skills id="habilidades" />
     <Projects id="proyectos" />
     <Contact id="contacto" />
-  </div>
+  </>
 );
 
 export default Index;
