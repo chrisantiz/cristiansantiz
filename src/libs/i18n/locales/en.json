@@ -58,19 +58,19 @@
       "cards": [
         {
           "title": "Santz",
-          "description": "Pequeña librería NodeJS para realizar consultar a bases de datos MySQL.",
+          "description": "A small Node JS library for executing queries to MySQL databases.",
           "cardId": "santz",
           "content": []
         },
         {
           "title": "Kirshas",
-          "description": "Aplicación de escritorio desarrollada con Vue y ElectronJS (NestJS en el backend) para realizar tests psicológicos en niños midiendo áreas como: memoria, atención, inteligencia y raciocinio.",
+          "description": "Desktop application developed with Vue + Electron (using NestJS in backend) for perform psychological tests in children, measuring areas like as: memory, attention, intelligence and reason.",
           "cardId": "kirshas",
           "content": []
         },
         {
           "title": "Portafolio web",
-          "description": "Estás aquí, ¿qué más podría decir? Sitio desarrollado en React mediante Gatsby.",
+          "description": "You're here, what more i could say? Site developed in React using Gatsby framework.",
           "cardId": "portfolio",
           "content": []
         }
