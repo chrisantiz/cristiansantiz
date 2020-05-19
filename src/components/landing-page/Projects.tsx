@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Modal } from '../modal/Modal';
 import { PageContainer } from '../PageContainer';
 import { Title } from './util/Title';
 import { useLang } from '@/libs/hooks/use-language';
 import { Paragraph } from './util/Paragraph';
 import { SimpleCard } from '../simple-card/SimpleCard';
-import { CompetitivenessIcon } from '../icons';
 import { ProjectsCardId } from '@/models/locale.model';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getImageFluid } from '@/helpers/get-image-fluid.helper';
-import { ChildImageSharp } from '@/models/graphql.model';
-// import { Video } from '../video/Video';
 import Img from 'gatsby-image';
 import { Dialog } from '../modal/Dialog';
+// import { ChildImageSharp } from '@/models/graphql.model';
+// import { CompetitivenessIcon } from '../icons';
+// import { Modal } from '../modal/Modal';
 
 interface Props {
   id: string;
@@ -48,10 +47,8 @@ export const Projects: React.FC<Props> = ({ id }) => {
 
   function generateCards() {
     const { cards } = projects;
-    let wowDelayTime = 100;
 
     return cards.map((card, index) => {
-      wowDelayTime += 100;
 
       const image = images.filter(img => {
         const name = (img.fluid as any).originalName.split('.')[0];
@@ -60,7 +57,6 @@ export const Projects: React.FC<Props> = ({ id }) => {
 
       return (
         <div
-          data-wow-delay={`${wowDelayTime}ms`}
           key={`card_${index}`}
           style={{ maxWidth: '313px', justifySelf: 'center' }}>
           <SimpleCard
@@ -82,11 +78,9 @@ export const Projects: React.FC<Props> = ({ id }) => {
 
   return (
     <PageContainer id={id} className="pt-2 md:pt-6 min-h-screen">
-      <Title animation="swashIn">{projects.linkLabel}</Title>
+      <Title>{projects.linkLabel}</Title>
 
-      <Paragraph animation="swashIn" animationDelay="100ms">
-        {projects.text}
-      </Paragraph>
+      <Paragraph>{projects.text}</Paragraph>
 
       {/* cards */}
       <section

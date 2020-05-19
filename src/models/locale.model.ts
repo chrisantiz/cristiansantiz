@@ -52,7 +52,6 @@ export interface ProyectsPage {
 
 export interface ProjectsCard {
   title: string;
-  classes: string;
   description: string;
   cardId: ProjectsCardId;
   content: [];

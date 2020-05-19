@@ -11,7 +11,7 @@
       "linkLabel": "Home",
       "labels": {
         "whatsapp": "Send me a message via Whatsapp",
-        "email": "Send me a email",
+        "email": "Send me an email",
         "buttonKnowMore": "know more"
       }
     },
@@ -53,26 +53,23 @@
       "text": "Highlight the use of UI frameworks such as: Vuetify, Quasar, Tailwindcss, Angular material, Materialize and Bootstrap. Git is understood, it is essential."
     },
     "projects": {
-      "text": "Page \"projects\" works!",
+      "text": "Some of my featured projects",
       "linkLabel": "Projects",
       "cards": [
         {
           "title": "Santz",
-          "classes": "wow magictime spaceInLeft w-full md:mr-3",
           "description": "Pequeña librería NodeJS para realizar consultar a bases de datos MySQL.",
           "cardId": "santz",
           "content": []
         },
         {
           "title": "Kirshas",
-          "classes": "wow magictime spaceInDown w-full md:mr-3 mt-3 md:mt-0",
           "description": "Aplicación de escritorio desarrollada con Vue y ElectronJS (NestJS en el backend) para realizar tests psicológicos en niños midiendo áreas como: memoria, atención, inteligencia y raciocinio.",
           "cardId": "kirshas",
           "content": []
         },
         {
           "title": "Portafolio web",
-          "classes": "wow magictime spaceInRight w-full mt-3 md:mt-0",
           "description": "Estás aquí, ¿qué más podría decir? Sitio desarrollado en React mediante Gatsby.",
           "cardId": "portfolio",
           "content": []
