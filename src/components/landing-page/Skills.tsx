@@ -17,14 +17,13 @@ export const Skills: React.FC<Props> = ({ id }) => {
 
   return (
     <PageContainer className="pt-2 md:pt-6 min-h-screen" id={id}>
-      <Title animation="vanishIn" className="mb-2 md:mb-5">
+      <Title className="mb-2 md:mb-5">
         {skills.linkLabel}
       </Title>
 
       <SkillsProgressBar />
       <p
-        className="wow magictime vanishIn my-5 text-justify"
-        data-wow-delay="500ms">
+        className="my-5 text-justify">
         {skills.text}
       </p>
     </PageContainer>

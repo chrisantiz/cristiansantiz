@@ -3,21 +3,11 @@ import React from 'react';
 interface Props {
   children: string;
   className?: string;
-  /** magic animation type */
-  animation: string;
-  /** wow animation delay */
-  animationDelay?: string;
 }
 
-export const Title: React.FC<Props> = ({
-  children,
-  animation,
-  className,
-  animationDelay,
-}) => (
+export const Title: React.FC<Props> = ({ children, className }) => (
   <h2
-    className={`wow magictime ${animation} text-2xl text-center text-warning font-semibold ${className}`}
-    data-wow-delay={animationDelay}>
+    className={`text-2xl text-center text-warning font-semibold ${className}`}>
     {children}
   </h2>
 );

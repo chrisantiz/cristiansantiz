@@ -40,17 +40,12 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
 
   function generateCards(): JSX.Element[] {
     const { cards } = aboutMe.whyHireMe;
-    let wowDelayTime = 600;
 
     return cards.map((card, index) => {
       const icon = getIconByIndex(index);
-      wowDelayTime += 100;
 
       return (
-        <div
-          // className={card.classes}
-          // data-wow-delay={`${wowDelayTime}ms`}
-          key={`card_${index}`}>
+        <div key={`card_${index}`}>
           <SimpleCard title={card.title}>
             {icon}
             {card.text}
@@ -64,49 +59,28 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
     <PageContainer id={id}>
       <section className="py-3">
         {/* section 1 */}
-        <Title animation="boingInUp" animationDelay="100ms">
-          {aboutMe.title}
-        </Title>
+        <Title>{aboutMe.title}</Title>
 
-        <Paragraph animation="boingInUp" animationDelay="200ms">
+        <Paragraph>
           {aboutMe.paragraphs.one.partOne} {age}{' '}
           {aboutMe.paragraphs.one.partTwo}
         </Paragraph>
 
-        <Paragraph
-          animation="boingInUp"
-          animationDelay="300ms"
-          className="mt-2">
-          {aboutMe.paragraphs.two}
-        </Paragraph>
+        <Paragraph className="mt-2">{aboutMe.paragraphs.two}</Paragraph>
 
-        <Paragraph
-          animation="boingInUp"
-          animationDelay="400ms"
-          className="mt-2">
-          {aboutMe.paragraphs.three}
-        </Paragraph>
+        <Paragraph className="mt-2">{aboutMe.paragraphs.three}</Paragraph>
 
-        <Paragraph
-          animation="boingInUp"
-          animationDelay="500ms"
-          className="mt-2">
-          {aboutMe.paragraphs.four}
-        </Paragraph>
+        <Paragraph className="mt-2">{aboutMe.paragraphs.four}</Paragraph>
         {/* end section 1 */}
 
         {/* section 2 */}
-        <Title
-          animation="boingInUp"
-          animationDelay="600ms"
-          className="mt-8 mb-4">
-          {aboutMe.whyHireMe.title}
-        </Title>
+        <Title className="mt-8 mb-4">{aboutMe.whyHireMe.title}</Title>
 
         {/* cards */}
         <section
           className="card-grid"
-          /* className="flex flex-wrap md:flex-no-wrap mb-4" */>
+          /* className="flex flex-wrap md:flex-no-wrap mb-4" */
+        >
           {generateCards()}
         </section>
         {/* end section 2 */}
