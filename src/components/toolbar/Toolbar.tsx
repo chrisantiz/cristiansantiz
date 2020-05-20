@@ -1,33 +1,37 @@
 import React, { useMemo } from 'react';
-// import { Link } from 'gatsby';
-import { Link } from 'react-scroll';
 import './toolbar.scss';
+import Img from 'gatsby-image';
+import { Link } from 'react-scroll';
 import { DrawerToggleButton } from '@components/side-drawer/DrawerToggleButton';
 import { ToolbarItems } from '@components/toolbar/ToolbarItems';
 import { DarkModeButton } from '@components/dark-mode-button/DarkModeButton';
-import { GithubIcon, DesktopIcon } from '@components/icons';
+import { GithubIcon } from '@components/icons';
 import { DropdownLanguages } from '../dropdown-languages/DropdownLanguages';
 import { useLang } from '@libs/hooks/use-language';
+import { useStaticQuery, graphql } from 'gatsby';
 
 interface Props {
-  // changeColorOnScroll: boolean;
   isSmallScreen: boolean;
 }
 
 export const Toolbar = ({ isSmallScreen }: Props) => {
   const staticClasses = 'toolbar toolbar-invert';
-  // let classes = '';
+
+  const logo = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "logo-black-white.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
 
   const {
     lang: { labels },
   } = useLang();
-
-  // change background color on scrolling
-  // if (changeColorOnScroll) {
-  //   classes = 'toolbar toolbar-scroll shadow-lg';
-  // } else {
-  //   classes = staticClasses;
-  // }
 
   const items = useMemo(() => {
     return !isSmallScreen ? (
@@ -51,7 +55,7 @@ export const Toolbar = ({ isSmallScreen }: Props) => {
             duration={700}
             className="cursor-pointer"
             title="logo">
-            <DesktopIcon width="25px" height="25px" />
+            <Img fluid={logo.file.childImageSharp.fluid} alt="logo" />
           </Link>
         </div>
         <div className="spacer"></div>
