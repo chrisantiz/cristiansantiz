@@ -6,6 +6,6 @@ import { GlobalProvider } from '@libs/context/global/context';
 
 export const wrapPageElement = ({ element, props }) => (
   <GlobalProvider>
-    <DefaultLayout {...props}>{element}</DefaultLayout>>
+    <DefaultLayout {...props}>{element}</DefaultLayout>
   </GlobalProvider>
 );

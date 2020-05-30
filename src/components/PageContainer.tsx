@@ -14,11 +14,8 @@ export const PageContainer: React.FC<Props> = ({
   className,
 }) => {
   return (
-    <>
-      {/* <div style={{ height: '56px' }}></div> */}
-      <div style={{ ...style }} className={`container ${className}`} id={id}>
-        {children}
-      </div>
-    </>
+    <div style={{ ...style }} className={`container ${className}`} id={id}>
+      {children}
+    </div>
   );
 };

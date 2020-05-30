@@ -9,7 +9,10 @@ import { useGlobalState } from '@/libs/hooks/use-global-state';
 
 /* Layout per defect */
 export const DefaultLayout = ({ children }: any) => {
-  const { state: { locale }, dispatch } = useGlobalState();
+  const {
+    state: { locale },
+    dispatch,
+  } = useGlobalState();
 
   const [smallScreen, setSmallScren] = useState(false);
 
@@ -35,18 +38,16 @@ export const DefaultLayout = ({ children }: any) => {
   }, []);
 
   const toolbar = useMemo(() => {
-    return (
-      <Toolbar isSmallScreen={smallScreen} />
-    );
+    return <Toolbar isSmallScreen={smallScreen} />;
   }, [locale, smallScreen]);
 
   // render only in small screen devices
   const sidedrawer = useMemo(() => {
-    return smallScreen ? <SideDrawer /> : <></>;
+    return smallScreen ? <SideDrawer /> : null;
   }, [smallScreen]);
 
   const backdrop = useMemo(() => {
-    return smallScreen ? <Backdrop /> : <></>;
+    return smallScreen ? <Backdrop /> : null;
   }, [smallScreen]);
 
   return (
@@ -56,10 +57,7 @@ export const DefaultLayout = ({ children }: any) => {
       {backdrop}
 
       {/* main */}
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
     </>
   );
 };
-

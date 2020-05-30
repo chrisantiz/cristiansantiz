@@ -11,7 +11,7 @@ interface Props {
   path: string;
 }
 
-const Index: React.FC<Props> = (props: Props) => (
+const Index: React.FC<Props> = () => (
   <>
     <Home id="inicio" />
     <AboutMe id="sobre-mi" />

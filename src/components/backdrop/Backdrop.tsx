@@ -9,16 +9,12 @@ export const Backdrop = () => {
     dispatch,
   } = useGlobalState();
 
-  if (show) {
-    return (
-      <div
-        role="button"
-        tabIndex={0}
-        className="backdrop"
-        onClick={() => dispatch(toggleSideDrawer())}
-      />
-    );
-  } else {
-    return <></>;
-  }
+  return show ? (
+    <div
+      role="button"
+      tabIndex={0}
+      className="backdrop"
+      onClick={() => dispatch(toggleSideDrawer())}
+    />
+  ) : null;
 };
