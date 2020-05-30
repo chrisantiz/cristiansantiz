@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Toolbar } from '@components/toolbar/Toolbar';
 import { SideDrawer } from '@components/side-drawer/SideDrawer';
 import { Backdrop } from '@components/backdrop/Backdrop';
@@ -37,24 +37,11 @@ export const DefaultLayout = ({ children }: any) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const toolbar = useMemo(() => {
-    return <Toolbar isSmallScreen={smallScreen} />;
-  }, [locale, smallScreen]);
-
-  // render only in small screen devices
-  const sidedrawer = useMemo(() => {
-    return smallScreen ? <SideDrawer /> : null;
-  }, [smallScreen]);
-
-  const backdrop = useMemo(() => {
-    return smallScreen ? <Backdrop /> : null;
-  }, [smallScreen]);
-
   return (
     <>
-      {toolbar}
-      {sidedrawer}
-      {backdrop}
+      <Toolbar isSmallScreen={smallScreen} />
+      <SideDrawer />
+      <Backdrop />
 
       {/* main */}
       <main>{children}</main>
