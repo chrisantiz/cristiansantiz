@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { PageContainer } from '../PageContainer';
 import { Title } from './util/Title';
 import { useLang } from '@/libs/hooks/use-language';
@@ -30,11 +30,6 @@ export const Projects: React.FC<Props> = ({ id }) => {
     getImageFluid(edge),
   );
 
-  useEffect(() => {
-    console.log(images);
-    // console.log(imagesData);
-  }, []);
-
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState<{ title: string } | null>(null);
 
@@ -49,7 +44,6 @@ export const Projects: React.FC<Props> = ({ id }) => {
     const { cards } = projects;
 
     return cards.map((card, index) => {
-
       const image = images.filter(img => {
         const name = (img.fluid as any).originalName.split('.')[0];
         return card.cardId === name;
@@ -83,37 +77,9 @@ export const Projects: React.FC<Props> = ({ id }) => {
       <Paragraph>{projects.text}</Paragraph>
 
       {/* cards */}
-      <section
-        /* className="flex flex-wrap md:flex-no-wrap mb-4 mt-3" */ className="card-grid mt-3">
-        {generateCards()}
-      </section>
-
-      <div>
-        {/* <Img fluid={images[0]} /> */}
-        {/* {images.map(image => (
-          // console.log(image)
-          // <Img fluid={image.fluid} key={image.id} />
-        ))} */}
-      </div>
-
-      {/* <div style={{ maxWidth: '500px', margin: '0 auto' }}>
-        <Video
-          id="vp-01"
-          src="https://res.cloudinary.com/crisantizan/video/upload/v1584503745/cristiansantiz.com/kishas_clip_t2xujd.mp4"
-          options={{ fluid: true, controls: true, muted: true }}
-        />
-      </div> */}
+      <section className="card-grid mt-3">{generateCards()}</section>
 
       {!!modalData && (
-        // <Modal
-        //   show={showModal}
-        //   title={modalData.title}
-        //   onHide={() => setShowModal(false)}>
-        //   {/* content */}
-        //   <div>The content</div>
-        //   {/* footer */}
-        //   <div>The footer</div>
-        // </Modal>
         <Dialog
           show={showModal}
           title={modalData.title}
