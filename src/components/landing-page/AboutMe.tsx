@@ -2,7 +2,7 @@ import React from 'react';
 import { PageContainer } from '../PageContainer';
 import { useGlobalState } from '@/libs/hooks/use-global-state';
 import { useDate } from '@/libs/hooks/use-date';
-import { CompetitivenessIcon, IdeasIcon, ConstantIcon } from '../icons';
+import { CompetitivenessIcon, IdeasIcon, ConstancyIcon } from '../svg-icons';
 import { SimpleCard } from '../simple-card/SimpleCard';
 import { useLang } from '@/libs/hooks/use-language';
 import { Title } from './util/Title';
@@ -30,11 +30,11 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
   function getIconByIndex(index: number): JSX.Element {
     switch (index) {
       case 0:
-        return <CompetitivenessIcon className="w-32 h-32 ma-2" />;
+        return <CompetitivenessIcon className="fill-current w-32 h-32 ma-2" />;
       case 1:
-        return <IdeasIcon className="w-32 h-32 ma-2" />;
+        return <IdeasIcon className="fill-current w-32 h-32 ma-2" />;
       default:
-        return <ConstantIcon className="w-32 h-32 ma-2" />;
+        return <ConstancyIcon className="fill-current w-32 h-32 ma-2" />;
     }
   }
 
