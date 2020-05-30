@@ -1,12 +1,12 @@
 import React from 'react';
 import { PageContainer } from '../PageContainer';
 import { useGlobalState } from '@/libs/hooks/use-global-state';
-import { useDate } from '@/libs/hooks/use-date';
 import { CompetitivenessIcon, IdeasIcon, ConstancyIcon } from '../svg-icons';
 import { SimpleCard } from '../simple-card/SimpleCard';
 import { useLang } from '@/libs/hooks/use-language';
 import { Title } from './util/Title';
 import { Paragraph } from './util/Paragraph';
+import { getYearsFromNow } from '@/helpers/date.helper';
 
 interface Props {
   id: string;
@@ -25,7 +25,7 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
     },
   } = useLang();
 
-  const age = useDate().getYearsFromNow(birthdate);
+  const age = getYearsFromNow(birthdate);
 
   function getIconByIndex(index: number): JSX.Element {
     switch (index) {
@@ -77,12 +77,7 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
         <Title className="mt-8 mb-4">{aboutMe.whyHireMe.title}</Title>
 
         {/* cards */}
-        <section
-          className="card-grid"
-          /* className="flex flex-wrap md:flex-no-wrap mb-4" */
-        >
-          {generateCards()}
-        </section>
+        <section className="card-grid">{generateCards()}</section>
         {/* end section 2 */}
       </section>
     </PageContainer>

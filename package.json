@@ -8,6 +8,7 @@
     "email": "crisantizan@gmail.com"
   },
   "dependencies": {
+    "dayjs": "^1.8.28",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
     "gatsby-link": "^2.2.30",
@@ -22,7 +23,6 @@
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-json": "^2.2.26",
     "gatsby-transformer-sharp": "^2.3.13",
-    "moment": "^2.24.0",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
