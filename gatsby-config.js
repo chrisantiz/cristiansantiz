@@ -87,6 +87,14 @@ module.exports = {
         // purgeOnly: ['src/', 'node_modules/magic.css/dist/magic.min.css']
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\/svg\/.*\.svg$/,
+        },
+      },
+    },
     `gatsby-plugin-mdx`,
     `gatsby-transformer-json`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
