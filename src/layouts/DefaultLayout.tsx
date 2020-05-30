@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import PropTypes from 'prop-types';
 import { Toolbar } from '@components/toolbar/Toolbar';
 import { SideDrawer } from '@components/side-drawer/SideDrawer';
 import { Backdrop } from '@components/backdrop/Backdrop';
@@ -12,14 +11,7 @@ import { useGlobalState } from '@/libs/hooks/use-global-state';
 export const DefaultLayout = ({ children }: any) => {
   const { state: { locale }, dispatch } = useGlobalState();
 
-  // const mainRef = useRef<any>(null);
-  // const [toolbarColor, setToolbarColor] = useState(false);
-  // if is a small screen device
   const [smallScreen, setSmallScren] = useState(false);
-
-  // const scrollFunction = () => {
-  //   setToolbarColor(mainRef!.current!.scrollTop > 10);
-  // };
 
   useEffect(() => {
     const localePersisted = localStorage.getItem(LocalKey.LOCALE) as
@@ -64,13 +56,10 @@ export const DefaultLayout = ({ children }: any) => {
       {backdrop}
 
       {/* main */}
-      <main /* ref={mainRef} onScroll={scrollFunction} */>
+      <main>
         {children}
       </main>
     </>
   );
 };
 
-DefaultLayout.propTypes = {
-  children: PropTypes.node.isRequired,
-};

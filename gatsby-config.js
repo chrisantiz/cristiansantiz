@@ -39,20 +39,6 @@ module.exports = {
         name: `locales`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/blog/pages`,
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `blogImages`,
-        path: `${__dirname}/blog/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -64,7 +50,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/logo.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/logo.png`,
       },
     },
     {
@@ -84,7 +70,6 @@ module.exports = {
         develop: true,
         tailwind: true,
         whitelistPatterns: [/^progress-/, /^bar-content-/],
-        // purgeOnly: ['src/', 'node_modules/magic.css/dist/magic.min.css']
       },
     },
     {
@@ -95,10 +80,7 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-mdx`,
+    // `gatsby-plugin-mdx`,
     `gatsby-transformer-json`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };
