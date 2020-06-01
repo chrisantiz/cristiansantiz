@@ -5,10 +5,11 @@ import { Link } from 'react-scroll';
 import { DrawerToggleButton } from '@components/side-drawer/DrawerToggleButton';
 import { ToolbarItems } from '@components/toolbar/ToolbarItems';
 import { DarkModeButton } from '@components/dark-mode-button/DarkModeButton';
-import { GithubIcon } from '@components/icons';
+// import { GithubIcon } from '@components/icons';
 import { DropdownLanguages } from '../dropdown-languages/DropdownLanguages';
 import { useLang } from '@libs/hooks/use-language';
 import { useStaticQuery, graphql } from 'gatsby';
+import { GithubIcon } from '../svg-icons';
 
 interface Props {
   isSmallScreen: boolean;
@@ -69,7 +70,7 @@ export const Toolbar = ({ isSmallScreen }: Props) => {
           className="ml-2"
           title={labels.githubBtn}
           href="https://github.com/crisantizan">
-          <GithubIcon width="20px" height="20px" />
+          <GithubIcon className="svg-icon toolbar-icon" />
         </a>
       </nav>
     </header>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './dark-mode-button.scss';
-import { SunIcon, MoonIcon } from '../icons';
+import { SunIcon, MoonIcon } from '../svg-icons';
 import { LocalKey } from '@libs/enum';
 import { useGlobalState } from '@/libs/hooks/use-global-state';
 

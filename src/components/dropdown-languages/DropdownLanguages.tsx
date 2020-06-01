@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './dropdown-languages.scss';
-import { GlobeIcon } from '../icons';
 
 import usa from '@/assets/images/usa-flag.svg';
 import col from '@/assets/images/colombia-flag.svg';
+
 import { LocaleType } from '@libs/i18n/languages';
 import { changeLocale } from '@libs/context/global/actions';
 import { useGlobalState } from '@libs/hooks/use-global-state';
+import { I18nIcon } from '../svg-icons';
 
 interface Props {
   className: string;
@@ -124,7 +125,7 @@ export const DropdownLanguages = ({ className, title }: Props) => {
   return (
     <div className={`box-dropdown ${className}`}>
       <div className="icon" title={title} onClick={handleClickButton}>
-        <GlobeIcon />
+        <I18nIcon className="svg-icon toolbar-icon" />
         <span>{localeSelected.toUpperCase()}</span>
       </div>
       <div ref={refList} className={showList ? 'dropdown open' : 'dropdown'}>

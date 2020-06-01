@@ -1,9 +1,5 @@
 export { EditIcon } from './EditIcon';
 export { FacebookIcon } from './FacebookIcon';
 export { InstagramIcon } from './InstagramIcon';
-export { GlobeIcon } from './GlobeIcon';
-export { DesktopIcon } from './DesktopIcon';
-export { GithubIcon } from './GithubIcon';
-export { SunIcon } from './SunIcon';
-export { MoonIcon } from './MoonIcon';
 export { NotFoundIcon } from './NotFoundIcon';
+export { DesktopIcon } from './DesktopIcon';

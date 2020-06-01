@@ -47,6 +47,10 @@ body {
 .svg-icon {
   fill: currentColor;
   width: 1rem;
+
+  &.toolbar-icon {
+    width: 1.2rem;
+  }
 }
 
 @include media(xs) {
