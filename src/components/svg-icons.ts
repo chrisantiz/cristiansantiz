@@ -20,3 +20,6 @@ export { default as GithubIcon } from '@/assets/svg/toolbar/github-icon.svg';
 export { default as SunIcon } from '@/assets/svg/toolbar/sun-icon.svg';
 export { default as MoonIcon } from '@/assets/svg/toolbar/moon-icon.svg';
 export { default as I18nIcon } from '@/assets/svg/toolbar/i18n-icon.svg';
+
+export { default as NotFoundIcon } from '@/assets/svg/error-404-icon.svg';
+

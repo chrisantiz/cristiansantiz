@@ -1,10 +1,10 @@
 import React from 'react';
 import { SEO } from '../components/Seo';
 import { PageContainer } from '../components/PageContainer';
-import { NotFoundIcon } from '@components/icons';
 import '@/styles/components/_not-found.scss';
-import { Button } from '@/components/button/Button';
 import { useLang } from '../libs/hooks/use-language';
+import { NotFoundIcon } from '@/components/svg-icons';
+import Link from 'gatsby-link';
 
 const NotFoundPage = () => {
   const {
@@ -18,12 +18,14 @@ const NotFoundPage = () => {
       <SEO title={notFound.title} />
       <div className="not-found">
         <h1 className="uppercase">{notFound.h1}</h1>
-        <NotFoundIcon width="200px" height="200px" />
+        <NotFoundIcon width="10rem" height="10rem" />
         <p>{notFound.p}</p>
 
-        <Button outlined className="mt-4" to="/">
+        <Link
+          className="uppercase font-semibold py-1 px-4 rounded text-warning hover:bg-orange-800 border border-warning bg-transparent hover:border-transparent hover:text-white mt-4"
+          to="/">
           {notFound.buttonText}
-        </Button>
+        </Link>
       </div>
     </PageContainer>
   );
