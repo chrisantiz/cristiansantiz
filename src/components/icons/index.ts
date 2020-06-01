@@ -1,9 +1,4 @@
 export { EditIcon } from './EditIcon';
-export { ContactIcon } from './ContactIcon';
-export { ProjectsIcon } from './ProjectsIcon';
-export { UserIcon } from './UserIcon';
-export { HomeIcon } from './HomeIcon';
-export { ToolsIcon } from './ToolsIcon';
 export { EmailIcon } from './EmailIcon';
 export { LinkedinIcon } from './LinkedinIcon';
 export { FacebookIcon } from './FacebookIcon';

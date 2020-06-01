@@ -6,11 +6,11 @@ import {
 import { useLang } from '@libs/hooks/use-language';
 import {
   HomeIcon,
-  UserIcon,
+  AboutMeIcon,
   ProjectsIcon,
   ContactIcon,
-  ToolsIcon,
-} from '../icons';
+  SkillsIcon,
+} from '../svg-icons';
 import { PagesLinkLabel } from '@models/locale.model';
 import { pagesLinkLabelSelector } from '@helpers/selectors.helper';
 import { Link as LinkScroll } from 'react-scroll';
@@ -60,9 +60,9 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
       case 'home':
         return <HomeIcon />;
       case 'aboutMe':
-        return <UserIcon />;
+        return <AboutMeIcon />;
       case 'skills':
-        return <ToolsIcon />;
+        return <SkillsIcon />;
       case 'projects':
         return <ProjectsIcon />;
       case 'contact':
