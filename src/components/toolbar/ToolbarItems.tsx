@@ -58,15 +58,15 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
 
     switch (name) {
       case 'home':
-        return <HomeIcon />;
+        return <HomeIcon className="svg-icon" />;
       case 'aboutMe':
-        return <AboutMeIcon />;
+        return <AboutMeIcon className="svg-icon" />;
       case 'skills':
-        return <SkillsIcon />;
+        return <SkillsIcon className="svg-icon" />;
       case 'projects':
-        return <ProjectsIcon />;
+        return <ProjectsIcon className="svg-icon" />;
       case 'contact':
-        return <ContactIcon />;
+        return <ContactIcon className="svg-icon" />;
     }
   }
 

@@ -1,13 +1,9 @@
 import React from 'react';
-import { WhatsappIcon, LinkedinIcon, EmailIcon } from '@components/icons';
+import { WhatsappIcon, LinkedinIcon, EmailIcon } from '@components/svg-icons';
 import { useLang } from '@libs/hooks/use-language';
 import { useGlobalState } from '@/libs/hooks/use-global-state';
 
-interface Props {
-  className?: string;
-}
-
-export const SocialMediaIcons = ({ className }: Props) => {
+export const SocialMediaIcons = () => {
   const { selector } = useLang();
   const { labels } = selector(d => d.pages.home);
   const {
@@ -15,14 +11,14 @@ export const SocialMediaIcons = ({ className }: Props) => {
   } = useGlobalState();
 
   return (
-    <div className={`flex ${className}`}>
+    <div className="flex items-center">
       {/* email */}
       <a
         href={`mailto:${myData.socialMediaLinks.email}`}
         target="_blank"
         className="mr-1"
         title={labels.email}>
-        <EmailIcon />
+        <EmailIcon className="svg-icon" />
       </a>
       {/* whatsapp */}
       <a
@@ -30,14 +26,14 @@ export const SocialMediaIcons = ({ className }: Props) => {
         target="_blank"
         className="mr-1"
         title={labels.whatsapp}>
-        <WhatsappIcon />
+        <WhatsappIcon className="svg-icon" />
       </a>
       {/* linkedin */}
       <a
         href={myData.socialMediaLinks.linkedin}
         target="_blank"
         title="Linkedin">
-        <LinkedinIcon />
+        <LinkedinIcon className="svg-icon" />
       </a>
     </div>
   );

@@ -44,6 +44,11 @@ body {
   width: 100%;
 }
 
+.svg-icon {
+  fill: currentColor;
+  width: 1rem;
+}
+
 @include media(xs) {
   ::-webkit-scrollbar {
     width: 3px;

@@ -9,3 +9,8 @@ export { default as ContactIcon } from '@/assets/svg/side-drawer/contact-icon.sv
 export { default as HomeIcon } from '@/assets/svg/side-drawer/home-icon.svg';
 export { default as ProjectsIcon } from '@/assets/svg/side-drawer/projects-icon.svg';
 export { default as SkillsIcon } from '@/assets/svg/side-drawer/skills-icon.svg';
+
+// contact icon
+export { default as EmailIcon } from '@/assets/svg/contact/email-icon.svg';
+export { default as LinkedinIcon } from '@/assets/svg/contact/linkedin-icon.svg';
+export { default as WhatsappIcon } from '@/assets/svg/contact/whatsapp-icon.svg';

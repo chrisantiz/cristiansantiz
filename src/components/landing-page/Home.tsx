@@ -37,15 +37,13 @@ export const Home: React.FC<Props> = ({ id }) => {
 
           <div className="flex justify-center items-center flex-col">
             {/* name */}
-            <p
-              className="wow magictime swap text-warning font-bold text-2xl uppercase"
-              data-wow-delay="400ms">
+            <p className="text-warning font-bold text-2xl uppercase">
               {myData.name.short}
             </p>
 
             {/* role */}
             <div
-              className="wow magictime spaceInRight flex items-center text-xl web-developer font-semibold -mt-2"
+              className="flex items-center text-xl web-developer font-semibold -mt-2"
               data-wow-delay="500ms">
               <span className="text-warning text-2xl font-semibold mr-1">
                 &#60;
@@ -57,37 +55,18 @@ export const Home: React.FC<Props> = ({ id }) => {
             </div>
 
             {/* message */}
-            <span
-              className="wow magictime swap sm:w-1/2 text-center mt-1"
-              data-wow-delay="600ms">
-              {siteDescription}
-            </span>
+            <span className="sm:w-1/2 text-center mt-1">{siteDescription}</span>
 
             {/* button */}
-            <Button
-              to="sobre-mi"
-              outlined
-              size="sm"
-              className="wow magictime spaceInRight my-3"
-              data-wow-delay="700ms"
-              data-wow-offset="-56">
+            <Button to="sobre-mi" outlined size="sm" className="my-3">
               {home.labels.buttonKnowMore}
             </Button>
 
             {/* social media icons */}
-            <SocialMediaIcons
-              className="wow magictime swap mt-3"
-              data-wow-delay="750ms"
-              data-wow-offset="-56"
-            />
+            <SocialMediaIcons />
 
             {/* current location */}
-            <small
-              className="wow magictime swap"
-              data-wow-delay="800ms"
-              data-wow-offset="-56">
-              {myData.currentLocation}
-            </small>
+            <small>{myData.currentLocation}</small>
           </div>
         </div>
       </PageContainer>
