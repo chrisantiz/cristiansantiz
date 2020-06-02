@@ -64,7 +64,7 @@
         },
         {
           "title": "Kirshas",
-          "description": "Aplicación de escritorio desarrollada con Vue y ElectronJS (NestJS en el backend) para realizar tests psicológicos en niños midiendo áreas como: memoria, atención, inteligencia y raciocinio.",
+          "description": "Aplicación de escritorio para realizar tests psicológicos en niños.",
           "cardId": "kirshas",
           "content": []
         },

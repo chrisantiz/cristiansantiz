@@ -57,7 +57,7 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
 
   return (
     <PageContainer id={id}>
-      <section className="py-3">
+      <section className="py-3 min-h-screen">
         {/* section 1 */}
         <Title>{aboutMe.title}</Title>
 

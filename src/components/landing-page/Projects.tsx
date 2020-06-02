@@ -50,9 +50,7 @@ export const Projects: React.FC<Props> = ({ id }) => {
       })[0];
 
       return (
-        <div
-          key={`card_${index}`}
-          style={{ maxWidth: '313px', justifySelf: 'center' }}>
+        <div key={`card_${index}`}>
           <SimpleCard
             coverIsSvg={false}
             title={
@@ -71,7 +69,7 @@ export const Projects: React.FC<Props> = ({ id }) => {
   }
 
   return (
-    <PageContainer id={id} className="pt-2 md:pt-6 min-h-screen">
+    <PageContainer id={id} className="py-3 min-h-screen">
       <Title>{projects.linkLabel}</Title>
 
       <Paragraph>{projects.text}</Paragraph>
