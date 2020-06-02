@@ -1,4 +1,5 @@
 @import 'variables';
+
 .web-developer {
   color: black;
 
@@ -9,7 +10,7 @@
 
 .image-shadow {
   box-shadow: $shadow-light;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 
   body.dark & {
     box-shadow: $shadow-dark;

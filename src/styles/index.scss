@@ -56,6 +56,11 @@ body {
 
 .card-grid {
   font-size: 1rem;
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 0.5rem;
+  justify-items: center;
+  color: red($color: #000000);
 }
 
 @include media(xs) {
@@ -86,13 +91,6 @@ body {
   }
 }
 
-.card-grid {
-  display: grid;
-  grid-template-columns: auto;
-  grid-gap: 0.5rem;
-  justify-items: center;
-}
-
 @media (min-width: $breakpoint-sm) {
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -102,5 +100,12 @@ body {
 @media (min-width: 900px) {
   .card-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@screen md {
+  .card-grid {
+    color: red;
+    text-align: center;
   }
 }
