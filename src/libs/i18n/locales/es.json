@@ -58,19 +58,19 @@
       "cards": [
         {
           "title": "Santz",
-          "description": "Pequeña librería NodeJS para realizar consultar a bases de datos MySQL.",
+          "description": "Pequeña librería NodeJS para realizar consultas a bases de datos MySQL.",
           "cardId": "santz",
           "content": []
         },
         {
           "title": "Kirshas",
-          "description": "Aplicación de escritorio para realizar tests psicológicos en niños.",
+          "description": "Aplicación de escritorio para realizar pruebas psicológicas a niños.",
           "cardId": "kirshas",
           "content": []
         },
         {
           "title": "Portafolio web",
-          "description": "Estás aquí, ¿qué más podría decir? Sitio desarrollado en React mediante Gatsby.",
+          "description": "Mi Portafolio web. Sitio desarrollado en React mediante Gatsby.",
           "cardId": "portfolio",
           "content": []
         }

@@ -30,11 +30,11 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
   function getIconByIndex(index: number): JSX.Element {
     switch (index) {
       case 0:
-        return <CompetitivenessIcon className="fill-current w-32 h-32 ma-2" />;
+        return <CompetitivenessIcon className="w-32 h-32 ma-2" />;
       case 1:
-        return <IdeasIcon className="fill-current w-32 h-32 ma-2" />;
+        return <ConstancyIcon className="w-32 h-32 ma-2" />;
       default:
-        return <ConstancyIcon className="fill-current w-32 h-32 ma-2" />;
+        return <IdeasIcon className="w-32 h-32 ma-2" />;
     }
   }
 

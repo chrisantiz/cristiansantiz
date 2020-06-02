@@ -64,13 +64,13 @@
         },
         {
           "title": "Kirshas",
-          "description": "Desktop application developed with Vue + Electron (using NestJS in backend) for perform psychological tests in children, measuring areas like as: memory, attention, intelligence and reason.",
+          "description": "Desktop application to perform psychological tests on children.",
           "cardId": "kirshas",
           "content": []
         },
         {
           "title": "Portafolio web",
-          "description": "You're here, what more i could say? Site developed in React using Gatsby framework.",
+          "description": "My web portfolio. Site developed in React using Gatsby framework.",
           "cardId": "portfolio",
           "content": []
         }
