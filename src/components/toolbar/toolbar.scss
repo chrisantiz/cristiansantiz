@@ -4,7 +4,6 @@ $toolbar-height: 56px;
 
 .toolbar {
   position: sticky;
-  // position: absolute;
   z-index: 90;
   width: 100%;
   top: 0;
@@ -12,14 +11,10 @@ $toolbar-height: 56px;
   height: $toolbar-height;
   transition: background-color 0.1s ease-in;
   padding-right: 8px;
-  /* no default color */
-  // background-color: theme('colors.primary');
   background-color: color-mod(theme('colors.primary') a(90%));
-  // border-bottom: 1px solid $border-bottom-light;
   box-shadow: $shadow-light;
 
   body.dark & {
-    // border-bottom: 1px solid $border-bottom-dark;
     background-color: $toolbar-color-scroll-dark;
     box-shadow: $shadow-dark;
   }
@@ -64,8 +59,8 @@ $toolbar-height: 56px;
         font-weight: bold;
         position: relative;
 
-        body.dark & {
-          color: $font-color-dark;
+        &:hover {
+          color: theme('colors.warning');
         }
 
         // create animated underline
@@ -76,78 +71,29 @@ $toolbar-height: 56px;
           height: 3px;
           bottom: -5px;
           left: 0;
-          background: #fff;
+          background: theme('colors.warning');
           visibility: hidden;
           border-radius: 5px;
           transform: scaleX(0);
           transition: 0.25s linear;
         }
 
-        // display underline
-        &:hover:before,
-        &:focus:before {
+        // set other underline when link is active
+        &.active:before {
           visibility: visible;
           transform: scaleX(1);
         }
 
-        // set other underline when link is active
-        &.active::before {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 3px;
-          bottom: px;
-          left: 0;
-          background: #fff;
-          visibility: visible;
-          border-radius: 5px;
-          transform: scale(1);
-          transition: 0.25s linear;
-        }
-      }
+        // when dark mode is active
+        body.dark & {
+          color: $font-color-dark;
 
-      // changes styles when you have "invert" class
-      &.invert {
-        a {
-          color: rgba($color: #000000, $alpha: 0.8);
-          &:before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            bottom: -5px;
-            left: 0;
-            background: theme('colors.warning');
-            visibility: hidden;
-            border-radius: 5px;
-            transform: scaleX(0);
-            transition: 0.25s linear;
-          }
-
-          &:active,
           &:hover {
-            color: theme('colors.warning');
+            color: color-mod(theme('colors.warning') b(10%));
           }
 
-          // &:hover:before,
-          // &:focus:before {
-          //   visibility: visible;
-          //   transform: scaleX(1);
-          // }
-
-          // set other underline when link is active
-          &.active::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            bottom: px;
-            left: 0;
-            background: theme('colors.warning');
-            visibility: visible;
-            border-radius: 5px;
-            transform: scale(1);
-            transition: 0.25s linear;
+          &:before {
+            background: color-mod(theme('colors.warning') b(10%));
           }
         }
       }

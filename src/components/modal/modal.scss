@@ -14,16 +14,14 @@
   -webkit-overflow-scrolling: touch;
   outline: 0;
   overflow: hidden;
-  transition: all 0.5s ease-in;
-
   visibility: hidden;
   transform: scale(0.1);
-  transition: transform 200ms;
+  transition: all 0.5s ease-in;
 
   .modal.open & {
     // display: flex;
     visibility: visible;
-    transform: scale(1);  
+    transform: scale(1);
   }
 }
 

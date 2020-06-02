@@ -60,7 +60,6 @@ body {
   grid-template-columns: auto;
   grid-gap: 0.5rem;
   justify-items: center;
-  color: red($color: #000000);
 }
 
 @include media(xs) {
@@ -100,12 +99,5 @@ body {
 @media (min-width: 900px) {
   .card-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@screen md {
-  .card-grid {
-    color: red;
-    text-align: center;
   }
 }

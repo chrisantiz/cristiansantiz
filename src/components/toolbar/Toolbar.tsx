@@ -16,7 +16,7 @@ interface Props {
 }
 
 export const Toolbar = ({ isSmallScreen }: Props) => {
-  const staticClasses = 'toolbar toolbar-invert';
+  const staticClasses = 'toolbar';
 
   const logo = useStaticQuery(graphql`
     query {
@@ -36,7 +36,7 @@ export const Toolbar = ({ isSmallScreen }: Props) => {
 
   const items = useMemo(() => {
     return !isSmallScreen ? (
-      <ToolbarItems className="toolbar-navigation-items invert" />
+      <ToolbarItems className="toolbar-navigation-items" />
     ) : (
       <></>
     );
