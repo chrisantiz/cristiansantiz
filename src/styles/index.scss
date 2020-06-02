@@ -5,6 +5,7 @@ body {
   background-color: $background-color-light;
   transition: background-color 0.3s ease-in-out;
   color: $font-color-light;
+  font-size: 16px;
 
   &.dark {
     background-color: $background-color-dark;
@@ -53,6 +54,10 @@ body {
   }
 }
 
+.card-grid {
+  font-size: 1rem;
+}
+
 @include media(xs) {
   ::-webkit-scrollbar {
     width: 3px;
@@ -80,14 +85,21 @@ body {
     width: 100%;
   }
 }
+
 .card-grid {
   display: grid;
   grid-template-columns: auto;
   grid-gap: 0.5rem;
-  // align-items: center;
+  justify-items: center;
 }
 
-@screen md {
+@media (min-width: $breakpoint-sm) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
   .card-grid {
     grid-template-columns: repeat(3, 1fr);
   }
