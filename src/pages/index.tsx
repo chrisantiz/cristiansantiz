@@ -1,5 +1,5 @@
 import React from 'react';
-import '@styles/indexPage.scss';
+import '@styles/pages/landing-page.scss';
 
 import { Home } from '@components/landing-page/Home';
 import { AboutMe } from '@components/landing-page/AboutMe';

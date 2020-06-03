@@ -25,52 +25,50 @@ export const Home: React.FC<Props> = ({ id }) => {
   } = useGlobalState();
 
   return (
-    <section className="landing-item home-section" id={id}>
-      <PageContainer>
-        <div
-          style={{ height: '85vh' }}
-          className="w-full flex justify-center items-center flex-col">
-          <Img
-            className="w-40 sm:w-48 rounded-full image-shadow"
-            fluid={image.imageSharp.fluid}
-          />
+    <PageContainer id={id} className="min-h-screen">
+      <div
+        style={{ height: '85vh' }}
+        className="w-full flex justify-center items-center flex-col">
+        <Img
+          className="w-40 sm:w-48 rounded-full image-shadow"
+          fluid={image.imageSharp.fluid}
+        />
 
-          <div className="flex justify-center items-center flex-col">
-            {/* name */}
-            <p className="text-warning font-bold text-2xl uppercase">
-              {myData.name.short}
-            </p>
+        <div className="flex justify-center items-center flex-col">
+          {/* name */}
+          <p className="text-warning font-bold text-2xl uppercase">
+            {myData.name.short}
+          </p>
 
-            {/* role */}
-            <div
-              className="flex items-center text-xl web-developer font-semibold -mt-2"
-              data-wow-delay="500ms">
-              <span className="text-warning text-2xl font-semibold mr-1">
-                &#60;
-              </span>
-              WebDeveloper
-              <span className="text-warning text-2xl font-semibold ml-1">
-                /&#62;
-              </span>
-            </div>
-
-            {/* message */}
-            <span className="sm:w-1/2 text-center mt-1">{siteDescription}</span>
-
-            {/* button */}
-            <Button to="sobre-mi" outlined size="sm" className="my-3">
-              {home.labels.buttonKnowMore}
-            </Button>
-
-            {/* social media icons */}
-            <SocialMediaIcons />
-
-            {/* current location */}
-            <small>{myData.currentLocation}</small>
+          {/* role */}
+          <div
+            className="flex items-center text-xl web-developer font-semibold -mt-2"
+            data-wow-delay="500ms">
+            <span className="text-warning text-2xl font-semibold mr-1">
+              &#60;
+            </span>
+            WebDeveloper
+            <span className="text-warning text-2xl font-semibold ml-1">
+              /&#62;
+            </span>
           </div>
+
+          {/* message */}
+          <span className="sm:w-1/2 text-center mt-1">{siteDescription}</span>
+
+          {/* button */}
+          <Button to="sobre-mi" outlined size="sm" className="my-3">
+            {home.labels.buttonKnowMore}
+          </Button>
+
+          {/* social media icons */}
+          <SocialMediaIcons />
+
+          {/* current location */}
+          <small>{myData.currentLocation}</small>
         </div>
-      </PageContainer>
-    </section>
+      </div>
+    </PageContainer>
   );
 };
 

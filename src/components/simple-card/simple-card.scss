@@ -1,4 +1,4 @@
-@import '../../styles/variables', '../../styles/mixins';
+@import '../../styles/utilities/variables', '../../styles/utilities/mixins';
 
 $color-light: color-mod(#000 a(20%));
 $color-dark: color-mod(theme('colors.primary') a(40%));

@@ -1,0 +1,41 @@
+@import '../utilities/mixins';
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+  width: 95%;
+}
+
+.svg-icon {
+  fill: currentColor;
+  width: 1rem;
+
+  &.toolbar-icon {
+    width: 1.2rem;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@include media(sm) {
+  .container {
+    width: 90%;
+  }
+}
+
+@include media(md) {
+  .container {
+    width: 85%;
+  }
+}
+
+@include media(lg) {
+  .container {
+    width: 100%;
+  }
+}

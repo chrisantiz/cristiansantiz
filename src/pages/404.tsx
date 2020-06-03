@@ -1,7 +1,7 @@
 import React from 'react';
 import { SEO } from '../components/Seo';
 import { PageContainer } from '../components/PageContainer';
-import '@/styles/components/_not-found.scss';
+import '@/styles/pages/not-found.scss';
 import { useLang } from '../libs/hooks/use-language';
 import { NotFoundIcon } from '@/components/svg-icons';
 import Link from 'gatsby-link';

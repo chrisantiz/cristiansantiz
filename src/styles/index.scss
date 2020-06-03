@@ -1,4 +1,4 @@
-@import 'variables', 'mixins';
+@import 'utilities/variables';
 
 body {
   max-height: 100vh;
@@ -13,68 +13,4 @@ body {
   }
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* bar */
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-::backdrop {
-  background-color: rgba($color: #000000, $alpha: 0.4);
-  -webkit-overflow-scrolling: touch;
-  transition: all 0.5s ease-in;
-}
-
-.container {
-  max-width: 950px;
-  margin: 0 auto;
-  width: 95%;
-}
-
-.svg-icon {
-  fill: currentColor;
-  width: 1rem;
-
-  &.toolbar-icon {
-    width: 1.2rem;
-  }
-}
-
-.card-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-@include media(sm) {
-  .container {
-    width: 90%;
-  }
-}
-
-@include media(md) {
-  .container {
-    width: 85%;
-  }
-}
-
-@include media(lg) {
-  .container {
-    width: 100%;
-  }
-}
+@import 'base/pseudo-elements', 'base/globals';

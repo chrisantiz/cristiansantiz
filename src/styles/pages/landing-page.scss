@@ -1,0 +1,10 @@
+@import '../utilities/variables';
+
+.image-shadow {
+  box-shadow: $shadow-light;
+  margin-bottom: 0.5rem;
+
+  body.dark & {
+    box-shadow: $shadow-dark;
+  }
+}

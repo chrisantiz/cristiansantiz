@@ -54,30 +54,27 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
   }
 
   return (
-    <PageContainer id={id}>
-      <section className="py-3 min-h-screen">
-        {/* section 1 */}
-        <Title>{aboutMe.title}</Title>
+    <PageContainer id={id} className="py-3 min-h-screen">
+      {/* section 1 */}
+      <Title>{aboutMe.title}</Title>
 
-        <Paragraph>
-          {aboutMe.paragraphs.one.partOne} {age}{' '}
-          {aboutMe.paragraphs.one.partTwo}
-        </Paragraph>
+      <Paragraph>
+        {aboutMe.paragraphs.one.partOne} {age} {aboutMe.paragraphs.one.partTwo}
+      </Paragraph>
 
-        <Paragraph className="mt-2">{aboutMe.paragraphs.two}</Paragraph>
+      <Paragraph className="mt-2">{aboutMe.paragraphs.two}</Paragraph>
 
-        <Paragraph className="mt-2">{aboutMe.paragraphs.three}</Paragraph>
+      <Paragraph className="mt-2">{aboutMe.paragraphs.three}</Paragraph>
 
-        <Paragraph className="mt-2">{aboutMe.paragraphs.four}</Paragraph>
-        {/* end section 1 */}
+      <Paragraph className="mt-2">{aboutMe.paragraphs.four}</Paragraph>
+      {/* end section 1 */}
 
-        {/* section 2 */}
-        <Title className="mt-8 mb-4">{aboutMe.whyHireMe.title}</Title>
+      {/* section 2 */}
+      <Title className="mt-8 mb-4">{aboutMe.whyHireMe.title}</Title>
 
-        {/* cards */}
-        <section className="card-container">{generateCards()}</section>
-        {/* end section 2 */}
-      </section>
+      {/* cards */}
+      <div className="card-container">{generateCards()}</div>
+      {/* end section 2 */}
     </PageContainer>
   );
 };

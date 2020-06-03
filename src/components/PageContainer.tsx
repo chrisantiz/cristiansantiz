@@ -14,8 +14,11 @@ export const PageContainer: React.FC<Props> = ({
   className,
 }) => {
   return (
-    <div style={{ ...style }} className={`container ${className}`} id={id}>
+    <section
+      style={{ ...style }}
+      className={`container ${className || ''}`}
+      id={id}>
       {children}
-    </div>
+    </section>
   );
 };
