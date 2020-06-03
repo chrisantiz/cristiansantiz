@@ -45,12 +45,10 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
       const icon = getIconByIndex(index);
 
       return (
-        <div key={`card_${index}`}>
-          <SimpleCard title={card.title}>
-            {icon}
-            {card.text}
-          </SimpleCard>
-        </div>
+        <SimpleCard title={card.title} key={`card_${index}`}>
+          {icon}
+          {card.text}
+        </SimpleCard>
       );
     });
   }
@@ -77,7 +75,7 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
         <Title className="mt-8 mb-4">{aboutMe.whyHireMe.title}</Title>
 
         {/* cards */}
-        <section className="card-grid">{generateCards()}</section>
+        <section className="card-flex">{generateCards()}</section>
         {/* end section 2 */}
       </section>
     </PageContainer>

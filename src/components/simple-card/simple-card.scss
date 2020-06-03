@@ -6,7 +6,6 @@ $color-dark: color-mod(theme('colors.primary') a(40%));
   border: 1px solid $color-light;
   border-radius: 5px;
   max-width: 319px;
-  justify-items: center;
 
   .simple-card-header {
     border-top-right-radius: 5px;
@@ -15,8 +14,8 @@ $color-dark: color-mod(theme('colors.primary') a(40%));
   }
 
   .simple-card-content {
+    height: calc(100% - 144px);
     font-size: 1.2rem;
-    height: 100% !important;
     p {
       font-size: 0.9rem;
     }
