@@ -74,7 +74,7 @@ export const Projects: React.FC<Props> = ({ id }) => {
       <Paragraph>{projects.text}</Paragraph>
 
       {/* cards */}
-      <section className="card-flex mt-3">{generateCards()}</section>
+      <section className="card-container mt-3">{generateCards()}</section>
 
       {!!modalData && (
         <Dialog

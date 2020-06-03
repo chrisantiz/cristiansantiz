@@ -54,43 +54,16 @@ body {
   }
 }
 
-.card-grid {
-  font-size: 1rem;
-  display: grid;
-  grid-template-columns: auto;
-  grid-gap: 0.5rem;
-  justify-items: center;
-}
-
-.card-flex {
+.card-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  row-gap: 20px;
-
-  .simple-card-container {
-    width: 100%;
-    margin: 0.5rem 0;
-  }
 }
-
-// @include media(xs) {
-//   ::-webkit-scrollbar {
-//     width: 3px;
-//   }
-// }
 
 @include media(sm) {
   .container {
     width: 90%;
-  }
-
-  .card-flex {
-    .simple-card-container {
-      width: 45%;
-      margin: 0.5rem;
-    }
   }
 }
 
@@ -103,11 +76,5 @@ body {
 @include media(lg) {
   .container {
     width: 100%;
-  }
-
-  .card-flex {
-    .simple-card-container {
-      width: 31.5%;
-    }
   }
 }

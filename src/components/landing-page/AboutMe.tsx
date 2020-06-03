@@ -75,7 +75,7 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
         <Title className="mt-8 mb-4">{aboutMe.whyHireMe.title}</Title>
 
         {/* cards */}
-        <section className="card-flex">{generateCards()}</section>
+        <section className="card-container">{generateCards()}</section>
         {/* end section 2 */}
       </section>
     </PageContainer>
