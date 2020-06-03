@@ -50,20 +50,19 @@ export const Projects: React.FC<Props> = ({ id }) => {
       })[0];
 
       return (
-        <div key={`card_${index}`}>
-          <SimpleCard
-            coverIsSvg={false}
-            title={
-              <span
-                className="cursor-pointer hover:underline"
-                onClick={() => openModal(card.cardId)}>
-                {card.title}
-              </span>
-            }>
-            <Img fluid={image.fluid} key={image.id} className="w-full" />
-            {card.description}
-          </SimpleCard>
-        </div>
+        <SimpleCard
+          key={`card_${index}`}
+          coverIsSvg={false}
+          title={
+            <span
+              className="cursor-pointer hover:underline"
+              onClick={() => openModal(card.cardId)}>
+              {card.title}
+            </span>
+          }>
+          <Img fluid={image.fluid} key={image.id} className="w-full" />
+          {card.description}
+        </SimpleCard>
       );
     });
   }
@@ -75,7 +74,7 @@ export const Projects: React.FC<Props> = ({ id }) => {
       <Paragraph>{projects.text}</Paragraph>
 
       {/* cards */}
-      <section className="card-grid mt-3">{generateCards()}</section>
+      <section className="card-flex mt-3">{generateCards()}</section>
 
       {!!modalData && (
         <Dialog

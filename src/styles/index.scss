@@ -42,7 +42,7 @@ body {
 .container {
   max-width: 950px;
   margin: 0 auto;
-  width: 100%;
+  width: 95%;
 }
 
 .svg-icon {
@@ -75,19 +75,22 @@ body {
   }
 }
 
-@include media(xs) {
-  ::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  .container {
-    width: 95%;
-  }
-}
+// @include media(xs) {
+//   ::-webkit-scrollbar {
+//     width: 3px;
+//   }
+// }
 
 @include media(sm) {
   .container {
     width: 90%;
+  }
+
+  .card-flex {
+    .simple-card-container {
+      width: 45%;
+      margin: 0.5rem;
+    }
   }
 }
 
@@ -100,25 +103,6 @@ body {
 @include media(lg) {
   .container {
     width: 100%;
-  }
-}
-
-@media (min-width: $breakpoint-sm) {
-  .card-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .card-flex {
-    .simple-card-container {
-      width: 45%;
-      margin: 0.5rem;
-    }
-  }
-}
-
-@media (min-width: $breakpoint-lg) {
-  .card-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .card-flex {
