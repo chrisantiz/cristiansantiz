@@ -8,7 +8,7 @@ import { ProjectsCardId } from '@/models/locale.model';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getImageFluid } from '@/helpers/get-image-fluid.helper';
 import Img from 'gatsby-image';
-import { Dialog } from '../modal/Dialog';
+import { Dialog } from '../dialog/Dialog';
 // import { ChildImageSharp } from '@/models/graphql.model';
 // import { CompetitivenessIcon } from '../icons';
 // import { Modal } from '../modal/Modal';
