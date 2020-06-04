@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Toolbar } from '@components/toolbar/Toolbar';
 import { SideDrawer } from '@components/side-drawer/SideDrawer';
 import { Backdrop } from '@components/backdrop/Backdrop';
@@ -14,8 +14,6 @@ export const DefaultLayout = ({ children }: any) => {
     dispatch,
   } = useGlobalState();
 
-  const [smallScreen, setSmallScren] = useState(false);
-
   useEffect(() => {
     const localePersisted = localStorage.getItem(LocalKey.LOCALE) as
       | LocaleType
@@ -25,16 +23,6 @@ export const DefaultLayout = ({ children }: any) => {
     if (!!localePersisted && localePersisted !== locale) {
       dispatch(changeLocale(localePersisted));
     }
-
-    // set screen type on first render
-    setSmallScren(window.innerWidth <= 768);
-
-    function handleResize() {
-      setSmallScren(window.innerWidth <= 768);
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
