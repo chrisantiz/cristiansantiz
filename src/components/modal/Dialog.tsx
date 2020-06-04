@@ -77,21 +77,21 @@ export const Dialog: React.FC<Props> = ({
   }, []);
 
   return (
-    <dialog ref={modalRef} className={`modal ${animation && 'open'}`}>
-      <header className="modal-header">
+    <dialog ref={modalRef} className={`Modal ${animation && 'Modal--open'}`}>
+      <header className="Modal__header">
         <span
-          className="close-button"
+          className="Modal__close-button"
           onClick={() => modalRef.current?.close()}>
           x
         </span>
         {title}
       </header>
 
-      <section className="modal-content">
+      <section className="Modal__content">
         {children.length > 0 ? children[0] : children}
       </section>
 
-      {children[1] && <footer className="modal-footer">{children[1]}</footer>}
+      {children[1] && <footer className="Modal__footer">{children[1]}</footer>}
     </dialog>
   );
 };

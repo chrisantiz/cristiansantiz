@@ -61,29 +61,29 @@ export const Modal: React.FC<Props> = ({
   }, [show]);
 
   return (
+    // <div
+    /* style={{ display: displayFlex ? 'flex' : 'none' }} */
+    //   className="modal-container"
     <div
-      className="modal-container"
-      /* style={{ display: displayFlex ? 'flex' : 'none' }} */>
-      <div
-        ref={modalRef}
-        className={conditionalString({
-          onTrue: 'open',
-          onFalse: '',
-          always: 'modal',
-        })}>
-        <div className="modal-header">
-          <span className="close-button" onClick={() => onHide()}>
-            x
-          </span>
-          {title}
-        </div>
-
-        <div className="modal-content">
-          {children.length > 0 ? children[0] : children}
-        </div>
-
-        {children[1] && <div className="modal-footer">{children[1]}</div>}
+      ref={modalRef}
+      className={conditionalString({
+        onTrue: 'Modal--open',
+        onFalse: '',
+        always: 'Modal',
+      })}>
+      <div className="Modal__header">
+        <span className="Modal__close-button" onClick={() => onHide()}>
+          x
+        </span>
+        {title}
       </div>
+
+      <div className="Modal__content">
+        {children.length > 0 ? children[0] : children}
+      </div>
+
+      {children[1] && <div className="Modal__footer">{children[1]}</div>}
     </div>
+    // </div>
   );
 };
