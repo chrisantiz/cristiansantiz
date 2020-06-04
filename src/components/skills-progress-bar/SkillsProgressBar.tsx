@@ -1,22 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { SkillItem } from './SkillItem';
 
-import javascript from '@/assets/images/svg-skills/javascript.svg';
-import typescript from '@/assets/images/svg-skills/typescript.svg';
-import nodejs from '@/assets/images/svg-skills/nodejs.svg';
-import expressjs from '@/assets/images/svg-skills/expressjs.svg';
-import nestjs from '@/assets/images/svg-skills/nestjs.svg';
-import mysql from '@/assets/images/svg-skills/mysql.svg';
-import vue from '@/assets/images/svg-skills/vue.svg';
-import angular from '@/assets/images/svg-skills/angular.svg';
-import react from '@/assets/images/svg-skills/react.svg';
-import flux from '@/assets/images/svg-skills/flux.svg';
-import gatsby from '@/assets/images/svg-skills/gatsby.svg';
-import electronjs from '@/assets/images/svg-skills/electronjs.svg';
-import html from '@/assets/images/svg-skills/html.svg';
-import css from '@/assets/images/svg-skills/css.svg';
-import php from '@/assets/images/svg-skills/php.svg';
-import ubuntu from '@/assets/images/svg-skills/ubuntu.svg';
+// import {
+//   JavascriptIcon,
+//   TypescriptIcon,
+//   NodejsIcon,
+//   ExpressIcon,
+//   NestjsIcon,
+//   MySqlIcon,
+//   VueIcon,
+//   AngularIcon,
+//   ReactIcon,
+//   FluxIcon,
+//   GatsbyIcon,
+//   ElectronIcon,
+//   HtmlIcon,
+//   SassIcon,
+//   PhpIcon,
+//   LinuxIcon,
+// } from '@components/svg-icons';
+import AngularIcon from '@/assets/svg/skills/angularjs-icon.svg';
+import ElectronIcon from '@/assets/svg/skills/electronjs-icon.svg';
+import ExpressIcon from '@/assets/svg/skills/expressjs-icon.svg';
+import FluxIcon from '@/assets/svg/skills/flux-icon.svg';
+import GatsbyIcon from '@/assets/svg/skills/gatsby-icon.svg';
+import HtmlIcon from '@/assets/svg/skills/html-icon.svg';
+import JavascriptIcon from '@/assets/svg/skills/javascript-icon.svg';
+import MySqlIcon from '@/assets/svg/skills/mysql-icon.svg';
+import NestjsIcon from '@/assets/svg/skills/nestjs-icon.svg';
+import NodejsIcon from '@/assets/svg/skills/nodejs-icon.svg';
+import PhpIcon from '@/assets/svg/skills/php-icon.svg';
+import ReactIcon from '@/assets/svg/skills/reactjs-icon.svg';
+import SassIcon from '@/assets/svg/skills/sass-icon.svg';
+import TypescriptIcon from '@/assets/svg/skills/typescript-icon.svg';
+import LinuxIcon from '@/assets/svg/skills/linux-icon.svg';
+import VueIcon from '@/assets/svg/skills/vuejs-icon.svg';
 
 import './skills-progress-bar.scss';
 import { useGlobalState } from '@/libs/hooks/use-global-state';
@@ -43,6 +61,7 @@ interface Skills {
 }
 
 export const SkillsProgressBar: React.FC<Props> = () => {
+  // console.log({ AngularIcon });
   const {
     state: { skillSectionVisited },
   } = useGlobalState();
@@ -67,22 +86,22 @@ export const SkillsProgressBar: React.FC<Props> = () => {
   });
 
   const lang = {
-    javascript: ['75%', javascript],
-    typescript: ['85%', typescript],
-    nodejs: ['70%', nodejs],
-    expressjs: ['80%', expressjs],
-    nestjs: ['75%', nestjs],
-    mysql: ['40%', mysql],
-    vue: ['80%', vue],
-    angular: ['45%', angular],
-    react: ['45%', react],
-    flux: ['75%', flux],
-    gatsby: ['40%', gatsby],
-    electronjs: ['35%', electronjs],
-    html: ['80%', html],
-    css: ['40%', css],
-    php: ['35%', php],
-    ubuntu: ['35%', ubuntu],
+    javascript: ['75%', JavascriptIcon],
+    typescript: ['85%', TypescriptIcon],
+    nodejs: ['70%', NodejsIcon],
+    expressjs: ['80%', ExpressIcon],
+    nestjs: ['75%', NestjsIcon],
+    mysql: ['40%', MySqlIcon],
+    vue: ['80%', VueIcon],
+    angular: ['45%', AngularIcon],
+    react: ['50%', ReactIcon],
+    flux: ['75%', FluxIcon],
+    gatsby: ['55%', GatsbyIcon],
+    electronjs: ['35%', ElectronIcon],
+    html: ['80%', HtmlIcon],
+    css: ['45%', SassIcon],
+    php: ['30%', PhpIcon],
+    linux: ['35%', LinuxIcon],
   };
 
   let multiply = 4;
@@ -127,7 +146,8 @@ export const SkillsProgressBar: React.FC<Props> = () => {
           classNameProgress={`progress-${language}`}
           classNameBarContent={`bar-content-${language}`}>
           {/* <FacebookIcon className="h-10 w-10" /> */}
-          <img src={icon} alt={language} />
+          <img src={icon as string} alt={language} />
+          {/* {icon} */}
         </SkillItem>,
       );
     });
@@ -139,7 +159,8 @@ export const SkillsProgressBar: React.FC<Props> = () => {
     <ul
       className={`skills-bar-container ${
         skillSectionVisited ? 'start-animation' : ''
-      }`} data-wow-delay="500ms">
+      }`}
+      data-wow-delay="500ms">
       <div className="flex flex-wrap">
         <div className="w-full md:w-1/2 md:pr-2">
           {generateSkills().map((element, index) => {

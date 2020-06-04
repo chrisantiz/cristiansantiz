@@ -108,7 +108,8 @@ module.exports = {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /\/svg\/.*\.svg$/,
+          // include: /\/svg\/.*\.svg$/,
+          include: /\/svg\/(?!skills).*\.svg$/,
         },
       },
     },

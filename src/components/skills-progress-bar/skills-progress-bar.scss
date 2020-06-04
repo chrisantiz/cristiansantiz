@@ -18,14 +18,14 @@ $skils: (
   mysql: 40%,
   vue: 80%,
   angular: 45%,
-  react: 45%,
+  react: 50%,
   flux: 75%,
   gatsby: 40%,
   electronjs: 35%,
   html: 80%,
-  css: 40%,
-  php: 35%,
-  ubuntu: 35%,
+  css: 45%,
+  php: 30%,
+  linux: 35%,
 );
 
 $skills-bg-colors:
@@ -44,10 +44,19 @@ $skills-bg-colors:
   /* -- html -- */ theme('colors.orange.800'),
   /* -- css -- */ theme('colors.pink.600'),
   /* -- php -- */ theme('colors.purple.600'),
-  /* -- ubuntu -- */ theme('colors.orange.600');
+  /* -- linux -- */ theme('colors.orange.600');
 
 @mixin border-radius($radius) {
   border-radius: $radius;
+}
+
+.bar-icon {
+  position: relative;
+
+  svg {
+    position: absolute;
+    width: 100%;
+  }
 }
 
 .skills-bar-container {
