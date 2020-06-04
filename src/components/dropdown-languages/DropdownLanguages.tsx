@@ -123,19 +123,32 @@ export const DropdownLanguages = ({ className, title }: Props) => {
   const handleClickButton = () => setShowList(!showList);
 
   return (
-    <div className={`box-dropdown ${className}`}>
-      <div className="icon" title={title} onClick={handleClickButton}>
+    <div className={`Dropdown-languages ${className}`}>
+      <div
+        className="Dropdown-languages__icon"
+        title={title}
+        onClick={handleClickButton}>
         <I18nIcon className="svg-icon toolbar-icon" />
-        <span>{localeSelected.toUpperCase()}</span>
+        <span className="Dropdown-languages__label">
+          {localeSelected.toUpperCase()}
+        </span>
       </div>
-      <div ref={refList} className={showList ? 'dropdown open' : 'dropdown'}>
+      <div
+        ref={refList}
+        className={
+          showList
+            ? 'Dropdown-languages__content open'
+            : 'Dropdown-languages__content'
+        }>
         {langElements.map((val, index) => (
           <div
-            className={`dropdown-item ${val.isActive ? 'active' : ''}`}
+            className={`Dropdown-languages__item ${
+              val.isActive ? 'active' : ''
+            }`}
             onClick={() => handleClickSelect(val.key, index)}
             key={val.key}>
             <img src={val.src} className="w-5" alt={val.alt} />
-            <span>{val.label}</span>
+            <span className="Dropdown-languages__item-label">{val.label}</span>
           </div>
         ))}
       </div>
