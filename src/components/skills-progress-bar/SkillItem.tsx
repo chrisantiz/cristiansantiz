@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface Props {
-  classNameAnimation: string;
+  // classNameAnimation: string;
   classNameProgress: string;
   classNameBarContent: string;
   percent: string;
@@ -15,9 +15,7 @@ export const SkillItem: React.FC<Props> = props => (
     <div className={`bar-content ${props.classNameBarContent}`}>
       <div className="progressbar-title">
         <h3>{props.title}</h3>
-        <span className={`percent ${props.classNameAnimation}`}>
-          {props.percent}
-        </span>
+        <span className="percent">{props.percent}</span>
       </div>
       <div className="bar-container">
         <span className={`progressbar ${props.classNameProgress}`}></span>

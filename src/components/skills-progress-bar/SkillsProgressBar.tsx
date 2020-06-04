@@ -1,24 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SkillItem } from './SkillItem';
 
-// import {
-//   JavascriptIcon,
-//   TypescriptIcon,
-//   NodejsIcon,
-//   ExpressIcon,
-//   NestjsIcon,
-//   MySqlIcon,
-//   VueIcon,
-//   AngularIcon,
-//   ReactIcon,
-//   FluxIcon,
-//   GatsbyIcon,
-//   ElectronIcon,
-//   HtmlIcon,
-//   SassIcon,
-//   PhpIcon,
-//   LinuxIcon,
-// } from '@components/svg-icons';
 import AngularIcon from '@/assets/svg/skills/angularjs-icon.svg';
 import ElectronIcon from '@/assets/svg/skills/electronjs-icon.svg';
 import ExpressIcon from '@/assets/svg/skills/expressjs-icon.svg';
@@ -61,7 +43,6 @@ interface Skills {
 }
 
 export const SkillsProgressBar: React.FC<Props> = () => {
-  // console.log({ AngularIcon });
   const {
     state: { skillSectionVisited },
   } = useGlobalState();
@@ -100,8 +81,8 @@ export const SkillsProgressBar: React.FC<Props> = () => {
     electronjs: ['35%', ElectronIcon],
     html: ['80%', HtmlIcon],
     css: ['45%', SassIcon],
-    php: ['30%', PhpIcon],
     linux: ['35%', LinuxIcon],
+    php: ['30%', PhpIcon],
   };
 
   let multiply = 4;
@@ -125,29 +106,30 @@ export const SkillsProgressBar: React.FC<Props> = () => {
     });
   }, [skillSectionVisited]);
 
-  function generateSkills() {
+  function generateSkills([from, to]: [number, number]) {
     const skills: JSX.Element[] = [];
 
-    Object.entries(lang).forEach(([language, [, icon]]) => {
+    Object.entries(lang).forEach(([language, [, icon]], index) => {
+      // verify index
+      if (index < from || index > to) {
+        return;
+      }
+
       const title =
-        language !== 'ubuntu'
+        language !== 'linux'
           ? language !== 'css'
             ? language
             : 'css/sass'
-          : 'gnu/linux (ubuntu based)';
+          : 'gnu/linux';
+
       skills.push(
         <SkillItem
           key={language}
           title={title.toUpperCase()}
           percent={(skillProgress as any)[language]}
-          classNameAnimation={
-            !!(skillProgress as any)[language] ? 'magictime slideUpReturn' : ''
-          }
           classNameProgress={`progress-${language}`}
           classNameBarContent={`bar-content-${language}`}>
-          {/* <FacebookIcon className="h-10 w-10" /> */}
           <img src={icon as string} alt={language} />
-          {/* {icon} */}
         </SkillItem>,
       );
     });
@@ -163,22 +145,10 @@ export const SkillsProgressBar: React.FC<Props> = () => {
       data-wow-delay="500ms">
       <div className="flex flex-wrap">
         <div className="w-full md:w-1/2 md:pr-2">
-          {generateSkills().map((element, index) => {
-            if (index < 8) {
-              return element;
-            } else {
-              return null;
-            }
-          })}
+          {generateSkills([0, 7]).map(element => element)}
         </div>
         <div className="w-full md:w-1/2 md:pl-2">
-          {generateSkills().map((element, index) => {
-            if (index >= 8) {
-              return element;
-            } else {
-              return null;
-            }
-          })}
+          {generateSkills([8, 15]).map(element => element)}
         </div>
       </div>
     </ul>

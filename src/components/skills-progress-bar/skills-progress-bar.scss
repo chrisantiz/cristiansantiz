@@ -24,8 +24,8 @@ $skils: (
   electronjs: 35%,
   html: 80%,
   css: 45%,
-  php: 30%,
   linux: 35%,
+  php: 30%,
 );
 
 $skills-bg-colors:
@@ -43,8 +43,8 @@ $skills-bg-colors:
   /* electronjs */ theme('colors.teal.800'),
   /* -- html -- */ theme('colors.orange.800'),
   /* -- css -- */ theme('colors.pink.600'),
-  /* -- php -- */ theme('colors.purple.600'),
-  /* -- linux -- */ theme('colors.orange.600');
+  /* -- linux -- */ theme('colors.orange.600'),
+  /* -- php -- */ theme('colors.purple.600');
 
 @mixin border-radius($radius) {
   border-radius: $radius;
