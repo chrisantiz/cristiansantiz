@@ -39,7 +39,7 @@ export const DefaultLayout = ({ children }: any) => {
 
   return (
     <>
-      <Toolbar isSmallScreen={smallScreen} />
+      <Toolbar />
       <SideDrawer />
       <Backdrop />
 

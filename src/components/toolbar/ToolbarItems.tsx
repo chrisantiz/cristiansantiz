@@ -18,7 +18,6 @@ import { SEO } from '../Seo';
 import { useGlobalState } from '@libs/hooks/use-global-state';
 
 interface Props {
-  className?: string;
   icons?: boolean;
 }
 
@@ -29,7 +28,7 @@ type PageItems =
   | 'proyectos'
   | 'contacto';
 
-export const ToolbarItems = ({ className, icons = false }: Props) => {
+export const ToolbarItems = ({ icons = false }: Props) => {
   const {
     dispatch,
     state: { locale, openSideDrawer: isOpen, skillSectionVisited },
@@ -113,15 +112,22 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
     }
   }
 
+  /** get classes according to "icons" prop */
+  function getClasses() {
+    return 'Navigation-items'.concat(
+      icons ? ' Navigation-items--vertical' : '',
+    );
+  }
+
   return (
-    <div className={className}>
+    <div className={getClasses()}>
       <SEO title={title} />
-      <ul>
-        <li>
+      <ul className="Navigation-items__wrapper">
+        <li className="Navigation-items__item">
           <LinkScroll
             to="inicio"
             activeClass="active"
-            className="cursor-pointer"
+            className="Navigation-items__link cursor-pointer"
             onSetActive={handleActive}
             onClick={handleClick}
             offset={-56}
@@ -132,8 +138,9 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
             {labels.home}
           </LinkScroll>
         </li>
-        <li>
+        <li className="Navigation-items__item">
           <LinkScroll
+            className="Navigation-items__link cursor-pointer"
             to="sobre-mi"
             activeClass="active"
             onSetActive={handleActive}
@@ -141,14 +148,14 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
             spy
             smooth
             offset={-56}
-            className="cursor-pointer"
             duration={700}>
             {getIcon('aboutMe')}
             {labels.aboutMe}
           </LinkScroll>
         </li>
-        <li>
+        <li className="Navigation-items__item">
           <LinkScroll
+            className="Navigation-items__link cursor-pointer"
             to="habilidades"
             activeClass="active"
             onSetActive={handleActive}
@@ -156,14 +163,14 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
             spy
             smooth
             offset={-56}
-            className="cursor-pointer"
             duration={700}>
             {getIcon('skills')}
             {labels.skills}
           </LinkScroll>
         </li>
-        <li>
+        <li className="Navigation-items__item">
           <LinkScroll
+            className="Navigation-items__link cursor-pointer"
             to="proyectos"
             activeClass="active"
             onSetActive={handleActive}
@@ -171,14 +178,14 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
             spy
             smooth
             offset={-56}
-            className="cursor-pointer"
             duration={700}>
             {getIcon('projects')}
             {labels.projects}
           </LinkScroll>
         </li>
-        <li>
+        <li className="Navigation-items__item">
           <LinkScroll
+            className="Navigation-items__link cursor-pointer"
             to="contacto"
             activeClass="active"
             onSetActive={handleActive}
@@ -186,20 +193,11 @@ export const ToolbarItems = ({ className, icons = false }: Props) => {
             spy
             smooth
             offset={-56}
-            className="cursor-pointer"
             duration={700}>
             {getIcon('contact')}
             {labels.contact}
           </LinkScroll>
         </li>
-        {/* <li>
-            <Link
-              to={locale === 'es' ? '/blog' : `/en/blog`}
-              getProps={isPartiallyActive}>
-              {getIcon('blog')}
-              Blog
-            </Link>
-          </li> */}
       </ul>
     </div>
   );

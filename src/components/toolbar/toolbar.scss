@@ -2,7 +2,7 @@
 
 $toolbar-height: 56px;
 
-.toolbar {
+.Toolbar {
   position: sticky;
   z-index: 90;
   width: 100%;
@@ -14,117 +14,107 @@ $toolbar-height: 56px;
   background-color: color-mod(theme('colors.primary') a(90%));
   box-shadow: $shadow-light;
 
-  body.dark & {
-    background-color: $toolbar-color-scroll-dark;
-    box-shadow: $shadow-dark;
-  }
+  $Toolbar: &;
 
-  &.toolbar-scroll {
-    background-color: $toolbar-color-scroll-light;
-    box-shadow: $shadow-light;
-    border-bottom: none;
-
-    body.dark & {
-      background-color: $toolbar-color-scroll-dark;
-      box-shadow: $shadow-dark;
-      border-bottom: none;
-    }
-  }
-
-  .toolbar-navigation {
+  &__navigation {
     display: flex;
     align-items: center;
     height: $toolbar-height;
 
-    .toolbar-logo {
-      margin-left: 1rem;
-      width: 35px;
+    @at-root {
+      #{ $Toolbar }__logo {
+        margin-left: 1rem;
+        width: 35px;
+      }
     }
+  }
 
-    .toolbar-navigation-items {
-      ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
+  body.dark & {
+    background-color: $toolbar-color-scroll-dark;
+    box-shadow: $shadow-dark;
+  }
+}
+
+.spacer {
+  flex: 1;
+}
+
+.Navigation-items {
+  display: none;
+
+  &--vertical {
+    display: block;
+  }
+
+  &__wrapper {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  $Navigation-items: &; /* .Navigation-items */
+
+  &__item {
+    padding: 0 0.5rem;
+
+    #{ $Navigation-items }__link {
+      color: $font-color-light;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+
+      &:hover {
+        color: theme('colors.warning');
       }
 
-      li {
-        padding: 0 0.5rem;
+      // create animated underline
+      &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        bottom: -5px;
+        left: 0;
+        background: theme('colors.warning');
+        visibility: hidden;
+        border-radius: 5px;
+        transform: scaleX(0);
+        transition: 0.25s linear;
       }
 
-      a {
-        color: $font-color-light;
-        text-decoration: none;
-        font-weight: bold;
-        position: relative;
+      // set other underline when link is active
+      &.active:before {
+        visibility: visible;
+        transform: scaleX(1);
+      }
+
+      // when dark mode is active
+      body.dark & {
+        color: $font-color-dark;
 
         &:hover {
-          color: theme('colors.warning');
+          color: color-mod(theme('colors.warning') b(10%));
         }
 
-        // create animated underline
         &:before {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 3px;
-          bottom: -5px;
-          left: 0;
-          background: theme('colors.warning');
-          visibility: hidden;
-          border-radius: 5px;
-          transform: scaleX(0);
-          transition: 0.25s linear;
-        }
-
-        // set other underline when link is active
-        &.active:before {
-          visibility: visible;
-          transform: scaleX(1);
-        }
-
-        // when dark mode is active
-        body.dark & {
-          color: $font-color-dark;
-
-          &:hover {
-            color: color-mod(theme('colors.warning') b(10%));
-          }
-
-          &:before {
-            background: color-mod(theme('colors.warning') b(10%));
-          }
+          background: color-mod(theme('colors.warning') b(10%));
         }
       }
     }
   }
-
-  .spacer {
-    flex: 1;
-  }
 }
 
-@media (min-width: 768px) {
-  .toolbar-button {
+@include media(md) {
+  .Navigation-items {
+    display: block;
+  }
+
+  .Toolbar__button {
     display: none;
   }
 
-  .toolbar .toolbar-navigation {
-    .toolbar-logo {
-      margin-left: 0;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .toolbar .toolbar-navigation-items {
-    display: none;
-  }
-}
-
-@include media(xs) {
-  .toolbar {
-    padding-right: 3px;
+  .Toolbar__logo {
+    margin-left: 0;
   }
 }
