@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { SkillItem } from './SkillItem';
 
 import AngularIcon from '@/assets/svg/skills/angularjs-icon.svg';
@@ -104,7 +104,17 @@ export const SkillsProgressBar: React.FC<Props> = () => {
 
       multiply++;
     });
+
+    console.log('USE EFFECT');
   }, [skillSectionVisited]);
+
+  /** generate skill items */
+  const skills = useMemo(() => {
+    return {
+      firstColumn: generateSkills([0, 7]),
+      secondColumn: generateSkills([8, 15]),
+    };
+  }, []);
 
   function generateSkills([from, to]: [number, number]) {
     const skills: JSX.Element[] = [];
@@ -139,17 +149,11 @@ export const SkillsProgressBar: React.FC<Props> = () => {
 
   return (
     <ul
-      className={`skills-bar-container ${
-        skillSectionVisited ? 'start-animation' : ''
-      }`}
-      data-wow-delay="500ms">
+      className={`skills-bar-container ${skillSectionVisited &&
+        'start-animation'}`}>
       <div className="flex flex-wrap">
-        <div className="w-full md:w-1/2 md:pr-2">
-          {generateSkills([0, 7]).map(element => element)}
-        </div>
-        <div className="w-full md:w-1/2 md:pl-2">
-          {generateSkills([8, 15]).map(element => element)}
-        </div>
+        <div className="w-full md:w-1/2 md:pr-2">{skills.firstColumn}</div>
+        <div className="w-full md:w-1/2 md:pl-2">{skills.secondColumn}</div>
       </div>
     </ul>
   );
