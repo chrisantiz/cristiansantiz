@@ -8,11 +8,11 @@ export const DrawerToggleButton = () => {
 
   return (
     <button
-      className="toggle-button"
+      className="Toggle-button"
       onClick={() => dispatch(toggleSideDrawer())}>
-      <div className="toggle-button-line"></div>
-      <div className="toggle-button-line"></div>
-      <div className="toggle-button-line"></div>
+      <div className="Toggle-button__line"></div>
+      <div className="Toggle-button__line"></div>
+      <div className="Toggle-button__line"></div>
     </button>
   );
 };

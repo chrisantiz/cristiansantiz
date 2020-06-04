@@ -1,6 +1,6 @@
 @import '../../styles/utilities/variables';
 
-.toggle-button {
+.Toggle-button {
   height: 24px;
   width: 30;
   display: flex;
@@ -12,11 +12,12 @@
   padding: 0;
   box-sizing: border-box;
 
-  :focus {
+  &:focus {
     outline: none;
   }
 
-  .toggle-button-line {
+  // lines
+  &__line {
     width: 30px;
     height: 2px;
     background-color: $font-color-light;
