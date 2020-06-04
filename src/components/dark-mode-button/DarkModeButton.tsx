@@ -10,7 +10,9 @@ interface Props {
 }
 
 export const DarkModeButton = ({ className, title }: Props) => {
-  const { state: { initialDarkMode } } = useGlobalState();
+  const {
+    state: { initialDarkMode },
+  } = useGlobalState();
 
   const [darkMode, toggleDarkMode] = useState(false);
 
@@ -21,6 +23,11 @@ export const DarkModeButton = ({ className, title }: Props) => {
     localStorage.setItem(LocalKey.DARK_MODE, JSON.stringify(!darkMode));
   }
 
+  /** get classes according to "active" prop */
+  function getClasses() {
+    return 'Dark-mode-button'.concat(darkMode ? ' active' : '');
+  }
+
   useEffect(() => {
     if (initialDarkMode) {
       toggleDarkMode(initialDarkMode);
@@ -29,11 +36,11 @@ export const DarkModeButton = ({ className, title }: Props) => {
 
   return (
     <button
-      className={`dmb-switch ${className} ${darkMode ? 'active' : ''}`}
+      className={getClasses()}
       title={title}
       onClick={() => toggleClasses()}>
-      <SunIcon />
-      <MoonIcon />
+      <SunIcon className="Dark-mode-button__icon" />
+      <MoonIcon className="Dark-mode-button__icon" />
     </button>
   );
 };

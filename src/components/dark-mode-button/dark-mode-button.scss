@@ -1,4 +1,4 @@
-.dmb-switch {
+.Dark-mode-button {
   background-color: #343d5b;
   border-radius: 1000px;
   border: none;
@@ -8,7 +8,7 @@
   outline: none;
   transition: 0.3 all ease-in-out;
 
-  &::after {
+  &:after {
     content: '';
     display: block;
     width: 22px;
@@ -27,13 +27,13 @@
     background-color: theme('colors.warning');
     color: #000;
 
-    &::after {
+    &:after {
       left: unset;
       right: 0;
     }
   }
 
-  svg {
+  &__icon {
     width: 20px;
     height: 20px;
     line-height: 20px;
