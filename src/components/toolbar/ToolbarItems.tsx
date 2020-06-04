@@ -94,7 +94,7 @@ export const ToolbarItems = ({ icons = false }: Props) => {
   }
 
   function getPageSelected(item: PageItems): string {
-    switch (pageItem) {
+    switch (item) {
       case 'inicio':
         return labels.home;
 

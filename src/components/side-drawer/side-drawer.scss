@@ -1,6 +1,6 @@
 @import '../../styles/utilities/variables';
 
-.side-drawer {
+.Side-drawer {
   height: 100%;
   background-color: $side-drawer-color-light;
   position: fixed;
@@ -17,12 +17,13 @@
     background-color: $side-drawer-color-dark;
   }
 
+  // open side-drawer
   &.open {
     box-shadow: $shadow-light;
     transform: translateX(0);
   }
 
-  .photo-container {
+  &__photo-container {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -38,52 +39,7 @@
     }
   }
 
-  ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-bottom: 0.9rem;
-
-    li {
-      a {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        position: relative;
-        padding-bottom: 4px;
-        margin-bottom: 5px;
-
-        svg {
-          margin-right: 0.5rem;
-        }
-
-        &.active {
-          color: theme('colors.warning');
-
-          body.dark & {
-            color: color-mod(theme('colors.warning') l(70%));
-          }
-        }
-
-        // set other underline when link is active
-        &.active::before {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 2px;
-          bottom: 0px;
-          background: theme('colors.warning');
-          visibility: visible;
-          border-radius: 10%;
-          transform: scale(1);
-          transition: 0.25s linear;
-        }
-      }
-    }
-  }
-
-  .aside-footer {
+  &__footer {
     width: 100%;
     position: absolute;
     display: flex;
@@ -93,5 +49,58 @@
     bottom: 0;
     left: 0;
     padding: 20px;
+  }
+}
+
+// navigation items
+.Navigation-items {
+  $Navigation-items: &;
+
+  // only in vertical mode (in side drawer)
+  &--vertical {
+    #{ $Navigation-items }__wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-bottom: 0.9rem;
+    }
+
+    #{ $Navigation-items }__link {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding-bottom: 4px;
+      margin-bottom: 5px;
+
+      // icon
+      svg {
+        margin-right: 0.5rem;
+      }
+
+      // link active
+      &.active {
+        color: theme('colors.warning');
+
+        body.dark & {
+          color: color-mod(theme('colors.warning') l(70%));
+        }
+      }
+
+      // set other underline when link is active
+      &.active::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0px;
+        background: theme('colors.warning');
+        visibility: visible;
+        border-radius: 10%;
+        transform: scale(1);
+        transition: 0.25s linear;
+      }
+    }
   }
 }

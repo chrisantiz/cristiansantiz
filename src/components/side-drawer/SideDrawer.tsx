@@ -21,12 +21,14 @@ export const SideDrawer = () => {
     .year();
 
   return (
-    <aside className={show ? 'side-drawer open' : 'side-drawer'}>
+    <aside className={show ? 'Side-drawer open' : 'Side-drawer'}>
       {/* photo */}
-      <div className="photo-container">
+      <div className="Side-drawer__photo-container">
         {/* image */}
         <Img className="rounded-full image-shadow w-1/2" fluid={imageFluid} />
-        <p className="text-warning font-semibold uppercase">{myData.name.short}</p>
+        <p className="text-warning font-semibold uppercase">
+          {myData.name.short}
+        </p>
 
         {/* role */}
         <div className="flex items-center text-sm web-developer font-semibold -mt-1 text-center">
@@ -48,7 +50,7 @@ export const SideDrawer = () => {
       <ToolbarItems icons />
 
       {/* footer */}
-      <div className="aside-footer">
+      <div className="Side-drawer__footer">
         <SocialMediaIcons />
         <small>{myData.currentLocation}</small>
         <small>{currentYear}</small>
