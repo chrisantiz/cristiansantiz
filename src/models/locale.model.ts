@@ -24,24 +24,14 @@ export interface AboutMePage {
   };
   whyHireMe: {
     title: string;
-    cards: [
-      {
-        title: string;
-        classes: string;
-        text: string;
-      },
-      {
-        title: string;
-        classes: string;
-        text: string;
-      },
-      {
-        title: string;
-        classes: string;
-        text: string;
-      },
-    ];
+    cards: AboutMeCard[];
   };
+}
+
+export interface AboutMeCard {
+  title: string;
+  classes: string;
+  text: string;
 }
 
 export interface ProyectsPage {
@@ -53,8 +43,8 @@ export interface ProyectsPage {
 export interface ProjectsCard {
   title: string;
   description: string;
-  cardId: ProjectsCardId;
-  content: [];
+  cardId: ProjectsCardId | string;
+  content: string[];
 }
 
 export type ProjectsCardId = 'santz' | 'kirshas' | 'portfolio';

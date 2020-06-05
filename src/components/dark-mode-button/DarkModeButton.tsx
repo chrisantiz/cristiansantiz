@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './dark-mode-button.scss';
 import { SunIcon, MoonIcon } from '../svg-icons';
 import { LocalKey } from '@libs/enum';
-import { useGlobalState } from '@/libs/hooks/use-global-state';
+import { useSelector } from '@/libs/context/global/context';
 
 interface Props {
   className?: string;
@@ -10,9 +10,7 @@ interface Props {
 }
 
 export const DarkModeButton = ({ className, title }: Props) => {
-  const {
-    state: { initialDarkMode },
-  } = useGlobalState();
+  const initialDarkMode = useSelector(s => s.initialDarkMode);
 
   const [darkMode, toggleDarkMode] = useState(false);
 

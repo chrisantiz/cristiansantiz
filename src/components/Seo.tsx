@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import { useGlobalState } from '@/libs/hooks/use-global-state';
+import { useSelector } from '@/libs/context/global/context';
 
 function SEO({ description, lang, meta, title }: any) {
-  const { state: { locale } } = useGlobalState();
+  const locale = useSelector(s => s.locale);
 
   const { site } = useStaticQuery(
     graphql`

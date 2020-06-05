@@ -1,14 +1,13 @@
 import React from 'react';
 import { WhatsappIcon, LinkedinIcon, EmailIcon } from '@components/svg-icons';
 import { useLang } from '@libs/hooks/use-language';
-import { useGlobalState } from '@/libs/hooks/use-global-state';
+import { useSelector } from '@/libs/context/global/context';
 
 export const SocialMediaIcons = () => {
   const { selector } = useLang();
+
   const { labels } = selector(d => d.pages.home);
-  const {
-    state: { myData },
-  } = useGlobalState();
+  const myData = useSelector(s => s.myData);
 
   return (
     <div className="flex items-center">

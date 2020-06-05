@@ -6,8 +6,8 @@ import col from '@/assets/images/colombia-flag.svg';
 
 import { LocaleType } from '@libs/i18n/languages';
 import { changeLocale } from '@libs/context/global/actions';
-import { useGlobalState } from '@libs/hooks/use-global-state';
 import { I18nIcon } from '../svg-icons';
+import { useDispatch, useSelector } from '@/libs/context/global/context';
 
 interface Props {
   className: string;
@@ -43,10 +43,8 @@ const initialData: LangElement[] = [
 ];
 
 export const DropdownLanguages = ({ className, title }: Props) => {
-  const {
-    state: { locale },
-    dispatch,
-  } = useGlobalState();
+  const dispatch = useDispatch();
+  const locale = useSelector(s => s.locale);
 
   /** dropdown items data */
   const [langElements, setLangElements] = useState<LangElement[]>(initialData);

@@ -1,10 +1,10 @@
 import React from 'react';
 import './drawer-toggle-button.scss';
 import { toggleSideDrawer } from '@libs/context/global/actions';
-import { useGlobalState } from '@/libs/hooks/use-global-state';
+import { useDispatch } from '@/libs/context/global/context';
 
 export const DrawerToggleButton = () => {
-  const { dispatch } = useGlobalState();
+  const dispatch = useDispatch();
 
   return (
     <button

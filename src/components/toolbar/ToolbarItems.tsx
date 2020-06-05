@@ -15,7 +15,7 @@ import { PagesLinkLabel } from '@models/locale.model';
 import { pagesLinkLabelSelector } from '@helpers/selectors.helper';
 import { Link as LinkScroll } from 'react-scroll';
 import { SEO } from '../Seo';
-import { useGlobalState } from '@libs/hooks/use-global-state';
+import { useSelector, useDispatch } from '@/libs/context/global/context';
 
 interface Props {
   icons?: boolean;
@@ -29,10 +29,13 @@ type PageItems =
   | 'contacto';
 
 export const ToolbarItems = ({ icons = false }: Props) => {
-  const {
-    dispatch,
-    state: { locale, openSideDrawer: isOpen, skillSectionVisited },
-  } = useGlobalState();
+  const [locale, isOpen, skillSectionVisited] = useSelector(s => [
+    s.locale,
+    s.openSideDrawer,
+    s.skillSectionVisited,
+  ]);
+
+  const dispatch = useDispatch();
 
   const [title, setTitle] = useState('Inicio');
 

@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Button } from '../button/Button';
 import { SocialMediaIcons } from '../SocialMediaIcons';
 import { useLang } from '@libs/hooks/use-language';
-import { useGlobalState } from '@/libs/hooks/use-global-state';
+import { useSelector } from '@/libs/context/global/context';
 
 interface Props {
   id: string;
@@ -20,9 +20,7 @@ export const Home: React.FC<Props> = ({ id }) => {
     },
   } = useLang();
 
-  const {
-    state: { myData },
-  } = useGlobalState();
+  const myData = useSelector(s => s.myData);
 
   return (
     <PageContainer id={id} className="min-h-screen">

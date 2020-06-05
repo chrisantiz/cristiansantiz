@@ -5,16 +5,12 @@ import { Backdrop } from '@components/backdrop/Backdrop';
 import { changeLocale } from '@libs/context/global/actions';
 import { LocalKey } from '@libs/enum';
 import { LocaleType } from '@libs/i18n/languages';
-import { useGlobalState } from '@/libs/hooks/use-global-state';
-import { useTracked } from '@/libs/context/global/context';
+import { useSelector, useDispatch } from '@/libs/context/global/context';
 
 /* Layout per defect */
 export const DefaultLayout = ({ children }: any) => {
-  // const {
-  //   state: { locale },
-  //   dispatch,
-  // } = useGlobalState();
-  const [{ locale }, dispatch] = useTracked();
+  const locale = useSelector(s => s.locale);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const localePersisted = localStorage.getItem(LocalKey.LOCALE) as

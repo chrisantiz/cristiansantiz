@@ -5,12 +5,10 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import { SocialMediaIcons } from '../SocialMediaIcons';
 import moment from 'moment';
-import { useGlobalState } from '@/libs/hooks/use-global-state';
+import { useSelector } from '@/libs/context/global/context';
 
 export const SideDrawer = () => {
-  const {
-    state: { openSideDrawer: show, myData },
-  } = useGlobalState();
+  const { openSideDrawer: show, myData } = useSelector(s => s);
 
   const {
     imageSharp: { fluid: imageFluid },

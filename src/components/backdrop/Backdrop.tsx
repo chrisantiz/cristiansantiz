@@ -1,13 +1,11 @@
 import React from 'react';
 import './backdrop.scss';
 import { toggleSideDrawer } from '@libs/context/global/actions';
-import { useGlobalState } from '@/libs/hooks/use-global-state';
+import { useSelector, useDispatch } from '@/libs/context/global/context';
 
 export const Backdrop = () => {
-  const {
-    state: { openSideDrawer: show },
-    dispatch,
-  } = useGlobalState();
+  const show = useSelector(s => s.openSideDrawer);
+  const dispatch = useDispatch();
 
   return show ? (
     <div

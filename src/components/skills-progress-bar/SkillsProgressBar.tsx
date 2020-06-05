@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { SkillItem } from './SkillItem';
 
 import AngularIcon from '@/assets/svg/skills/angularjs-icon.svg';
@@ -19,14 +19,12 @@ import LinuxIcon from '@/assets/svg/skills/linux-icon.svg';
 import VueIcon from '@/assets/svg/skills/vuejs-icon.svg';
 
 import './skills-progress-bar.scss';
-import { useGlobalState } from '@/libs/hooks/use-global-state';
+import { useSelector } from '@/libs/context/global/context';
 
 interface Props {}
 
-export const SkillsProgressBar: React.FC<Props> = () => {
-  const {
-    state: { skillSectionVisited },
-  } = useGlobalState();
+const SkillsProgressBar: React.FC<Props> = () => {
+  const skillSectionVisited = useSelector(s => s.skillSectionVisited);
 
   const lang = {
     javascript: ['75%', JavascriptIcon],
@@ -92,3 +90,5 @@ export const SkillsProgressBar: React.FC<Props> = () => {
     </ul>
   );
 };
+
+export default SkillsProgressBar;

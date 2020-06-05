@@ -1,9 +1,9 @@
-import { LocaleType } from '../i18n/languages';
-import { DataLocale } from '../../models/locale.model';
+import { LocaleType } from '@libs/i18n/languages';
+import { DataLocale } from '@models/locale.model';
 
 import esData from '@libs/i18n/locales/es.json';
 import enData from '@libs/i18n/locales/en.json';
-import { useGlobalState } from './use-global-state';
+import { useSelector } from '@libs/context/global/context';
 
 interface UseLangData {
   lang: DataLocale;
@@ -15,7 +15,7 @@ interface UseLangData {
 
 /** use the current language */
 export const useLang = (): UseLangData => {
-  const { state: { locale } } = useGlobalState();
+  const locale = useSelector(s => s.locale);
 
   const data: DataLocale = locale === 'en' ? enData : esData;
 
