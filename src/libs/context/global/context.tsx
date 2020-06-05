@@ -23,6 +23,7 @@ const useValue = () => {
 
 export const {
   Provider: GlobalProvider,
+  useTracked,
   useTrackedState: state,
   useUpdate: dispatch,
 } = createContainer(useValue);

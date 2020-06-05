@@ -47,25 +47,6 @@ export const SkillsProgressBar: React.FC<Props> = () => {
     state: { skillSectionVisited },
   } = useGlobalState();
 
-  const [skillProgress, setSkillProgress] = useState<Skills>({
-    javascript: '',
-    typescript: '',
-    nodejs: '',
-    expressjs: '',
-    nestjs: '',
-    mysql: '',
-    vue: '',
-    angular: '',
-    react: '',
-    flux: '',
-    gatsby: '',
-    electronjs: '',
-    html: '',
-    css: '',
-    php: '',
-    ubuntu: '',
-  });
-
   const lang = {
     javascript: ['75%', JavascriptIcon],
     typescript: ['85%', TypescriptIcon],
@@ -86,63 +67,29 @@ export const SkillsProgressBar: React.FC<Props> = () => {
   };
 
   let multiply = 4;
-
-  useEffect(() => {
-    if (!skillSectionVisited) return;
-
-    // update on this temporal object
-    const temp: any = skillProgress;
-
-    Object.entries(lang).forEach(([language, [percent]]) => {
-      const delay = 700;
-
-      setTimeout(() => {
-        temp[language] = percent;
-
-        setSkillProgress({ ...temp });
-      }, delay * multiply);
-
-      multiply++;
-    });
-
-    console.log('USE EFFECT');
-  }, [skillSectionVisited]);
-
-  /** generate skill items */
-  const skills = useMemo(() => {
-    return {
-      firstColumn: generateSkills([0, 7]),
-      secondColumn: generateSkills([8, 15]),
-    };
-  }, []);
+  const delay = 700;
 
   function generateSkills([from, to]: [number, number]) {
     const skills: JSX.Element[] = [];
 
-    Object.entries(lang).forEach(([language, [, icon]], index) => {
-      // verify index
-      if (index < from || index > to) {
-        return;
-      }
+    Object.entries(lang)
+      .slice(from, to)
+      .forEach(([language, [percent, icon]], index) => {
+        console.log({ index });
 
-      const title =
-        language !== 'linux'
-          ? language !== 'css'
-            ? language
-            : 'css/sass'
-          : 'gnu/linux';
+        skills.push(
+          <SkillItem
+            key={language}
+            language={language}
+            percent={percent as string}
+            time={delay * multiply}
+          >
+            <img src={icon as string} alt={language} />
+          </SkillItem>,
+        );
 
-      skills.push(
-        <SkillItem
-          key={language}
-          title={title.toUpperCase()}
-          percent={(skillProgress as any)[language]}
-          classNameProgress={`progress-${language}`}
-          classNameBarContent={`bar-content-${language}`}>
-          <img src={icon as string} alt={language} />
-        </SkillItem>,
-      );
-    });
+        multiply++;
+      });
 
     return skills;
   }
@@ -152,8 +99,8 @@ export const SkillsProgressBar: React.FC<Props> = () => {
       className={`skills-bar-container ${skillSectionVisited &&
         'start-animation'}`}>
       <div className="flex flex-wrap">
-        <div className="w-full md:w-1/2 md:pr-2">{skills.firstColumn}</div>
-        <div className="w-full md:w-1/2 md:pl-2">{skills.secondColumn}</div>
+        <div className="w-full md:w-1/2 md:pr-2">{generateSkills([0, 8])}</div>
+        <div className="w-full md:w-1/2 md:pl-2">{generateSkills([8, 16])}</div>
       </div>
     </ul>
   );
