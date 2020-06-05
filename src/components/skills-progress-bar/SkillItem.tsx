@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useGlobalState } from '@/libs/hooks';
 
 interface Props {
   language: string;
   percent: string;
   time: number;
+  displayPercent: boolean;
   children: any;
 }
 
@@ -12,23 +12,20 @@ export const SkillItem: React.FC<Props> = ({
   language,
   percent,
   time,
+  displayPercent,
   children,
 }) => {
-  const {
-    state: { skillSectionVisited },
-  } = useGlobalState();
-
   const [getPercent, setPercent] = useState<string>('');
 
   useEffect(() => {
-    if (!skillSectionVisited) return;
+    if (!displayPercent) return;
 
     const interval = setTimeout(() => {
       setPercent(percent);
     }, time);
 
     return () => clearInterval(interval);
-  }, [skillSectionVisited]);
+  }, [displayPercent]);
 
   const title =
     language !== 'linux'

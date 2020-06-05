@@ -23,25 +23,6 @@ import { useGlobalState } from '@/libs/hooks/use-global-state';
 
 interface Props {}
 
-interface Skills {
-  javascript: string;
-  typescript: string;
-  nodejs: string;
-  expressjs: string;
-  nestjs: string;
-  mysql: string;
-  vue: string;
-  angular: string;
-  react: string;
-  flux: string;
-  gatsby: string;
-  electronjs: string;
-  html: string;
-  css: string;
-  php: string;
-  ubuntu: string;
-}
-
 export const SkillsProgressBar: React.FC<Props> = () => {
   const {
     state: { skillSectionVisited },
@@ -74,16 +55,14 @@ export const SkillsProgressBar: React.FC<Props> = () => {
 
     Object.entries(lang)
       .slice(from, to)
-      .forEach(([language, [percent, icon]], index) => {
-        console.log({ index });
-
+      .forEach(([language, [percent, icon]]) => {
         skills.push(
           <SkillItem
             key={language}
             language={language}
             percent={percent as string}
             time={delay * multiply}
-          >
+            displayPercent={skillSectionVisited}>
             <img src={icon as string} alt={language} />
           </SkillItem>,
         );
@@ -94,13 +73,21 @@ export const SkillsProgressBar: React.FC<Props> = () => {
     return skills;
   }
 
+  /** memoized skill items */
+  const skillItems = useMemo(() => {
+    return {
+      firstColumn: generateSkills([0, 8]),
+      secondColumn: generateSkills([8, 16]),
+    };
+  }, [skillSectionVisited]);
+
   return (
     <ul
       className={`skills-bar-container ${skillSectionVisited &&
         'start-animation'}`}>
       <div className="flex flex-wrap">
-        <div className="w-full md:w-1/2 md:pr-2">{generateSkills([0, 8])}</div>
-        <div className="w-full md:w-1/2 md:pl-2">{generateSkills([8, 16])}</div>
+        <div className="w-full md:w-1/2 md:pr-2">{skillItems.firstColumn}</div>
+        <div className="w-full md:w-1/2 md:pl-2">{skillItems.secondColumn}</div>
       </div>
     </ul>
   );
