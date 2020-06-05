@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
-import { PageContainer } from '../PageContainer';
-import { Title } from './util/Title';
+import PageContainer from '../PageContainer';
+import Title from './util/Title';
 import { useLang } from '@/libs/hooks/use-language';
-import { Paragraph } from './util/Paragraph';
-import { SimpleCard } from '../simple-card/SimpleCard';
+import Paragraph from './util/Paragraph';
+import SimpleCard from '../simple-card/SimpleCard';
 import { ProjectsCardId } from '@/models/locale.model';
 import { graphql, useStaticQuery } from 'gatsby';
 import { getImageFluid } from '@/helpers/get-image-fluid.helper';
 import Img from 'gatsby-image';
-import { Dialog } from '../dialog/Dialog';
-// import { ChildImageSharp } from '@/models/graphql.model';
-// import { CompetitivenessIcon } from '../icons';
-// import { Modal } from '../modal/Modal';
+import Dialog from '../dialog/Dialog';
 
 interface Props {
   id: string;
 }
 
-export const Projects: React.FC<Props> = ({ id }) => {
+const Projects: React.FC<Props> = ({ id }) => {
   const {
     lang: {
       pages: { projects },
@@ -56,7 +53,7 @@ export const Projects: React.FC<Props> = ({ id }) => {
           title={
             <span
               className="cursor-pointer hover:underline"
-              onClick={() => openModal(card.cardId)}>
+              onClick={() => openModal(card.cardId as ProjectsCardId)}>
               {card.title}
             </span>
           }>
@@ -107,3 +104,5 @@ const query = graphql`
     }
   }
 `;
+
+export default Projects;

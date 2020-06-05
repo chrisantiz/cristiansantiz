@@ -9,13 +9,7 @@ interface Props {
   size?: 'xs' | 'sm' | 'md' | 'xl';
 }
 
-export const Button = ({
-  children,
-  outlined,
-  className,
-  to,
-  size = 'md',
-}: Props) => {
+const Button = ({ children, outlined, className, to, size = 'md' }: Props) => {
   let classes = 'bg-warning hover:bg-orange-800 text-white';
 
   if (outlined) {
@@ -38,3 +32,5 @@ export const Button = ({
     </button>
   );
 };
+
+export default Button;

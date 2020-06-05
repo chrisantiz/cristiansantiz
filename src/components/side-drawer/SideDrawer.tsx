@@ -1,13 +1,13 @@
 import React from 'react';
-import { ToolbarItems } from '@components/toolbar/ToolbarItems';
+import ToolbarItems from '@components/toolbar/ToolbarItems';
 import './side-drawer.scss';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import { SocialMediaIcons } from '../SocialMediaIcons';
+import SocialMediaIcons from '../SocialMediaIcons';
 import moment from 'moment';
 import { useSelector } from '@/libs/context/global/context';
 
-export const SideDrawer = () => {
+const SideDrawer = () => {
   const { openSideDrawer: show, myData } = useSelector(s => s);
 
   const {
@@ -66,3 +66,5 @@ const query = graphql`
     }
   }
 `;
+
+export default SideDrawer;

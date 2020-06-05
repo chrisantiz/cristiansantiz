@@ -7,12 +7,7 @@ interface Props {
   id?: string;
 }
 
-export const PageContainer: React.FC<Props> = ({
-  children,
-  style,
-  id,
-  className,
-}) => {
+const PageContainer: React.FC<Props> = ({ children, style, id, className }) => {
   return (
     <section
       style={{ ...style }}
@@ -22,3 +17,5 @@ export const PageContainer: React.FC<Props> = ({
     </section>
   );
 };
+
+export default PageContainer;

@@ -9,7 +9,7 @@ interface Props {
   persistent?: boolean;
 }
 
-export const Dialog: React.FC<Props> = ({
+const Dialog: React.FC<Props> = ({
   show,
   onHide,
   children,
@@ -95,3 +95,5 @@ export const Dialog: React.FC<Props> = ({
     </dialog>
   );
 };
+
+export default Dialog;

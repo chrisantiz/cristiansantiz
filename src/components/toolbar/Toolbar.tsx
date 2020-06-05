@@ -2,15 +2,15 @@ import React from 'react';
 import './toolbar.scss';
 import Img from 'gatsby-image';
 import { Link } from 'react-scroll';
-import { DrawerToggleButton } from '@components/side-drawer/DrawerToggleButton';
-import { ToolbarItems } from '@components/toolbar/ToolbarItems';
-import { DarkModeButton } from '@components/dark-mode-button/DarkModeButton';
-import { DropdownLanguages } from '../dropdown-languages/DropdownLanguages';
+import DrawerToggleButton from '@components/side-drawer/DrawerToggleButton';
+import ToolbarItems from '@components/toolbar/ToolbarItems';
+import DarkModeButton from '@components/dark-mode-button/DarkModeButton';
+import DropdownLanguages from '../dropdown-languages/DropdownLanguages';
 import { useLang } from '@libs/hooks/use-language';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GithubIcon } from '../svg-icons';
 
-export const Toolbar = () => {
+const Toolbar = () => {
   const logo = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "logo-black-white.png" }) {
@@ -64,3 +64,5 @@ export const Toolbar = () => {
     </header>
   );
 };
+
+export default Toolbar;

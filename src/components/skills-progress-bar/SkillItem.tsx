@@ -8,7 +8,7 @@ interface Props {
   children: any;
 }
 
-export const SkillItem: React.FC<Props> = ({
+const SkillItem: React.FC<Props> = ({
   language,
   percent,
   time,
@@ -52,3 +52,5 @@ export const SkillItem: React.FC<Props> = ({
     </li>
   );
 };
+
+export default SkillItem;

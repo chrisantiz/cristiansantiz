@@ -1,14 +1,14 @@
 import React from 'react';
 import SkillsProgressBar from '../skills-progress-bar/SkillsProgressBar';
 import { useLang } from '@/libs/hooks/use-language';
-import { PageContainer } from '../PageContainer';
-import { Title } from './util/Title';
+import PageContainer from '../PageContainer';
+import Title from './util/Title';
 
 interface Props {
   id: string;
 }
 
-export const Skills: React.FC<Props> = ({ id }) => {
+const Skills: React.FC<Props> = ({ id }) => {
   const {
     lang: {
       pages: { skills },
@@ -24,3 +24,5 @@ export const Skills: React.FC<Props> = ({ id }) => {
     </PageContainer>
   );
 };
+
+export default Skills;

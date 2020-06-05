@@ -3,7 +3,7 @@ import './drawer-toggle-button.scss';
 import { toggleSideDrawer } from '@libs/context/global/actions';
 import { useDispatch } from '@/libs/context/global/context';
 
-export const DrawerToggleButton = () => {
+const DrawerToggleButton = () => {
   const dispatch = useDispatch();
 
   return (
@@ -16,3 +16,5 @@ export const DrawerToggleButton = () => {
     </button>
   );
 };
+
+export default DrawerToggleButton;

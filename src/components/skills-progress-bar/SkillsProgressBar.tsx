@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { SkillItem } from './SkillItem';
+import SkillItem from './SkillItem';
 
 import AngularIcon from '@/assets/svg/skills/angularjs-icon.svg';
 import ElectronIcon from '@/assets/svg/skills/electronjs-icon.svg';

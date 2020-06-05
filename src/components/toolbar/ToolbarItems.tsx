@@ -28,7 +28,7 @@ type PageItems =
   | 'proyectos'
   | 'contacto';
 
-export const ToolbarItems = ({ icons = false }: Props) => {
+const ToolbarItems = ({ icons = false }: Props) => {
   const [locale, isOpen, skillSectionVisited] = useSelector(s => [
     s.locale,
     s.openSideDrawer,
@@ -205,3 +205,5 @@ export const ToolbarItems = ({ icons = false }: Props) => {
     </div>
   );
 };
+
+export default ToolbarItems;

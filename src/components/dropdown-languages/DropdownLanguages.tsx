@@ -42,7 +42,7 @@ const initialData: LangElement[] = [
   },
 ];
 
-export const DropdownLanguages = ({ className, title }: Props) => {
+const DropdownLanguages = ({ className, title }: Props) => {
   const dispatch = useDispatch();
   const locale = useSelector(s => s.locale);
 
@@ -153,3 +153,5 @@ export const DropdownLanguages = ({ className, title }: Props) => {
     </div>
   );
 };
+
+export default DropdownLanguages;

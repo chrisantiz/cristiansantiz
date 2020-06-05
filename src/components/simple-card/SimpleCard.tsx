@@ -7,7 +7,7 @@ interface Props {
   children: [JSX.Element | Element, string];
 }
 
-export const SimpleCard: React.FC<Props> = ({
+const SimpleCard: React.FC<Props> = ({
   title,
   coverIsSvg = true,
   children: [icon, text],
@@ -26,3 +26,5 @@ export const SimpleCard: React.FC<Props> = ({
     </article>
   );
 };
+
+export default SimpleCard;

@@ -1,11 +1,11 @@
 import React from 'react';
 import '@styles/pages/landing-page.scss';
 
-import { Home } from '@components/landing-page/Home';
-import { AboutMe } from '@components/landing-page/AboutMe';
-import { Projects } from '@components/landing-page/Projects';
-import { Contact } from '@components/landing-page/Contact';
-import { Skills } from '@/components/landing-page/Skills';
+import Home from '@components/landing-page/Home';
+import AboutMe from '@components/landing-page/AboutMe';
+import Projects from '@components/landing-page/Projects';
+import Contact from '@components/landing-page/Contact';
+import Skills from '@/components/landing-page/Skills';
 
 interface Props {
   path: string;

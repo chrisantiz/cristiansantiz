@@ -9,7 +9,7 @@ interface Props {
   title: string;
 }
 
-export const DarkModeButton = ({ className, title }: Props) => {
+const DarkModeButton = ({ className, title }: Props) => {
   const initialDarkMode = useSelector(s => s.initialDarkMode);
 
   const [darkMode, toggleDarkMode] = useState(false);
@@ -42,3 +42,5 @@ export const DarkModeButton = ({ className, title }: Props) => {
     </button>
   );
 };
+
+export default DarkModeButton;

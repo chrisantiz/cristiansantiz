@@ -37,6 +37,7 @@
     "@types/node": "^13.7.2",
     "@types/react-helmet": "^5.0.15",
     "@types/react-scroll": "^1.5.4",
+    "@types/webpack-env": "^1.15.2",
     "autoprefixer": "^9.7.4",
     "postcss-color-mod-function": "^3.0.3",
     "prettier": "^1.19.1",

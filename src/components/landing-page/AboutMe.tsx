@@ -1,10 +1,10 @@
 import React from 'react';
-import { PageContainer } from '../PageContainer';
+import PageContainer from '../PageContainer';
 import { CompetitivenessIcon, IdeasIcon, ConstancyIcon } from '../svg-icons';
-import { SimpleCard } from '../simple-card/SimpleCard';
+import SimpleCard from '../simple-card/SimpleCard';
 import { useLang } from '@/libs/hooks/use-language';
-import { Title } from './util/Title';
-import { Paragraph } from './util/Paragraph';
+import Title from './util/Title';
+import Paragraph from './util/Paragraph';
 import { getYearsFromNow } from '@/helpers/date.helper';
 import { useSelector } from '@/libs/context/global/context';
 
@@ -12,7 +12,7 @@ interface Props {
   id: string;
 }
 
-export const AboutMe: React.FC<Props> = ({ id }) => {
+const AboutMe: React.FC<Props> = ({ id }) => {
   const birthdate = useSelector(s => s.myData.birthdate);
 
   const {
@@ -74,3 +74,5 @@ export const AboutMe: React.FC<Props> = ({ id }) => {
     </PageContainer>
   );
 };
+
+export default AboutMe;

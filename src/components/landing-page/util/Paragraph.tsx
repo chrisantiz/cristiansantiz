@@ -6,6 +6,8 @@ interface Props {
 }
 
 /** paragraph to use on landing page, allow animations */
-export const Paragraph: React.FC<Props> = ({ children, className }) => (
+const Paragraph: React.FC<Props> = ({ children, className }) => (
   <p className={`text-justify ${className}`}>{children}</p>
 );
+
+export default Paragraph;

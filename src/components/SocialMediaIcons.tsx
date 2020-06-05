@@ -3,7 +3,7 @@ import { WhatsappIcon, LinkedinIcon, EmailIcon } from '@components/svg-icons';
 import { useLang } from '@libs/hooks/use-language';
 import { useSelector } from '@/libs/context/global/context';
 
-export const SocialMediaIcons = () => {
+const SocialMediaIcons = () => {
   const { selector } = useLang();
 
   const { labels } = selector(d => d.pages.home);
@@ -37,3 +37,5 @@ export const SocialMediaIcons = () => {
     </div>
   );
 };
+
+export default SocialMediaIcons;

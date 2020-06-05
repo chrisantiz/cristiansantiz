@@ -3,7 +3,7 @@ import './backdrop.scss';
 import { toggleSideDrawer } from '@libs/context/global/actions';
 import { useSelector, useDispatch } from '@/libs/context/global/context';
 
-export const Backdrop = () => {
+const Backdrop = () => {
   const show = useSelector(s => s.openSideDrawer);
   const dispatch = useDispatch();
 
@@ -16,3 +16,5 @@ export const Backdrop = () => {
     />
   ) : null;
 };
+
+export default Backdrop;

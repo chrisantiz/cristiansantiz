@@ -1,9 +1,9 @@
 import React from 'react';
-import { PageContainer } from '../PageContainer';
+import PageContainer from '../PageContainer';
 import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Button } from '../button/Button';
-import { SocialMediaIcons } from '../SocialMediaIcons';
+import Button from '../button/Button';
+import SocialMediaIcons from '../SocialMediaIcons';
 import { useLang } from '@libs/hooks/use-language';
 import { useSelector } from '@/libs/context/global/context';
 
@@ -11,7 +11,7 @@ interface Props {
   id: string;
 }
 
-export const Home: React.FC<Props> = ({ id }) => {
+const Home: React.FC<Props> = ({ id }) => {
   const image = useStaticQuery(query);
   const {
     lang: {
@@ -79,3 +79,5 @@ const query = graphql`
     }
   }
 `;
+
+export default Home;
