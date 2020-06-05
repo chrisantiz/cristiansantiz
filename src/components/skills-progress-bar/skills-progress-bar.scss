@@ -46,86 +46,74 @@ $skills-bg-colors:
   /* -- linux -- */ theme('colors.orange.600'),
   /* -- php -- */ theme('colors.purple.600');
 
-@mixin border-radius($radius) {
-  border-radius: $radius;
-}
-
-.bar-icon {
-  position: relative;
-
-  svg {
-    position: absolute;
-    width: 100%;
-  }
-}
-
-.skills-bar-container {
+.Skills-progress-bar {
   width: 100%;
-  // max-width: 600px;
   margin: 0 auto;
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  li {
+.Skill-item {
+  display: flex;
+  margin-top: 0.5rem;
+  $Skill-item: &;
+
+  &__icon {
+    margin-right: 0.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
     display: flex;
+    align-items: center;
 
-    div.bar-icon {
-      margin-right: 0.5rem;
-      height: 2.5rem;
-      width: 2.5rem;
-      display: flex;
-      align-items: center;
+    body.dark & {
+      background-color: rgb(226, 225, 225);
+      padding: 0.1rem;
+      border-radius: 5px;
+    }
+  }
 
-      body.dark & {
-        background-color: rgb(226, 225, 225);
-        padding: 0.1rem;
-        border-radius: 5px;
-      }
+  &__content {
+    width: 100%;
+    position: relative;
+  }
+
+  &__labels {
+    display: flex;
+    align-items: center;
+
+    #{ $Skill-item }__language {
+      display: inline-block;
     }
-    div.bar-content {
-      width: 100%;
+
+    #{ $Skill-item }__percent {
+      position: absolute;
+      right: 0;
+      font-weight: bold;
     }
+  }
+
+  &__progressbar-container {
+    background: rgba($color: #000000, $alpha: 0.2);
     position: relative;
     width: 100%;
-    margin-bottom: 10px;
+    height: 9px;
+    margin-top: 5px;
+    display: block;
+    border-radius: 5px;
 
-    .progressbar-title {
-      display: flex;
-      align-items: center;
-
-      h3 {
-        display: inline-block;
-      }
-
-      .percent {
-        position: absolute;
-        right: 0;
-        // color: theme('colors.warning');
-        font-weight: bold;
-      }
+    body.dark & {
+      background-color: rgba($color: #000000, $alpha: 0.4);
     }
 
-    .bar-container {
-      background: rgba($color: #000000, $alpha: 0.2);
-      body.dark & {
-        background-color: rgba($color: #000000, $alpha: 0.4);
-      }
-      position: relative;
-      width: 100%;
-      height: 9px;
-      margin-top: 5px;
-      display: block;
-      @include border-radius(5px);
-
-      .progressbar {
-        position: absolute;
-        width: 0%;
-        height: 100%;
-        @include border-radius(5px);
-
-        animation-duration: 2s;
-        animation-timing-function: ease-out;
-        animation-fill-mode: both;
-      }
+    #{ $Skill-item }__progressbar {
+      position: absolute;
+      width: 0%;
+      height: 100%;
+      border-radius: 5px;
+      animation-duration: 2s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: both;
     }
   }
 }
@@ -133,17 +121,16 @@ $skills-bg-colors:
 @each $name, $percent in $skils {
   $i: index(($skils), ($name $percent));
 
-  .progress-#{$name} {
-    .skills-bar-container.start-animation & {
-      animation-name: progress-#{$name};
+  .Skill-item__progressbar--#{$name} {
+    .Skills-progress-bar.Skills-progress-bar--start-animation & {
       animation-delay: $animation-delay * $i;
       background-color: nth($skills-bg-colors, $i);
+      animation-name: progress-#{$name};
     }
   }
 
-  // add color to percent number
-  .bar-content-#{$name} {
-    .progressbar-title .percent {
+  .Skill-item__content--#{$name} {
+    .Skill-item__percent {
       color: color-mod(nth($skills-bg-colors, $i) b(50%));
     }
   }

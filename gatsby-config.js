@@ -101,7 +101,10 @@ module.exports = {
         printReject: false,
         develop: true,
         tailwind: true,
-        whitelistPatterns: [/^progress-/, /^bar-content-/],
+        whitelistPatterns: [
+          /^Skill-item__progressbar--/,
+          /^Skill-item__content--/,
+        ],
       },
     },
     {

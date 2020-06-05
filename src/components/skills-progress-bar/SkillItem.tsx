@@ -34,15 +34,19 @@ export const SkillItem: React.FC<Props> = ({
         : 'css/sass'
       : 'gnu/linux';
   return (
-    <li>
-      <div className="bar-icon">{children}</div>
-      <div className={`bar-content bar-content-${language}`}>
-        <div className="progressbar-title">
-          <h3>{title.toUpperCase()}</h3>
-          <span className="percent">{getPercent}</span>
+    <li className="Skill-item">
+      <div className="Skill-item__icon">{children}</div>
+      {/* bar-content-${language} */}
+      <div className={`Skill-item__content Skill-item__content--${language}`}>
+        <div className="Skill-item__labels">
+          <h3 className="Skill-item__language">{title.toUpperCase()}</h3>
+          {/* percent */}
+          <span className="Skill-item__percent">{getPercent}</span>
         </div>
-        <div className="bar-container">
-          <span className={`progressbar progress-${language}`}></span>
+
+        <div className="Skill-item__progressbar-container">
+          <span
+            className={`Skill-item__progressbar Skill-item__progressbar--${language}`}></span>
         </div>
       </div>
     </li>

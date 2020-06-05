@@ -81,12 +81,10 @@ const SkillsProgressBar: React.FC<Props> = () => {
 
   return (
     <ul
-      className={`skills-bar-container ${skillSectionVisited &&
-        'start-animation'}`}>
-      <div className="flex flex-wrap">
-        <div className="w-full md:w-1/2 md:pr-2">{skillItems.firstColumn}</div>
-        <div className="w-full md:w-1/2 md:pl-2">{skillItems.secondColumn}</div>
-      </div>
+      className={`Skills-progress-bar ${skillSectionVisited &&
+        'Skills-progress-bar--start-animation'}`}>
+      <div className="w-full md:w-1/2 md:pr-2">{skillItems.firstColumn}</div>
+      <div className="w-full md:w-1/2 md:pr-2">{skillItems.secondColumn}</div>
     </ul>
   );
 };
