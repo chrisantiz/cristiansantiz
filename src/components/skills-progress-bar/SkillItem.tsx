@@ -41,7 +41,9 @@ const SkillItem: React.FC<Props> = ({
         <div className="Skill-item__labels">
           <h3 className="Skill-item__language">{title.toUpperCase()}</h3>
           {/* percent */}
-          <span className="Skill-item__percent">{getPercent}</span>
+          {!!getPercent && (
+            <span className="Skill-item__percent">{getPercent}</span>
+          )}
         </div>
 
         <div className="Skill-item__progressbar-container">

@@ -101,11 +101,7 @@ module.exports = {
         printReject: false,
         develop: true,
         tailwind: true,
-        whitelistPatterns: [
-          /^Modal--[show|hide]/,
-          /^Skill-item__progressbar--/,
-          /^Skill-item__content--/,
-        ],
+        whitelistPatterns: [/^Modal--[show|hide]/, /^Skill-item__/],
       },
     },
     {
