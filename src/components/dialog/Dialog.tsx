@@ -17,33 +17,16 @@ const Dialog: React.FC<Props> = ({
   persistent = false,
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
-  // const [animation, setAnimation] = useState(false);
 
   /** close dropdown clicking outside */
   useEffect(() => {
-    function handleClickOutside(event: any) {
-      if (modalRef.current?.firstChild!.contains(event.target)) return;
+    function handleClickOutside({ target }: any) {
+      if (persistent) return;
 
-      close();
-      // if (event.target?.tagName !== 'DIALOG') {
-      //   return;
-      // }
+      // click in card
+      const outside = !modalRef.current?.firstChild!.contains(target);
 
-      // const rect = event.target?.getBoundingClientRect();
-
-      // const clickedInDialog =
-      //   rect.top <= event.clientY &&
-      //   event.clientY <= rect.top + rect.height &&
-      //   rect.left <= event.clientX &&
-      //   event.clientX <= rect.left + rect.width;
-
-      // if (!clickedInDialog && !persistent) {
-      //   // onHide();
-      //   // modalRef.current?.close();
-      //   close();
-      // }
-
-      return false;
+      outside && close();
     }
 
     // add event only when the dropdown is open
@@ -56,30 +39,8 @@ const Dialog: React.FC<Props> = ({
   }, [show]);
 
   useEffect(() => {
-    // let transition!: NodeJS.Timeout;
-
-    if (show) {
-      open();
-      // modalRef.current?.showModal();
-      // display animation
-      // transition = setTimeout(() => setAnimation(true), 0.5);
-    } // else {
-    // modalRef.current?.close();
-    // !!transition && clearTimeout(transition);
-    // setAnimation(false);
-    // }
+    show ? open() : close();
   }, [show]);
-
-  // listen dialog events
-  // useEffect(() => {
-  //   function onClose() {
-  //     onHide();
-  //   }
-
-  //   modalRef.current!.onclose = onClose;
-
-  //   return () => modalRef.current!.removeEventListener('close', onClose);
-  // }, []);
 
   const close = () => {
     modalRef.current?.classList.add('Modal--hide');
@@ -96,19 +57,19 @@ const Dialog: React.FC<Props> = ({
     <div ref={modalRef} className="Modal">
       <div className="Modal__card">
         <header className="Modal__header">
-          <span className="Modal__close-button" onClick={() => close()}>
+          <span className="Modal__close-button" onClick={() => onHide()}>
             x
           </span>
           {title}
         </header>
 
         <section className="Modal__content">
-          {/* {children.length > 0 ? children[0] : children} */}
-          Este es el contenido
+          {children.length > 0 ? children[0] : children}
         </section>
 
-        <footer>Este es el footer</footer>
-        {/* {children[1] && <footer className="Modal__footer">{children[1]}</footer>} */}
+        {children[1] && (
+          <footer className="Modal__footer">{children[1]}</footer>
+        )}
       </div>
     </div>
   );
