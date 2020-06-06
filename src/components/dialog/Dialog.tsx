@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './dialog.scss';
 
 interface Props {
@@ -16,28 +16,32 @@ const Dialog: React.FC<Props> = ({
   title,
   persistent = false,
 }) => {
-  const modalRef = useRef<HTMLDialogElement>(null);
-  const [animation, setAnimation] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+  // const [animation, setAnimation] = useState(false);
 
   /** close dropdown clicking outside */
   useEffect(() => {
     function handleClickOutside(event: any) {
-      if (event.target?.tagName !== 'DIALOG') {
-        return;
-      }
+      if (modalRef.current?.firstChild!.contains(event.target)) return;
 
-      const rect = event.target?.getBoundingClientRect();
+      close();
+      // if (event.target?.tagName !== 'DIALOG') {
+      //   return;
+      // }
 
-      const clickedInDialog =
-        rect.top <= event.clientY &&
-        event.clientY <= rect.top + rect.height &&
-        rect.left <= event.clientX &&
-        event.clientX <= rect.left + rect.width;
+      // const rect = event.target?.getBoundingClientRect();
 
-      if (!clickedInDialog && !persistent) {
-        // onHide();
-        modalRef.current?.close();
-      }
+      // const clickedInDialog =
+      //   rect.top <= event.clientY &&
+      //   event.clientY <= rect.top + rect.height &&
+      //   rect.left <= event.clientX &&
+      //   event.clientX <= rect.left + rect.width;
+
+      // if (!clickedInDialog && !persistent) {
+      //   // onHide();
+      //   // modalRef.current?.close();
+      //   close();
+      // }
 
       return false;
     }
@@ -52,47 +56,61 @@ const Dialog: React.FC<Props> = ({
   }, [show]);
 
   useEffect(() => {
-    let transition!: NodeJS.Timeout;
+    // let transition!: NodeJS.Timeout;
 
     if (show) {
-      modalRef.current?.showModal();
+      open();
+      // modalRef.current?.showModal();
       // display animation
-      transition = setTimeout(() => setAnimation(true), 0.5);
-    } else {
-      modalRef.current?.close();
-      !!transition && clearTimeout(transition);
-      setAnimation(false);
-    }
+      // transition = setTimeout(() => setAnimation(true), 0.5);
+    } // else {
+    // modalRef.current?.close();
+    // !!transition && clearTimeout(transition);
+    // setAnimation(false);
+    // }
   }, [show]);
 
   // listen dialog events
-  useEffect(() => {
-    function onClose() {
-      onHide();
-    }
+  // useEffect(() => {
+  //   function onClose() {
+  //     onHide();
+  //   }
 
-    modalRef.current!.onclose = onClose;
+  //   modalRef.current!.onclose = onClose;
 
-    return () => modalRef.current!.removeEventListener('close', onClose);
-  }, []);
+  //   return () => modalRef.current!.removeEventListener('close', onClose);
+  // }, []);
+
+  const close = () => {
+    modalRef.current?.classList.add('Modal--hide');
+    modalRef.current?.classList.remove('Modal--show');
+    onHide();
+  };
+
+  const open = () => {
+    modalRef.current?.classList.remove('Modal--hide');
+    modalRef.current?.classList.add('Modal--show');
+  };
 
   return (
-    <dialog ref={modalRef} className={`Modal ${animation && 'Modal--open'}`}>
-      <header className="Modal__header">
-        <span
-          className="Modal__close-button"
-          onClick={() => modalRef.current?.close()}>
-          x
-        </span>
-        {title}
-      </header>
+    <div ref={modalRef} className="Modal">
+      <div className="Modal__card">
+        <header className="Modal__header">
+          <span className="Modal__close-button" onClick={() => close()}>
+            x
+          </span>
+          {title}
+        </header>
 
-      <section className="Modal__content">
-        {children.length > 0 ? children[0] : children}
-      </section>
+        <section className="Modal__content">
+          {/* {children.length > 0 ? children[0] : children} */}
+          Este es el contenido
+        </section>
 
-      {children[1] && <footer className="Modal__footer">{children[1]}</footer>}
-    </dialog>
+        <footer>Este es el footer</footer>
+        {/* {children[1] && <footer className="Modal__footer">{children[1]}</footer>} */}
+      </div>
+    </div>
   );
 };
 

@@ -102,6 +102,7 @@ module.exports = {
         develop: true,
         tailwind: true,
         whitelistPatterns: [
+          /^Modal--[show|hide]/,
           /^Skill-item__progressbar--/,
           /^Skill-item__content--/,
         ],

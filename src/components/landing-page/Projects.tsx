@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PageContainer from '../PageContainer';
 import Title from './util/Title';
 import { useLang } from '@/libs/hooks/use-language';
