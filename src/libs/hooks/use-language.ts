@@ -3,7 +3,8 @@ import { DataLocale } from '@models/locale.model';
 
 import esData from '@libs/i18n/locales/es.json';
 import enData from '@libs/i18n/locales/en.json';
-import { useSelector } from '@libs/context/global/context';
+import { useTrackedState } from '@libs/context/global/context';
+import { useMemo } from 'react';
 
 interface UseLangData {
   lang: DataLocale;
@@ -15,7 +16,7 @@ interface UseLangData {
 
 /** use the current language */
 export const useLang = (): UseLangData => {
-  const locale = useSelector(s => s.locale);
+  const { locale } = useTrackedState();
 
   const data: DataLocale = locale === 'en' ? enData : esData;
 

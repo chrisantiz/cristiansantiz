@@ -154,4 +154,4 @@ const DropdownLanguages = ({ className, title }: Props) => {
   );
 };
 
-export default DropdownLanguages;
+export default React.memo(DropdownLanguages);

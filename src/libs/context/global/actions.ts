@@ -17,22 +17,11 @@ export function toggleSideDrawer(): ToggleSideDrawerType {
   return { type: TOGGLE_SIDE_DRAWER };
 }
 
-interface ChangeLocaleOptions {
-  navigate: boolean;
-  path: string;
-}
-
 /** change language and redirect if prefer */
-export function changeLocale(
-  locale: LocaleType,
-  opt?: ChangeLocaleOptions,
-): ChangeLocaleType {
+export function changeLocale(locale: LocaleType): ChangeLocaleType {
   // persist
   localStorage.setItem(LocalKey.LOCALE, locale);
 
-  if (!!opt && opt.navigate) {
-    generateRoute(opt.path, locale);
-  }
   return {
     type: CHANGE_LOCALE,
     payload: locale,

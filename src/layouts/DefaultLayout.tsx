@@ -1,32 +1,30 @@
 import React, { useEffect } from 'react';
-import Toolbar from '@components/toolbar/Toolbar';
-import SideDrawer from '@components/side-drawer/SideDrawer';
 import Backdrop from '@components/backdrop/Backdrop';
 import { changeLocale } from '@libs/context/global/actions';
 import { LocalKey } from '@libs/enum';
 import { LocaleType } from '@libs/i18n/languages';
-import { useSelector, useDispatch } from '@/libs/context/global/context';
+import { useDispatch } from '@/libs/context/global/context';
+import Menu from '@/components/Menu';
 
 /* Layout per defect */
 const DefaultLayout = ({ children }: any) => {
-  const locale = useSelector(s => s.locale);
   const dispatch = useDispatch();
 
+  // preload last language selected
   useEffect(() => {
     const localePersisted = localStorage.getItem(LocalKey.LOCALE) as
       | LocaleType
       | undefined;
 
     // change only if they are different
-    if (!!localePersisted && localePersisted !== locale) {
+    if (!!localePersisted && localePersisted !== 'es') {
       dispatch(changeLocale(localePersisted));
     }
   }, []);
 
   return (
     <>
-      <Toolbar />
-      <SideDrawer />
+      <Menu />
       <Backdrop />
 
       {/* main */}

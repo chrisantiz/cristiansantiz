@@ -43,4 +43,4 @@ const DarkModeButton = ({ className, title }: Props) => {
   );
 };
 
-export default DarkModeButton;
+export default React.memo(DarkModeButton);

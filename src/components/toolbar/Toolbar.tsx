@@ -10,7 +10,11 @@ import { useLang } from '@libs/hooks/use-language';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GithubIcon } from '../svg-icons';
 
-const Toolbar = () => {
+interface Props {
+  renderItems: boolean;
+}
+
+const Toolbar: React.FC<Props> = ({ renderItems }) => {
   const logo = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "logo-black-white.png" }) {
@@ -47,7 +51,7 @@ const Toolbar = () => {
 
         <div className="spacer"></div>
 
-        <ToolbarItems />
+        {renderItems && <ToolbarItems />}
 
         {/* dark mode button */}
         <DarkModeButton className="ml-2" title={labels.darkModeBtn} />
@@ -65,4 +69,4 @@ const Toolbar = () => {
   );
 };
 
-export default Toolbar;
+export default React.memo(Toolbar);

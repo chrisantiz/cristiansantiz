@@ -8,6 +8,7 @@ import moment from 'moment';
 import { useSelector } from '@/libs/context/global/context';
 
 const SideDrawer = () => {
+  console.log('RENDER SIDE-DRAWER')
   const { openSideDrawer: show, myData } = useSelector(s => s);
 
   const {
@@ -67,4 +68,4 @@ const query = graphql`
   }
 `;
 
-export default SideDrawer;
+export default React.memo(SideDrawer);
