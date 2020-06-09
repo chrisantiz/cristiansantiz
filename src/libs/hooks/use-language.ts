@@ -4,7 +4,6 @@ import { DataLocale } from '@models/locale.model';
 import esData from '@libs/i18n/locales/es.json';
 import enData from '@libs/i18n/locales/en.json';
 import { useTrackedState } from '@libs/context/global/context';
-import { useMemo } from 'react';
 
 interface UseLangData {
   lang: DataLocale;
