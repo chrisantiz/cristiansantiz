@@ -3,7 +3,6 @@ import PageContainer from '../PageContainer';
 import Img from 'gatsby-image';
 import { Link } from 'react-scroll';
 import { graphql, useStaticQuery } from 'gatsby';
-import Button from '../button/Button';
 import SocialMediaIcons from '../SocialMediaIcons';
 import { useLang } from '@libs/hooks/use-language';
 import { useSelector } from '@/libs/context/global/context';

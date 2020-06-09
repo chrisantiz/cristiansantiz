@@ -1,6 +1,7 @@
 const { colors } = require('tailwindcss/defaultTheme');
 
 module.exports = {
+  purge: false,
   corePlugins: {
     container: false,
   },
