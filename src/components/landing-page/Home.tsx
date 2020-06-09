@@ -1,6 +1,7 @@
 import React from 'react';
 import PageContainer from '../PageContainer';
 import Img from 'gatsby-image';
+import { Link } from 'react-scroll';
 import { graphql, useStaticQuery } from 'gatsby';
 import Button from '../button/Button';
 import SocialMediaIcons from '../SocialMediaIcons';
@@ -55,13 +56,22 @@ const Home: React.FC<Props> = ({ id }) => {
           <span className="sm:w-1/2 text-center mt-1">{siteDescription}</span>
 
           {/* button */}
-          <Button to="sobre-mi" outlined size="sm" className="my-3">
-            {home.labels.buttonKnowMore}
-          </Button>
+          <div className="flex my-3">
+            <Link
+              to="sobre-mi"
+              smooth
+              offset={-56}
+              className="Button Button--outline text-sm mr-2">
+              {home.labels.buttonKnowMore}
+            </Link>
 
-          <a href="#" className="Button Button--outline">
-            Bajar CV
-          </a>
+            <a
+              href="https://mis-links.herokuapp.com/cv"
+              target="_blank"
+              className="Button Button--outline text-sm ml-2">
+              {home.labels.cv}
+            </a>
+          </div>
 
           {/* social media icons */}
           <SocialMediaIcons />

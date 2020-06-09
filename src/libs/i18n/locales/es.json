@@ -12,7 +12,8 @@
       "labels": {
         "whatsapp": "Envíame un mensaje por Whatsapp",
         "email": "Envíame un correo",
-        "buttonKnowMore": "saber más"
+        "buttonKnowMore": "saber más",
+        "cv": "Descargar CV"
       }
     },
     "aboutMe": {

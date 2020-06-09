@@ -8,6 +8,7 @@ export interface HomePageLabels {
   whatsapp: string;
   email: string;
   buttonKnowMore: string;
+  cv: string;
 }
 
 export interface AboutMePage {

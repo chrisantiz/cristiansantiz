@@ -99,7 +99,7 @@ module.exports = {
       resolve: 'gatsby-plugin-purgecss',
       options: {
         printReject: false,
-        develop: true,
+        develop: false,
         tailwind: true,
         whitelistPatterns: [/^Modal--[show|hide]/, /^Skill-item__/],
       },
