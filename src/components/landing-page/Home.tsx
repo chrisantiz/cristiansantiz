@@ -59,6 +59,10 @@ const Home: React.FC<Props> = ({ id }) => {
             {home.labels.buttonKnowMore}
           </Button>
 
+          <a href="#" className="Button Button--outline">
+            Bajar CV
+          </a>
+
           {/* social media icons */}
           <SocialMediaIcons />
 
