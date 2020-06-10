@@ -6,7 +6,7 @@ interface Props {
 
 const Contact: React.FC<Props> = ({ id }) => {
   return (
-    <section className="landing-item contact-section" id={id}>
+    <section className="bg-blue-300 landing-full-screen" id={id}>
       <h1>Contact page</h1>
     </section>
   );

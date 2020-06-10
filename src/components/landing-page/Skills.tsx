@@ -16,7 +16,7 @@ const Skills: React.FC<Props> = ({ id }) => {
   } = useLang();
 
   return (
-    <PageContainer className="pt-2 md:pt-6 min-h-screen" id={id}>
+    <PageContainer className="pt-2 md:pt-6 landing-full-screen" id={id}>
       <Title className="mb-2 md:mb-5">{skills.linkLabel}</Title>
 
       <SkillsProgressBar />

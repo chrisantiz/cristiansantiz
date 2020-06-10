@@ -65,7 +65,7 @@ const Projects: React.FC<Props> = ({ id }) => {
   }
 
   return (
-    <PageContainer id={id} className="py-3 min-h-screen">
+    <PageContainer id={id} className="py-3 landing-full-screen">
       <Title>{projects.linkLabel}</Title>
 
       <Paragraph>{projects.text}</Paragraph>
