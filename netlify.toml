@@ -1,11 +1,12 @@
 [build]
 command = "yarn build"
-functions = "functions"
+# functions = "functions"
+functions = "server"
 
 [dev]
 framework = "gatsby"
 
 [[redirects]]
 from = "/api/*"
-to = "/.netlify/functions/:splat"
+to = "/.netlify/functions/index/:splat"
 status = 200

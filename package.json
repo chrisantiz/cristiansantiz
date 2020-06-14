@@ -8,7 +8,9 @@
     "email": "crisantizan@gmail.com"
   },
   "dependencies": {
+    "aws-lambda-fastify": "^1.4.3",
     "dayjs": "^1.8.28",
+    "fastify": "^2.14.1",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
     "gatsby-link": "^2.2.30",
