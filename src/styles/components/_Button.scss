@@ -1,13 +1,12 @@
 .Button {
-  @apply cursor-pointer uppercase font-semibold py-1 px-4 rounded bg-warning text-white;
-  transition: all 100ms ease-in-out;
+  @apply cursor-pointer border border-transparent uppercase font-semibold py-1 px-3 rounded bg-warning text-white;
 
   &:hover {
     @apply bg-orange-800;
   }
 
   &--outline {
-    @apply text-warning border border-warning bg-transparent;
+    @apply text-warning border-warning bg-transparent;
 
     &:hover {
       @apply bg-orange-800 border-transparent text-white;

@@ -21,6 +21,9 @@ export { default as SunIcon } from '@/assets/svg/toolbar/sun-icon.svg';
 export { default as MoonIcon } from '@/assets/svg/toolbar/moon-icon.svg';
 export { default as I18nIcon } from '@/assets/svg/toolbar/i18n-icon.svg';
 
+export { default as DownloadIcon } from '@/assets/svg/download-icon.svg';
+
+
 // skills icons
 // export { default as AngularIcon } from '@/assets/svg/skills/angularjs-icon.svg';
 // export { default as ElectronIcon } from '@/assets/svg/skills/electronjs-icon.svg';

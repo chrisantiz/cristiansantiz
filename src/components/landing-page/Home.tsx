@@ -6,6 +6,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import SocialMediaIcons from '../SocialMediaIcons';
 import { useLang } from '@libs/hooks/use-language';
 import { useSelector } from '@/libs/context/global/context';
+import { DownloadIcon } from '@/components/svg-icons';
 
 interface Props {
   id: string;
@@ -60,14 +61,15 @@ const Home: React.FC<Props> = ({ id }) => {
             smooth
             offset={-56}
             className="Button text-sm mr-2">
-            {home.labels.buttonKnowMore}
+            <span>{home.labels.buttonKnowMore}</span>
           </Link>
 
           <a
             href="/api/cv"
             target="_blank"
-            className="Button Button--outline text-sm ml-2">
-            {home.labels.cv}
+            className="Button Button--outline text-sm ml-2 flex">
+            <DownloadIcon className="w-4 mr-2" />
+            <span>{home.labels.cv}</span>
           </a>
         </div>
 
