@@ -11,7 +11,7 @@ $toolbar-height: 56px;
   height: $toolbar-height;
   transition: background-color 0.1s ease-in;
   padding-right: 8px;
-  background-color: color-mod(theme('colors.primary') a(90%));
+  background-color: theme('colors.primary');
   box-shadow: $shadow-light;
 
   $Toolbar: &;
