@@ -8,7 +8,6 @@ import moment from 'moment';
 import { useSelector } from '@/libs/context/global/context';
 
 const SideDrawer = () => {
-  console.log('RENDER SIDE-DRAWER')
   const { openSideDrawer: show, myData } = useSelector(s => s);
 
   const {
