@@ -65,7 +65,7 @@ const Home: React.FC<Props> = ({ id }) => {
           </Link>
 
           <a
-            href="/api/cv"
+            href="/api/links/cv"
             target="_blank"
             className="Button Button--outline text-sm ml-2 flex">
             <DownloadIcon className="w-4 mr-2" />

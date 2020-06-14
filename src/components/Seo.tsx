@@ -25,7 +25,7 @@ function SEO({ description, lang, meta, title }: any) {
       }
     `,
   );
-  console.log(imageSharp);
+
   const englishDescription =
     'Web developer freelance, lover of self-learning, free knowledge and Javascript.';
   const metaDescription = description || site.siteMetadata.description;

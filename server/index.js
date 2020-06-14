@@ -3,7 +3,14 @@ const awsLambdaFastify = require('aws-lambda-fastify');
 // Require the framework and instantiate it
 const fastify = require('fastify')();
 
-fastify.register(require('./routes'), { prefix: '/api' });
+fastify.get('/api', (req, reply) => {
+  reply.send({
+    message: 'Welcome, Netlify Functions with «aws-lambda-fastify»',
+    routes: ['/links'],
+  });
+});
+
+fastify.register(require('./routes/links.router'), { prefix: '/api/links' });
 
 const proxy = awsLambdaFastify(fastify);
 

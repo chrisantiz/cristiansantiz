@@ -1,4 +1,4 @@
-const links = require('./links.json');
+const links = require('../links.json');
 /**
  * @param {import("fastify").FastifyInstance} fastify
  */
