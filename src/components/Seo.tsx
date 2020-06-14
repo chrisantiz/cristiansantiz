@@ -7,7 +7,7 @@ import { useSelector } from '@/libs/context/global/context';
 function SEO({ description, lang, meta, title }: any) {
   const locale = useSelector(s => s.locale);
 
-  const { site } = useStaticQuery(
+  const { site, imageSharp } = useStaticQuery(
     graphql`
       query {
         site {
@@ -17,9 +17,15 @@ function SEO({ description, lang, meta, title }: any) {
             author
           }
         }
+        imageSharp(fluid: { originalName: { eq: "me.jpg" } }) {
+          fixed(width: 300) {
+            ...GatsbyImageSharpFixed
+          }
+        }
       }
     `,
   );
+  console.log(imageSharp);
   const englishDescription =
     'Web developer freelance, lover of self-learning, free knowledge and Javascript.';
   const metaDescription = description || site.siteMetadata.description;
@@ -47,6 +53,10 @@ function SEO({ description, lang, meta, title }: any) {
         {
           property: `og:description`,
           content: localeDescription,
+        },
+        {
+          property: `thumbnail`,
+          content: imageSharp.fixed.base64,
         },
         {
           property: 'keywords',
