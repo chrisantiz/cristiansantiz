@@ -64,7 +64,7 @@ const Home: React.FC<Props> = ({ id }) => {
           </Link>
 
           <a
-            href="https://mis-links.herokuapp.com/cv"
+            href="/api/cv"
             target="_blank"
             className="Button Button--outline text-sm ml-2">
             {home.labels.cv}
