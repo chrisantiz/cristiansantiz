@@ -76,6 +76,10 @@ function SEO({ description, lang, meta, title }: any) {
           content: site.siteMetadata.author,
         },
         {
+          property: `twitter:thumbnail`,
+          content: imageSharp.fixed.base64,
+        },
+        {
           name: `twitter:title`,
           content: title,
         },
