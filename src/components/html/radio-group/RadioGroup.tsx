@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import './Radio.scss';
 
 interface Item {
   label: string;
+  value: string;
   checked?: boolean;
 }
 
 interface Props {
   name: string;
   items: Item[];
+  onChange: (value: string) => void;
 }
 
-const RadioGroup: React.FC<Props> = ({ name, items }) => {
+const RadioGroup: React.FC<Props> = ({ name, items, onChange }) => {
   const radios = React.useMemo(() => {
     return items.map((item, index) => {
       const id = `radio${String(Date.now()).slice(-4)}${index}`;
@@ -23,8 +25,10 @@ const RadioGroup: React.FC<Props> = ({ name, items }) => {
             id={id}
             type="radio"
             name={name}
+            value={item.value}
             className="Radio__input hidden"
             defaultChecked={item.checked}
+            onChange={e => onChange(e.target.value)}
           />
           <label
             htmlFor={id}

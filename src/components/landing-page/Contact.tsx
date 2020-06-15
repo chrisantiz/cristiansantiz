@@ -1,7 +1,6 @@
 import React from 'react';
 import PageContainer from '../PageContainer';
 import Title from './util/Title';
-import Radio from '../html/radio/Radio';
 import RadioGroup from '../html/radio-group/RadioGroup';
 
 interface Props {
@@ -9,6 +8,9 @@ interface Props {
 }
 
 const Contact: React.FC<Props> = ({ id }) => {
+  function radioChange(value: string) {
+    console.log(value);
+  }
   return (
     <PageContainer id={id} className="landing-full-screen py-3">
       <Title>Contact me</Title>
@@ -29,7 +31,11 @@ const Contact: React.FC<Props> = ({ id }) => {
             <Radio name="pruebita" label="Whatsapp" checked /> */}
             <RadioGroup
               name="contact"
-              items={[{ label: 'Whatsapp', checked: true }, { label: 'Phone' }]}
+              onChange={radioChange}
+              items={[
+                { label: 'Whatsapp', checked: true, value: 'phone' },
+                { label: 'Email', value: 'email' },
+              ]}
             />
           </div>
         </div>
