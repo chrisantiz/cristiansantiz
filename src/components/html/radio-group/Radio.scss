@@ -1,0 +1,23 @@
+.Radio {
+  $Radio: &;
+
+  &__circle {
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  &__circle:hover,
+  &__label:hover &__circle {
+    transform: scale(1.2);
+  }
+
+  &__input:checked + {
+    #{$Radio}__label {
+      color: #3490dc;
+
+      #{$Radio}__circle {
+        background-color: #3490dc;
+        box-shadow: 0px 0px 0px 2px white inset;
+      }
+    }
+  }
+}
