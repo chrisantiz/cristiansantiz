@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageContainer from '../PageContainer';
 import Title from './util/Title';
 import RadioGroup from '../html/radio-group/RadioGroup';
@@ -7,10 +7,17 @@ interface Props {
   id: string;
 }
 
+type ClientContact = 'phone' | 'email';
+
 const Contact: React.FC<Props> = ({ id }) => {
+  const [clientContact, setClientContact] = useState<ClientContact>('phone');
+
   function radioChange(value: string) {
-    console.log(value);
+    setClientContact(value as ClientContact);
+
+    console.log(clientContact);
   }
+
   return (
     <PageContainer id={id} className="landing-full-screen py-3">
       <Title>Contact me</Title>
@@ -26,17 +33,15 @@ const Contact: React.FC<Props> = ({ id }) => {
             placeholder="Type a message"
             className="textarea"></textarea>
           <p className="my-2">How to contact you?</p>
-          <div>
-            <RadioGroup
-              name="contact"
-              checked="email"
-              onChange={radioChange}
-              items={[
-                { label: 'Whatsapp/Telegram', value: 'phone' },
-                { label: 'Email', value: 'email' },
-              ]}
-            />
-          </div>
+          <RadioGroup
+            name="contact"
+            checked={clientContact}
+            onChange={radioChange}
+            items={[
+              { label: 'Whatsapp/Telegram', value: 'phone' },
+              { label: 'Email', value: 'email' },
+            ]}
+          />
         </div>
         <div className="w-1/2">
           <h1>Right</h1>
