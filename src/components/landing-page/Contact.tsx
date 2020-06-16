@@ -27,13 +27,12 @@ const Contact: React.FC<Props> = ({ id }) => {
             className="textarea"></textarea>
           <p className="my-2">How to contact you?</p>
           <div>
-            {/* <Radio name="pruebita" label="Whatsapp" />
-            <Radio name="pruebita" label="Whatsapp" checked /> */}
             <RadioGroup
               name="contact"
+              checked="email"
               onChange={radioChange}
               items={[
-                { label: 'Whatsapp', checked: true, value: 'phone' },
+                { label: 'Whatsapp/Telegram', value: 'phone' },
                 { label: 'Email', value: 'email' },
               ]}
             />
