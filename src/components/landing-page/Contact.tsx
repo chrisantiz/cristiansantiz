@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PageContainer from '../PageContainer';
 import Title from './util/Title';
 import RadioGroup from '../html/radio-group/RadioGroup';
+import TelephonePrefixes from '../telephone-prefixes/TelephonePrefixes';
 
 interface Props {
   id: string;
@@ -42,6 +43,9 @@ const Contact: React.FC<Props> = ({ id }) => {
               { label: 'Email', value: 'email' },
             ]}
           />
+          <div>
+            <TelephonePrefixes />
+          </div>
         </div>
         <div className="w-1/2">
           <h1>Right</h1>
