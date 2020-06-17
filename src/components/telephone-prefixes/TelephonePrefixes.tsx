@@ -22,9 +22,12 @@ interface Prefix {
 const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
   const { locale } = useTrackedState();
   const [label, setLabel] = useState('');
+  const [selected, setSelected] = useState(0);
 
   function selectChange(e: any) {
-    const item: Prefix = countries[e.target.value];
+    setSelected(e.target.value);
+
+    const item: Prefix = countries[selected];
 
     setLabel(`${item.iso2} (+${item.prefix})`);
     onChange(item.prefix);
@@ -36,6 +39,9 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
   }
 
   useEffect(() => {
+    navigator.geolocation.getCurrentPosition(position => {
+      console.log(position);
+    })
     const autoloadPrefix = async () => {
       try {
         const result = await fetch('http://www.geoplugin.net/json.gp');
@@ -48,23 +54,26 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
 
         const countryCode = res.geoplugin_countryCode;
 
-        // get object
-        const item = countries.find(v => v.iso2 === countryCode);
+        // get object index
+        const indexItem = countries.findIndex(v => v.iso2 === countryCode);
 
-        if (typeof item === 'undefined') {
+        if (indexItem === -1) {
           throw 'Not found';
         }
 
-        setLabelAndEmit(item);
+        const item = countries[indexItem];
 
+        setLabelAndEmit(item);
+        setSelected(indexItem);
         // save in localStorage
         localStorage.setItem(LocalKey.COUNTRY_PREFIX, item.iso2);
       } catch (error) {
         console.error(error);
         // default Colombia
-        const item = countries.find(v => v.iso2 === 'CO')!;
+        const index = countries.findIndex(v => v.iso2 === 'CO')!;
 
-        setLabelAndEmit(item);
+        setLabelAndEmit(countries[index]);
+        setSelected(index);
       }
     };
 
@@ -78,9 +87,11 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
     }
 
     console.log('LOAD FROM LOCAL');
-    // get object
-    const item = countries.find(v => v.iso2 === countryCode)!;
-    setLabelAndEmit(item);
+    // get object index
+    const indexItem = countries.findIndex(v => v.iso2 === countryCode);
+
+    setLabelAndEmit(countries[indexItem]);
+    setSelected(indexItem);
   }, []);
 
   return (
@@ -92,6 +103,7 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
       <select
         className="TelephonePrefixes__select"
         style={{ color: 'transparent' }}
+        value={selected}
         onChange={selectChange}>
         {countries.map((country, index) => {
           return (
