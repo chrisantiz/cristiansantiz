@@ -16,7 +16,7 @@ const Contact: React.FC<Props> = ({ id }) => {
   function radioChange(value: string) {
     setClientContact(value as ClientContact);
 
-    console.log(clientContact);
+    console.log(value);
   }
 
   return (

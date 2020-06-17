@@ -27,14 +27,11 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
 
   const [selected, setSelected] = useState(colombiaIndex);
 
-  function selectChange(e: any) {
-    setSelected(e.target.value);
-
+  useEffect(() => {
     const item: Prefix = countries[selected];
 
-    setLabel(`${item.iso2} (+${item.prefix})`);
-    onChange(item.prefix);
-  }
+    setLabelAndEmit(item);
+  }, [selected]);
 
   function setLabelAndEmit(item: Prefix) {
     setLabel(`${item.iso2} (+${item.prefix})`);
@@ -84,8 +81,11 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
       return;
     }
 
+    const index = countries.findIndex(v => v.iso2 === countryCode);
+
     console.log('LOAD FROM LOCAL');
-    setLabelAndEmit(countries[colombiaIndex]);
+    index !== colombiaIndex && setSelected(index);
+    setLabelAndEmit(countries[index]);
   }, []);
 
   return (
@@ -98,7 +98,7 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
         className="TelephonePrefixes__select"
         style={{ color: 'transparent' }}
         value={selected}
-        onChange={selectChange}>
+        onChange={e => setSelected(Number(e.target.value))}>
         {countries.map((country, index) => {
           return (
             <option key={country.iso2} value={index}>
