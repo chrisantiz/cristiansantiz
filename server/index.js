@@ -17,11 +17,36 @@ fastify.get('/api/location', async (req, reply) => {
     ? 'http://www.geoplugin.net/json.gp'
     : `http://www.geoplugin.net/json.gp?ip=${req.ip}`;
 
-  const result = await fetch(url);
-  const res = await result.json();
-  // console.log(result);
-  // console.log(fetch)
-  reply.send({ ip: req.ip, res });
+  try {
+    const result = await fetch(url);
+
+    if (!result.ok) {
+      throw result;
+    }
+
+    const res = await result.json();
+
+    reply.send({
+      requestIp: res.geoplugin_request,
+      country: {
+        name: res.geoplugin_countryName,
+        code: res.geoplugin_countryCode,
+        city: res.geoplugin_city,
+        region: res.geoplugin_region,
+        timezone: res.geoplugin_timezone,
+        currencyCode: res.geoplugin_currencyCode,
+        currencyConverter: res.geoplugin_currencyConverter,
+      },
+      continent: {
+        name: res.geoplugin_continentName,
+        code: res.geoplugin_continentCode,
+      },
+      latitude: res.geoplugin_latitude,
+      longitude: res.geoplugin_longitude,
+    });
+  } catch (error) {
+    reply.send(error);
+  }
 });
 
 fastify.register(require('./routes/links.router'), { prefix: '/api/links' });
