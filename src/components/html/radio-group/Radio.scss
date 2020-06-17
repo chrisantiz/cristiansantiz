@@ -33,7 +33,7 @@
 
     &:checked + {
       #{$Radio}__label {
-        color: theme('colors.orange.700');
+        font-weight: 500;
         #{$Radio}__circle {
           background-color: theme('colors.orange.700');
           box-shadow: 0px 0px 0px 2px white inset;

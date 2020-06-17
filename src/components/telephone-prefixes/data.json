@@ -23,20 +23,20 @@
     "prefix": "672"
   },
   {
-    "nombre": "AntiguayBarbuda",
-    "name": "AntiguaandBarbuda",
+    "nombre": "Antigua y Barbuda",
+    "name": "Antigua and Barbuda",
     "iso2": "AG",
     "prefix": "1268"
   },
   {
-    "nombre": "AntillasNeerlandesas",
-    "name": "NetherlandsAntilles",
+    "nombre": "Antillas Neerlandesas",
+    "name": "Netherlands Antilles",
     "iso2": "AN",
     "prefix": "599"
   },
   {
-    "nombre": "ArabiaSaudita",
-    "name": "SaudiArabia",
+    "nombre": "Arabia Saudita",
+    "name": "Saudi Arabia",
     "iso2": "SA",
     "prefix": "966"
   },
@@ -93,8 +93,8 @@
   { "nombre": "Birmania", "name": "Myanmar", "iso2": "MM", "prefix": "95" },
   { "nombre": "Bolivia", "name": "Bolivia", "iso2": "BO", "prefix": "591" },
   {
-    "nombre": "BosniayHerzegovina",
-    "name": "BosniaandHerzegovina",
+    "nombre": "Bosnia y Herzegovina",
+    "name": "Bosnia and Herzegovina",
     "iso2": "BA",
     "prefix": "387"
   },
@@ -113,15 +113,15 @@
     "prefix": "359"
   },
   {
-    "nombre": "BurkinaFaso",
-    "name": "BurkinaFaso",
+    "nombre": "Burkina Faso",
+    "name": "Burkina Faso",
     "iso2": "BF",
     "prefix": "226"
   },
   { "nombre": "Burundi", "name": "Burundi", "iso2": "BI", "prefix": "257" },
   {
-    "nombre": "CaboVerde",
-    "name": "CapeVerde",
+    "nombre": "Cabo Verde",
+    "name": "Cape Verde",
     "iso2": "CV",
     "prefix": "238"
   },
@@ -143,8 +143,8 @@
   { "nombre": "China", "name": "China", "iso2": "CN", "prefix": "86" },
   { "nombre": "Chipre", "name": "Cyprus", "iso2": "CY", "prefix": "357" },
   {
-    "nombre": "CiudaddelVaticano",
-    "name": "VaticanCityState",
+    "nombre": "Ciudad del Vaticano",
+    "name": "Vatican City State",
     "iso2": "VA",
     "prefix": "39"
   },
@@ -158,26 +158,26 @@
   { "nombre": "Congo", "name": "Congo", "iso2": "CG", "prefix": "242" },
   { "nombre": "Congo", "name": "Congo", "iso2": "CD", "prefix": "243" },
   {
-    "nombre": "CoreadelNorte",
-    "name": "NorthKorea",
+    "nombre": "Corea del Norte",
+    "name": "North Korea",
     "iso2": "KP",
     "prefix": "850"
   },
   {
-    "nombre": "CoreadelSur",
-    "name": "SouthKorea",
+    "nombre": "Corea del Sur",
+    "name": "South Korea",
     "iso2": "KR",
     "prefix": "82"
   },
   {
-    "nombre": "CostadeMarfil",
+    "nombre": "Costa de Marfil",
     "name": "IvoryCoast",
     "iso2": "CI",
     "prefix": "225"
   },
   {
-    "nombre": "CostaRica",
-    "name": "CostaRica",
+    "nombre": "Costa Rica",
+    "name": "Costa Rica",
     "iso2": "CR",
     "prefix": "506"
   },
@@ -198,14 +198,14 @@
   { "nombre": "Ecuador", "name": "Ecuador", "iso2": "EC", "prefix": "593" },
   { "nombre": "Egipto", "name": "Egypt", "iso2": "EG", "prefix": "20" },
   {
-    "nombre": "ElSalvador",
-    "name": "ElSalvador",
+    "nombre": "El Salvador",
+    "name": "El Salvador",
     "iso2": "SV",
     "prefix": "503"
   },
   {
-    "nombre": "EmiratosÁrabesUnidos",
-    "name": "UnitedArabEmirates",
+    "nombre": "Emiratos Árabes Unidos",
+    "name": "United Arab Emirates",
     "iso2": "AE",
     "prefix": "971"
   },
@@ -224,8 +224,8 @@
   },
   { "nombre": "España", "name": "Spain", "iso2": "ES", "prefix": "34" },
   {
-    "nombre": "EstadosUnidosdeAmérica",
-    "name": "UnitedStatesofAmerica",
+    "nombre": "Estados Unidos de América",
+    "name": "United States of America",
     "iso2": "US",
     "prefix": "1"
   },
@@ -287,16 +287,16 @@
     "prefix": "502"
   },
   {
-    "nombre": "GuayanaFrancesa",
-    "name": "FrenchGuiana",
+    "nombre": "Guayana Francesa",
+    "name": "French Guiana",
     "iso2": "GF",
     "prefix": ""
   },
   { "nombre": "Guernsey", "name": "Guernsey", "iso2": "GG", "prefix": "" },
   { "nombre": "Guinea", "name": "Guinea", "iso2": "GN", "prefix": "224" },
   {
-    "nombre": "GuineaEcuatorial",
-    "name": "EquatorialGuinea",
+    "nombre": "Guinea Ecuatorial",
+    "name": "Equatorial Guinea",
     "iso2": "GQ",
     "prefix": "240"
   },
@@ -332,26 +332,26 @@
   { "nombre": "Irak", "name": "Iraq", "iso2": "IQ", "prefix": "964" },
   { "nombre": "Irlanda", "name": "Ireland", "iso2": "IE", "prefix": "353" },
   {
-    "nombre": "IslaBouvet",
-    "name": "BouvetIsland",
+    "nombre": "Isla Bouvet",
+    "name": "Bouvet Island",
     "iso2": "BV",
     "prefix": ""
   },
   {
-    "nombre": "IsladeMan",
-    "name": "IsleofMan",
+    "nombre": "Isla de Man",
+    "name": "Isle of Man",
     "iso2": "IM",
     "prefix": "44"
   },
   {
-    "nombre": "IsladeNavidad",
-    "name": "ChristmasIsland",
+    "nombre": "Isla de Navidad",
+    "name": "Christmas Island",
     "iso2": "CX",
     "prefix": "61"
   },
   {
-    "nombre": "IslaNorfolk",
-    "name": "NorfolkIsland",
+    "nombre": "Isla Norfolk",
+    "name": "Norfolk Island",
     "iso2": "NF",
     "prefix": ""
   },
@@ -362,110 +362,110 @@
     "prefix": "354"
   },
   {
-    "nombre": "IslasBermudas",
-    "name": "BermudaIslands",
+    "nombre": "Islas Bermudas",
+    "name": "Bermuda Islands",
     "iso2": "BM",
     "prefix": "1441"
   },
   {
-    "nombre": "IslasCaimán",
-    "name": "CaymanIslands",
+    "nombre": "Islas Caimán",
+    "name": "Cayman Islands",
     "iso2": "KY",
     "prefix": "1345"
   },
   {
-    "nombre": "IslasCocos(Keeling)",
-    "name": "Cocos(Keeling)Islands",
+    "nombre": "Islas Cocos(Keeling)",
+    "name": "Cocos(Keeling) Islands",
     "iso2": "CC",
     "prefix": "61"
   },
   {
-    "nombre": "IslasCook",
-    "name": "CookIslands",
+    "nombre": "Islas Cook",
+    "name": "Cook Islands",
     "iso2": "CK",
     "prefix": "682"
   },
   {
-    "nombre": "IslasdeÅland",
-    "name": "ÅlandIslands",
+    "nombre": "Islas de Åland",
+    "name": "Åland Islands",
     "iso2": "AX",
     "prefix": ""
   },
   {
-    "nombre": "IslasFeroe",
-    "name": "FaroeIslands",
+    "nombre": "Islas Feroe",
+    "name": "Faroe Islands",
     "iso2": "FO",
     "prefix": "298"
   },
   {
-    "nombre": "IslasGeorgiasdelSurySandwichdelSur",
-    "name": "SouthGeorgiaandtheSouthSandwichIslands",
+    "nombre": "Islas Georgias del Sury Sandwich del Sur",
+    "name": "South Georgia and the South Sandwich Islands",
     "iso2": "GS",
     "prefix": ""
   },
   {
-    "nombre": "IslasHeardyMcDonald",
-    "name": "HeardIslandandMcDonaldIslands",
+    "nombre": "Islas Heardy McDonald",
+    "name": "Heard Islandand McDonald Islands",
     "iso2": "HM",
     "prefix": ""
   },
   {
-    "nombre": "IslasMaldivas",
+    "nombre": "Islas Maldivas",
     "name": "Maldives",
     "iso2": "MV",
     "prefix": "960"
   },
   {
-    "nombre": "IslasMalvinas",
-    "name": "FalklandIslands(Malvinas)",
+    "nombre": "Islas Malvinas",
+    "name": "Falkland Islands(Malvinas)",
     "iso2": "FK",
     "prefix": "500"
   },
   {
-    "nombre": "IslasMarianasdelNorte",
-    "name": "NorthernMarianaIslands",
+    "nombre": "Islas Marianas del Norte",
+    "name": "Northern Mariana Islands",
     "iso2": "MP",
     "prefix": "1670"
   },
   {
-    "nombre": "IslasMarshall",
-    "name": "MarshallIslands",
+    "nombre": "Islas Marshall",
+    "name": "Marshall Islands",
     "iso2": "MH",
     "prefix": "692"
   },
   {
-    "nombre": "IslasPitcairn",
-    "name": "PitcairnIslands",
+    "nombre": "Islas Pitcairn",
+    "name": "Pitcairn Islands",
     "iso2": "PN",
     "prefix": "870"
   },
   {
-    "nombre": "IslasSalomón",
-    "name": "SolomonIslands",
+    "nombre": "Islas Salomón",
+    "name": "Solomon Islands",
     "iso2": "SB",
     "prefix": "677"
   },
   {
-    "nombre": "IslasTurcasyCaicos",
-    "name": "TurksandCaicosIslands",
+    "nombre": "Islas Turcas y Caicos",
+    "name": "Turks and Caicos Islands",
     "iso2": "TC",
     "prefix": "1649"
   },
   {
-    "nombre": "IslasUltramarinasMenoresdeEstadosUnidos",
-    "name": "UnitedStatesMinorOutlyingIslands",
+    "nombre": "Islas Ultramarinas Menores de Estados Unidos",
+    "name": "United States Minor Outlying Islands",
     "iso2": "UM",
     "prefix": ""
   },
   {
-    "nombre": "IslasVírgenesBritánicas",
-    "name": "VirginIslands",
+    "nombre": "Islas Vírgenes Británicas",
+    "name": "Virgin Islands",
     "iso2": "VG",
     "prefix": "1284"
   },
   {
-    "nombre": "IslasVírgenesdelosEstadosUnidos",
-    "name": "UnitedStatesVirginIslands",
+    "nombre": "Islas Vírgenes de los Estados Unidos",
+    "name": "United States Virgin Islands",
     "iso2": "VI",
     "prefix": "1340"
   },
@@ -570,7 +570,7 @@
   { "nombre": "Mayotte", "name": "Mayotte", "iso2": "YT", "prefix": "262" },
   {
     "nombre": "Micronesia",
-    "name": "EstadosFederadosde",
+    "name": "Estados Federados de Micronesia",
     "iso2": "FM",
     "prefix": "691"
   },
@@ -618,20 +618,20 @@
   { "nombre": "Niue", "name": "Niue", "iso2": "NU", "prefix": "683" },
   { "nombre": "Noruega", "name": "Norway", "iso2": "NO", "prefix": "47" },
   {
-    "nombre": "NuevaCaledonia",
-    "name": "NewCaledonia",
+    "nombre": "Nueva Caledonia",
+    "name": "New Caledonia",
     "iso2": "NC",
     "prefix": "687"
   },
   {
-    "nombre": "NuevaZelanda",
-    "name": "NewZealand",
+    "nombre": "Nueva Zelanda",
+    "name": "New Zealand",
     "iso2": "NZ",
     "prefix": "64"
   },
   { "nombre": "Omán", "name": "Oman", "iso2": "OM", "prefix": "968" },
   {
-    "nombre": "PaísesBajos",
+    "nombre": "Países Bajos",
     "name": "Netherlands",
     "iso2": "NL",
     "prefix": "31"
@@ -647,12 +647,12 @@
     "nombre": "Palestina",
     "name": "Palestine",
     "iso2": "PS",
-    "prefix": ""
+    "prefix": "970"
   },
   { "nombre": "Panamá", "name": "Panama", "iso2": "PA", "prefix": "507" },
   {
-    "nombre": "PapúaNuevaGuinea",
-    "name": "PapuaNewGuinea",
+    "nombre": "Papúa Nueva Guinea",
+    "name": "Papua New Guinea",
     "iso2": "PG",
     "prefix": "675"
   },
@@ -664,8 +664,8 @@
   },
   { "nombre": "Perú", "name": "Peru", "iso2": "PE", "prefix": "51" },
   {
-    "nombre": "PolinesiaFrancesa",
-    "name": "FrenchPolynesia",
+    "nombre": "Polinesia Francesa",
+    "name": "French Polynesia",
     "iso2": "PF",
     "prefix": "689"
   },
@@ -677,33 +677,33 @@
     "prefix": "351"
   },
   {
-    "nombre": "PuertoRico",
-    "name": "PuertoRico",
+    "nombre": "Puerto Rico",
+    "name": "Puerto Rico",
     "iso2": "PR",
     "prefix": "1"
   },
   { "nombre": "Qatar", "name": "Qatar", "iso2": "QA", "prefix": "974" },
   {
-    "nombre": "ReinoUnido",
-    "name": "UnitedKingdom",
+    "nombre": "Reino Unido",
+    "name": "United Kingdom",
     "iso2": "GB",
     "prefix": "44"
   },
   {
-    "nombre": "RepúblicaCentroafricana",
-    "name": "CentralAfricanRepublic",
+    "nombre": "República Centroafricana",
+    "name": "Central African Republic",
     "iso2": "CF",
     "prefix": "236"
   },
   {
-    "nombre": "RepúblicaCheca",
-    "name": "CzechRepublic",
+    "nombre": "República Checa",
+    "name": "Czech Republic",
     "iso2": "CZ",
     "prefix": "420"
   },
   {
-    "nombre": "RepúblicaDominicana",
-    "name": "DominicanRepublic",
+    "nombre": "República Dominicana",
+    "name": "Dominican Republic",
     "iso2": "DO",
     "prefix": "1809"
   },
@@ -712,69 +712,69 @@
   { "nombre": "Rumanía", "name": "Romania", "iso2": "RO", "prefix": "40" },
   { "nombre": "Rusia", "name": "Russia", "iso2": "RU", "prefix": "7" },
   {
-    "nombre": "SaharaOccidental",
-    "name": "WesternSahara",
+    "nombre": "Sahara Occidental",
+    "name": "Western Sahara",
     "iso2": "EH",
-    "prefix": ""
+    "prefix": "212"
   },
   { "nombre": "Samoa", "name": "Samoa", "iso2": "WS", "prefix": "685" },
   {
-    "nombre": "SamoaAmericana",
-    "name": "AmericanSamoa",
+    "nombre": "Samoa Americana",
+    "name": "American Samoa",
     "iso2": "AS",
     "prefix": "1684"
   },
   {
-    "nombre": "SanBartolomé",
-    "name": "SaintBarthélemy",
+    "nombre": "San Bartolomé",
+    "name": "Saint Barthélemy",
     "iso2": "BL",
     "prefix": "590"
   },
   {
-    "nombre": "SanCristóbalyNieves",
-    "name": "SaintKittsandNevis",
+    "nombre": "San Cristóbal y Nieves",
+    "name": "Saint Kitts and Nevis",
     "iso2": "KN",
     "prefix": "1869"
   },
   {
-    "nombre": "SanMarino",
-    "name": "SanMarino",
+    "nombre": "San Marino",
+    "name": "San Marino",
     "iso2": "SM",
     "prefix": "378"
   },
   {
-    "nombre": "SanMartín(Francia)",
-    "name": "SaintMartin(Frenchpart)",
+    "nombre": "San Martín(Francia)",
+    "name": "Saint Martin(Frenchpart)",
     "iso2": "MF",
     "prefix": "1599"
   },
   {
-    "nombre": "SanPedroyMiquelón",
-    "name": "SaintPierreandMiquelon",
+    "nombre": "San Pedro y Miquelón",
+    "name": "Saint Pierre and Miquelon",
     "iso2": "PM",
     "prefix": "508"
   },
   {
-    "nombre": "SanVicenteylasGranadinas",
-    "name": "SaintVincentandtheGrenadines",
+    "nombre": "San Vicente y las Granadinas",
+    "name": "Saint Vincent and the Grenadines",
     "iso2": "VC",
     "prefix": "1784"
   },
   {
-    "nombre": "SantaElena",
-    "name": "AscensiónyTristándeAcuña",
+    "nombre": "Santa Elena",
+    "name": "Ascensión y Tristán de Acuña",
     "iso2": "SH",
     "prefix": "290"
   },
   {
-    "nombre": "SantaLucía",
-    "name": "SaintLucia",
+    "nombre": "Santa Lucía",
+    "name": "Saint Lucia",
     "iso2": "LC",
     "prefix": "1758"
   },
   {
-    "nombre": "SantoToméyPríncipe",
-    "name": "SaoTomeandPrincipe",
+    "nombre": "Santo Tomé y Príncipe",
+    "name": "Sao Tomeand Principe",
     "iso2": "ST",
     "prefix": "239"
   },
@@ -787,8 +787,8 @@
     "prefix": "248"
   },
   {
-    "nombre": "SierraLeona",
-    "name": "SierraLeone",
+    "nombre": "Sierra Leona",
+    "name": "Sierra Leone",
     "iso2": "SL",
     "prefix": "232"
   },
@@ -808,7 +808,7 @@
   },
   {
     "nombre": "Sudáfrica",
-    "name": "SouthAfrica",
+    "name": "South Africa",
     "iso2": "ZA",
     "prefix": "27"
   },
@@ -827,10 +827,10 @@
     "prefix": "597"
   },
   {
-    "nombre": "SvalbardyJanMayen",
-    "name": "SvalbardandJanMayen",
+    "nombre": "Svalbard y Jan Mayen",
+    "name": "Svalbard and Jan Mayen",
     "iso2": "SJ",
-    "prefix": ""
+    "prefix": "47"
   },
   {
     "nombre": "Swazilandia",
@@ -858,20 +858,20 @@
     "prefix": "255"
   },
   {
-    "nombre": "TerritorioBritánicodelOcéanoÍndico",
-    "name": "BritishIndianOceanTerritory",
+    "nombre": "Territorio Británico del Océano Índico",
+    "name": "British Indian Ocean Territory",
     "iso2": "IO",
-    "prefix": ""
+    "prefix": "246"
   },
   {
-    "nombre": "TerritoriosAustralesyAntárticasFranceses",
-    "name": "FrenchSouthernTerritories",
+    "nombre": "Territorios Australes y Antárticas Franceses",
+    "name": "French Southern Territories",
     "iso2": "TF",
-    "prefix": ""
+    "prefix": "262"
   },
   {
-    "nombre": "TimorOriental",
-    "name": "EastTimor",
+    "nombre": "Timor Oriental",
+    "name": "East Timor",
     "iso2": "TL",
     "prefix": "670"
   },
@@ -879,8 +879,8 @@
   { "nombre": "Tokelau", "name": "Tokelau", "iso2": "TK", "prefix": "690" },
   { "nombre": "Tonga", "name": "Tonga", "iso2": "TO", "prefix": "676" },
   {
-    "nombre": "TrinidadyTobago",
-    "name": "TrinidadandTobago",
+    "nombre": "Trinidad y Tobago",
+    "name": "Trinidad and Tobago",
     "iso2": "TT",
     "prefix": "1868"
   },
@@ -911,8 +911,8 @@
   },
   { "nombre": "Vietnam", "name": "Vietnam", "iso2": "VN", "prefix": "84" },
   {
-    "nombre": "WallisyFutuna",
-    "name": "WallisandFutuna",
+    "nombre": "Wallis y Futuna",
+    "name": "Wallis and Futuna",
     "iso2": "WF",
     "prefix": "681"
   },

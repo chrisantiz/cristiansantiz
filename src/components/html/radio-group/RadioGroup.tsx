@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Radio.scss';
 
 interface Item {
@@ -27,7 +27,10 @@ const RadioGroup: React.FC<Props> = ({
       return (
         <div
           className="Radio"
-          key={`${name}${index}`}>
+          key={`${name}${index}`}
+          role="radio"
+          aria-checked={checked === item.value}
+          tabIndex={0}>
           <input
             id={id}
             type="radio"
@@ -37,9 +40,7 @@ const RadioGroup: React.FC<Props> = ({
             defaultChecked={checked === item.value}
             onChange={e => onChange(e.target.value)}
           />
-          <label
-            htmlFor={id}
-            className="Radio__label">
+          <label htmlFor={id} className="Radio__label" aria-checked="true">
             <span className="Radio__circle"></span>
             {item.label}
           </label>
@@ -49,7 +50,12 @@ const RadioGroup: React.FC<Props> = ({
   }, [items]);
 
   return (
-    <div className={`flex flex-${vertical ? 'col' : 'row'}`}>{radios}</div>
+    <div
+      className={`flex flex-${vertical ? 'col' : 'row'}`}
+      role="radiogroup"
+      aria-labelledby="[IDREF]">
+      {radios}
+    </div>
   );
 };
 

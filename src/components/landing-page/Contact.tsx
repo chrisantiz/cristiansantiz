@@ -44,7 +44,7 @@ const Contact: React.FC<Props> = ({ id }) => {
             ]}
           />
           <div>
-            <TelephonePrefixes />
+            <TelephonePrefixes onChange={v => console.log(v)} />
           </div>
         </div>
         <div className="w-1/2">

@@ -1,4 +1,20 @@
-@import '../utilities/mixins';
+@import '../utilities/mixins', '../utilities/variables';
+
+select, textarea, input {
+  background-color: rgb(243, 242, 242);
+  resize: none;
+  @apply block w-full border border-gray-200 py-3 px-4 pr-8 shadow appearance-none rounded leading-tight;
+
+  &:focus {
+    @apply outline-none shadow-outline;
+  }
+
+  body.dark & {
+    background-color: $background-color-dark;
+    color: $font-color-dark;
+    @apply border-gray-800;
+  }
+}
 
 .container {
   max-width: 950px;

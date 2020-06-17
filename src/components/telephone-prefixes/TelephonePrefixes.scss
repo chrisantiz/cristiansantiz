@@ -1,3 +1,15 @@
 .TelephonePrefixes {
-  
+  position: relative;
+
+  &__label {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin-left: 1rem;
+    pointer-events: none;
+  }
+
+  &__select {
+  }
 }
