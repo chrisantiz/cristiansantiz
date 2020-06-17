@@ -5,6 +5,7 @@ import { count } from 'console';
 import { useLang } from '@/libs/hooks';
 import { useTrackedState } from '@/libs/context/global/context';
 import { LocalKey } from '@/libs/enum';
+import { ApiLocationResponse } from './telephone-prefixes.type';
 
 interface Props {
   onChange: (prefix: string) => void;
@@ -20,9 +21,11 @@ interface Prefix {
 // http://api.wipmania.com/jsonp?callback=?
 
 const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
+  const colombiaIndex = countries.findIndex(v => v.iso2 === 'CO');
+  const [label, setLabel] = useState('CO (+57)');
   const { locale } = useTrackedState();
-  const [label, setLabel] = useState('');
-  const [selected, setSelected] = useState(0);
+
+  const [selected, setSelected] = useState(colombiaIndex);
 
   function selectChange(e: any) {
     setSelected(e.target.value);
@@ -39,20 +42,17 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
   }
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(position => {
-      console.log(position);
-    })
     const autoloadPrefix = async () => {
       try {
-        const result = await fetch('http://www.geoplugin.net/json.gp');
+        const result = await fetch('/api/location');
 
         if (!result.ok) {
           throw result;
         }
 
-        const res = await result.json();
+        const res: ApiLocationResponse = await result.json();
 
-        const countryCode = res.geoplugin_countryCode;
+        const countryCode = res.country.code;
 
         // get object index
         const indexItem = countries.findIndex(v => v.iso2 === countryCode);
@@ -70,10 +70,8 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
       } catch (error) {
         console.error(error);
         // default Colombia
-        const index = countries.findIndex(v => v.iso2 === 'CO')!;
 
-        setLabelAndEmit(countries[index]);
-        setSelected(index);
+        setLabelAndEmit(countries[colombiaIndex]);
       }
     };
 
@@ -87,11 +85,7 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
     }
 
     console.log('LOAD FROM LOCAL');
-    // get object index
-    const indexItem = countries.findIndex(v => v.iso2 === countryCode);
-
-    setLabelAndEmit(countries[indexItem]);
-    setSelected(indexItem);
+    setLabelAndEmit(countries[colombiaIndex]);
   }, []);
 
   return (
