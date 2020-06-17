@@ -13,7 +13,11 @@ fastify.get('/api', (req, reply) => {
 });
 
 fastify.get('/api/location', async (req, reply) => {
-  const result = await fetch('http://www.geoplugin.net/json.gp');
+  const url = process.env.NETLIFY_DEV
+    ? 'http://www.geoplugin.net/json.gp'
+    : `http://www.geoplugin.net/json.gp?ip=${req.ip}`;
+
+  const result = await fetch(url);
   const res = await result.json();
   // console.log(result);
   // console.log(fetch)
