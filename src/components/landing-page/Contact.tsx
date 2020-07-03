@@ -27,8 +27,8 @@ const Contact: React.FC<Props> = ({ id }) => {
         contact you shortly.
       </p>
 
-      <div className="flex mt-4">
-        <div className="w-1/2 px-2">
+      <div className="flex flex-col md:flex-row md:justify-start mt-4">
+        <div className="w-full md:w-1/2 px-2">
           <textarea
             rows={3.5}
             placeholder="Type a message"
@@ -43,11 +43,16 @@ const Contact: React.FC<Props> = ({ id }) => {
               { label: 'Email', value: 'email' },
             ]}
           />
-          <div>
-            <TelephonePrefixes onChange={v => console.log(v)} />
+          <div className="flex -mx-2 items-center">
+            <div className="flex px-2 sm:justify-start w-4/12">
+              <TelephonePrefixes onChange={v => console.log(v)} />
+            </div>
+            <div className="px-2 w-8/12">
+              <input type="text" placeholder="Phone number" />
+            </div>
           </div>
         </div>
-        <div className="w-1/2">
+        <div className="w-full sm:w-1/2">
           <h1>Right</h1>
         </div>
       </div>

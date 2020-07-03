@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import countries from './data.json';
 import './TelephonePrefixes.scss';
-import { count } from 'console';
-import { useLang } from '@/libs/hooks';
+import { useWindowSize } from '@/libs/hooks';
 import { useTrackedState } from '@/libs/context/global/context';
 import { LocalKey } from '@/libs/enum';
 import { ApiLocationResponse } from './telephone-prefixes.type';
@@ -25,6 +24,8 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
   const [label, setLabel] = useState('CO (+57)');
   const { locale } = useTrackedState();
 
+  const { width } = useWindowSize();
+
   const [selected, setSelected] = useState(colombiaIndex);
 
   useEffect(() => {
@@ -33,8 +34,16 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
     setLabelAndEmit(item);
   }, [selected]);
 
+  function updateLabel(w: number, item: Prefix) {
+    if ((w > 447 && w < 768) || w > 984) {
+      setLabel(`${item.iso2} (+${item.prefix})`);
+    } else {
+      setLabel(`+${item.prefix}`);
+    }
+  }
+
   function setLabelAndEmit(item: Prefix) {
-    setLabel(`${item.iso2} (+${item.prefix})`);
+    updateLabel(width!, item);
     onChange(item.prefix);
   }
 
@@ -88,8 +97,13 @@ const TelephonePrefixes: React.FC<Props> = ({ onChange }) => {
     setLabelAndEmit(countries[index]);
   }, []);
 
+  useEffect(() => {
+    const item: Prefix = countries[selected];
+    updateLabel(width!, item);
+  }, [width]);
+
   return (
-    <div className="TelephonePrefixes" style={{ width: '8rem' }}>
+    <div className="TelephonePrefixes">
       <div className="TelephonePrefixes__label">
         <label>{label}</label>
       </div>
