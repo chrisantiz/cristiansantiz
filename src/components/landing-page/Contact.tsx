@@ -4,6 +4,7 @@ import Title from './util/Title';
 import RadioGroup from '../html/radio-group/RadioGroup';
 import TelephonePrefixes from '../telephone-prefixes/TelephonePrefixes';
 import InputNumber from '../InputNumber';
+import Button from '../button/Button';
 
 interface Props {
   id: string;
@@ -40,6 +41,7 @@ const Contact: React.FC<Props> = ({ id }) => {
             rows={3.5}
             placeholder="Type a message"
             className="textarea"></textarea>
+
           <p className="my-2">How to contact you?</p>
           <RadioGroup
             name="contact"
@@ -50,6 +52,7 @@ const Contact: React.FC<Props> = ({ id }) => {
               { label: 'Email', value: 'email' },
             ]}
           />
+
           <div className="flex -mx-2 items-center">
             <div className="flex px-2 sm:justify-start w-4/12">
               <TelephonePrefixes onChange={v => console.log(v)} />
@@ -57,6 +60,10 @@ const Contact: React.FC<Props> = ({ id }) => {
             <div className="px-2 w-8/12">
               <InputNumber placeholder="Phone number" onChange={onInput} />
             </div>
+          </div>
+
+          <div className="flex justify-end pt-3">
+            <button className="Button">enviar mensaje</button>
           </div>
         </div>
         <div className="w-full sm:w-1/2">

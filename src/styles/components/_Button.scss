@@ -2,7 +2,11 @@
   @apply cursor-pointer border border-transparent uppercase font-semibold py-1 px-3 rounded bg-warning text-white;
 
   &:hover {
-    @apply bg-orange-800;
+    @apply bg-orange-800 outline-none;
+  }
+
+  &:focus {
+    @apply outline-none shadow-primary;
   }
 
   &--outline {

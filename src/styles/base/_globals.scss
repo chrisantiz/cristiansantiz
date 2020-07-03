@@ -9,6 +9,14 @@ select, textarea, input {
     @apply outline-none shadow-outline;
   }
 
+  &::placeholder {
+    color: $font-color-light;
+
+    body.dark & {
+      color: $font-color-dark;
+    }
+  }
+
   body.dark & {
     background-color: $background-color-dark;
     color: $font-color-dark;
