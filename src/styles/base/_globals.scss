@@ -1,6 +1,8 @@
 @import '../utilities/mixins', '../utilities/variables';
 
-select, textarea, input {
+select,
+textarea,
+input {
   background-color: rgb(243, 242, 242);
   resize: none;
   @apply block w-full border border-gray-200 py-3 px-4 pr-8 shadow appearance-none rounded leading-tight;
@@ -10,10 +12,10 @@ select, textarea, input {
   }
 
   &::placeholder {
-    color: $font-color-light;
+    color: rgba($color: #000000, $alpha: 0.4);
 
     body.dark & {
-      color: $font-color-dark;
+      color: rgb(68, 68, 68);
     }
   }
 
@@ -21,6 +23,15 @@ select, textarea, input {
     background-color: $background-color-dark;
     color: $font-color-dark;
     @apply border-gray-800;
+  }
+}
+
+option {
+  background-color: $background-color-light;
+  color: $font-color-light;
+  body.dark & {
+    background-color: $background-color-dark;
+    color: $font-color-dark;
   }
 }
 
