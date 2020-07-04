@@ -16,4 +16,8 @@
       @apply bg-orange-800 border-transparent text-white;
     }
   }
+
+  &--disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
 }
