@@ -1,10 +1,11 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef, createRef } from 'react';
 import PageContainer from '../PageContainer';
 import Title from './util/Title';
 import RadioGroup from '../html/radio-group/RadioGroup';
 import TelephonePrefixes from '../telephone-prefixes/TelephonePrefixes';
 import InputNumber from '../html/InputNumber';
 import Textarea from '../html/Textarea';
+import Input from '../html/Input';
 
 interface Props {
   id: string;
@@ -15,18 +16,28 @@ type ClientContact = 'phone' | 'email';
 const Contact: React.FC<Props> = ({ id }) => {
   const [clientContact, setClientContact] = useState<ClientContact>('phone');
   const [message, setMessage] = useState('');
-  const [phone, setPhone] = useState('');
+  const [contact, setContact] = useState('');
 
   const [disabledBtn, setDisabledBtn] = useState(true);
+
+  const phoneRef = useRef(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  // const emailRef = createRef<HTMLInputElement>()
 
   function radioChange(value: string) {
     setClientContact(value as ClientContact);
 
-    console.log(value);
+    if (!!contact) {
+      setContact('');
+    }
+
+    setTimeout(() => {
+      emailRef.current?.focus();
+    }, 100)
   }
 
-  const onChangePhone = useCallback((value: string) => {
-    setPhone(value);
+  const onChangeContact = useCallback((value: string) => {
+    setContact(value);
   }, []);
 
   const onChangeMessage = useCallback((value: string) => {
@@ -34,8 +45,8 @@ const Contact: React.FC<Props> = ({ id }) => {
   }, []);
 
   useEffect(() => {
-    setDisabledBtn(!phone);
-  }, [phone]);
+    setDisabledBtn(!contact || !message);
+  }, [contact, message]);
 
   return (
     <PageContainer id={id} className="landing-full-screen py-3">
@@ -60,17 +71,23 @@ const Contact: React.FC<Props> = ({ id }) => {
             ]}
           />
 
-          <div className="flex -mx-2 items-center">
-            <div className="flex px-2 sm:justify-start w-4/12">
-              <TelephonePrefixes onChange={v => console.log(v)} />
+          {clientContact === 'phone' ? (
+            <div className="flex -mx-2 items-center">
+              <div className="flex px-2 sm:justify-start w-4/12">
+                <TelephonePrefixes onChange={v => console.log(v)} />
+              </div>
+              <div className="px-2 w-8/12">
+                <InputNumber
+                  placeholder="Phone number"
+                  onChange={onChangeContact}
+                />
+              </div>
             </div>
-            <div className="px-2 w-8/12">
-              <InputNumber
-                placeholder="Phone number"
-                onChange={onChangePhone}
-              />
+          ) : (
+            <div className="flex">
+              <Input placeholder="Type your email" onType={onChangeContact} ref={emailRef} />
             </div>
-          </div>
+          )}
 
           <div className="flex justify-end pt-3">
             <button className={`Button ${disabledBtn && 'Button--disabled'}`}>
