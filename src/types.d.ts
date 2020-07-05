@@ -3,6 +3,12 @@ declare module '*.json' {
   export default value;
 }
 
+/** Typing for custom HTML component */
+declare type HTMLComponent<T> = React.DetailedHTMLProps<
+  React.HtmlHTMLAttributes<T>,
+  T
+>;
+
 // declare module '*.svg' {
 //   const value: any;
 //   export default value;
