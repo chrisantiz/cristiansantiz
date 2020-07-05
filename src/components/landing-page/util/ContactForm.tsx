@@ -7,6 +7,16 @@ import Input from '@/components/html/Input';
 
 type ClientContact = 'phone' | 'email';
 
+interface Rule {
+  handler: (v: string) => boolean;
+  message: string;
+}
+
+const rules: Rule[] = [
+  { handler: v => !!v, message: 'Campo requerido' },
+  { handler: v => v === 'hola', message: 'Debe ser igual a hola' },
+];
+
 const ContactForm = () => {
   const [clientContact, setClientContact] = useState<ClientContact>('phone');
   const [message, setMessage] = useState('');
@@ -48,17 +58,22 @@ const ContactForm = () => {
     setMessage(value);
   }, []);
 
-  function onSubmit() {
-    console.log(`+${prefix} ${contact}`);
-  }
-
   useEffect(() => {
     setDisabledBtn(!contact || !message);
   }, [contact, message]);
 
+  function onSubmit() {
+    if (disabledBtn) return;
+
+    console.log(`+${prefix} ${contact}`);
+  }
   return (
     <>
-      <Textarea rows={4} placeholder="Type a message" onType={onChangeMessage} />
+      <Textarea
+        rows={4}
+        placeholder="Type a message"
+        onType={onChangeMessage}
+      />
 
       <p className="my-2">How to contact you?</p>
       <RadioGroup
@@ -92,6 +107,7 @@ const ContactForm = () => {
             placeholder="Type your email"
             onType={onChangeContact}
             ref={emailRef}
+            rules={rules}
           />
         </div>
       )}
