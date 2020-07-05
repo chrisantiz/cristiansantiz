@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Props extends HTMLComponent<HTMLInputElement> {
+interface Props extends InputHTMLComponent {
   onType: (value: string) => void;
 }
 
