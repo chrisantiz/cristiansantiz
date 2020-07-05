@@ -50,6 +50,20 @@ export interface ProjectsCard {
 
 export type ProjectsCardId = 'santz' | 'kirshas' | 'portfolio';
 
+export interface ContactPage {
+  text: string;
+  linkLabel: string;
+  validators: ValidatorGroup;
+}
+
+export interface ValidatorLabel {
+  [key: string]: string;
+}
+
+export interface ValidatorGroup {
+  [key: string]: ValidatorLabel;
+}
+
 export interface PagesLocale {
   home: {
     text: string;
@@ -62,10 +76,7 @@ export interface PagesLocale {
     text: string;
   };
   projects: ProyectsPage;
-  contact: {
-    text: string;
-    linkLabel: string;
-  };
+  contact: ContactPage;
   notFound: {
     title: string;
     h1: string;

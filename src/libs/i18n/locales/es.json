@@ -79,7 +79,13 @@
     },
     "contact": {
       "text": "¡Página «contacto» funciona!",
-      "linkLabel": "Contacto"
+      "linkLabel": "Contacto",
+      "validators": {
+        "email": {
+          "required": "Email requerido",
+          "match": "Email mal formateado"
+        }
+      }
     },
     "notFound": {
       "title": "404: Página no encontrada",

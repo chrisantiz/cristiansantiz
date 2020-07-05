@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { errorValidate } from '@/helpers/error-validate.helper';
 
 interface Rule {
   handler: (v: string) => boolean;
@@ -16,44 +17,62 @@ interface Props extends InputHTMLComponent {
 }
 
 const Input = React.forwardRef<HTMLInputElement, Props>(
-  ({ onType, rules, ...props }, ref) => {
+  ({ onType, rules = [], ...props }, refParent) => {
     const [error, setError] = useState<Validator>({
       isError: false,
       message: '',
     });
 
-    function onChange(v: string) {
-      onType(v);
+    const [value, setValue] = useState('');
+    const [touched, setTouched] = useState(false);
+    const ref = React.createRef<HTMLInputElement>();
 
-      if (!rules || !rules.length) return;
+    function validate(v: string) {
+      if (!touched) return;
 
-      for (const error of rules) {
-        if (!error.handler(v)) {
-          setError({
-            isError: true,
-            message: error.message,
-          });
+      errorValidate(v, rules, (isError, message) => {
+        setError({ isError, message });
+      });
+    }
 
-          break;
-        } else {
-          setError({
-            isError: false,
-            message: '',
-          });
+    // emit value and valide on type
+    useEffect(() => {
+      if (!!value && !touched) setTouched(true);
+
+      onType(value);
+      validate(value);
+    }, [value, touched]);
+
+    // update errors when change language
+    useEffect(() => {
+      validate(value);
+    }, [rules]);
+
+    // show error on first blur
+    useEffect(() => {
+      const input = !!refParent
+        ? (refParent as React.RefObject<HTMLInputElement>).current!
+        : ref.current!;
+
+      function onBlur() {
+        if (!touched) {
+          setTouched(true)
         }
       }
-    }
+
+      input.addEventListener('blur', onBlur);
+
+      return () => input.removeEventListener('blur', onBlur);
+    }, [touched]);
 
     return (
       <div className="w-full">
         <input
           {...props}
-          onChange={e => onChange(e.target.value)}
-          ref={ref}></input>
+          onChange={e => setValue(e.target.value)}
+          ref={refParent || ref}></input>
 
-        {error.isError && (
-          <span className="label-error">{error.message}</span>
-        )}
+        {error.isError && <span className="label-error">{error.message}</span>}
       </div>
     );
   },

@@ -4,18 +4,11 @@ import RadioGroup from '@/components/html/radio-group/RadioGroup';
 import TelephonePrefixes from '@/components/telephone-prefixes/TelephonePrefixes';
 import InputNumber from '@/components/html/InputNumber';
 import Input from '@/components/html/Input';
+import { Rule } from '@/models/shared.model';
+import { Validator } from '@/helpers/validators.helper';
+import { useLang } from '@/libs/hooks';
 
 type ClientContact = 'phone' | 'email';
-
-interface Rule {
-  handler: (v: string) => boolean;
-  message: string;
-}
-
-const rules: Rule[] = [
-  { handler: v => !!v, message: 'Campo requerido' },
-  { handler: v => v === 'hola', message: 'Debe ser igual a hola' },
-];
 
 const ContactForm = () => {
   const [clientContact, setClientContact] = useState<ClientContact>('phone');
@@ -27,6 +20,17 @@ const ContactForm = () => {
 
   const phoneRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
+
+  const { contact: lang } = useLang().lang.pages;
+
+  const [rules, setRules] = useState<Rule[]>([]);
+
+  useEffect(() => {
+    setRules([
+      { handler: Validator.required, message: lang.validators.email.required },
+      { handler: v => v === 'hola', message: lang.validators.email.match },
+    ]);
+  }, [lang.validators.email]);
 
   function radioChange(value: string) {
     setClientContact(value as ClientContact);
