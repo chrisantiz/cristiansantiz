@@ -17,6 +17,7 @@ export const globalInitialState: GlobalStateModel = {
       github: 'https://github.com/crisantizan',
       repository: 'https://github.com/crisantizan/cristiansantiz',
       linkedin: 'https://linkedin.com/in/crisantizan',
+      twitter: 'https://twitter.com/crisantizan_',
       email: 'crisantizan@gmail.com',
       mobile: '+57 301 620 6425',
     },

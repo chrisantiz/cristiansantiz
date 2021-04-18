@@ -22,6 +22,7 @@ export interface MyDataLinks {
   linkedin: string;
   email: string;
   mobile: string;
+  twitter: string;
 }
 
 export interface MyData {
