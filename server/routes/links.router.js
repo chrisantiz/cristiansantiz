@@ -7,8 +7,10 @@ module.exports = function(fastify, opts, done) {
   fastify.get('/', (req, reply) => {
     reply.send({
       routes: {
-        '/cv': 'Currículum personal',
-        '/kirshas': 'video demo del proyecto Kirshas',
+        '/api/location':
+          'Obtener información de localización desde la petición',
+        '/api/links/cv': 'Currículum personal',
+        '/api/links/kirshas': 'video demo del proyecto Kirshas',
       },
     });
   });

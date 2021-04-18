@@ -8,7 +8,7 @@ const fastify = require('fastify')({ trustProxy: true });
 fastify.get('/api', (req, reply) => {
   reply.send({
     message: 'Welcome, Netlify Functions with «aws-lambda-fastify»',
-    routes: ['/links'],
+    routes: ['/api/links'],
   });
 });
 
